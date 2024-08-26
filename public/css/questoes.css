@@ -1,0 +1,188 @@
+.sectionCinza {
+    background-color: var(--varCinzaEscuro);
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 1.5rem 2rem 2rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.subtitulo {
+    color: var(--varLaranjaEscuro);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.containerFiltros {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    gap: .8rem;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    background-color: var(--varBranco);
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 1rem;
+    border: 2px solid var(--varPreto);
+    transition: all 100ms ease;
+}
+
+.texto-filtro {
+    font-size: 1rem;
+    color: var(--varPreto);
+    transition: all 100ms ease;
+}
+
+.checkbox-filtro {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Animacoes */
+.filtro:hover {
+    opacity: .6;
+}
+
+.filtro:has(.checkbox-filtro:checked) {
+    border: 2px solid var(--varLaranjaEscuro);
+}
+
+.filtro:has(.checkbox-filtro:checked) .texto-filtro{
+    color: var(--varLaranjaEscuro);
+}
+
+/* QUESTOES ------------------------------------------------------------- */
+
+.superior {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.nome {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.texto {
+    margin-bottom: 1rem;
+    text-wrap: wrap;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.alternativas {
+    list-style: none;
+    line-height: 1.5rem;
+}
+
+.mostrar-resposta {
+    background: none;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.mostrar-resposta div {
+    font-size: 1.1rem;
+}
+
+.mostrar-resposta .material-icons {
+    font-size: 1.5rem;
+}
+
+/* BOTAO ---------------------------------------------------------- */
+
+.botao-editar {
+
+    position: relative;
+
+    border: none;
+    background: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+}
+
+.botao-editar .material-icons{
+
+    font-size: 2rem;
+    color: var(--varPreto);
+    width: 2rem;
+
+    transition: color 200ms ease;
+}
+
+.botao-editar .material-icons:hover {
+    color: var(--varLaranjaEscuro);
+}
+
+.editar-opcoes{
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    width: 0;
+    height: 0;
+
+    top: 25px;
+    right: 0;
+    padding: 0;
+
+    opacity: 0;
+
+    background-color: var(--varLaranjaClaro);
+    border-radius: .5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    transition: width 200ms ease, opacity 200ms ease;
+}
+
+.editar-opcoes hr{
+    border: 1px solid var(--varPreto);
+}
+
+.editar-opcoes-texto{
+    width: fit-content;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--varPreto);
+    text-decoration: none;
+    transition: all 200ms ease;
+}
+
+.botao-editar:focus > .editar-opcoes {
+    width: 10rem;
+    height: 5rem;
+    opacity: 1;
+    padding: .8rem .5rem .8rem .5rem;
+}
+
+.editar-opcoes-texto:hover{
+    opacity: .6;
+}

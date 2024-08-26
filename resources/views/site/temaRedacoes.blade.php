@@ -11,7 +11,6 @@
 
 @section('conteudo')
 @php
-session_start();
 $isAdmin = $_SESSION['eh_admin'] === 'Professor';
 @endphp
 

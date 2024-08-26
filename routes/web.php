@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Middleware\AlunoMiddleware;
 use \App\Http\Middleware\ProfessorMiddleware;
 use \App\Http\Middleware\AdministradorMiddleware;
+use \App\Http\Middleware\AutenticacaoMiddleware;
 
 Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -19,8 +20,12 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
     Route::get('/materiais', function () {return view('site.professor.materiais');})->name('materiais');
 });
 
-Route::get('/temas_redacoes', [App\Http\Controllers\TemaController::class, 'index'])->name('temaRedacoes');
-Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
+Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
+    Route::get('/temas_redacoes', [App\Http\Controllers\TemaController::class, 'index'])->name('temaRedacoes');
+    Route::get('/temas_repertorios', [App\Http\Controllers\TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
+    Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
+    Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
+});
 
 Route::middleware('administrador')->middleware(AdministradorMiddleware::class)->group(function() {
 });
