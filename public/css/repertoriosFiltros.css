@@ -1,0 +1,238 @@
+:root {
+    /* Paleta de Cores */
+    --varLaranjaEscuro: #F46F20;
+    --varLaranjaClaro: #FEA572;
+    --varCinzaEscuro: #EAEAEA;
+    --varCinzaClaro: #F4F3F2;
+    --varBranco: #F8F8F8;
+    --varPreto: #000000;
+}
+
+.section-filtros{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    user-select: none;
+    -webkit-user-select: none;
+
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.circulo-filtro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    margin-top: 2px;
+
+    background-color: var(--varBranco);
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: background-color 100ms ease, color 100ms ease;
+}
+
+.texto-filtro{
+    text-align: center;
+    text-wrap: wrap;
+    height: auto;
+    display: block;
+}
+
+.checkbox-filtro {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+/* --------------------------------------------------------------- */
+
+/* Filosofia */
+#filosofia-circulo {
+    border: 2px solid rgb(196, 45, 25);
+    color: rgb(196, 45, 25);
+}
+
+#filosofia-circulo:has(#filosofia:checked){
+    background-color: rgb(196, 45, 25);
+    color: #EAEAEA;
+}
+
+/* Sociologia */
+#sociologia-circulo {
+    border: 2px solid rgb(228, 187, 3);
+    color: rgb(228, 187, 3);
+}
+
+#sociologia-circulo:has(#sociologia:checked){
+    background-color: rgb(228, 187, 3);
+    color: #EAEAEA;
+}
+
+/* Obra Literaria */
+#obra-circulo {
+    border: 2px solid rgb(18, 141, 37);
+    color: rgb(18, 141, 37);
+}
+
+#obra-circulo:has(#obra:checked){
+    background-color: rgb(18, 141, 37);
+    color: #EAEAEA;
+}
+
+/* Estatistica */
+#estatistica-circulo {
+    border: 2px solid rgb(11, 195, 202);
+    color: rgb(11, 195, 202);
+}
+
+#estatistica-circulo:has(#estatistica:checked){
+    background-color: rgb(11, 195, 202);
+    color: #EAEAEA;
+}
+
+/* Textos Legais */
+#textos-circulo {
+    border: 2px solid rgb(112, 57, 20);
+    color: rgb(112, 57, 20);
+}
+
+#textos-circulo:has(#textos:checked){
+    background-color: rgb(112, 57, 20);
+    color: #EAEAEA;
+}
+
+/* Cinema */
+#cinema-circulo {
+    border: 2px solid rgb(118, 18, 184);
+    color: rgb(118, 18, 184);
+}
+
+#cinema-circulo:has(#cinema:checked){
+    background-color: rgb(118, 18, 184);
+    color: #EAEAEA;
+}
+
+/* Artes */
+#artes-circulo {
+    border: 2px solid rgb(248, 40, 168);
+    color: rgb(248, 40, 168);
+}
+
+#artes-circulo:has(#artes:checked){
+    background-color: rgb(248, 40, 168);
+    color: #EAEAEA;
+}
+
+/* Historia */
+#historia-circulo {
+    border: 2px solid rgb(218, 165, 32);
+    color: rgb(218, 165, 32);
+}
+
+#historia-circulo:has(#historia:checked){
+    background-color: rgb(218, 165, 32);
+    color: #EAEAEA;
+}
+
+/* Atualidades */
+#atualidades-circulo {
+    border: 2px solid rgb(45, 45, 183);
+    color: rgb(45, 45, 183);
+}
+
+#atualidades-circulo:has(#atualidades:checked){
+    background-color: rgb(45, 45, 183);
+    color: #EAEAEA;
+}
+
+/* --------------------------------------------------------------- */
+
+/* RESPONSIVIDADE ------------------------------------------------ */
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .circulo-filtro {
+        width: 2.8em;
+        height: 2.8rem;
+    }
+
+    .texto-filtro {
+        display: none;
+    }
+
+    .fa-solid{
+        font-size: 1.3rem;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .circulo-filtro {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .texto-filtro {
+        width: 5.3rem;
+        font-size: .9rem;
+    }
+
+    .fa-solid{
+        font-size: 1.3rem;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .circulo-filtro {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .texto-filtro {
+        width: 5.3rem;
+        font-size: 1rem;
+    }
+
+    .fa-solid{
+        font-size: 1.4rem;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+ 
+    .circulo-filtro {
+        width: 3.3rem;
+        height: 3.3rem;
+    }
+
+    .texto-filtro {
+        width: 5.5rem;
+        font-size: 1rem;
+    }
+
+    .fa-solid{
+        font-size: 1.5rem;
+    }
+}

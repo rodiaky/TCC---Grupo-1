@@ -1,0 +1,514 @@
+:root {
+    /* Paleta de Cores */
+    --varLaranjaEscuro: #F46F20;
+    --varLaranjaClaro: #FEA572;
+    --varCinzaEscuro: #EAEAEA;
+    --varCinzaClaro: #F4F3F2;
+    --varBranco: #F8F8F8;
+    --varPreto: #000000;
+}
+
+.botao-expand:hover, .botao-circulo:hover ~ .botao-expand{
+    width: 15rem;
+} 
+
+/* ----------------------------------------------------- */
+
+.card-repertorio {
+    
+    background-color: var(--varCinzaEscuro);
+    display: grid;
+    gap: 2px;
+
+    margin-bottom: 2%;
+}
+
+.tipo-repertorio {
+    padding: 3px 5px 3px 5px;
+    width: fit-content;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.tipo-repertorio > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 3px;
+    padding: 2px 5px 2px 5px;
+    color: #FFFFFF;
+}
+
+.tipo-repertorio i {
+    font-size: .9rem;
+}
+
+.tipo-repertorio p {
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+/* --------------------------------------------------------------- */
+
+/* Filosofia */
+#tipo-filosofia{
+    background-color: rgb(196, 45, 25);
+}
+
+/* Sociologia */
+#tipo-sociologia{
+    background-color: rgb(228, 187, 3);
+}
+
+/* Obra Literaria */
+#tipo-obra-literária{
+    background-color: rgb(18, 141, 37);
+}
+
+/* Estatistica */
+#tipo-estatistica{
+    background-color: rgb(11, 195, 202);
+}
+
+/* Textos Legais */
+#tipo-textos-legais{
+    background-color: rgb(112, 57, 20);
+}
+
+/* Cinema */
+#tipo-cinema{
+    background-color: rgb(118, 18, 184);
+}
+
+/* Artes */
+#tipo-artes{
+    background-color: rgb(248, 40, 168);
+}
+
+/* Historia */
+#tipo-historia{
+    background-color: rgb(218, 165, 32);
+}
+
+/* Atualidades */
+#tipo-atualidades{
+    background-color: rgb(45, 45, 183);
+}
+
+/* --------------------------------------------------------------- */
+
+.container-imagem {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.imagem-repertorio {
+
+    border-radius: 50%;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    pointer-events: none;
+    -webkit-point-events: none;
+
+}
+
+.titulo-repertorio {
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    color: var(--varLaranjaEscuro);
+}
+
+.spoiler-repertorio {
+    font-size: 1rem;
+    color: var(--varPreto);
+
+    overflow: hidden;
+    position: relative;
+}
+
+.spoiler-repertorio p{
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    white-space: normal;
+}
+
+.botao-repertorio {
+
+    position: relative;
+
+    border: none;
+    background: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.botao-repertorio .material-icons{
+    position: absolute;
+    top: 0;
+
+    color: var(--varPreto);
+
+    transition: color 200ms ease;
+}
+
+.botao-repertorio .material-icons:hover {
+    color: var(--varLaranjaEscuro);
+}
+
+.editar-opcoes{
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    width: 0;
+    height: 0;
+
+    top: 25px;
+    right: 0;
+    padding: 0;
+
+    opacity: 0;
+
+    background-color: var(--varLaranjaClaro);
+    border-radius: .5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    transition: width 200ms ease, opacity 200ms ease;
+}
+
+.editar-opcoes hr{
+    border: 1px solid var(--varPreto);
+}
+
+.editar-opcoes-texto{
+    width: fit-content;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--varPreto);
+    text-decoration: none;
+    transition: color 200ms ease;
+}
+
+.botao-repertorio:focus > .editar-opcoes {
+    width: 10rem;
+    height: 5rem;
+    opacity: 1;
+    padding: .8rem .5rem .8rem .5rem;
+}
+
+.editar-opcoes-texto:hover{
+    color: #676767;
+}
+
+/* RESPONSIVIDADE ------------------------------------------------- */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .card-repertorio {
+
+        width: 100%;
+        height: 4.5rem;
+        padding: .5rem;
+        border-radius: .7rem;
+    
+        grid-template-columns: 25% 65% 10%;
+        grid-template-rows: 40% 60%
+    }
+    
+    .container-imagem {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    
+    }
+    
+    .imagem-repertorio {
+    
+        width: 60px;
+        height: 60px;
+    
+    }
+    
+    .titulo-repertorio {
+
+        font-size: 1.3rem;
+        grid-column: 2;
+        grid-row: 1;
+    
+    }
+    
+    .tipo-repertorio {
+        grid-column: 2 / span 4;
+        grid-row: 2;
+    }
+    
+    .spoiler-repertorio {
+        display: none;
+    
+    }
+    
+    .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
+        padding: .2rem;
+    }
+    
+    .botao-repertorio {
+
+        grid-column: 3;
+        grid-row: 1;
+        right: 10px;
+    }
+
+    .botao-repertorio .material-icons{
+        font-size: 1.5rem;
+    }
+    
+    .botao-repertorio:focus > .editar-opcoes {
+        width: 8rem;
+        height: 4rem;
+        opacity: 1;
+        padding: .4rem .5rem .4rem .5rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .card-repertorio {
+
+        width: 100%;
+        height: 5.5rem;
+        padding: .5rem;
+        border-radius: .7rem;
+    
+        grid-template-columns: 15% 75% 10%;
+        grid-template-rows: 35% 65%;
+    }
+    
+    .container-imagem {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    
+    }
+    
+    .imagem-repertorio {
+    
+        width: 65px;
+        height: 65px;
+    
+    }
+    
+    .titulo-repertorio {
+
+        font-size: 1.4rem;
+        grid-column: 2;
+        grid-row: 1;
+    
+    }
+    
+    .tipo-repertorio {
+
+        grid-column: 2 / span 4;
+        grid-row: 2;
+    }
+    
+    .spoiler-repertorio {
+        display: none;
+    
+    }
+    
+    .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
+        padding: .2rem;
+    }
+    
+    .botao-repertorio {
+
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .botao-repertorio .material-icons{
+        font-size: 1.5rem;
+    }
+    
+    .botao-repertorio:focus > .editar-opcoes {
+        width: 10rem;
+        height: 5rem;
+        opacity: 1;
+        padding: .8rem .5rem .8rem .5rem;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .card-repertorio {
+
+        width: 100%;
+        height: 8rem;
+        padding: .5rem;
+        border-radius: .7rem;
+    
+        grid-template-columns: 15% 75% 10%;
+        grid-template-rows: 25% 25% 50%;
+    }
+    
+    .container-imagem {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+    
+    }
+    
+    .imagem-repertorio {
+    
+        width: 90px;
+        height: 90px;
+    
+    }
+    
+    .titulo-repertorio {
+
+        font-size: 1.5rem;
+
+        grid-column: 2;
+        grid-row: 1;
+    
+    }
+    
+    .tipo-repertorio {
+        
+        grid-column: 2 / span 4;
+        grid-row: 2;
+    }
+    
+    .spoiler-repertorio {
+
+        display: block;
+        grid-column: 2 / span 4;
+        grid-row: 3;
+
+        line-height: 1.3em;
+    
+    }
+
+    .spoiler-repertorio p{
+        
+        padding-right: 2%;
+        -webkit-line-clamp: 2;
+        height: fit-content;
+    }
+    
+    .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
+        padding: .2rem;
+    }
+    
+    .botao-repertorio {
+
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .botao-repertorio .material-icons{
+        font-size: 2rem;
+    }
+    
+    .botao-repertorio:focus > .editar-opcoes {
+        width: 10rem;
+        height: 5rem;
+        opacity: 1;
+        padding: .8rem .5rem .8rem .5rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .card-repertorio {
+
+        width: 90%;
+        max-width: 85vw;
+        height: 8rem;
+        padding: .5rem;
+        border-radius: .7rem;
+    
+        grid-template-columns: 13% 77% 10%;
+        grid-template-rows: 25% 25% 50%;
+    }
+    
+    .container-imagem {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+    
+    }
+    
+    .imagem-repertorio {
+    
+        width: 100px;
+        height: 100px;
+    
+    }
+    
+    .titulo-repertorio {
+
+        font-size: 1.5rem;
+        grid-column: 2;
+        grid-row: 1;
+    
+    }
+    
+    .tipo-repertorio {
+        grid-column: 2 / span 4;
+        grid-row: 2;
+
+    }
+    
+    .spoiler-repertorio {
+
+        display: block;
+        grid-column: 2 / span 4;
+        grid-row: 3;
+
+        line-height: 1.4em;
+    }
+
+    .spoiler-repertorio p{
+        
+        padding-right: 2%;
+        -webkit-line-clamp: 2;
+        height: fit-content;
+    }
+    
+    .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
+        padding: .2rem;
+    }
+    
+    .botao-repertorio {
+
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .botao-repertorio .material-icons{
+        font-size: 2rem;
+    }
+    
+    .botao-repertorio:focus > .editar-opcoes {
+        width: 10rem;
+        height: 5rem;
+        opacity: 1;
+        padding: .8rem .5rem .8rem .5rem;
+    }
+    
+}

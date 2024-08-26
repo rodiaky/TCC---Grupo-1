@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+}
+/*Login*/
+.login{
+    text-align: center;
+}
+
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+}
+
+input:focus ~ label,
+input:valid ~ label{
+    top: -5px;
+}
+
+.inputbox input{
+    width: 100%;
+    height: 50px;
+    padding: 0 35px 0 5px;
+}
+
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    top: 20px;
+}
+
+.forget{
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between
+}
+
+.forget label input{
+    margin-right: 2px;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    margin-top: 24px;
+}
+
+.register{
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.mensagem{
+    display: flex;
+    justify-content: center;
+}
+
+.mensagem ion-icon{
+    margin-right: 3px;
+}

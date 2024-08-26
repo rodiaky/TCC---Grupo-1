@@ -1,0 +1,102 @@
+:root {
+    /* Paleta de Cores */
+    --varLaranjaEscuro: #F46F20;
+    --varLaranjaClaro: #FEA572;
+    --varCinzaEscuro: #EAEAEA;
+    --varCinzaClaro: #F4F3F2;
+    --varBranco: #F8F8F8;
+    --varPreto: #000000;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Login------------------------------------------------------------------------------*/
+section{
+    background-color: var(--varBranco);
+}
+
+.form-box{
+    background-color: var(--varLaranjaClaro);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.login{
+    font-size: 2em;
+    color: white;
+}
+
+.inputbox label{
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputbox input{
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: white;
+}
+
+.inputbox ion-icon{
+    color: white;
+    font-size: 1.2em;
+}
+
+.forget{
+    font-size: .9em;
+    color: white;
+}
+
+
+.forget a{
+    color: white;
+    text-decoration: none;
+}
+
+.forget a:hover{
+    text-decoration: underline;
+}
+
+button{
+    border-radius: 15px;
+    background-color: white;
+    border-color: var(--varLaranjaEscuro);
+    color: var(--varLaranjaEscuro);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 200;
+}
+
+.register{
+    font-size: .9em;
+    color: black; 
+}
+
+.register p a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.register p a:hover{
+    text-decoration: underline;
+}
+
+.mensagem{
+    color: var(--varBranco);
+    font-size: 1em;
+}
+
+.mensagem ion-icon{
+    font-size: 1.2em;
+}

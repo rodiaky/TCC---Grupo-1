@@ -1,0 +1,119 @@
+/* CABECALHO ------------------------------------------------------------------- */
+
+header {
+    margin-bottom: 1rem;
+}
+
+.cabecalho {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    z-index: 10000;
+}
+
+
+.img_logo{
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    height: 80%;
+}
+
+.menu{
+    margin-left: 30px;
+}
+
+.usuario{
+    margin-right: 30px;
+}
+
+/* SIDEBAR ------------------------------------------------------------------- */
+
+.sidebar {
+    position: fixed;
+    padding: 20px;
+    height: 100%;
+    left:-100%;
+    z-index: 11000;
+    transition: all 400ms ease;
+    margin-top: -60px;
+}
+
+.sidebar-aberta {
+    position: fixed;
+    padding: 20px;
+    height: 100%;
+    left: 0;
+    z-index: 10000000;
+    margin-top: -60px;
+}
+
+#sidebar-fechar {
+    margin-left: 10px
+}
+
+.sidebar-conteudo {
+    height: 100%;
+    padding: 30px 16px;
+}
+
+.sidebar-item-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition-duration: 200ms;
+}
+
+.sidebar-item-link > .material-icons {
+    margin-right: 14px;
+}
+
+.sidebar-sombra{
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    transition: all 400ms ease;
+}
+
+.sidebar-sombra-aberta{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    z-index: 9000000;
+    transition: all 400ms ease;
+}
+
+/* RESPONSIVIDADE ------------------------------------------------------------------- */
+
+/* Celulares */
+@media only screen and (max-width: 600px) {
+    .sidebar{
+        width: 100%;
+    }
+    .sidebar-aberta{
+        width: 100%;
+    }
+}
+
+/* Tablets e computadores */
+@media only screen and (min-width: 600px) {
+    .sidebar{
+        width: 25%;
+        min-width: 300px;
+    }
+    .sidebar-aberta{
+        width: 25%;
+        min-width: 300px;
+    }
+}

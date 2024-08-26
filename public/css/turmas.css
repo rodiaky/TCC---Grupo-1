@@ -1,0 +1,142 @@
+:root {
+    /* Paleta de Cores */
+    --varLaranjaEscuro: #F46F20;
+    --varLaranjaClaro: #FEA572;
+    --varCinzaEscuro: #EAEAEA;
+    --varCinzaClaro: #F4F3F2;
+    --varBranco: #F8F8F8;
+    --varPreto: #000000;
+    --varTamanhoFonteTitulo: 2.058rem;
+}
+
+/* TURMAS --------------------------------------------------------------- */
+
+/*Celulares*/
+@media only screen and (max-width: 768px) {
+   .container-turmas{
+        margin-top: 10%;
+   }
+   
+    .turma{
+        margin-bottom: 3%;
+    }
+}
+
+/* Tablets */
+@media only screen and (max-width: 992px) {
+    .container-turmas{
+        margin-top: 5%;
+   }
+   
+    .turma{
+        margin-bottom: 1.5%;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 992px) {
+    .container-turmas{
+        margin-top: 2.5%;
+   }
+   
+    .turma{
+        margin-bottom: 1%;
+    }
+}
+
+.container-turmas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.turma{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    min-width: 100%;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.turma-retangulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    min-width: calc(100% - 2*(2.058rem));
+    margin-bottom: 1%;
+    z-index: 1;
+    padding-left: 2.058rem;
+    padding-left: 2.058rem;
+    padding-right: 2.058rem;
+    transition: all 400ms ease;
+
+    background: var(--varCinzaEscuro);  
+    border: none; 
+    border-radius: calc(2.058rem/1.272);
+}
+
+.turma-seta{
+
+    color: var(--varPreto);
+    text-decoration: none;
+    font-size: 2rem;
+    transform: rotate(-90deg);
+    transition: all 400ms ease;
+}
+
+
+.turma-retangulo:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.titulo-cardTurmas{
+    font-size: 1.45rem;
+    font-weight: 400;
+}
+
+.turma-dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 400ms ease;
+
+    background-color: var(--varBranco);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.turma-horario{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 2.058rem;
+    transition: all 400ms ease;
+
+    text-decoration: none;
+    font-size: 1.272rem;
+    color: var(--varPreto);
+}
+
+.turma-retangulo:focus ~ .turma-dropdown, .turma-dropdown:hover{
+    height: 7rem;
+    max-height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 1rem;
+    opacity: 1;
+}
+
+.turma-retangulo:focus > .turma-seta{
+    transform: rotate(90deg);
+}
+
+.turma-horario:hover{
+    
+    background-color: #efefef;
+}
