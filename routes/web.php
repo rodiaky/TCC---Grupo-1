@@ -8,6 +8,8 @@ use \App\Http\Middleware\AutenticacaoMiddleware;
 
 Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/alterar_senha', [App\Http\Controllers\AlterarSenhaController::class, 'index'])->name('alterar_senha');
+    Route::post('/alterar_senha', [App\Http\Controllers\AlterarSenhaController::class, 'update'])->name('alterar_senha.update');
     Route::get('/painel_redacoes', function () {return view('site.aluno.painel_redacoes');})->name('painel_redacoes');
 });
 
@@ -25,6 +27,7 @@ Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/temas_repertorios', [App\Http\Controllers\TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
     Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
     Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
+    Route::get('/banca_questoes', [App\Http\Controllers\BancaQuestoesController::class, 'index'])->name('bancaQuestoes');  
 });
 
 Route::middleware('administrador')->middleware(AdministradorMiddleware::class)->group(function() {
