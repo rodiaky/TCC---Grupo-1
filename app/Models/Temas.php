@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Temas extends Model
 {
     use HasFactory;
-    protected $fillable = ['frase_tematica', 'texto_apoio', 'ano', 'id_banca', 'id_semana']; 
+    protected $fillable = ['id','frase_tematica', 'texto_apoio', 'ano', 'id_banca']; 
 }

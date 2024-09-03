@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('css')
-    <link rel="stylesheet" type="text/css" href="css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="css/cabecalhoUI.css">
-    <link rel="stylesheet" type="text/css" href="css/cabecalhoLayout.css">
+    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <link rel="stylesheet" type="text/css" href="/css/cabecalhoUI.css">
+    <link rel="stylesheet" type="text/css" href="/css/cabecalhoLayout.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -18,7 +18,7 @@
             <!-- Botão de Abrir a sidebar -->
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
-            <img class="logo" src="img/logo.png" style="cursor: default"> 
+            <img class="logo" src="/img/logo.png" style="cursor: default"> 
             <div class="usuario"><i class="material-icons" href="#">account_circle</i></div> <!--DIV usuario-->
         </div>
 

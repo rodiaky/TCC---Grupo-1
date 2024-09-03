@@ -4,6 +4,7 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     padding: 1.5rem 2rem 2rem 2rem;
     margin-bottom: 1rem;
+    max-width: 1500px;
 }
 
 .subtitulo {
@@ -31,15 +32,19 @@
     -webkit-user-select: none;
 
     background-color: var(--varBranco);
-    padding: .5rem 1rem .5rem 1rem;
+    padding: .1rem .8rem .1rem .8rem;
     border-radius: 1rem;
-    border: 2px solid var(--varPreto);
-    transition: all 100ms ease;
+    border: 2px solid #777777;
+    transition: all 200ms ease;
+}
+
+.filtro .botao-editar {
+    margin-left: .8rem;
 }
 
 .texto-filtro {
     font-size: 1rem;
-    color: var(--varPreto);
+    color: #777777;
     transition: all 100ms ease;
 }
 
@@ -51,9 +56,6 @@
 }
 
 /* Animacoes */
-.filtro:hover {
-    opacity: .6;
-}
 
 .filtro:has(.checkbox-filtro:checked) {
     border: 2px solid var(--varLaranjaEscuro);
@@ -65,6 +67,13 @@
 
 /* QUESTOES ------------------------------------------------------------- */
 
+.questao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 1.2rem;
+}
 .superior {
     display: flex;
     justify-content: space-between;
@@ -83,9 +92,10 @@
     text-align: justify;
 }
 
-.alternativas {
-    list-style: none;
+.alternativas  {
     line-height: 1.5rem;
+    list-style-type: upper-alpha;
+    list-style-position: inside;
 }
 
 .mostrar-resposta {
@@ -94,19 +104,56 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 
-    width: 100%;
+    gap: .8rem;
 
-    /* margin-left: auto;
-    margin-right: auto; */
+    margin-left: auto;
+    margin-right: auto; 
+
+    border: none;
 }
 
 .mostrar-resposta div {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .mostrar-resposta .material-icons {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+
+    transition: 200ms all ease;
+}
+
+.mostrar-resposta:focus .material-icons {
+    transform: rotate(90deg);
+}
+
+.resposta-correta {
+    padding: 0 1rem 0 1rem;
+    color: var(--varBranco);
+    font-size: 1.3rem;
+    font-weight: 700;
+    background-color: var(--varLaranjaEscuro);
+    border-radius: 0 0 1rem 1rem;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: -1rem;
+    z-index: -1;
+
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: height 200ms ease, opacity 200ms ease;
+}
+
+.sectionCinza:has(.mostrar-resposta:focus) ~ .resposta-correta {
+    height: 2.7rem;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* BOTAO ---------------------------------------------------------- */
