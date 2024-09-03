@@ -44,3 +44,10 @@ Route::post('/site/turmas/salvar', ['as' =>'site.turmas.salvar', 'uses' => 'App\
 Route::get('/site/turmas/editar/{id}', ['as' =>'site.turmas.editar', 'uses' => 'App\Http\Controllers\TurmasController@editar']);
 Route::match(['get','post'],'/site/turmas/atualizar/{id}', ['as' =>'site.turmas.atualizar', 'uses' => 'App\Http\Controllers\TurmasController@atualizar']);
 Route::get('/site/turmas/excluir/{id}', ['as' =>'site.turmas.excluir', 'uses' => 'App\Http\Controllers\TurmasController@excluir']);   
+
+
+Route::get('/view/{is}',[RedacoesPendentesController::class,'view']);
+Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
+Route::post('/uploadproduct',[RedacoesPendentesController::class,'store']);
+Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
+Route::get('/redpendentes',[RedacoesPendentesController::class,'redpen']);
