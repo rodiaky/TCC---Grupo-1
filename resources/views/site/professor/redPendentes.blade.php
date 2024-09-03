@@ -9,7 +9,7 @@
 
 @section('conteudo')
     <main>
-        <h1 class="titulo-pagina">Temas dos Repertórios</h1>
+        <h1 class="titulo-pagina">Redações Pendentes</h1>
         <hr class="titulo-linha">
 
         <section class="conteudo">

@@ -28,6 +28,19 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
 Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/temas_redacoes', [App\Http\Controllers\TemaController::class, 'index'])->name('temaRedacoes');
     Route::get('/temas_repertorios', [App\Http\Controllers\TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
+<<<<<<< HEAD
+=======
+    
+    Route::get('/admin/temas', ['as' =>'admin.temas', 'uses' => 'App\Http\Controllers\TemaController@index']);
+    Route::get('/admin/temas/pesquisar', ['as' => 'admin.temas.search','uses' => 'App\Http\Controllers\TemaController@search']);
+    Route::get('/admin/temas/adicionar', ['as' =>'admin.temas.adicionar', 'uses' => 'App\Http\Controllers\TemaController@adicionar']);
+    Route::post('/admin/temas/salvar', ['as' =>'admin.temas.salvar', 'uses' => 'App\Http\Controllers\TemaController@salvar'])->middleware(ProfessorMiddleware::class);
+    Route::get('/admin/temas/editar/{id}', ['as' =>'admin.temas.editar', 'uses' => 'App\Http\Controllers\TemaController@editar'])->middleware(ProfessorMiddleware::class);
+    Route::match(['get','post'],'/admin/temas/atualizar/{id}', ['as' =>'admin.temas.atualizar', 'uses' => 'App\Http\Controllers\TemaController@atualizar'])->middleware(ProfessorMiddleware::class);
+    Route::get('/admin/temas/excluir/{id}', ['as' =>'admin.temas.excluir', 'uses' => 'App\Http\Controllers\TemaController@excluir'])->middleware(ProfessorMiddleware::class);
+
+    Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
+>>>>>>> 79f75cc97f46d0448397589f3125c34c60df215a
     Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
     Route::get('/banca_questoes', [App\Http\Controllers\BancaQuestoesController::class, 'index'])->name('bancaQuestoes');  
     Route::get('/repertorios/{id}', [App\Http\Controllers\RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');

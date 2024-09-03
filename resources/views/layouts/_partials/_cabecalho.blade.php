@@ -95,6 +95,6 @@
     @yield('conteudo')
     <section id="sidebar-sombra" class="sidebar-sombra"></section>
     
-    <script src="js/cabecalho.js"></script>
+    <script src="/js/cabecalho.js"></script>
 </body>
 </html>
