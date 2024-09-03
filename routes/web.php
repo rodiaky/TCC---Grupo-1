@@ -17,20 +17,25 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
     Route::get('/home_professor', [App\Http\Controllers\HomeProfessorController::class, 'index'])->name('home');
     Route::get('/turmas', function () {return view('site.professor.turmas');})->name('turmas')->name('turmas');
     Route::get('/redacoes_pendentes', [App\Http\Controllers\RedacoesPendentesController::class, 'index'])->name('redPendentes');
-    Route::get('/cadastrar_aluno', function () {return view('site.professor.cadastroAluno');})->name('cadastroAluno');
+
+    Route::get('/cadastrar_aluno', [App\Http\Controllers\CadastroAlunoController::class, 'index'])->name('cadastroAluno.index');
+    Route::post('/cadastrar_aluno', [App\Http\Controllers\CadastroAlunoController::class, 'store'])->name('cadastroAluno.store');
+
     Route::get('/pasta_materiais', function () {return view('site.professor.matPasta');})->name('matPasta');
     Route::get('/materiais', function () {return view('site.professor.materiais');})->name('materiais');
-  
-
-  
 });
 
 Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/temas_redacoes', [App\Http\Controllers\TemaController::class, 'index'])->name('temaRedacoes');
     Route::get('/temas_repertorios', [App\Http\Controllers\TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
-    Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
     Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
     Route::get('/banca_questoes', [App\Http\Controllers\BancaQuestoesController::class, 'index'])->name('bancaQuestoes');  
+    Route::get('/repertorios/{id}', [App\Http\Controllers\RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
+
+    Route::get('/repertorios/{id}', [App\Http\Controllers\RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
+    Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
+    Route::get('/repertorios/editar/{id}', [App\Http\Controllers\RepertoriosController::class, 'editar'])->name('repertorios.editar');
+    Route::get('/repertorios/excluir/{id}', [App\Http\Controllers\RepertoriosController::class, 'excluir'])->name('repertorios.excluir');
 
     //questoes
   Route::get('/admin/questoes', ['as' =>'admin.questoes', 'uses' => 'App\Http\Controllers\QuestoesController@index']);

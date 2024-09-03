@@ -68,13 +68,16 @@
             @foreach ($repertorios as $repertorio)
                 <article class="card-repertorio">
                     <div class="container-imagem"><img src="{{ $repertorio['imagem'] }}" alt="" class="imagem-repertorio"></div>
-                    <h1 class="titulo-repertorio">
-                        @php
-                        $filterName = strtolower($repertorio['classificacao']);
-                        $icon = $filters[$filterName][0] ?? 'fa-question-circle'; // Default icon if filter not found
-                        @endphp
-                        {{ ucfirst($repertorio['nome']) }}
-                    </h1>
+                    <a href="{{ route('repertorios.vizualizar', ['id' => $repertorio['id']]) }}" style="text-decoration: none; color: inherit;">
+                        <h1 class="titulo-repertorio">
+                            @php
+                            $filterName = strtolower($repertorio['classificacao']);
+                            $icon = $filters[$filterName][0] ?? 'fa-question-circle'; // Default icon if filter not found
+                            @endphp
+                            {{ ucfirst($repertorio['nome']) }}
+                        </h1>
+                    </a>
+
                     <div class="tipo-repertorio">
                         <div id="tipo-{{ strtolower(str_replace(' ', '-', $repertorio['classificacao'])) }}">
                         <i class="fa-solid {{ $icon }}"></i>
