@@ -1,0 +1,115 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cabecalho{
+    background-color: var(--varCinzaClaro);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu > .material-icons, 
+.usuario > .material-icons
+{
+    color: var(--varPreto);
+    text-decoration: none;
+    font-size: 2rem;
+    transition: all 200ms ease;
+}
+
+.menu > .material-icons:hover,
+.usuario > .material-icons:hover
+{
+    color: var(--varLanajaEscuro);
+}
+
+.logo{
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.logo:hover{
+    opacity: .4;
+}
+
+.sidebar-abrir {
+    cursor: pointer;
+}
+
+/* CABECALHO ------------------------------------------------------------------- */
+
+.cabecalho {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    z-index: 1;
+}
+
+.img_logo{
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entrar{
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    border: 1.5px solid var(--varPreto);
+    color: var(--varPreto);
+    background-color: none;
+    text-align: center;
+    border-radius: .5rem;
+    padding: .5rem 1rem .5rem 1rem;
+    transition: all 200ms ease;
+}
+
+.entrar:hover {
+    border: 1.5px solid var(--varLaranjaEscuro);
+    color: var(--varLaranjaEscuro);
+}
+
+.entrar:active {
+    opacity: .6;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .cabecalho {
+        height: 60px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .cabecalho {
+        height: 65px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .cabecalho {
+        height: 70px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .cabecalho {
+        height: 70px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .cabecalho {
+        height: 70px;
+    }
+}
