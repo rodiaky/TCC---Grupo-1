@@ -37,3 +37,8 @@ hr.titulo-linha {
     margin-bottom: 1rem;
     width: 100%;
 }
+
+a {
+    text-decoration: none;
+    color: var(--varPreto)ç
+}

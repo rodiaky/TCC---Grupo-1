@@ -5,6 +5,7 @@ use \App\Http\Middleware\AlunoMiddleware;
 use \App\Http\Middleware\ProfessorMiddleware;
 use \App\Http\Middleware\AdministradorMiddleware;
 use \App\Http\Middleware\AutenticacaoMiddleware;
+use App\Http\Controllers\RedacoesPendentesController;
 
 Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -50,4 +51,4 @@ Route::get('/view/{is}',[RedacoesPendentesController::class,'view']);
 Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
 Route::post('/uploadproduct',[RedacoesPendentesController::class,'store']);
 Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
-Route::get('/redpendentes',[RedacoesPendentesController::class,'redpen']);
+

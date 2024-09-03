@@ -12,7 +12,7 @@ use App\Models\User;
 
 class RedacoesPendentesController extends Controller
 {
-    public function redpen(){
+    public function index(){
         $redacoes = DB::table('redacoes')
         ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
         ->join('bancas', 'redacoes.id_banca', '=', 'bancas.id')
@@ -67,7 +67,7 @@ class RedacoesPendentesController extends Controller
    public function view($id)
    {
         $redacao = Redacoes::find($id);
-        return view('viewproduct', compact('redacao'));
+        return view('site.professor.viewproduct', compact('redacao'));
    }
 
    public function delete($id)
