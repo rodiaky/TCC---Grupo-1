@@ -13,7 +13,7 @@
     <main>
         <section class="info-correcao">
             <div class="container-info">
-                <div class="info-correcao">Nicolas Luiz Baptista Dias</div>
+                <div class="info-correcao">Fazer select</div>
                 <div class="info-correcao">Segunda-feira</div>
             </div>
             <div class="container-tema">
