@@ -25,7 +25,32 @@ Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/temas_redacoes', [App\Http\Controllers\TemaController::class, 'index'])->name('temaRedacoes');
     Route::get('/temas_repertorios', [App\Http\Controllers\TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
     Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
-    Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
+    Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');
+    Route::get('/banca_questoes', [App\Http\Controllers\BancaQuestoesController::class, 'index'])->name('bancaQuestoes');  
+    
+    
+
+
+    //questoes
+    Route::get('/admin/questoes', ['as' =>'admin.questoes', 'uses' => 'App\Http\Controllers\QuestoesController@index']);
+    Route::get('/admin/questoes/gramatica', ['as' => 'admin.questoes.gramatica','uses' => 'App\Http\Controllers\QuestoesController@gramatica']);
+    Route::get('/admin/questoes/literatura', ['as' => 'admin.questoes.literatura','uses' => 'App\Http\Controllers\QuestoesController@literatura']);
+    Route::get('/admin/questoes/interpretacao', ['as' => 'admin.questoes.interpretacao','uses' => 'App\Http\Controllers\QuestoesController@interpretacao']);
+    Route::get('/admin/questoes/adicionar', ['as' =>'admin.questoes.adicionar', 'uses' => 'App\Http\Controllers\QuestoesController@adicionar']);
+    Route::post('/admin/questoes/salvar', ['as' =>'admin.questoes.salvar', 'uses' => 'App\Http\Controllers\QuestoesController@salvar']);
+    Route::get('/admin/questoes/editar/{id}', ['as' =>'admin.questoes.editar', 'uses' => 'App\Http\Controllers\QuestoesController@editar']);
+    Route::match(['get','post'],'/admin/questoes/atualizar/{id}', ['as' =>'admin.questoes.atualizar', 'uses' => 'App\Http\Controllers\QuestoesController@atualizar']);
+    Route::get('/admin/questoes/excluir/{id}', ['as' =>'admin.questoes.excluir', 'uses' => 'App\Http\Controllers\QuestoesController@excluir']);
+
+
+    //temas
+    Route::get('/admin/temas', ['as' =>'admin.temas', 'uses' => 'App\Http\Controllers\TemaController@index']);
+    Route::get('/admin/temas/pesquisar', ['as' => 'admin.temas.search','uses' => 'App\Http\Controllers\TemaController@search']);
+    Route::get('/admin/temas/adicionar', ['as' =>'admin.temas.adicionar', 'uses' => 'App\Http\Controllers\TemaController@adicionar']);
+    Route::post('/admin/temas/salvar', ['as' =>'admin.temas.salvar', 'uses' => 'App\Http\Controllers\TemaController@salvar']);
+    Route::get('/admin/temas/editar/{id}', ['as' =>'admin.temas.editar', 'uses' => 'App\Http\Controllers\TemaController@editar']);
+    Route::match(['get','post'],'/admin/temas/atualizar/{id}', ['as' =>'admin.temas.atualizar', 'uses' => 'App\Http\Controllers\TemaController@atualizar']);
+    Route::get('/admin/temas/excluir/{id}', ['as' =>'admin.temas.excluir', 'uses' => 'App\Http\Controllers\TemaController@excluir']);
 });
 
 Route::middleware('administrador')->middleware(AdministradorMiddleware::class)->group(function() {
