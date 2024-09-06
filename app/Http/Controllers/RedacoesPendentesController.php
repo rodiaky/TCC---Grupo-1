@@ -66,12 +66,31 @@ class RedacoesPendentesController extends Controller
 
    public function view($id)
    {
-        $redacao = Redacoes::find($id);
-        return view('site.professor.viewproduct', compact('redacao'));
+     $redacao = DB::table('redacoes')
+     ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
+     ->join('bancas', 'redacoes.id_banca', '=', 'bancas.id')
+     ->join('alunos', 'redacoes.id_aluno', '=', 'alunos.id')
+     ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
+     ->join('users', 'alunos.id_user', '=', 'users.id')
+     ->select(
+         'temas.frase_tematica as frase_tematica',
+         'users.name as nome_aluno',
+         'bancas.nome as banca_nome',
+         'turmas.nome as turma_nome', 
+         'redacoes.id as id',
+         'redacoes.redacao_enviada as redacao_enviada'
+     )
+     ->where('redacoes.id', $id)
+     ->first();  
+ 
+     return view('site.professor.viewproduct', compact('redacao'));
+ 
+ 
    }
 
    public function delete($id)
    {
+
         $data = Conteudo::find($id);
         if ($data) {
             // Exclui o arquivo associado
