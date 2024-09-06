@@ -18,7 +18,7 @@
 
             <!-- TEMAS -->
             <div class="card">
-            <a href="{{ url('/temas_redacoes') }}"><img src="https://blog.unipar.br/wp-content/uploads/2020/11/afa8d7c2f9d0641e8c65c20b46b92c00-1110x508.jpg" alt="imagemRedacao" class="imagem-card"> </a>
+            <a href="{{route('admin.temas')}}"><img src="https://blog.unipar.br/wp-content/uploads/2020/11/afa8d7c2f9d0641e8c65c20b46b92c00-1110x508.jpg" alt="imagemRedacao" class="imagem-card"> </a>
                 <div class="texto-card">Temas</div>
             </div>
 
@@ -36,7 +36,7 @@
 
             <!-- QUESTOES -->
             <div class="card">
-                <a href="{{ url('/painel_redacoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <a href="{{route('admin.questoes')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
                 <div class="texto-card">Questões</div>
             </div>
 

@@ -41,29 +41,6 @@ h1{
     border-style: solid;
 }
 
-.opcao{
-    background-color: var(--varBranco);
-    border-radius: 15px;
-    border: 2px solid var(--varLaranjaEscuro);
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    user-select: none;
-    -webkit-user-select: none;
-    transition: all 200ms ease;
-    font-size: 1.2rem;
-    color: var(--varLaranjaEscuro)
-}
-
-.selecionar-seta{
-    color: var(--varLaranjaEscuro);
-}
-
-option{
-    font-size: 1rem;
-    color: var(--varPreto);
-}
-
 .button{
     font-size: 1rem;
     color: var(--varLaranjaEscuro);
@@ -74,3 +51,23 @@ option{
     background-color: var(--varBranco);
 }
 
+.button:hover{
+    transition: 200ms;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.content{
+    background-color: var(--varBranco);
+    border-radius: 15px;
+    border-color: var(--varLaranjaEscuro);
+    border-style: solid;
+    border-width: 2px;
+}
+
+.textoQuestao{
+    background-color: var(--varBranco);
+    border-radius: 15px;
+    border-color: var(--varLaranjaEscuro);
+    border-style: solid;
+    border-width: 2px;
+}
