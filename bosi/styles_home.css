@@ -193,6 +193,93 @@
   height: 100%;  
 }
 
+/* ------------------------------------------- */
+.info-colunas {
+  background-color: #FFF;
+}
+
+.nossa-equipe {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.texto-card {
+  color: var(--varLaranjaEscuro);
+  width: 275px;
+}
+
+.texto-card h1 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.texto-card p {
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+/* ---------------------------------- */
+
+.plataforma {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 5% 1.5rem 5%;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+.info-plataforma {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.container-info-plataforma {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.container-info-plataforma .texto h1 {
+  font-size: 1.2rem;
+  color: var(--varLaranjaEscuro);
+  font-weight: 600;
+}
+
+.container-info-plataforma .texto p {
+  font-size: 1rem;
+  color: #6e6e6e;
+  font-weight: lighter;
+}
+
+.imagem-plataforma {
+  border: 1px solid red;
+}
+
+.imagem-plataforma img {
+  width: 100%;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .banner .container-texto h1 {
@@ -448,6 +535,11 @@
     height: 300px;
     width: 100%;
   }
+
+  .imagem-plataforma {
+    width: 700px;
+  }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -523,6 +615,11 @@
     object-fit: cover;
     border-radius: 0;
   }
+
+  .imagem-plataforma {
+    width: 800px;
+  }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -598,4 +695,13 @@
     object-fit: cover;
     border-radius: 0;
   }
+
+  .container-info-plataforma {
+    max-width: 500px;
+  }
+
+  .imagem-plataforma {
+    width: 375px;
+  }
+
 }
