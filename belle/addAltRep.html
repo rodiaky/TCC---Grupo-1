@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="selecao.css">
+    <title>Adicionar/alterar repertório</title>
+</head>
+<body>
+    <main>
+        <h1>Adicionar/alterar repertório</h1><hr>
+    
+        <article>
+            <div class="form-value">
+                <form action="">
+                    <div class="inputbox">
+                        <label for="">Título do repertório</label>
+                        <input type="text" name="titulo" required>
+                    </div>
+                    <div class="inputbox">
+                        <label for="">Conteúdo</label>
+                        <textarea class="content"></textarea>   
+                    </div>
+                    <div class="inputbox">
+                        <label for="">Mais informações (links,livros...)</label>
+                        <textarea id="info" class="content"></textarea>  
+                    </div>
+                    <div class="addAltRep">
+                        <div class="select">
+                            <div class="selected">
+                                <span>Tema</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="1em"
+                                viewBox="0 0 512 512"
+                                class="arrow"
+                              >
+                                <path
+                                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                                ></path>
+                            </svg>
+                            </div>
+                            <div id="tema" class="options">
+                                <label class="option" for="tema-1">
+                                  <input id="tema-1" name="tema-1" type="checkbox"></input>
+                                  <p>Tema 1</p>
+                                </label>
+                                
+                                <label class="option" for="tema-2">
+                                  <input id="tema-2" name="tema-2" type="checkbox"></input>
+                                  <p>Tema 2</p>
+                                </label>
+
+                                <label class="option" for="tema-3">
+                                  <input id="tema-3" name="tema-3" type="checkbox"></input>
+                                  <p>Tema 3</p>
+                                </label>
+                                
+                                <label class="option" for="tema-4">
+                                  <input id="tema-4" name="tema-4" type="checkbox"></input>
+                                  <p>Tema 4</p>
+                                </label>
+
+                                <label class="option" for="tema-5">
+                                  <input id="tema-5" name="tema-5" type="checkbox"></input>
+                                  <p>Tema 5</p>
+                                </label>
+                                
+                                <label class="option" for="tema-6">
+                                  <input id="tema-6" name="tema-6" type="checkbox"></input>
+                                  <p>Tema 6</p>
+                                </label>
+                            </div>
+                            
+                        </div>
+                         
+                        <div class="select"> <!--Select categoria-->
+                            <div class="selected">
+                              <script>
+                                function changeCategory(categoria){
+                                  document.getElementById("text-selected-categoria").textContent = categoria;
+                                }
+                              </script>
+                              <span id="text-selected-categoria">Categoria</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="1em"
+                                viewBox="0 0 512 512"
+                                class="arrow"
+                              >
+                                <path
+                                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                                ></path>
+                              </svg>
+                            </div>
+                            <div class="options">
+                              <div>
+                                <input id="categoria-1" name="categoria-1" type="radio" checked="" onclick="changeCategory('Artes')"/>
+                                <label class="option" for="categoria-1" data-txt="Artes"></label>
+                              </div>
+    
+                              <div>
+                                <input id="categoria-2" name="categoria-2" type="radio" onclick="changeCategory('Atualidades')"/>
+                                <label class="option" for="categoria-2" data-txt="Atualidades"></label>
+                              </div>
+    
+                              <div>
+                                <input id="categoria-3" name="categoria-3" type="radio" onclick="changeCategory('Cinema')"/>
+                                <label class="option" for="categoria-3" data-txt="Cinema"></label>
+                              </div>
+    
+                              <div>
+                                <input id="categoria-4" name="categoria-4" type="radio" onclick="changeCategory('Estatística')"/>
+                                <label class="option" for="categoria-4" data-txt="Estatística"></label>
+                              </div>
+
+                              <div>
+                                <input id="categoria-5" name="categoria-5" type="radio" onclick="changeCategory('Filosofia')"/>
+                                <label class="option" for="categoria-5" data-txt="Filosofia"></label>
+                              </div>
+
+                              <div>
+                                <input id="categoria-6" name="categoria-6" type="radio" onclick="changeCategory('História')"/>
+                                <label class="option" for="categoria-6" data-txt="História"></label>
+                              </div>
+                              <div>
+                                <input id="categoria-7" name="categoria-7" type="radio" onclick="changeCategory('Obra literária')"/>
+                                <label class="option" for="categoria-7" data-txt="Obra literária"></label>
+                              </div>
+                              <div>
+                                <input id="categoria-8" name="categoria-8" type="radio" onclick="changeCategory('Sociologia')"/>
+                                <label class="option" for="categoria-8" data-txt="Sociologia"></label>
+                              </div>
+                              <div>
+                                <input id="categoria-9" name="categoria-9" type="radio" onclick="changeCategory('Textos legais')"/>
+                                <label class="option" for="categoria-9" data-txt="Textos legais"></label>
+                              </div>
+                              
+                            </div><!--options-->
+                          </div><!--Select categoria-->
+                    </div><!--addAltRep-->
+
+                    <div class="mensagem">
+                      <ion-icon name="alert-circle-outline"></ion-icon>
+                      Preencha todos os campos antes de avançar
+                  </div>
+
+                    <div class="botoes">
+                        <button name="limpar" id="limpar" class="button">Limpar</button>
+                        <button name="salvar" class="button">Salvar</button>
+                    </div>
+                </form>
+            </div><!--form-value-->
+            
+        </article>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
