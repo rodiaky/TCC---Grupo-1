@@ -12,6 +12,100 @@
 </head>
 
 <body>
+    @php
+    $isAdmin = $_SESSION['eh_admin'] === 'Professor';
+    @endphp
+
+    @if ($isAdmin)
+    <header>
+
+        <div class="cabecalho">
+            <!-- Botão de Abrir a sidebar -->
+            <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
+
+            <img class="logo" src="logo.png" href="#"> 
+            <div class="usuario"><i class="material-icons" href="#">account_circle</i></div> <!--DIV usuario-->
+        </div>
+
+            <nav id="sidebar" class="sidebar">
+
+                <!-- Botão de Fechar a sidebar -->
+                <i id="sidebar-fechar" class="material-icons">close</i>
+    
+                <div class="sidebar-conteudo">
+    
+                    <ul class="sidebar-lista">
+    
+                        <!-- Minha Conta -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">account_circle</i>
+                                <span class="sidebar-link">Minha Conta</span>
+                            </a>
+                        </li>
+    
+                        <!-- Ínicio -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">home</i>
+                                <span class="sidebar-link">Início</span>
+                            </a>
+                        </li>
+
+                        <!-- Temas -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">edit_square</i>
+                                <span class="sidebar-link">Temas</span>
+                            </a>
+                        </li>
+
+                        <!-- Reperórios -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">history_edu</i>
+                                <span class="sidebar-link">Reperórios</span>
+                            </a>
+                        </li>
+    
+                        <!-- Materiais -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">folder</i>
+                                <span class="sidebar-link">Materiais</span>
+                            </a>
+                        </li>
+                        
+                        <!-- Banco de Questões -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">quiz</i>
+                                <span class="sidebar-link">Banco de Questões</span>
+                            </a>
+                        </li>
+
+                        <!-- Turmas -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">school</i>
+                                <span class="sidebar-link">Turmas</span>
+                            </a>
+                        </li>
+                    
+                        <!-- Sair -->
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-item-link">
+                                <i class="material-icons">logout</i>
+                                <span class="sidebar-link">Sair</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </div>
+            </nav>
+    </header>
+    
+    @else
     <header>
 
         <div class="cabecalho">
@@ -91,6 +185,8 @@
                 </div>
             </nav>
     </header>
+   
+@endif
 
     @yield('conteudo')
     <section id="sidebar-sombra" class="sidebar-sombra"></section>
