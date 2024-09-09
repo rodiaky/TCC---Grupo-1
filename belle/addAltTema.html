@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="selecao.css">
+    <title>Adicionar e alterar tema</title>
+</head>
+<body>
+    <main>
+        <h1>Adicionar e alterar tema</h1><hr>
+    </main>
+    
+    <article>
+        <div class="form-value">
+            <form action="">
+                <div class="inputbox">
+                    <label for="">Frase temática</label>
+                    <input type="text" name="fraseTematica" required>
+                </div>
+
+                <div class="inputbox">
+                    <label for="">Textos de apoio</label>
+                    <textarea id="textoApoio" class="content" required></textarea>
+                </div>
+
+                <div id="inputboxAno" class="inputbox">
+                    <label for="">Ano</label>
+                    <input type="number" id="ano" name="ano" min="2000" value="2024">
+                </div>
+                <div class="addAltTema">
+                <div class="select"> <!--Select para banca-->
+                    <div class="selected">
+                      <script>
+                        function changeBanca(banca){
+                          document.getElementById("text-selected-banca").textContent = banca;
+                        }
+                      </script>
+                      <span id="text-selected-banca">Banca</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                        class="arrow"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="options">
+                      <div>
+                        <input id="banca-1" name="banca-1" type="radio" checked="" onclick="changeBanca('Enem')"/>
+                        <label class="option" for="banca-1" data-txt="Enem"></label>
+                      </div>
+
+                      <div>
+                        <input id="banca-2" name="banca-2" type="radio" onclick="changeBanca('Fuvest')"/>
+                        <label class="option" for="banca-2" data-txt="Fuvest"></label>
+                      </div>
+
+                      <div>
+                        <input id="banca-3" name="banca-3" type="radio" onclick="changeBanca('Vunesp')"/>
+                        <label class="option" for="banca-3" data-txt="Vunesp"></label>
+                      </div>
+
+                      <div>
+                        <input id="banca-4" name="banca-4" type="radio" onclick="changeBanca('Unicamp')"/>
+                        <label class="option" for="banca-4" data-txt="Unicamp"></label>
+                      </div>
+                      
+                    </div><!--options-->
+                  </div><!--Select para banca-->  
+
+                  <div class="mensagem">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    Preencha todos os campos antes de avançar 
+                </div>
+
+                </div>
+                  
+                
+
+                <div class="botoes">
+                    <button name="limpar" id="limpar" class="button">Limpar</button>
+                    <button name="salvar" class="button">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </article>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
