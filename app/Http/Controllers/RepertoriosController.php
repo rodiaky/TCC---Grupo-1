@@ -12,7 +12,7 @@ class RepertoriosController extends Controller
         return view('site.repertorios', compact('repertorios'));
     }
 
-    public function vizualizar($id)
+    public function visualizar($id)
     {
         // Recupera o item com o ID fornecido
         $repertorio = Materiais::find($id);
@@ -34,6 +34,20 @@ class RepertoriosController extends Controller
     public function editar($id) {
         $materiais = Materiais::find($id);
         return view('admin.repertorios.editar',compact('materiais'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $repertorios = DB::table('materiais')
+            ->select('materiais.*')
+            ->when($search, function ($query, $search) {
+                return $query->where('materiais.nome', 'ILIKE', "%{$search}%");
+            })
+            ->get();
+    
+        return view('site.repertorios', compact('repertorios'));
     }
 
 

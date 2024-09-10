@@ -31,11 +31,14 @@
         @endif
 
         <section class="section-barra-de-pesquisa">
-            <label class="pesquisa" for="barra-pesquisa">
-                <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite o repertório.">
-                <button type="submit" id="pesquisar" name="pesquisar" value=""><i class="material-icons lupa-pesquisa">search</i></button>
-            </label>
-        </section>
+        <form method="GET" action="{{ route('admin.repertorios.search') }}">
+        <label class="pesquisa" for="barra-pesquisa">
+            <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o repertório." value="{{ request('search') }}">
+            <button type="submit" id="pesquisar" >
+                <i class="material-icons lupa-pesquisa">search</i>
+            </button>
+        </label>
+    </section>
 
         <section class="section-filtros">
         @php
@@ -68,10 +71,19 @@
             @foreach ($repertorios as $repertorio)
                 <article class="card-repertorio">
                     <div class="container-imagem"><img src="{{ $repertorio['imagem'] }}" alt="" class="imagem-repertorio"></div>
-                    <h1 class="titulo-repertorio">{{ $repertorio['nome'] }}</h1>
+                    <a href="{{ route('repertorios.vizualizar', ['id' => $repertorio['id']]) }}" style="text-decoration: none; color: inherit;">
+                        <h1 class="titulo-repertorio">
+                            @php
+                            $filterName = strtolower($repertorio['classificacao']);
+                            $icon = $filters[$filterName][0] ?? 'fa-question-circle'; // Default icon if filter not found
+                            @endphp
+                            {{ ucfirst($repertorio['nome']) }}
+                        </h1>
+                    </a>
+
                     <div class="tipo-repertorio">
                         <div id="tipo-{{ strtolower(str_replace(' ', '-', $repertorio['classificacao'])) }}">
-                            <i class="fa-solid fa-{{ strtolower(str_replace(' ', '-', $repertorio['classificacao'])) }}"></i>
+                        <i class="fa-solid {{ $icon }}"></i>
                             <p>{{ $repertorio['classificacao'] }}</p>
                         </div>
                     </div>

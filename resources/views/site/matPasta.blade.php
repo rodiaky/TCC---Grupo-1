@@ -9,6 +9,9 @@
 @endsection
 
 @section('conteudo')
+    @php
+    $isAdmin = $_SESSION['eh_admin'] === 'Professor';
+    @endphp
     <main>
 
         <section class="conteudo">
@@ -21,6 +24,7 @@
 
             <div class="branco">
                 <p class="nomeMaterial">Material</p>
+                @if ($isAdmin)
                 <button class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
@@ -29,6 +33,7 @@
                         <a href="#" class="editar-opcoes-texto">Excluir</a>
                     </div>
                 </button>
+                @endif
             </div>
 
             

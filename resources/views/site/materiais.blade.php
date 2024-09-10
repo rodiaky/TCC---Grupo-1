@@ -9,11 +9,15 @@
 @endsection
 
 @section('conteudo')
+    @php
+    $isAdmin = $_SESSION['eh_admin'] === 'Professor';
+    @endphp
    
     <main>
         <h1 class="titulo-pagina">Materiais</h1>
         <hr class="titulo-linha">
 
+        @if ($isAdmin)
         <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
@@ -21,11 +25,13 @@
                 <a href="" class="botao-texto">Adicionar Pasta</a>
             </div>
         </button>
+        @endif
 
         <section class="pastas"> 
 
             <div class="wrapper">
                 <div class="quadrado">
+                @if ($isAdmin)
                     <button class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
@@ -34,6 +40,7 @@
                             <a href="#" class="editar-opcoes-texto">Excluir</a>
                         </div>
                     </button>
+                @endif
                 </div>
                 <div class="escrito">
                     <p>Nome da Pasta</p>
