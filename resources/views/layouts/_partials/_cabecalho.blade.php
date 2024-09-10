@@ -23,7 +23,7 @@
             <!-- Botão de Abrir a sidebar -->
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
-            <img class="logo" src="logo.png" href="#"> 
+            <img class="logo" src="/img/logo.png" href="#"> 
             <div class="usuario"><i class="material-icons" href="#">account_circle</i></div> <!--DIV usuario-->
         </div>
 

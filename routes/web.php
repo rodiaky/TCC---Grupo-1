@@ -41,8 +41,6 @@ Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
     Route::get('/banca_questoes', [App\Http\Controllers\BancaQuestoesController::class, 'index'])->name('bancaQuestoes');  
     Route::get('/repertorios/{id}', [App\Http\Controllers\RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
-
-    Route::get('/repertorios/{id}', [App\Http\Controllers\RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
     Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
     Route::get('/repertorios/editar/{id}', [App\Http\Controllers\RepertoriosController::class, 'editar'])->name('repertorios.editar');
     Route::get('/repertorios/excluir/{id}', [App\Http\Controllers\RepertoriosController::class, 'excluir'])->name('repertorios.excluir');
