@@ -1,7 +1,3 @@
-* {
-    font-family: 'Open Sans', sans-serif;
-}
-
 .cabecalho{
     background-color: var(--varCinzaClaro);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -59,8 +55,6 @@
 
 .entrar{
     position: absolute;
-    right: 40px;
-    top: 15px;
     border: 1.5px solid var(--varPreto);
     color: var(--varPreto);
     background-color: none;
@@ -70,9 +64,13 @@
     transition: all 200ms ease;
 }
 
-.entrar:hover {
+.entrar:hover, .entrar:active {
+    /* border: 1.5px solid var(--varLaranjaEscuro);
+    color: var(--varLaranjaEscuro); */
+    background-color: var(--varLaranjaEscuro);
     border: 1.5px solid var(--varLaranjaEscuro);
-    color: var(--varLaranjaEscuro);
+    color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .entrar:active {
@@ -84,12 +82,22 @@
     .cabecalho {
         height: 60px;
     }
+
+    .entrar {
+        right: 15px;
+        top: 12px;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .cabecalho {
         height: 65px;
+    }
+
+    .entrar {
+        right: 30px;
+        top: 13px;
     }
 }
 
@@ -98,6 +106,11 @@
     .cabecalho {
         height: 70px;
     }
+
+    .entrar {
+        right: 40px;
+        top: 15px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -105,11 +118,21 @@
     .cabecalho {
         height: 70px;
     }
+
+    .entrar {
+        right: 40px;
+        top: 15px;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .cabecalho {
         height: 70px;
+    }
+
+    .entrar {
+        right: 40px;
+        top: 15px;
     }
 }
