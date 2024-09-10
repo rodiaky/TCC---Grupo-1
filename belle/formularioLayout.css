@@ -34,6 +34,7 @@ form{
 }
 
 
+
 /*BOTÃO*/
 .button{
     width: 160px;
@@ -42,7 +43,7 @@ form{
 
 .botoes{
     width: 100%;
-    margin-top: 7dvh;
+    margin-top: 1.5rem;
     display: flex;
     justify-content: center;
 }
@@ -87,10 +88,11 @@ input[type="color"]{
 /*MENSAGEM DE AVISO ---------------------------------------------------------*/
 .mensagem{
     display: flex;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .mensagem ion-icon{
+    margin-right: 2px;
     color: red;
 }
 
@@ -99,6 +101,10 @@ input[type="color"]{
     padding: 10px;
     margin-top: 10px;
     width: 100%;
+}
+
+#msg-centro{
+    justify-content: center;
 }
 
 /*RESPONSIVIDADE----------------------------------------------------------------------------------*/
@@ -153,6 +159,10 @@ input[type="color"]{
 
     .lbl-color{
         font-size: 1rem;
+    }
+    
+    .mensagem{
+        margin-top: 1rem;
     }
 }
 

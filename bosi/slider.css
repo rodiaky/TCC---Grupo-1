@@ -1,0 +1,98 @@
+@keyframes slides {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 30px 0px;
+  white-space: nowrap;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.logos:before, .logos:after {
+  position: absolute;
+  top: 0;
+  content: '';
+  height: 100%;
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0), rgb(255, 255, 255));
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgb(255, 255, 255));
+}
+
+.logo_items {
+  display: inline-block;
+  animation: 50s slides infinite linear;
+}
+
+/* .logos:hover .logo_items {
+  animation-play-state: paused;
+} */
+
+.logo_items img{
+  height: 125px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+/* APROVACOES -------------------------------------------------------------- */
+
+.aprovacoes_items img{
+  height: 375px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  .logos:before, .logos:after {
+    width: 150px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+  .logos:before, .logos:after {
+    width: 150px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  .logos:before, .logos:after {
+    width: 250px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  .logos:before, .logos:after {
+    width: 250px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  .logos:before, .logos:after {
+    width: 250px;
+  }
+}
