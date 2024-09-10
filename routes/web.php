@@ -54,6 +54,7 @@ Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
 
     // Rota para buscar repertórios (pesquisa)
     Route::get('/repertorios/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+    Route::get('/repertorios/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
 
     // Rota para visualizar um repertório específico pelo ID
     Route::get('/repertorios/{id}', [RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
@@ -162,6 +163,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/repertorios/{id}', [RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
     Route::get('/repertorios/editar/{id}', [RepertoriosController::class, 'editar'])->name('repertorios.editar');
     Route::get('/repertorios/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('repertorios.excluir');
+  
 
     // Other Pages
     Route::get('/pasta_materiais', function () { return view('site.matPasta'); })->name('matPasta');

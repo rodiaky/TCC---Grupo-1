@@ -51,6 +51,22 @@ class RepertoriosController extends Controller
         return view('site.repertorios', compact('repertorios'));
     }
 
+    public function filtrar(Request $request)
+    {
+        $filtros = $request->input('filtros');
+
+        $repertorios = DB::table('materiais')
+            ->select('materiais.*')
+            ->when($filtros, function ($query, $filtros) {
+                return $query->where('materiais.classificacao', 'ILIKE', "%{$filtros}%");
+            })
+            ->get();
+    
+        return view('site.repertorios', compact('repertorios'));
+    }
+
+    
+
 
     public function excluir($id) {
         Materiais::find($id)->delete();

@@ -54,21 +54,22 @@
             'atualidades' => ['fa-earth-americas', '']
             ];
         @endphp
-
+        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}">
         @foreach ($filters as $filter => [$icon, $extra])
             <label class="filtro" for="{{ $filter }}">
                 <div class="circulo-filtro" id="{{ $filter }}-circulo">
-                    <input type="radio" class="checkbox-filtro" id="{{ $filter }}" name="filtros">
+                    <input type="radio" class="checkbox-filtro" id="{{ $filter }}" name="filtros" value="{{ request('filtros') }}">
                     <i class="fa-solid {{ $icon }}"></i>
                 </div>
                 <p class="texto-filtro">{{ ucfirst($filter) }} {{ $extra }}</p>
              </label>
         @endforeach
+        </form>
 
         </section>
 
         <section class="section-cards">
-        @foreach ($repertorios as $repertorio)
+        @forelse ($repertorios as $repertorio)
             <article class="card-repertorio">
                 <div class="container-imagem">
                     <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
@@ -103,7 +104,9 @@
                 </button>
             @endif
             </article>
-        @endforeach
+            @empty
+                <p>Nenhuma questão encontrada.</p>
+            @endforelse
 </section>
     </main>
 
