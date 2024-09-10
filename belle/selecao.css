@@ -28,7 +28,7 @@
   padding: 5px;
   position: relative;
   top: -100px;  
-  height: 10rem;
+  height: 9rem;
   overflow: auto;
 
   background: var(--varBranco);
@@ -53,7 +53,6 @@
 }
 
 .option {
-
   display: flex;
   align-content: center;
   flex-direction: row;
@@ -182,7 +181,11 @@ svg.arrow{
   }
 
   .select:hover{
-    height: 13.5rem;
+    height: 12rem;
+  }
+
+  .options{
+    height: 8rem;
   }
 }
 
