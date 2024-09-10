@@ -12,6 +12,21 @@ class RepertoriosController extends Controller
         return view('site.repertorios', compact('repertorios'));
     }
 
+    public function vizualizar($id)
+    {
+        // Recupera o item com o ID fornecido
+        $repertorio = Materiais::find($id);
+
+        // Verifica se o item foi encontrado
+        if (!$repertorio) {
+            // Redireciona ou exibe uma mensagem de erro se o item não for encontrado
+            return redirect()->route('repertorios.index')->with('error', 'Repertório não encontrado.');
+        }
+
+        // Retorna a view com o item encontrado
+        return view('site.vizualizarRepertorio', compact('repertorio'));
+    }
+
     public function adicionar() {
         return view('admin.repertorios.adicionar');
     }

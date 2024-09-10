@@ -23,7 +23,7 @@
             <!-- Botão de Abrir a sidebar -->
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
-            <img class="logo" src="logo.png" href="#"> 
+            <img class="logo" src="/img/logo.png" style="cursor: default"> 
             <div class="usuario"><i class="material-icons" href="#">account_circle</i></div> <!--DIV usuario-->
         </div>
 
@@ -46,7 +46,7 @@
     
                         <!-- Ínicio -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('professor.home') }}" class="sidebar-item-link">
                                 <i class="material-icons">home</i>
                                 <span class="sidebar-link">Início</span>
                             </a>
@@ -54,7 +54,7 @@
 
                         <!-- Temas -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('temaRedacoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">edit_square</i>
                                 <span class="sidebar-link">Temas</span>
                             </a>
@@ -62,15 +62,15 @@
 
                         <!-- Reperórios -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('repertorios') }}" class="sidebar-item-link">
                                 <i class="material-icons">history_edu</i>
-                                <span class="sidebar-link">Reperórios</span>
+                                <span class="sidebar-link">Repertórios</span>
                             </a>
                         </li>
     
                         <!-- Materiais -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('materiais') }}" class="sidebar-item-link">
                                 <i class="material-icons">folder</i>
                                 <span class="sidebar-link">Materiais</span>
                             </a>
@@ -78,7 +78,7 @@
                         
                         <!-- Banco de Questões -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('admin.questoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">quiz</i>
                                 <span class="sidebar-link">Banco de Questões</span>
                             </a>
@@ -86,7 +86,7 @@
 
                         <!-- Turmas -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('professor.turmas') }}" class="sidebar-item-link">
                                 <i class="material-icons">school</i>
                                 <span class="sidebar-link">Turmas</span>
                             </a>
@@ -94,7 +94,7 @@
                     
                         <!-- Sair -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('logout') }}" class="sidebar-item-link">
                                 <i class="material-icons">logout</i>
                                 <span class="sidebar-link">Sair</span>
                             </a>
@@ -143,7 +143,7 @@
     
                         <!-- Materiais -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('materiais') }}" class="sidebar-item-link">
                                 <i class="material-icons">folder</i>
                                 <span class="sidebar-link">Materiais</span>
                             </a>

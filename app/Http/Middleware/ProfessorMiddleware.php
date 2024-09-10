@@ -16,7 +16,11 @@ class ProfessorMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        session_start();
+        // Verifique o status da sessão
+        if (session_status() === PHP_SESSION_NONE) {
+            // Inicie a sessão apenas se ela ainda não estiver iniciada
+            session_start();
+            }
         if (isset($_SESSION['eh_admin'])) {
             if($_SESSION['eh_admin'] == 'Professor') {
                 return $next($request);
