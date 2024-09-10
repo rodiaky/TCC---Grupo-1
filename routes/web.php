@@ -78,6 +78,8 @@ Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
   Route::get('/admin/temas/editar/{id}', ['as' =>'admin.temas.editar', 'uses' => 'App\Http\Controllers\TemaController@editar']);
   Route::match(['get','post'],'/admin/temas/atualizar/{id}', ['as' =>'admin.temas.atualizar', 'uses' => 'App\Http\Controllers\TemaController@atualizar']);
   Route::get('/admin/temas/excluir/{id}', ['as' =>'admin.temas.excluir', 'uses' => 'App\Http\Controllers\TemaController@excluir']);
+
+  Route::match(['get','post'],'/admin/correcao/atualizar/{id}', ['as' =>'admin.correcao.atualizar', 'uses' => 'App\Http\Controllers\RedacoesPendentesController@atualizar']);
 });
 
 Route::middleware('administrador')->middleware(AdministradorMiddleware::class)->group(function() {
@@ -85,6 +87,7 @@ Route::middleware('administrador')->middleware(AdministradorMiddleware::class)->
 
 Route::resource('tarefa', 'App\Http\Controllers\TarefaController');
 
+// Auth Routes
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'sair'])->name('logout');
 

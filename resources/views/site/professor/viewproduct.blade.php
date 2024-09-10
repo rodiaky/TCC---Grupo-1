@@ -220,194 +220,56 @@
 
         <!-- FEEDBACK -->
         <section class="section-cinza feedback-correcao"> 
-            <div class="titulo-section">Feedback</div>
-            <hr class="linha-section">
-            <form action="">
-                <textarea name="feedback" id="feedback" placeholder="Digite o feedback da correção aqui..."></textarea>
-            </form>
-        </section>
-        <!-- GRADES DE CORRECAO ----------------- -->
-        @if ($redacao->banca_nome == 'ENEM')
-            <!-- Grade ENEM -->
-            <section class="section-cinza nota-correcao"> 
-                <div class="titulo-section">Grade de Correção - ENEM</div>
+           
+            <form action="{{ route('admin.correcao.atualizar', $redacao->id) }}" method="post">
+                        {{ csrf_field() }}
+
+                        <div class="titulo-section">Feedback</div>
+                        <hr class="linha-section">
+                        <textarea name="comentario" id="feedback" placeholder="Digite o feedback da correção aqui...">{{ isset($redacao->comentario) ? $redacao->comentario : '' }}</textarea>
+                </section>
+
+                <section class="section-cinza nota-correcao"> 
+                <div class="titulo-section">Grade de Correção - {{ $redacao->banca_nome }}</div>
                 <hr class="linha-section">
 
-                <form action="">
-                    <div class="tabela-container">
-
+             
+                <div class="tabela-container">
                         <table class="tabela-nota">
-
                             <tr>
-                                <th><label for="criterio1">CI</label></th>
-                                <th><label for="criterio2">CII</label></th>
-                                <th><label for="criterio3">CIII</label></th>
-                                <th><label for="criterio4">CIV</label></th>
-                                <th><label for="criterio5">CV</label></th>
+                            @foreach($criterios as $criterio)
+                                <th><label for="criterio">{{ $criterio->nome }}</label></th>
+                            @endforeach
                             </tr>
                             <tr>
-                                <td><p class="texto-criterio">Modalidade</p></td>
-                                <td><p class="texto-criterio">Tema / Gênero / Repertório</p></td>
-                                <td><p class="texto-criterio">Projeto de texto e Desenvolvimento</p></td>
-                                <td><p class="texto-criterio">Coesão</p></td>
-                                <td><p class="texto-criterio">Proposta de intervenção</p></td>
+                            @foreach($criterios as $criterio)
+                                <td><p class="texto-criterio">{{ $criterio->descricao }}</p></td>
+                            @endforeach
                             </tr>
                             <tr>
-                                <td><input type="number" name="criterio1" id="criterio1" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio2" id="criterio2" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio3" id="criterio3" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio4" id="criterio4" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio5" id="criterio5" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                            </tr>
-
-                        </table>
-                    </div>
-
-                    <div class="container-tabela-inferior">
-                        <a href=""><i class="fa-solid fa-plus"></i></a>
-                        <label for="nota-final">
-                            <div class="nota-container">
-                                <div class="nota-final">Nota: <input type="number" name="nota-final" id="nota-final" class="input" maxlength="2" required pattern="\d*"></div>
-                            </div>
-                        </label>
-                    </div>
-                </form>
-            </section>
-            @elseif ($redacao->banca_nome == 'FUVEST')
-            <!-- Grade FUVEST -->
-            <section class="section-cinza nota-correcao"> 
-                <div class="titulo-section">Grade de Correção - FUVEST</div>
-                <hr class="linha-section">
-
-                <form action="">
-                    <div class="tabela-container">
-
-                        <table class="tabela-nota">
-
-                            <tr>
-                                <th><label for="criterio1">1</label></th>
-                                <th><label for="criterio2">2</label></th>
-                                <th><label for="criterio3">3</label></th>
-                            </tr>
-                            <tr>
-                                <td><p class="texto-criterio">Tema / Gênero</p></td>
-                                <td><p class="texto-criterio">Coesão / Coerência</p></td>
-                                <td><p class="texto-criterio">Correção gramatical / Adequação vocabular</p></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="criterio1" id="criterio1" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio2" id="criterio2" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio3" id="criterio3" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                            </tr>
-
-                        </table>
-                    </div>
-
-                    <div class="container-tabela-inferior">
-                        <a href=""><i class="fa-solid fa-plus"></i></a>
-                        <label for="nota-final">
-                            <div class="nota-container">
-                                <div class="nota-final">Nota: <input type="number" name="nota-final" id="nota-final" class="input" maxlength="2" required pattern="\d*"></div>
-                            </div>
-                        </label>
-                    </div>
-                </form>
-            </section>
-
-
-            @elseif ($redacao->banca_nome == 'UNICAMP')
-            <!-- Grade UNICAMP -->
-            <section class="section-cinza nota-correcao"> 
-                <div class="titulo-section">Grade de Correção - UNICAMP</div>
-                <hr class="linha-section">
-
-                <form action="">
-                    <div class="tabela-container">
-
-                        <table class="tabela-nota">
-
-                            <tr>
-                                <th><label for="criterio1">Pt</label></th>
-                                <th><label for="criterio2">G</label></th>
-                                <th><label for="criterio3">Lt</label></th>
-                                <th><label for="criterio4">CeC</label></th>
-                            </tr>
-                            <tr>
-                                <td><p class="texto-criterio">Proposta temática</p></td>
-                                <td><p class="texto-criterio">Gênero</p></td>
-                                <td><p class="texto-criterio">Leitura</p></td>
-                                <td><p class="texto-criterio">Convenções da escrita</p></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="criterio1" id="criterio1" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio2" id="criterio2" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio3" id="criterio3" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio4" id="criterio4" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                            </tr>
-
-                        </table>
-                    </div>
-
-                    <div class="container-tabela-inferior">
-                        <a href=""><i class="fa-solid fa-plus"></i></a>
-                        <label for="nota-final">
-                            <div class="nota-container">
-                                <div class="nota-final">Nota: <input type="number" name="nota-final" id="nota-final" class="input" maxlength="2" required pattern="\d*"></div>
-                            </div>
-                        </label>
-                    </div>
-                </form>
-            </section>
-
-            @elseif ($redacao->banca_nome == 'VUNESP')
-            <!-- Grade VUNESP -->
-            <section class="section-cinza nota-correcao"> 
-                <div class="titulo-section">Grade de Correção - VUNESP</div>
-                <hr class="linha-section">
-
-                <form action="">
-                    <div class="tabela-container">
-                        <table class="tabela-nota">
-
-                            <tr>
-                                <th><label for="criterio1">A</label></th>
-                                <th><label for="criterio2">B</label></th>
-                                <th><label for="criterio3">C</label></th>
-                                <th><label for="criterio4">D</label></th>
-                            </tr>
-                            <tr>
-                                <td><p class="texto-criterio">Tema</p></td>
-                                <td><p class="texto-criterio">Gênero / Coerência</p></td>
-                                <td><p class="texto-criterio">Modalidade</p></td>
-                                <td><p class="texto-criterio">Coesão</p></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="criterio1" id="criterio1" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio2" id="criterio2" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio3" id="criterio3" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
-                                <td><input type="number" name="criterio4" id="criterio4" class="input input-tabela" maxlength="2" required pattern="\d*"></td>
+                            @foreach($criterios as $criterio)
+                                <td>
+                                    <input type="number" name="criterio[{{ $criterio->id }}]" class="input input-tabela" maxlength="2" required pattern="\d*" value="{{ isset($criterio->nota_aluno_criterio) ? $criterio->nota_aluno_criterio : '' }}">
+                                </td>
+                            @endforeach
                             </tr>
                         </table>
-                    </div>
+                        </div>
 
-                    <div class="container-tabela-inferior">
-                        <a href=""><i class="fa-solid fa-plus"></i></a>
-                        <label for="nota-final">
-                            <div class="nota-container">
-                                <div class="nota-final">Nota: <input type="number" name="nota-final" id="nota-final" class="input" maxlength="2" required pattern="\d*"></div>
-                            </div>
-                        </label>
-                    </div>
-                </form>
-            </section>
-
-            @else
-                <h2>Outros Vestibulares</h2>
-                <p>O tema desta redação é baseado em um vestibular genérico ou não especificado.</p>
-        @endif
-      
+                        <div class="container-tabela-inferior">
+                            <a href=""><i class="fa-solid fa-plus"></i></a>
+                            <label for="nota_aluno_redacao">
+                                <div class="nota-container">
+                                    <div class="nota-final">Nota: <input type="number" name="nota_aluno_redacao" id="nota_aluno_redacao" class="input" maxlength="2" required pattern="\d*" value="{{ isset($redacao->nota_aluno_redacao) ? $redacao->nota_aluno_redacao : '' }}"></div>
+                                </div>
+                            </label>
+                        </div>
+    </section>
+           
 
         <section class="container-btn"><button class="salvar" id="saveBtn">Salvar</button></section>
+          
+        </form>
     </main>
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
     <script src="/js/cardsDropdown.js"></script>
