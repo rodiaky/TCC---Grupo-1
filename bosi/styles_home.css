@@ -105,7 +105,7 @@
   align-items: center;
 }
 
-.circulo {
+.circulo, .circulo-plataforma {
   position: relative;
   background-color: none;
   border-radius: 50%;
@@ -116,7 +116,7 @@
   transition: all 400ms ease;
 }
 
-.circulo i {
+.circulo i, .circulo-plataforma i {
   position: absolute;
   color: var(--varLaranjaEscuro);
 }
@@ -126,13 +126,13 @@
   width: fit-content;
 }
 
-.circulo:hover {
+.circulo:hover, .circulo-plataforma:hover {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   transform: translateY(-10px);
   background-color: var(--varLaranjaEscuro);
 }
 
-.circulo:hover i {
+.circulo:hover i, .circulo-plataforma:hover i {
   color: #FFF;
 }
 
@@ -240,18 +240,24 @@
 
 /* ---------------------------------- */
 
+.container-plataforma {
+  display: flex;
+  justify-content: center;
+}
+
 .plataforma {
   display: flex;
+  flex-direction: row;
   gap: 1rem;
-  margin: 1.5rem 5% 1.5rem 5%;
-  /* margin-left: auto;
-  margin-right: auto; */
+  width: fit-content;
 }
 
 .info-plataforma {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  max-width: 400px;
+  gap: 1rem;
 }
 
 .container-info-plataforma {
@@ -273,12 +279,37 @@
 }
 
 .imagem-plataforma {
-  border: 1px solid red;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.imagem-plataforma img {
-  width: 100%;
+/* ----------------------------------------------------------------------------------- */
+
+.inscricao {
+  /* The image used */
+  background-image: url("https://imagens.ebc.com.br/iLeY2z-7X-FgDhCSXiGQQTFF-QQ=/1170x700/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/doacao_de_livros_em_tempo_de_pandemia_sem_sair_de_casa.jpg?itok=8Mfryapi");
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 50px 0 50px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.info-inscricao {
+  width: 500px;
+  height: 500px;
+  background-color: aqua;
+  border-radius: 2rem;
+}
+
+/* ----------------------------------------------------------------------------------- */
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -364,6 +395,25 @@
   .fade-img img {
     height: 300px;
     width: 100%;
+  }
+
+  .imagem-plataforma img {
+    max-width: 275px;
+  }
+
+  .circulo-plataforma {
+    height: 2.8rem;
+    width: 2.8rem;
+    min-width: 2.8rem;
+  }
+
+  .circulo-plataforma i {
+    font-size: 1.3rem;
+  }
+
+  .plataforma {
+    flex-direction: column;
+    margin: 1.5rem 5% 1.5rem 5%;
   }
 }
 
@@ -451,6 +501,26 @@
     height: 300px;
     width: 100%;
   }
+
+  .imagem-plataforma img {
+    max-width: 275px;
+  }
+
+  .circulo-plataforma {
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+  }
+
+  .circulo-plataforma i {
+    font-size: 1.4rem;
+  }
+
+  .plataforma {
+    flex-direction: column;
+    margin: 1.5rem 2% 1.5rem 2%;
+  }
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -536,8 +606,23 @@
     width: 100%;
   }
 
-  .imagem-plataforma {
-    width: 700px;
+  .imagem-plataforma img {
+    max-width: 275px;
+  }
+
+  .circulo-plataforma {
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+  }
+
+  .circulo-plataforma i {
+    font-size: 1.4rem;
+  }
+
+  .plataforma {
+    flex-direction: row;
+    margin: 1.5rem 2% 1.5rem 2%;
   }
 
 }
@@ -616,8 +701,23 @@
     border-radius: 0;
   }
 
-  .imagem-plataforma {
-    width: 800px;
+  .imagem-plataforma img {
+    max-width: 320px;
+  }
+
+  .circulo-plataforma {
+    height: 3.2rem;
+    width: 3.2rem;
+    min-width: 3.2rem;
+  }
+
+  .circulo-plataforma i {
+    font-size: 1.6rem;
+  }
+
+  .plataforma {
+    flex-direction: row;
+    margin: 1.5rem 3% 1.5rem 3%;
   }
 
 }
@@ -696,12 +796,23 @@
     border-radius: 0;
   }
 
-  .container-info-plataforma {
-    max-width: 500px;
+  .imagem-plataforma img {
+    max-width: 350px;
   }
 
-  .imagem-plataforma {
-    width: 375px;
+  .circulo-plataforma {
+    height: 3.5rem;
+    width: 3.5rem;
+    min-width: 3.5rem;
+  }
+
+  .circulo-plataforma i {
+    font-size: 1.8rem;
+  }
+
+  .plataforma {
+    flex-direction: row;
+    margin: 1.5rem 5% 1.5rem 5%;
   }
 
 }
