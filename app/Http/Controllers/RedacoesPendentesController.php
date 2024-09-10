@@ -115,7 +115,8 @@ class RedacoesPendentesController extends Controller
 
     // Atualize a nota final da redação, se necessário
     $notaFinal = $request->input('nota_aluno_redacao');
-    DB::table('redacoes')->where('id', $id)->update(['nota_aluno_redacao' => $notaFinal]);
+    DB::table('redacoes')->where('id', $id)->update(['nota_aluno_redacao' => $notaFinal,
+                                                     'situacao_redacao' => "Corrigida"]);
 
     // Atualize as notas dos critérios
     foreach ($request->input('criterio') as $criterioId => $nota) {
