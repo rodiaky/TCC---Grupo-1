@@ -1,0 +1,102 @@
+/* Ajuste do botao ------------------------------------------- */
+
+.botao-expand:hover, .botao-circulo:hover ~ .botao-expand{
+    width: 13.5rem;
+} 
+
+a {
+    text-decoration: none;
+    color: var(--varPreto);
+}
+
+/*RESPONSIVIDADE ----------------------------------------------------------------- */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .temas{
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .img-tema{
+        height: 250px;
+    }
+     
+    .escrito{
+        width: 250px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .temas{
+        gap: 3rem;
+        margin-top: 3rem;
+    }
+
+    .img-tema{
+        height: 250px;
+    }
+     
+    .escrito{
+        width: 250px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .temas{
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+
+    .img-tema{
+        height: 275px;
+    }
+     
+    .escrito{
+        width: 275px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .temas{
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+
+    .img-tema{
+        height: 300px;
+    }
+     
+    .escrito{
+        width: 300px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .temas{
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+
+    .img-tema{
+        height: 300px;
+    }
+     
+    .escrito{
+        width: 300px;
+        font-size: 1.3rem;
+    }
+}

@@ -13,23 +13,31 @@ use App\Models\User;
 class RedacoesPendentesController extends Controller
 {
     public function index(){
-        $redacoes = DB::table('redacoes')
-        ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
-        ->join('bancas', 'redacoes.id_banca', '=', 'bancas.id')
-        ->join('alunos', 'redacoes.id_aluno', '=', 'alunos.id')
-        ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
-        ->join('users', 'alunos.id_user', '=', 'users.id') // Fixed table name and field names
-        ->select(
-            'temas.frase_tematica as frase_tematica',
-            'users.name as nome', // Fixed table name
-            'turmas.horario_entrada as horario_entrada',
-            'turmas.horario_saida as horario_saida',
-            'bancas.nome as banca_nome',
-            'redacoes.id as id'
-        )
-        ->where('redacoes.situacao_redacao', 'Pendente') // Added a condition as an example; adjust as needed
-        ->get();
-        return view('site.professor.redPendentes', compact('redacoes'));
+     $redacoes = DB::table('redacoes')
+     ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
+     ->join('bancas', 'redacoes.id_banca', '=', 'bancas.id')
+     ->join('alunos', 'redacoes.id_aluno', '=', 'alunos.id')
+     ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
+     ->join('users', 'alunos.id_user', '=', 'users.id')
+     ->select(
+         'temas.frase_tematica as frase_tematica',
+         'users.name as nome',
+         'turmas.horario_entrada as horario_entrada',
+         'turmas.horario_saida as horario_saida',
+         'bancas.nome as banca_nome',
+         'redacoes.id as id'
+     )
+     ->where('redacoes.situacao_redacao', 'Pendente')
+     ->get();
+
+     // Formatação de horários
+     $redacoes = $redacoes->map(function($redacao) {
+     $redacao->horario_entrada = \Carbon\Carbon::parse($redacao->horario_entrada)->format('H:i');
+     $redacao->horario_saida = \Carbon\Carbon::parse($redacao->horario_saida)->format('H:i');
+     return $redacao;
+ });
+
+     return view('site.professor.redPendentes', compact('redacoes'));
     }
     public function uploadpage()
    {
@@ -66,12 +74,31 @@ class RedacoesPendentesController extends Controller
 
    public function view($id)
    {
-        $redacao = Redacoes::find($id);
-        return view('site.professor.viewproduct', compact('redacao'));
+     $redacao = DB::table('redacoes')
+     ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
+     ->join('bancas', 'redacoes.id_banca', '=', 'bancas.id')
+     ->join('alunos', 'redacoes.id_aluno', '=', 'alunos.id')
+     ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
+     ->join('users', 'alunos.id_user', '=', 'users.id')
+     ->select(
+         'temas.frase_tematica as frase_tematica',
+         'users.name as nome_aluno',
+         'bancas.nome as banca_nome',
+         'turmas.nome as turma_nome', 
+         'redacoes.id as id',
+         'redacoes.redacao_enviada as redacao_enviada'
+     )
+     ->where('redacoes.id', $id)
+     ->first();  
+ 
+     return view('site.professor.viewproduct', compact('redacao'));
+ 
+ 
    }
 
    public function delete($id)
    {
+
         $data = Conteudo::find($id);
         if ($data) {
             // Exclui o arquivo associado

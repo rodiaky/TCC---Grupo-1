@@ -1,0 +1,81 @@
+:root {
+  /* Paleta de Cores */
+  --varLaranjaEscuro: #F46F20;
+  --varLaranjaClaro: #FEA572;
+  --varCinzaEscuro: #EAEAEA;
+  --varCinzaClaro: #F4F3F2;
+  --varBranco: #F8F8F8;
+  --varPreto: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.saiba-mais {
+  border: 2px solid var(--varLaranjaEscuro);
+  color: var(--varLaranjaEscuro);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: none;
+  padding: .5rem 1rem .5rem 1rem;
+  border-radius: .8rem;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all 200ms ease;
+}
+  
+.saiba-mais:focus, .saiba-mais:hover {
+    background-color: var(--varLaranjaEscuro);
+    color: #FFF;
+}
+  
+.saiba-mais:active {
+  opacity: .6;
+}
+
+hr{
+  border: 2px solid var(--varCinzaEscuro);
+}
+
+p{text-align: justify;}
+
+img {
+  object-fit: cover;
+    user-select: none;
+  -webkit-user-select: none;
+}
+
+section {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--varLaranjaEscuro);
+
+  transition: all 200ms ease;
+}
+
+.titulo:hover{
+  letter-spacing: .1rem;
+}
+
+.hover {
+  transition: all 400ms ease;
+}
+
+.hover:hover {
+  transform: translateY(-10px);
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
