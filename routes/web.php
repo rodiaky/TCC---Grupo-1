@@ -49,14 +49,24 @@ Route::name('')->middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::match(['get','post'],'/admin/temas/atualizar/{id}', ['as' =>'admin.temas.atualizar', 'uses' => 'App\Http\Controllers\TemaController@atualizar'])->middleware(ProfessorMiddleware::class);
     Route::get('/admin/temas/excluir/{id}', ['as' =>'admin.temas.excluir', 'uses' => 'App\Http\Controllers\TemaController@excluir'])->middleware(ProfessorMiddleware::class);
 
-    Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
-    Route::get('/questoes', [App\Http\Controllers\QuestoesController::class, 'index'])->name('questoes');   
-    Route::get('/banca_questoes', [App\Http\Controllers\BancaQuestoesController::class, 'index'])->name('bancaQuestoes');  
-    Route::get('/repertorios/{id}', [App\Http\Controllers\RepertoriosController::class, 'visualizar'])->name('repertorios.visualizar');
-    Route::get('/repertorios', [App\Http\Controllers\RepertoriosController::class, 'index'])->name('repertorios');
-    Route::get('/repertorios/editar/{id}', [App\Http\Controllers\RepertoriosController::class, 'editar'])->name('repertorios.editar');
-    Route::get('/repertorios/excluir/{id}', [App\Http\Controllers\RepertoriosController::class, 'excluir'])->name('repertorios.excluir');
-    Route::get('/repertorios/pesquisar', ['as' => 'admin.repertorios.search','uses' => 'App\Http\Controllers\RepertoriosController@search']);
+    // Rota para listar repertórios
+    Route::get('/repertorios', [RepertoriosController::class, 'index'])->name('repertorios');
+
+    // Rota para buscar repertórios (pesquisa)
+    Route::get('/repertorios/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+
+    // Rota para visualizar um repertório específico pelo ID
+    Route::get('/repertorios/{id}', [RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
+
+    // Rota para editar um repertório
+    Route::get('/repertorios/editar/{id}', [RepertoriosController::class, 'editar'])->name('repertorios.editar');
+
+    // Rota para excluir um repertório
+    Route::get('/repertorios/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('repertorios.excluir');
+
+    // Outras rotas
+    Route::get('/questoes', [QuestoesController::class, 'index'])->name('questoes');   
+    Route::get('/banca_questoes', [BancaQuestoesController::class, 'index'])->name('bancaQuestoes');
 
     //questoes
   Route::get('/admin/questoes', ['as' =>'admin.questoes', 'uses' => 'App\Http\Controllers\QuestoesController@index']);

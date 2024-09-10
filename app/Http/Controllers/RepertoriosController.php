@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Materiais;
+use Illuminate\Support\Facades\DB;
 
 class RepertoriosController extends Controller
 {
@@ -12,7 +13,7 @@ class RepertoriosController extends Controller
         return view('site.repertorios', compact('repertorios'));
     }
 
-    public function visualizar($id)
+    public function vizualizar($id)
     {
         // Recupera o item com o ID fornecido
         $repertorio = Materiais::find($id);
