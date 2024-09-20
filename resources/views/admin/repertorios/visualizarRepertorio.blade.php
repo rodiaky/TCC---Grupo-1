@@ -13,17 +13,17 @@
     @endphp
 
     @php
-            $filters = [
+        $filters = [
             'filosofia' => ['fa-graduation-cap', ''],
             'sociologia' => ['fa-users', ''],
             'obra' => ['fa-book', 'Literária'],
-            'estatistica' => ['fa-chart-simple', ''],
+            'estatística' => ['fa-chart-simple', ''],
             'textos' => ['fa-scale-balanced', 'Legais'],
             'cinema' => ['fa-film', ''],
             'artes' => ['fa-palette', ''],
-            'historia' => ['fa-landmark', ''],
+            'história' => ['fa-landmark', ''],
             'atualidades' => ['fa-earth-americas', '']
-            ];
+        ];
     @endphp
 
     <main>
@@ -60,8 +60,8 @@
                 <div class="tema-repertorio">
                     <div class="tipo-repertorio">
                         @php
-                        $filterName = strtolower($repertorio->classificacao);
-                        $icon = $filters[$filterName][0] ?? 'fa-question-circle'; // Default icon if filter not found
+                        $filterName = strtolower(explode(' ', $repertorio->classificacao)[0]); // Normaliza o nome do filtro
+                        $icon = $filters[$filterName][0] ?? 'fa-question-circle'; // Ícone padrão se o filtro não for encontrado
                         @endphp
                         <div id="tipo-{{ $filterName }}">
                             <i class="fa-solid {{ $icon }}"></i>

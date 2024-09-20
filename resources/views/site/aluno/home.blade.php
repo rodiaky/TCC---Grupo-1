@@ -21,7 +21,7 @@
 
             <!-- REPERTORIOS -->
             <div class="card">
-                <a href="{{ url('/repertorios') }}"><img src="https://segredosdomundo.r7.com/wp-content/uploads/2021/01/45-personalidades-mais-importantes-e-influentes-de-todos-os-tempos-37-e1610752380360.jpg" alt="imagemRepertorio" class="imagem-card"></a>
+                <a href="{{route('admin.temasRepertorios')}}"><img src="https://segredosdomundo.r7.com/wp-content/uploads/2021/01/45-personalidades-mais-importantes-e-influentes-de-todos-os-tempos-37-e1610752380360.jpg" alt="imagemRepertorio" class="imagem-card"></a>
                 <div class="texto-card">Repertórios</div>
             </div>
 

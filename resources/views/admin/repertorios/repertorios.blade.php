@@ -80,6 +80,7 @@
 
             <section class="section-cards">
                 @forelse ($repertorios as $repertorio)
+                
                     <article class="card-repertorio">
                         <div class="container-imagem">
                             <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
