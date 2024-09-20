@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+@extends('layouts._partials._cabecalho')
+
+@section('css')
   <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
   <link rel="stylesheet" type="text/css" href="/css/correcao.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
   <title>Correcao</title>
-</head>
-<body>
+@endsection
+
+@section('conteudo')
     <main>
         <section class="info-correcao">
             <div class="container-info">
@@ -423,5 +421,4 @@
             history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
         }
     </script>
-</body>
-</html>
+@endsection

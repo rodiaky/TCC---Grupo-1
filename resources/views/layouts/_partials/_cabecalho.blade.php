@@ -159,7 +159,7 @@
                         
                         <!-- Banco de Questões -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('admin.questoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">quiz</i>
                                 <span class="sidebar-link">Banco de Questões</span>
                             </a>

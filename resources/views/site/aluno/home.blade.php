@@ -27,13 +27,13 @@
 
             <!-- MATERIAIS -->
             <div class="card">
-                <a href="{{ url('/materias') }}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDaUfHGduhGapOSADboo67PDCiZkpAWdK1g&s" alt="" class="imagem-card"></a>
+                <a href="{{ url('/materiais') }}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDaUfHGduhGapOSADboo67PDCiZkpAWdK1g&s" alt="" class="imagem-card"></a>
                 <div class="texto-card">Materiais</div>
             </div>
 
             <!-- QUESTOES -->
             <div class="card">
-                <a href="{{ url('/questoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <a href="{{ route('admin.questoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
                 <div class="texto-card">Questões</div>
             </div>
 

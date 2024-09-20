@@ -132,9 +132,13 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
 Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/temas_redacoes', [TemaController::class, 'index'])->name('temaRedacoes');
     Route::get('/temas_repertorios', [TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
+    Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
+    Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
+    Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
+    Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
 
     // Admin Routes
-    Route::prefix('admin')->middleware(ProfessorMiddleware::class)->group(function() {
+    Route::prefix('admin')->group(function() {
         Route::prefix('temas')->group(function() {
             Route::get('/', [TemaController::class, 'index'])->name('admin.temas');
             Route::get('/pesquisar', [TemaController::class, 'search'])->name('admin.temas.search');
@@ -179,8 +183,5 @@ Route::middleware(AdministradorMiddleware::class)->group(function() {
 Route::resource('tarefa', TarefaController::class);
 
 // Redacoes Pendentes Routes
-Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
-Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
-Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
-Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
+
 

@@ -13,10 +13,6 @@
     $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     @endphp
     <main>
-
-
-
-
         <h1 class="titulo-pagina">Questões</h1>
         <hr class="titulo-linha">
         @if ($isAdmin)
