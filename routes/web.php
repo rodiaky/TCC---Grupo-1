@@ -17,6 +17,8 @@ use App\Http\Controllers\QuestoesController;
 use App\Http\Controllers\TurmasController;
 use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PastaMateriaisController;
+use App\Http\Controllers\MateriaisController;
 
 // Auth Routes
 Auth::routes();
@@ -80,16 +82,57 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::match(['get', 'post'], '/atualizar/{id}', [QuestoesController::class, 'atualizar'])->name('admin.questoes.atualizar');
             Route::get('/excluir/{id}', [QuestoesController::class, 'excluir'])->name('admin.questoes.excluir');
         });
+
+        Route::prefix('repertorios')->group(function() {
+            Route::get('/{id}', [RepertoriosController::class, 'index'])->name('admin.repertorios');
+            Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+            Route::get('/visualizar/{id}/{id_pasta}', [RepertoriosController::class, 'visualizar'])->name('admin.repertorios.visualizar');
+            Route::get('/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
+            Route::post('/salvar', [RepertoriosController::class, 'salvar'])->name('admin.repertorios.salvar');
+            Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');
+            Route::get('/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('admin.repertorios.excluir');
+        });
+
+        Route::prefix('materiais')->group(function() {
+            Route::get('/{id}', [MateriaisController::class, 'index'])->name('admin.materiais');
+            Route::get('/pesquisar', [MateriaisController::class, 'search'])->name('admin.materiais.search');
+            Route::get('/filtrar', [MateriaisController::class, 'filtrar'])->name('admin.materiais.filtrar');
+            Route::get('/visualizar/{id}/{id_pasta}', [MateriaisController::class, 'visualizar'])->name('admin.materiais.visualizar');
+            Route::get('/adicionar', [MateriaisController::class, 'adicionar'])->name('admin.materiais.adicionar');
+            Route::post('/salvar', [MateriaisController::class, 'salvar'])->name('admin.materiais.salvar');
+            Route::get('/editar/{id}', [MateriaisController::class, 'editar'])->name('admin.materiais.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [MateriaisController::class, 'atualizar'])->name('admin.materiais.atualizar');
+            Route::get('/excluir/{id}', [MateriaisController::class, 'excluir'])->name('admin.materiais.excluir');
+        });
+
+        Route::prefix('temasRepertorios')->group(function() {
+            Route::get('/', [TemaRepertoriosController::class, 'index'])->name('admin.temasRepertorios');
+        });
+
+        Route::prefix('pastaMateriais')->group(function() {
+            Route::get('/', [PastaMateriaisController::class, 'index'])->name('admin.pastaMateriais');
+        });
     });
 
     // Other Routes
     Route::get('/repertorios', [RepertoriosController::class, 'index'])->name('repertorios');
-    Route::get('/repertorios/{id}', [RepertoriosController::class, 'vizualizar'])->name('repertorios.vizualizar');
-    Route::get('/repertorios/editar/{id}', [RepertoriosController::class, 'editar'])->name('repertorios.editar');
-    Route::get('/repertorios/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('repertorios.excluir');
+   
   
+  
+    // Rota para buscar repertórios (pesquisa)
+    Route::get('/repertorios/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+    Route::get('/repertorios/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
+    
+    // Redacoes Pendentes Routes
+    Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
+    Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
+    Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
+    Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
 
-    // Other Pages
+    Route::match(['get','post'],'/admin/correcao/atualizar/{id}', ['as' =>'admin.correcao.atualizar', 'uses' => 'App\Http\Controllers\RedacoesPendentesController@atualizar']);
+
+// Other Pages
     Route::get('/pasta_materiais', function () { return view('site.matPasta'); })->name('matPasta');
     Route::get('/materiais', function () { return view('site.materiais'); })->name('materiais');
 });

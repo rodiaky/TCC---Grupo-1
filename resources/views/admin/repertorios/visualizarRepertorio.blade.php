@@ -35,7 +35,7 @@
 
                 <!-- Set Back Button -->
                 <div class="container-seta">
-                    <a href="{{ route('repertorios') }}" class="seta-back">
+                    <a href="{{ route('admin.repertorios', ['id' => $id_pasta]) }}" class="seta-back">
                         <i class="material-icons">arrow_back</i>
                     </a>
                 </div>
@@ -45,13 +45,9 @@
                     <button class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
-                            <a href="{{ route('repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
+                            <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
                             <hr>
-                            <a href="{{ route('repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Excluir</a>
-                            <form id="delete-form" action="{{ route('repertorios.excluir', ['id' => $repertorio->id]) }}" method="POST" style="display: none;">
-                                @csrf
-                                @method('DELETE')
-                            </form>
+                            <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
                         </div>
                     </button>
                 </div>

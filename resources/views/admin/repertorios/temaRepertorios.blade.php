@@ -30,29 +30,20 @@
 
         <section class="temas"> 
 
-            @forelse ($temas as $tema)
+            @forelse ($pastas as $pasta)
             <div class="wrapper">
-                <img src="{{ $tema->imagem }}" alt="Imagem do tema" class="img-tema">
-                <div class="escrito">
-                    <p>{{ $tema->classificacao }}</p>
-                </div>
+                <a href="{{ route('admin.repertorios', ['id' => $pasta->id]) }}" style="text-decoration: none; color: inherit;">
+                    <img src="{{ $pasta->imagem }}" alt="Imagem do tema" class="img-tema">
+                    <div class="escrito">
+                        <p>{{ $pasta->nome }}</p>
+                    </div>
+                </a>
             </div>
             @empty
             <p>Nenhum tema disponível.</p>
             @endforelse
 
         </section>
-
-        <!--
-        <button class="botao">
-            <span class="material-symbols-outlined" id="botaoMais">add</span>
-            <div class="opcoes">
-                <a href="#" class="editar-opcoes-texto">Adicionar Tema</a>
-                <hr id="linhaBotao">
-                <a href="#" class="editar-opcoes-texto">Adicionar Repertório</a>
-            </div>
-        </button>
-        -->
 
     </main>
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
