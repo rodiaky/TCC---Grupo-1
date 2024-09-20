@@ -59,6 +59,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
 
     <section class="container-tema">
         @forelse ($temas as $tema)
+        <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
         <div class="tema-secao">
             @if ($isAdmin)
             <button class="botao-editar">
@@ -81,8 +82,9 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                 <p>{{ $tema->texto_apoio }}</p>
             </div>
         </div>
+        </a>
         @empty
-                <p>Nenhuma questão encontrada.</p>
+                <p>Nenhum tema encontrado.</p>
             @endforelse
     </section>
 

@@ -140,6 +140,13 @@
                                 <span class="sidebar-link">Início</span>
                             </a>
                         </li>
+                        <!-- Temas -->
+                        <li class="sidebar-item">
+                            <a href="{{ route('temaRedacoes') }}" class="sidebar-item-link">
+                                <i class="material-icons">edit_square</i>
+                                <span class="sidebar-link">Temas</span>
+                            </a>
+                        </li>
     
                         <!-- Materiais -->
                         <li class="sidebar-item">

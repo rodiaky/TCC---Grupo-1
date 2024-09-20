@@ -69,6 +69,8 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/editar/{id}', [TemaController::class, 'editar'])->name('admin.temas.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [TemaController::class, 'atualizar'])->name('admin.temas.atualizar');
             Route::get('/excluir/{id}', [TemaController::class, 'excluir'])->name('admin.temas.excluir');
+            Route::get('/visualizarTema/{id}', [TemaController::class, 'visualizarTema'])->name('admin.temas.visualizar');
+            Route::post('/uploadRedacao', [ImageController::class, 'store'])->name('admin.temas.store');
         });
 
         Route::prefix('questoes')->group(function() {

@@ -60,8 +60,6 @@
     grid-row: 2 / 4;
     grid-column: 1;
 
-    border: 1px solid aqua;
-
     display: flex;
     justify-content: center;
 
