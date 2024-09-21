@@ -1,0 +1,39 @@
+:root {
+    /* Paleta de Cores */
+    --varLaranjaEscuro: #F46F20;
+    --varLaranjaClaro: #FEA572;
+    --varCinzaEscuro: #EAEAEA;
+    --varCinzaClaro: #F4F3F2;
+    --varBranco: #F8F8F8;
+    --varPreto: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: var(--varCinzaClaro);
+    width: 100%;
+    max-width: 100%;
+}
+
+main {
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.titulo-pagina{
+    font-size: 1.8rem;
+    color: var(--varLaranjaEscuro);
+    font-weight: 700;
+}
+
+hr.titulo-linha {
+    border: 1px solid var(--varPreto);
+    margin-bottom: 1rem;
+    width: 100%;
+}

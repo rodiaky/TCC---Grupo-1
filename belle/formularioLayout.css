@@ -82,6 +82,7 @@ input[type="color"]{
     height: 2.4rem;
     margin-top: 0.7rem;
     padding: 0.1rem;
+    cursor: pointer;
 }
 
 
@@ -93,6 +94,7 @@ input[type="color"]{
 
 .mensagem ion-icon{
     margin-right: 2px;
+    background-color: transparent;
     color: red;
 }
 
