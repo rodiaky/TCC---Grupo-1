@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="selecao.css">
+    <title>Adicionar Filtro</title>
+</head>
+<body>
+     <main>
+        <h1>Alterar/Alterar filtro</h1><hr>
+    </main>
+    
+        <article>
+            <div class="form-value">
+                <form action="">
+                    <div class="inputbox">
+                        <label for="">Nome do Filtro</label>
+                        <input type="text" name="nome" required>
+                    </div>
+                    <div id="selectID" class="select">
+                        <div class="selected">
+                          <script>
+                            function changeArea(area){
+                              document.getElementById("text-selected-area").textContent = area;
+                            }
+                          </script>
+                          <span id="text-selected-area">Área</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="1em"
+                            viewBox="0 0 512 512"
+                            class="arrow">
+                            <path
+                              d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                            ></path>
+                          </svg>
+                        </div><!--selected-data-->
+                        <div id="filtro" class="options">
+                          <div>
+                            <input id="area-1" name="area-1" type="radio" checked="" onClick="changeArea('Gramática')"/>
+                            <label class="option" for="area-1" data-txt="Gramática"></label>
+                          </div>
+                    
+                          <div>
+                            <input id="area-2" name="area-2" type="radio" onClick="changeArea('Literatura')"/>
+                            <label class="option" for="area-2" data-txt="Literatura"></label>
+                          </div>
+                    
+                          <div>
+                            <input id="area-3" name="area-3" type="radio" onClick="changeArea('Interpretação')"/>
+                            <label class="option" for="area-3" data-txt="Interpretação de Texto"></label>
+                          </div>
+                        </div><!--options-->
+                      </div>
+                    </label>
+                    
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos para avançar
+                    </div>
+                    
+                    <div class="botoes">
+                        <button name="limpar" id="limpar" class="button">Limpar</button>
+                        <button name="salvar" class="button">Salvar</button>
+                    </div>
+                </form>
+            </div><!--form-value-->
+            
+        </article>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
