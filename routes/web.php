@@ -19,6 +19,7 @@ use App\Http\Controllers\TarefaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PastaMateriaisController;
 use App\Http\Controllers\MateriaisController;
+use App\Http\Controllers\PerfilController;
 
 // Auth Routes
 Auth::routes();
@@ -52,6 +53,8 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
 
 // Autenticacao Middleware Routes
 Route::middleware(AutenticacaoMiddleware::class)->group(function() {
+
+    Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
     Route::get('/temas_redacoes', [TemaController::class, 'index'])->name('temaRedacoes');
     Route::get('/temas_repertorios', [TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
     Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
@@ -120,8 +123,6 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     // Other Routes
     Route::get('/repertorios', [RepertoriosController::class, 'index'])->name('repertorios');
    
-  
-  
     // Rota para buscar repertórios (pesquisa)
     Route::get('/repertorios/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
     Route::get('/repertorios/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');

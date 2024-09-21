@@ -126,6 +126,27 @@
 
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
     <script>
+
+        window.onload = function() {
+            // Inicialmente, captura o rádio button que já está selecionado, se houver
+            let lastChecked = document.querySelector('input[type="radio"]:checked');
+
+            // Captura todos os radio buttons do documento
+            const radios = document.querySelectorAll('input[type="radio"]');
+
+            radios.forEach(radio => {
+                radio.addEventListener('click', function(event) {
+                    // Se o mesmo radio button for clicado novamente
+                    if (lastChecked === this) {
+                        this.checked = false; // Desmarca o radio button
+                        lastChecked = null;   // Reseta o último selecionado
+                    } else {
+                        lastChecked = this;   // Armazena o novo botão como último selecionado
+                    }
+                });
+            });
+        }
+
         function submitFilterForm(filter) {
             // Marca o rádio correspondente
             const radio = document.getElementById(filter);
@@ -134,5 +155,6 @@
             }
             document.getElementById('filter-form').submit(); // Envia o formulário de filtros
         }
+        
     </script>
 @endsection

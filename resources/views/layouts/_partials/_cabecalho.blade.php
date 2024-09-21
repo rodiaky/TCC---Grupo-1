@@ -38,7 +38,7 @@
     
                         <!-- Minha Conta -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('perfil') }}" class="sidebar-item-link">
                                 <i class="material-icons">account_circle</i>
                                 <span class="sidebar-link">Minha Conta</span>
                             </a>
@@ -127,7 +127,7 @@
     
                         <!-- Minha Conta -->
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-item-link">
+                            <a href="{{ route('perfil') }}" class="sidebar-item-link">
                                 <i class="material-icons">account_circle</i>
                                 <span class="sidebar-link">Minha Conta</span>
                             </a>
