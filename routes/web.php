@@ -27,12 +27,13 @@ Route::get('/logout', [LoginController::class, 'sair'])->name('logout');
 
 // Public Routes
 Route::get('/', function () { return view('welcome'); });
-Route::get('/turma', [TurmasController::class, 'index'])->name('site.turmas');
+
+/*Route::get('/turma', [TurmasController::class, 'index'])->name('site.turmas');
 Route::get('/turma_adicionar', [TurmasController::class, 'adicionar'])->name('site.turmas.adicionar');
 Route::post('/site/turmas/salvar', [TurmasController::class, 'salvar'])->name('site.turmas.salvar');
 Route::get('/site/turmas/editar/{id}', [TurmasController::class, 'editar'])->name('site.turmas.editar');
 Route::match(['get', 'post'], '/site/turmas/atualizar/{id}', [TurmasController::class, 'atualizar'])->name('site.turmas.atualizar');
-Route::get('/site/turmas/excluir/{id}', [TurmasController::class, 'excluir'])->name('site.turmas.excluir');
+Route::get('/site/turmas/excluir/{id}', [TurmasController::class, 'excluir'])->name('site.turmas.excluir');*/
 
 // Aluno Routes
 Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
@@ -50,11 +51,12 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
     Route::get('/cadastrar_aluno', [CadastroAlunoController::class, 'index'])->name('cadastroAluno.index');
     Route::post('/cadastrar_aluno', [CadastroAlunoController::class, 'store'])->name('cadastroAluno.store');
 });
-
 // Autenticacao Middleware Routes
 Route::middleware(AutenticacaoMiddleware::class)->group(function() {
 
-    Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
+    Route::get('/perfilA', [PerfilController::class, 'indexAluno'])->name('perfil.aluno');
+    Route::get('/perfilP', [PerfilController::class, 'indexProfessor'])->name('perfil.professor');
+
     Route::get('/temas_redacoes', [TemaController::class, 'index'])->name('temaRedacoes');
     Route::get('/temas_repertorios', [TemaRepertoriosController::class, 'index'])->name('temaRepertorios');
     Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);

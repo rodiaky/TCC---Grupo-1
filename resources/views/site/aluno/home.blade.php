@@ -33,7 +33,11 @@
 
             <!-- QUESTOES -->
             <div class="card">
+<<<<<<< Updated upstream
                 <a href="{{ route('admin.questoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+=======
+                <a href="{{ url('/admin.questoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+>>>>>>> Stashed changes
                 <div class="texto-card">Questões</div>
             </div>
 

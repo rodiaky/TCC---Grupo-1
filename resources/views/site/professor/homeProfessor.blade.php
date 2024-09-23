@@ -47,7 +47,7 @@
 
             <!-- TURMAS -->
             <div class="card">
-                <a href="{{ url('/painel_redacoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <a href="{{ route('professor.turmas') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
                 <div class="texto-card">Turmas</div>
             </div>
 

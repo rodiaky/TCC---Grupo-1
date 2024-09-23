@@ -24,7 +24,7 @@
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
             <img class="logo" src="/img/logo.png" style="cursor: default"> 
-            <div class="usuario"><i class="material-icons" href="#">account_circle</i></div> <!--DIV usuario-->
+            <div class="usuario"><i class="material-icons" href="{{ route('perfil.professor') }}">account_circle</i></div> <!--DIV usuario-->
         </div>
 
             <nav id="sidebar" class="sidebar">
@@ -38,7 +38,7 @@
     
                         <!-- Minha Conta -->
                         <li class="sidebar-item">
-                            <a href="{{ route('perfil') }}" class="sidebar-item-link">
+                            <a href="{{ route('perfil.professor') }}" class="sidebar-item-link">
                                 <i class="material-icons">account_circle</i>
                                 <span class="sidebar-link">Minha Conta</span>
                             </a>
@@ -113,7 +113,7 @@
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
             <img class="logo" src="/img/logo.png" style="cursor: default"> 
-            <div class="usuario"><i class="material-icons" href="#">account_circle</i></div> <!--DIV usuario-->
+            <div class="usuario"><i class="material-icons" href="{{ route('perfil.aluno') }}">account_circle</i></div> <!--DIV usuario-->
         </div>
 
             <nav id="sidebar" class="sidebar">
@@ -127,7 +127,7 @@
     
                         <!-- Minha Conta -->
                         <li class="sidebar-item">
-                            <a href="{{ route('perfil') }}" class="sidebar-item-link">
+                            <a href="{{ route('perfil.aluno') }}" class="sidebar-item-link">
                                 <i class="material-icons">account_circle</i>
                                 <span class="sidebar-link">Minha Conta</span>
                             </a>

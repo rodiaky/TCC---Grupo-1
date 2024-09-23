@@ -55,6 +55,7 @@ class LoginController extends Controller
 
         if(isset($usuario->name)) {
             session_start();
+            $_SESSION['id'] = $usuario->id;
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
             $_SESSION['eh_admin'] = $usuario->eh_admin;
