@@ -266,6 +266,25 @@ input[type="checkbox"]{
   margin-right: .5rem;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination .pagination-link {
+  margin: 0 5px;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pagination .pagination-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
 
 /* RESPONSIVIDADE ------------------------------------------------------------------ */
 

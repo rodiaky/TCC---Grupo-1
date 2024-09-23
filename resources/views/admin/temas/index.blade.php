@@ -12,43 +12,14 @@
 @section('conteudo')
 @php
 $isAdmin = $_SESSION['eh_admin'] === 'Professor';
+$currentFilter = request('filtros');
 @endphp
 
 <main>
     <h1 class="titulo-pagina">Temas de Redações</h1>
     <hr class="titulo-linha">
 
-    <section class="section-barra-de-pesquisa">
-    <form method="GET" action="{{ route('admin.temas.search') }}">
-    <label class="pesquisa" for="barra-pesquisa">
-        <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
-        <button type="submit" id="pesquisar" name="pesquisar">
-            <i class="material-icons lupa-pesquisa">search</i>
-        </button>
-    </label>
-</form>
-
-        <div class="selecionar">
-            <label for="select" class="selecionar-retangulo">
-                Filtros
-                <input type="checkbox" name="select" id="select">
-                <i class="material-icons">filter_list</i>
-            </label>
-            <ul class="selecionar-op" id="selecionar-op">
-                <form action="">
-                    <li><label for="mais-recentes"><input type="radio" name="filtro" id="mais-recentes">Mais Recentes</label></li>
-                    <li><label for="mais-antigas"><input type="radio" name="filtro" id="mais-antigas">Mais Antigas</label></li>
-                    <li><label for="enem"><input type="radio" name="filtro" id="enem">Enem</label></li>
-                    <li><label for="fuvest"><input type="radio" name="filtro" id="fuvest">Fuvest</label></li>
-                    <li><label for="vunesp"><input type="radio" name="filtro" id="vunesp">Vunesp</label></li>
-                    <li><label for="unicamp"><input type="radio" name="filtro" id="unicamp">Unicamp</label></li>
-                </form>
-            </ul>
-        </div>
-    </section>
-
     @if ($isAdmin)
-    <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
     <button class="botao">
         <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
         <div class="botao-expand">
@@ -57,37 +28,62 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     </button>
     @endif
 
+    <section class="section-barra-de-pesquisa">
+        <form method="GET" action="{{ route('admin.temas.search') }}">
+            <label class="pesquisa" for="barra-pesquisa">
+                <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
+                <button type="submit" id="pesquisar">
+                    <i class="material-icons lupa-pesquisa">search</i>
+                </button>
+            </label>
+        </form>
+    </section>
+
     <section class="container-tema">
         @forelse ($temas as $tema)
         <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
-        <div class="tema-secao">
-            @if ($isAdmin)
-            <button class="botao-editar">
-                <i class="material-icons">more_horizon</i>
-                <div class="editar-opcoes">
-                    <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
-                    <hr>
-                    <a href="{{ route('admin.temas.excluir',$tema->id) }}" class="editar-opcoes-texto">Excluir</a>
+            <div class="tema-secao">
+                @if ($isAdmin)
+                <button class="botao-editar">
+                    <i class="material-icons">more_horizon</i>
+                    <div class="editar-opcoes">
+                        <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
+                        <hr>
+                        <a href="{{ route('admin.temas.excluir',$tema->id) }}" class="editar-opcoes-texto">Excluir</a>
+                    </div>
+                </button>
+                @endif
+                <div class="container-imagem">
+                    <img src="{{ $tema->imagem }}" alt="" class="imagem-tema">
                 </div>
-            </button>
-            @endif
-            <div class="container-imagem">
-                <img src="{{ $tema->imagem }}" alt="" class="imagem-tema">
+                <div class="frase-tematica">
+                    <p>{{ $tema->frase_tematica }}</p>
+                </div>
+                <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
+                <div class="spoiler">
+                    <p>{{ $tema->texto_apoio }}</p>
+                </div>
             </div>
-            <div class="frase-tematica">
-                <p>{{ $tema->frase_tematica }}</p>
-            </div>
-            <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
-            <div class="spoiler">
-                <p>{{ $tema->texto_apoio }}</p>
-            </div>
-        </div>
         </a>
         @empty
-                <p>Nenhum tema encontrado.</p>
-            @endforelse
+            <p>Nenhum tema encontrado.</p>
+        @endforelse
     </section>
 
-    <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
-    <script src="js/temaRedacoes.js"></script>
+    <!-- Pagination Links -->
+    <div class="pagination">
+        <div class="flex justify-between">
+            @for ($i = 1; $i <= $temas->lastPage(); $i++)
+                @if ($i == $temas->currentPage())
+                    <span class="active">{{ $i }}</span>
+                @else
+                    <a href="{{ $temas->url($i) }}" class="pagination-link">{{ $i }}</a>
+                @endif
+            @endfor
+        </div>
+    </div>
+
+</main>
+
+<script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
 @endsection

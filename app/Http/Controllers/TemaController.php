@@ -8,32 +8,28 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Bancas;
 use App\Models\Redacoes;
 
-
-
 class TemaController extends Controller
 {
-    public function index(){
+    public function index() {
         $temas = DB::table('temas')
-        ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
-        ->select('temas.*', 'bancas.nome as banca_nome') // Select all fields from temas and banca name
-        ->get();
+            ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
+            ->select('temas.*', 'bancas.nome as banca_nome')
+            ->paginate(10);
 
-    return view('admin.temas.index', compact('temas'));
+        return view('admin.temas.index', compact('temas'));
     }
 
-    public function visualizarTema($id){
-
+    public function visualizarTema($id) {
         $tema = DB::table('temas')
-        ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
-        ->select('temas.*', 'bancas.nome as banca_nome') // Select all fields from temas and banca name
-        ->where('temas.id','=', $id)
-        ->first();
+            ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
+            ->select('temas.*', 'bancas.nome as banca_nome')
+            ->where('temas.id', '=', $id)
+            ->first();
 
         return view('admin.temas.visualizarTema', compact('tema'));
     }
 
-    public function search(Request $request)
-    {
+    public function search(Request $request) {
         $search = $request->input('search');
 
         $temas = DB::table('temas')
@@ -42,11 +38,10 @@ class TemaController extends Controller
             ->when($search, function ($query, $search) {
                 return $query->where('temas.frase_tematica', 'ILIKE', "%{$search}%");
             })
-            ->get();
-    
+            ->paginate(10); // Ensure pagination is still applied
+
         return view('admin.temas.index', compact('temas'));
     }
-
 
     public function adicionar() {
         $bancas = Bancas::pluck('nome', 'id')->all();
@@ -56,29 +51,27 @@ class TemaController extends Controller
     public function editar($id) {
         $temas = Temas::findOrFail($id);
         $bancas = Bancas::pluck('nome', 'id')->all();
-        return view('admin.temas.editar',compact('temas','bancas'));
+        return view('admin.temas.editar', compact('temas', 'bancas'));
     }
-
 
     public function excluir($id) {
         Temas::find($id)->delete();
         return redirect()->route('admin.temas');
     }
 
-    public function salvar(Request $req){
+    public function salvar(Request $req) {
         $dados = $req->all();  
         Temas::create($dados);
         return redirect()->route('admin.temas');
-
     }
 
-    public function atualizar(Request $req, $id){
+    public function atualizar(Request $req, $id) {
         $dados = $req->all();
         Temas::find($id)->update($dados);
         return redirect()->route('admin.temas');
     }
-    public function store(Request $request)
-    {
+
+    public function store(Request $request) {
         // Validar a imagem
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -90,7 +83,6 @@ class TemaController extends Controller
 
         // Salvar o caminho da imagem no banco de dados
         $image = new Redacoes();
-        
         $image->image_path = 'assets/redacao_enviada/' . $imageName;
         $image->save();
 

@@ -14,19 +14,19 @@ class QuestoesController extends Controller
 
     public function gramatica(){
         $titulo = "Gramática";
-        $questoes = Perguntas::where('disciplina', 'Gramática')->get();
+        $questoes = Perguntas::where('disciplina', 'Gramática')->paginate(10);
         return view('admin.questoes.questoes', compact('questoes','titulo'));
     }
 
     public function literatura(){
         $titulo = "Literatura";
-        $questoes = Perguntas::where('disciplina', 'Literatura')->get();
+        $questoes = Perguntas::where('disciplina', 'Literatura')->paginate(10);
         return view('admin.questoes.questoes', compact('questoes','titulo'));
     }
 
     public function interpretacao(){
         $titulo = "Interpretação de texto";
-        $questoes = Perguntas::where('disciplina', 'Interpretação de Texto')->get();
+        $questoes = Perguntas::where('disciplina', 'Interpretação de Texto')->paginate(10);
         return view('admin.questoes.questoes', compact('questoes','titulo'));
     }
 
