@@ -33,11 +33,7 @@
 
             <!-- QUESTOES -->
             <div class="card">
-<<<<<<< Updated upstream
                 <a href="{{ route('admin.questoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
-=======
-                <a href="{{ url('/admin.questoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
->>>>>>> Stashed changes
                 <div class="texto-card">Questões</div>
             </div>
 
@@ -47,79 +43,41 @@
         <section class="section-cinza">
 
             <div class="texto-section-cinza">Últimas Redações Corrigidas</div>
-
+            @forelse ($redacoesCorrigidas as $redacoes)
             <div class="container-items">
 
                 <article class="card-redacao">
-                    <div class="card-redacao-texto">Tema</div>
-                    <div class="card-redacao-texto">Banca</div>
+                    <div class="card-redacao-texto">{{$redacoes->frase_tematica}}</div>
+                    <div class="card-redacao-texto">{{$redacoes->banca_nome}}/{{$redacoes->tema_ano}}</div>
                 </article>
+                </div>
+                @empty
+                <p>Nenhuma redação corrigida.</p>
+            @endforelse
 
-                <article class="card-redacao">
-                    <div class="card-redacao-texto">Tema</div>
-                    <div class="card-redacao-texto">Banca</div>
-                </article>
-
-                <article class="card-redacao">
-                    <div class="card-redacao-texto">Tema</div>
-                    <div class="card-redacao-texto">Banca</div>
-                </article>
-
-            </div>
+ 
                 
         </section>
 
-        <!-- <div class="texto-corpo">Semanas</div> -->
         <section class="semanas">
-
-            <div id="cCarousel">
-
-                <div class="arrow" id="prev"><i class="fa-solid fa-chevron-left"></i></div>
-                <div class="arrow" id="next"><i class="fa-solid fa-chevron-right"></i></div>
-                <div id="carousel-vp">
-
-                    <div id="cCarousel-inner">
-            
-                        <label for="semana1" class="cCarousel-item">
-                            <div class="texto-semana">Semana 1</div>
-                            <input type="radio" name="selecionar-semana" id="semana1" class="radio-carousel" value="">
-                        </label>
-
-                        <label for="semana2" class="cCarousel-item">
-                            <div class="texto-semana">Semana 2</div>
-                            <input type="radio" name="selecionar-semana" id="semana2" class="radio-carousel" value="">
-                        </label>
-
-                        <label for="semana3" class="cCarousel-item">
-                            <div class="texto-semana">Semana 3</div>
-                            <input type="radio" name="selecionar-semana" id="semana3" class="radio-carousel" value="">
-                        </label>
-
-                        <label for="semana4" class="cCarousel-item">
-                            <div class="texto-semana">Semana 4</div>
-                            <input type="radio" name="selecionar-semana" id="semana4" class="radio-carousel" value="">
-                        </label>
-
-                        <label for="semana5" class="cCarousel-item">
-                            <div class="texto-semana">Semana 5</div>
-                            <input type="radio" name="selecionar-semana" id="semana5" class="radio-carousel" value="">
-                        </label>
-
-                        <label for="semana6" class="cCarousel-item">
-                            <div class="texto-semana">Semana 6</div>
-                            <input type="radio" name="selecionar-semana" id="semana6" class="radio-carousel" value="">
-                        </label>
-
-                        <label for="semana7" class="cCarousel-item">
-                            <div class="texto-semana">Semana 7</div>
-                            <input type="radio" name="selecionar-semana" id="semana7" class="radio-carousel" value="">
-                        </label>
-
-                    </div>
-                </div>
-
+    <div id="cCarousel">
+        <div class="arrow" id="prev"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="arrow" id="next"><i class="fa-solid fa-chevron-right"></i></div>
+        <div id="carousel-vp">
+            <div id="cCarousel-inner">
+                @forelse ($semanas as $semana)
+                    <label for="semana-{{ $loop->index }}" class="cCarousel-item">
+                        <div class="texto-semana">{{ $semana->nome }}</div>
+                        <!--<div class="texto-semana">{{ $semana->data_inicio }} a {{ $semana->data_fim }}</div>-->
+                        <input type="radio" name="selecionar-semana" id="semana-{{ $loop->index }}" class="radio-carousel" value="{{ $semana->id }}">
+                    </label>
+                @empty
+                    <p>Nenhuma semana disponível.</p>
+                @endforelse
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- ROTEIRO DE AULA -->
         <section class="section-cinza" id="roteiro">
