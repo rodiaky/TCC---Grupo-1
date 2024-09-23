@@ -21,8 +21,10 @@ class HomeController extends Controller
         ->join('users', 'alunos.id_user', '=', 'users.id')
         ->select(
             'temas.frase_tematica as frase_tematica',
+            'temas.texto_apoio as texto_apoio',
             'bancas.nome as banca_nome',
-            'temas.ano as tema_ano'
+            'temas.ano as tema_ano',
+            'temas.imagem as tema_imagem'
         )
         ->where('redacoes.situacao_redacao', 'Corrigida')
         ->where('users.id', '=', $idUser)

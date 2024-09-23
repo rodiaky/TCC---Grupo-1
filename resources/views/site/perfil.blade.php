@@ -8,13 +8,17 @@
 
 @section('conteudo')
 
+    @php
+    $aluno = $_SESSION['eh_admin'] === 'Aluno';
+    @endphp
+
     <main>
         <h1 class="titulo-pagina">Meu Perfil</h1>
         <hr>
 
         <section class="container">
 
-            <div class="container-img"><img src="https://s2-ge.glbimg.com/rmHLMIPB3IZ4oVDP13yaaV0Xfqo=/0x0:510x346/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/P/L/GH725aRLawHtZvCwGQRw/912-cristiano-ronaldo-real-madrid-champons-league-getty.jpg" alt=""></div>
+            <div class="container-img"><img src='{{$perfil->foto}}' alt="{{$perfil->foto}}"></div>
             
             <div class="info-pessoal">
 
@@ -24,9 +28,11 @@
                 <h2 class="info">E-mail</h1>
                 <div class="info-dado">{{$perfil->email}}</div>
 
+                @if ($aluno)
                 <div class="subtitulo"><h1>Informações de Turma</h1><i class="fa-solid fa-pen"></i></div>
                 <h2 class="info">Turma</h2>
                 <div class="info-dado">{{$perfil->nome_turma}}</div>
+                @endif
 
                 <div class="subtitulo"><h1>Segurança</h1><i class="fa-solid fa-pen"></i></div>
                 <h2 class="info">Senha</h2>

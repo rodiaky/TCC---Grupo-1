@@ -24,7 +24,7 @@
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
             <img class="logo" src="/img/logo.png" style="cursor: default"> 
-            <div class="usuario"><i class="material-icons" href="{{ route('perfil.professor') }}">account_circle</i></div> <!--DIV usuario-->
+            <a href="{{ route('perfil.professor') }}" class="usuario"><i class="material-icons">account_circle</i></a> <!--DIV usuario-->
         </div>
 
             <nav id="sidebar" class="sidebar">
@@ -113,7 +113,7 @@
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
             <img class="logo" src="/img/logo.png" style="cursor: default"> 
-            <div class="usuario"><i class="material-icons" href="{{ route('perfil.aluno') }}">account_circle</i></div> <!--DIV usuario-->
+            <a href="{{ route('perfil.aluno') }}" class="usuario"><i class="material-icons">account_circle</i></a> <!--DIV usuario-->
         </div>
 
             <nav id="sidebar" class="sidebar">

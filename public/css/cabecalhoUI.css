@@ -100,6 +100,7 @@
     -webkit-cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
+    color: var(--varPreto);
     transition: all 200ms ease;
 }
 
