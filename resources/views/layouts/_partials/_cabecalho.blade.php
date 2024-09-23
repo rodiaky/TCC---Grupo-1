@@ -62,7 +62,7 @@
 
                         <!-- Reperórios -->
                         <li class="sidebar-item">
-                            <a href="{{ route('repertorios') }}" class="sidebar-item-link">
+                            <a href="{{ route('admin.temasRepertorios') }}" class="sidebar-item-link">
                                 <i class="material-icons">history_edu</i>
                                 <span class="sidebar-link">Repertórios</span>
                             </a>
@@ -158,7 +158,7 @@
     
                         <!-- Repertórios -->
                         <li class="sidebar-item">
-                            <a href="{{ route('repertorios') }}" class="sidebar-item-link">
+                            <a href="{{ route('admin.temasRepertorios') }}" class="sidebar-item-link">
                                 <i class="material-icons">history_edu</i>
                                 <span class="sidebar-link">Repertórios</span>
                             </a>

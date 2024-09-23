@@ -22,7 +22,6 @@
         <hr class="titulo-linha">
 
         @if ($isAdmin)
-        <!-- BOTÃO "+" NO CANTO INFERIOR ESQUERDO -->
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
@@ -80,26 +79,17 @@
 
             <section class="section-cards">
                 @forelse ($repertorios as $repertorio)
-                
                     <article class="card-repertorio">
                         <div class="container-imagem">
                             <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
                         </div>
                         <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}" style="text-decoration: none; color: inherit;">
-                            <h1 class="titulo-repertorio">
-                                @php
-                                
-                                $filterName = strtolower(explode(' ', $repertorio->classificacao)[0]);
-
-                                $icon = $filters[$filterName][0] ?? 'fa-question-circle'; // Ícone padrão caso o filtro não seja encontrado
-                                @endphp
-                                {{ ucfirst($repertorio->nome) }}
-                            </h1>
+                            <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
                         </a>
 
                         <div class="tipo-repertorio">
-                            <div id="tipo-{{ Str::slug($filterName) }}">
-                            <i class="fa-solid {{ $icon }}"></i>
+                            <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
+                                <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
                                 <p>{{ $repertorio->classificacao }}</p>
                             </div>
                         </div>
@@ -107,54 +97,65 @@
                             <p>{{ $repertorio->descricao }}</p>
                         </div>
                         @if ($isAdmin)
-                        <button class="botao-editar botao-repertorio" onclick="event.preventDefault(); showOptions(this);">
-                            <i class="material-icons">more_horizon</i>
-                            <div class="editar-opcoes">
-                                <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
-                                <hr>
-                                <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
-                            </div>
-                        </button>
+                            <button class="botao-editar botao-repertorio" onclick="event.preventDefault(); showOptions(this);">
+                                <i class="material-icons">more_horizon</i>
+                                <div class="editar-opcoes">
+                                    <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
+                                    <hr>
+                                    <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
+                                </div>
+                            </button>
                         @endif
                     </article>
                 @empty
                     <p>Nenhum repertório encontrado.</p>
                 @endforelse
             </section>
+
+            <!-- Pagination Links -->
+<div class="pagination">
+    <div class="flex justify-between">
+        {{-- Pagination Elements --}}
+        <div>
+            {{-- Exibe os números das páginas --}}
+            @for ($i = 1; $i <= $repertorios->lastPage(); $i++)
+                @if ($i == $repertorios->currentPage())
+                    <span class="active">{{ $i }}</span>
+                @else
+                    <a href="{{ $repertorios->url($i) }}" class="pagination-link">{{ $i }}</a>
+                @endif
+            @endfor
+        </div>
+    </div>
+</div>
+
         </form>
     </main>
 
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
     <script>
-
         window.onload = function() {
-            // Inicialmente, captura o rádio button que já está selecionado, se houver
             let lastChecked = document.querySelector('input[type="radio"]:checked');
-
-            // Captura todos os radio buttons do documento
             const radios = document.querySelectorAll('input[type="radio"]');
 
             radios.forEach(radio => {
                 radio.addEventListener('click', function(event) {
-                    // Se o mesmo radio button for clicado novamente
                     if (lastChecked === this) {
-                        this.checked = false; // Desmarca o radio button
-                        lastChecked = null;   // Reseta o último selecionado
+                        this.checked = false;
+                        lastChecked = null;
                     } else {
-                        lastChecked = this;   // Armazena o novo botão como último selecionado
+                        lastChecked = this;
                     }
                 });
             });
         }
 
         function submitFilterForm(filter) {
-            // Marca o rádio correspondente
             const radio = document.getElementById(filter);
             if (radio) {
-                radio.checked = true; // Marca o input de rádio
+                radio.checked = true;
             }
-            document.getElementById('filter-form').submit(); // Envia o formulário de filtros
+            document.getElementById('filter-form').submit();
         }
-        
     </script>
 @endsection
