@@ -49,7 +49,8 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             <form action="{{ route('admin.temas.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="upload">
-                <input type="file" class="arquivo" name="arquivo-material" id="arquivo-material" accept="image/*" required>
+                <input type="file" class="arquivo" name="image" id="image" accept="image/*" required>
+                <input type="hidden" name="id_tema" value="{{$tema->id}}">
             </div>
             
             <button name="salvar" id="salvar">Salvar</button>
