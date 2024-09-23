@@ -1,0 +1,308 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-value{
+    margin-top: 3rem;
+    display: flex;  
+}
+
+form{
+    width: 100%;
+}
+
+.inputbox{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3dvh;
+}
+
+.inputbox input{
+    padding-left: 10px;
+    margin-top: 10px;
+    width: 100%;
+    height: 3rem;
+}
+
+
+
+/*BOTÃO*/
+.button{
+    width: 160px;
+    height: 35px;
+}
+
+.botoes{
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/*ADICIONAR E ALTERAR REPERTORIO*/
+.content{
+    height: 15rem;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#info{
+    height: 4rem;
+}
+
+/*ADICIONAR E ALTERAR QUESTÃO*/
+#alternativa{
+    margin-bottom: 1.7rem;
+}
+
+#categoria{
+    margin-bottom: 1.7rem;
+}
+
+/*ADICIONAR E ALTERAR TEMA*/
+#textoApoio{
+    height: 20rem;
+}
+
+/*ADICIONAR E ALTERAR PASTA*/
+input[type="color"]{
+    border-color: var(--varLaranjaEscuro);
+    border-width: 2px;
+    width: 7rem;
+    height: 2.4rem;
+    margin-top: 0.7rem;
+    padding: 0.1rem;
+    cursor: pointer;
+}
+
+
+/*MENSAGEM DE AVISO ---------------------------------------------------------*/
+.mensagem{
+    display: flex;
+    margin-top: 3rem;
+}
+
+.mensagem ion-icon{
+    margin-right: 2px;
+    background-color: transparent;
+    color: red;
+}
+
+.textoQuestao{ 
+    height: 20rem;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#msg-centro{
+    justify-content: center;
+}
+
+/*COISAS NOVAS - BIA -----------------------------------------------*/
+#nota-maxima{
+    width: 9rem ;
+}
+
+
+/*RESPONSIVIDADE----------------------------------------------------------------------------------*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    h1{
+        margin-top: 1rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    hr{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .form-value{
+        width: 90%;
+        height: auto;
+        padding-top: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .inputbox label{
+        font-size: 1rem;
+    }
+
+    .inputbox input{
+        height: 2.5rem;
+    }
+
+    .botoes{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .select-option{
+        width: 60%;
+    }
+
+    .opcao{
+        font-size: 1rem;
+        height: 2.5rem;
+    }
+
+    #limpar{
+        margin-right: 4rem;
+    }
+
+    .lbl-color{
+        font-size: 1rem;
+    }
+    
+    .mensagem{
+        margin-top: 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    h1{
+        margin-top: 1rem;
+        text-align: left;
+        margin-bottom: 0.5rem;
+        margin-left: 4.5rem;
+    }
+
+    hr{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    .form-value{
+        width: 94%;
+        height: auto;
+        padding-top: 3rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        margin-top: 1rem;
+    }
+  
+    .inputbox label{
+        font-size: 1.5rem;
+    }
+
+    .botoes{
+        margin-bottom: 40px;
+    }
+
+    .select-option{
+        width: 50%;
+    }
+
+    .opcao{
+        font-size: 1.2rem;
+    }
+
+    #limpar{
+        margin-right: 4rem;
+    }
+
+    .lbl-color{
+        font-size: 1.5rem;
+    }
+
+    /*ADICIONAR E ALTERAR REPERTÓRIO*/
+    .addAltRep{
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    h1{
+        margin-top: 1rem;
+        margin-left: 4.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-value{
+        width: 80%;
+        height: auto;
+        padding: 3rem;
+    }
+
+    .botoes{
+        margin-bottom: 10px;
+    }
+
+    #limpar{
+        margin-right: 7rem;
+    }
+
+    /*ADICIONAR E ALTERAR REPERTÓRIO*/
+    .addAltRep{
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .form-value{
+        width: 80%;
+        
+        padding: 4rem;
+    }
+
+    .select-option{
+        width: 40%;
+    }
+
+    /*ADICIONAR E ALTERAR REPERTÓRIO*/
+    .addAltRep{
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .form-value{
+        width: 60%;
+        height: 120 dvh;
+        padding: 4.5rem;
+    }
+
+    #selecionar{
+        width: 45%;
+    }
+
+    .select-option{
+        width: 30%;
+    }
+
+    /*ADICIONAR E ALTERAR REPERTÓRIO*/
+    .addAltRep{
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+}
