@@ -77,7 +77,7 @@
                             <label for="semana-{{ $loop->index }}" class="cCarousel-item">
                                 <div class="texto-semana">{{ $semana->nome }}</div>
                                 <!--<div class="texto-semana">{{ $semana->data_inicio }} a {{ $semana->data_fim }}</div>-->
-                                <input type="radio" name="selecionar-semana" id="semana-{{ $loop->index }}" class="radio-carousel" value="{{ $semana->id }}">
+                                <input type="radio" name="selecionar-semana" id="semana-{{ $loop->index }}" class="radio-carousel" value="{{ $semana->id }}" {{ $semana->id == $semanaSelecionada->id ? 'checked' : '' }}>
                             </label>
                         @empty
                             <p>Nenhuma semana disponível.</p>
@@ -94,22 +94,23 @@
         
             <div class="texto-section-cinza">Temas da Semana</div>
 
+            @foreach ($temaSemana as $tema)
             <div class="container-items-redacao">
-
-                <a href="">
+                <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
                     <div class="tema-secao hover">
                         <div class="container-imagem">
-                            <img src="" alt="" class="imagem-tema">
+                            <img src="{{$tema->imagem}}" alt="" class="imagem-tema">
                         </div>
                         <div class="frase-tematica">
-                            <p>aaaaaaaaaaaaaaa</p>
+                            <p>{{$tema->frase_tematica}}</p>
                         </div>
-                        <div class="banca-ano">aaaaaa</div>
+                        <div class="banca-ano">{{$tema->banca_nome}}/{{$tema->ano}}</div>
                         <div class="spoiler">
-                            <p></p>
+                            <p>{{$tema->texto_apoio}}</p>
                         </div>
                     </div>
                 </a>
+                @endforeach
 
             <div class="texto-section-cinza">Materiais de Apoio</div>
 
@@ -119,29 +120,36 @@
                     <div class="card-materiais-texto">Materiais</div>
                 </article>
 
-                <article class="repertorio-home card-repertorio hover">
-                    <div class="container-imagem"><img src="https://blog.polipet.com.br/wp-content/uploads/2024/01/pato-445x445.jpeg" alt="" class="imagem-repertorio"></div>
-                    <h1 class="titulo-repertorio">Título</h1>
-                    <div class="tipo-repertorio">
-                        <div id="tipo-filosofia">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <p>Filosofia</p>
-                        </div>
-                    </div>
-                    <div class="spoiler-repertorio"><p>Stegoceras é um gênero de dinossauro paquicefalossaurídeo (com cabeça de cúpula) que viveu no que hoje é a América do Norte durante o período Cretáceo Superior, há cerca de 77,5 a 74 milhões de anos. Os primeiros espécimes, de Alberta, Canadá, foram descritos em 1902, e a espécie-tipo Stegoceras validum foi baseada nestes restos. O nome genérico significa "telhado de chifre" e o nome específico significa "forte". Várias outras espécies foram inseridas no gênero ao longo dos anos, mas foram movidas posteriormente para outros gêneros ou consideradas sinônimos juniores. Atualmente apenas o S. validum e S. novomexicanum, nomeados em 2011 a partir de fósseis encontrados no Novo México, permanecem. A validade desse último táxon também foi debatida.</p></div>
-                </article>
+                @php
+                    $filters = [
+                        'filosofia' => ['fa-graduation-cap', ''],
+                        'sociologia' => ['fa-users', ''],
+                        'obra' => ['fa-book', 'Literária'],
+                        'estatística' => ['fa-chart-simple', ''],
+                        'textos' => ['fa-scale-balanced', 'Legais'],
+                        'cinema' => ['fa-film', ''],
+                        'artes' => ['fa-palette', ''],
+                        'história' => ['fa-landmark', ''],
+                        'atualidades' => ['fa-earth-americas', '']
+                    ];
+                @endphp
 
+                @foreach ($repertorioSemana as $repertorio)
                 <article class="repertorio-home card-repertorio hover">
-                    <div class="container-imagem"><img src="https://blog.polipet.com.br/wp-content/uploads/2024/01/pato-445x445.jpeg" alt="" class="imagem-repertorio"></div>
-                    <h1 class="titulo-repertorio">Título</h1>
+                    <div class="container-imagem"><img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio"></div>
+                    <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $repertorio->id_pasta]) }}" style="text-decoration: none; color: inherit;">
+                        <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
+                    </a>
                     <div class="tipo-repertorio">
-                        <div id="tipo-artes">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <p>Artes</p>
+                        <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
+                            <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
+                            <p>{{ $repertorio->classificacao }}</p>
                         </div>
                     </div>
-                    <div class="spoiler-repertorio"><p>Stegoceras é um gênero de dinossauro paquicefalossaurídeo (com cabeça de cúpula) que viveu no que hoje é a América do Norte durante o período Cretáceo Superior, há cerca de 77,5 a 74 milhões de anos. Os primeiros espécimes, de Alberta, Canadá, foram descritos em 1902, e a espécie-tipo Stegoceras validum foi baseada nestes restos. O nome genérico significa "telhado de chifre" e o nome específico significa "forte". Várias outras espécies foram inseridas no gênero ao longo dos anos, mas foram movidas posteriormente para outros gêneros ou consideradas sinônimos juniores. Atualmente apenas o S. validum e S. novomexicanum, nomeados em 2011 a partir de fósseis encontrados no Novo México, permanecem. A validade desse último táxon também foi debatida.</p></div>
+                    <div class="spoiler-repertorio"><p>{{ $repertorio->descricao }}</p></div>
                 </article>
+                @endforeach
+                
 
             </div>
 
