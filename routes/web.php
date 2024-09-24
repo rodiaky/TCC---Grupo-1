@@ -78,6 +78,15 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/uploadRedacao', [TemaController::class, 'store'])->name('admin.temas.store');
         });
 
+        Route::prefix('turmas')->group(function() {
+            Route::get('/', [TurmasController::class, 'index'])->name('admin.turmas');
+            Route::get('/adicionar', [TurmasController::class, 'adicionar'])->name('admin.turmas.adicionar');
+            Route::post('/salvar', [TurmasController::class, 'salvar'])->name('admin.turmas.salvar');
+            Route::get('/editar/{id}', [TurmasController::class, 'editar'])->name('admin.turmas.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [TurmasController::class, 'atualizar'])->name('admin.turmas.atualizar');
+            Route::get('/excluir/{id}', [TurmasController::class, 'excluir'])->name('admin.turmas.excluir');            
+        });
+
         Route::prefix('questoes')->group(function() {
             Route::get('/', [QuestoesController::class, 'index'])->name('admin.questoes');
             Route::get('/gramatica', [QuestoesController::class, 'gramatica'])->name('admin.questoes.gramatica');
@@ -112,6 +121,10 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::match(['get', 'post'], '/atualizar/{id}', [MateriaisController::class, 'atualizar'])->name('admin.materiais.atualizar');
             Route::get('/excluir/{id}', [MateriaisController::class, 'excluir'])->name('admin.materiais.excluir');
         });
+
+        
+        
+    
 
         Route::prefix('temasRepertorios')->group(function() {
             Route::get('/', [TemaRepertoriosController::class, 'index'])->name('admin.temasRepertorios');

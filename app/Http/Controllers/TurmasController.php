@@ -12,7 +12,7 @@ class TurmasController extends Controller
 {
     public function index(){
         $rows = Turmas::all();
-        return view('site.turmas.turmas', compact('rows'));
+        return view('admin.turmas.turmas', compact('rows'));
     }
 
     public function adicionar() {
