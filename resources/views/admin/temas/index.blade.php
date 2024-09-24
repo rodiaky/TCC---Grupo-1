@@ -53,7 +53,7 @@ $currentFilter = request('filtros');
                     </div>
                 </button>
                 @endif
-                <div class="container-imagem">
+                <div class="container-imagem-tema">
                     <img src="{{ $tema->imagem }}" alt="" class="imagem-tema">
                 </div>
                 <div class="frase-tematica">

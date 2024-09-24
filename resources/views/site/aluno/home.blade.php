@@ -14,10 +14,10 @@
         <!-- MENU -->
         <section class="menu-home">
 
-            <!-- REDACOES -->
+            <!-- TEMA REDACOES -->
             <div class="card">
-                <a href="{{ url('/painel_redacoes') }}"><img src="https://blog.unipar.br/wp-content/uploads/2020/11/afa8d7c2f9d0641e8c65c20b46b92c00-1110x508.jpg" alt="imagemRedacao" class="imagem-card"></a>
-                <div class="texto-card">Redações</div>
+                <a href="{{ route('temaRedacoes') }}"><img src="https://blog.unipar.br/wp-content/uploads/2020/11/afa8d7c2f9d0641e8c65c20b46b92c00-1110x508.jpg" alt="imagemRedacao" class="imagem-card"></a>
+                <div class="texto-card">Temas de Redações</div>
             </div>
 
             <!-- REPERTORIOS -->
@@ -38,6 +38,12 @@
                 <div class="texto-card">Questões</div>
             </div>
 
+            <!-- MINHAS REDACOES -->
+            <div class="card">
+                <a href="{{ url('/painel_redacoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <div class="texto-card">Minhas Redações</div>
+            </div>
+
         </section>
 
         <!-- REDACOES CORRIGIDAS -->
@@ -49,7 +55,7 @@
 
                 <a href="">
                     <div class="tema-secao hover">
-                        <div class="container-imagem">
+                        <div class="container-imagem-tema">
                             <img src="{{ $redacoes->tema_imagem }}" alt="{{ $redacoes->tema_imagem }}" class="imagem-tema">
                         </div>
                         <div class="frase-tematica">
@@ -98,8 +104,13 @@
             <div class="container-items-redacao">
                 <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
                     <div class="tema-secao hover">
+<<<<<<< Updated upstream
                         <div class="container-imagem">
                             <img src="{{$tema->imagem}}" alt="" class="imagem-tema">
+=======
+                        <div class="container-imagem-tema">
+                            <img src="" alt="" class="imagem-tema">
+>>>>>>> Stashed changes
                         </div>
                         <div class="frase-tematica">
                             <p>{{$tema->frase_tematica}}</p>

@@ -28,7 +28,9 @@
     flex-wrap: wrap;
     user-select: none;
     width: 100%;
-    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
@@ -156,6 +158,7 @@
 
     .menu-home {
         gap: 1rem;
+        max-width: 300px;
     }
 
     .imagem-card {
@@ -189,6 +192,7 @@
 
     .menu-home {
         gap: 2rem;
+        max-width: 500px;
     }
 
     .imagem-card {
@@ -222,6 +226,7 @@
 
     .menu-home {
         gap: 2rem;
+        max-width: 600px;
     }
 
     .imagem-card {
@@ -255,10 +260,11 @@
 
     .menu-home {
         gap: 2rem;
+        max-width: 600px;
     }
 
     .imagem-card {
-        height: 175px;
+        height: 170px;
     }
 
     .texto-card {
@@ -288,6 +294,11 @@
 
     .menu-home {
         gap: 2rem;
+        max-width: none;
+    }
+
+    #menu-home-professor {
+        max-width: 800px;
     }
 
     .imagem-card {

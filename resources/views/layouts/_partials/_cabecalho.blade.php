@@ -144,7 +144,7 @@
                         <li class="sidebar-item">
                             <a href="{{ route('temaRedacoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">edit_square</i>
-                                <span class="sidebar-link">Temas</span>
+                                <span class="sidebar-link">Temas de Redações</span>
                             </a>
                         </li>
     

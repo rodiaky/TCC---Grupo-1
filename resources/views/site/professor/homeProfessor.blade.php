@@ -14,7 +14,7 @@
     <main>
 
         <!-- MENU -->
-        <section class="menu-home">
+        <section class="menu-home" id="menu-home-professor">
 
             <div class="card">
                 <a href="{{ url('/redacoes_pendentes') }}"><img src="https://blog.unipar.br/wp-content/uploads/2020/11/afa8d7c2f9d0641e8c65c20b46b92c00-1110x508.jpg" alt="imagemRedacao" class="imagem-card"></a>

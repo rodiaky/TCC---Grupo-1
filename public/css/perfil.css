@@ -22,7 +22,7 @@
 }
 
 .info-pessoal {
-    background-color: var(--varBranco);
+    background-color: var(--varCinzaEscuro);
     width: 100%;
     padding: 1.5rem 2rem 1.5rem 2rem;
 }
@@ -59,7 +59,7 @@ i:active {
 
 .info-dado {
     color: var(--varPreto);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: .8rem;
 }
 
