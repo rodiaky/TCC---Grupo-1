@@ -75,3 +75,20 @@ h1{
 .lbl-color{
     color: var(--varLaranjaEscuro);
 }
+
+/*COISAS NOVAS - BIA ------------------------------------------------------------*/
+#file-list {
+    border-radius: 15px; 
+    border: 2px solid var(--varLaranjaEscuro); 
+    background-color: var(--varBranco);
+}
+
+#file-list div {
+    padding: 5px; 
+    border-bottom: 1px solid #eee; 
+    background-color: var(--varBranco);
+}
+
+#file-list div:last-child {
+    border-bottom: none; 
+}

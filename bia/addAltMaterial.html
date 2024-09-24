@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="Arquivo.css">
+    <link rel="stylesheet" type="text/css" href="selecao.css">
+    <title>Adicionar e alterar material</title>
+</head>
+<body>
+    <main>
+        <h1>Extends (Adicionar/alterar material)</h1><hr>
+    </main>
+
+    <article>
+        <div class="form-value">
+            <form action="">
+                <div class="inputbox">
+                    <label for="">Nome do material</label>
+                    <input type="text" name="tema-repertorio" required>
+                </div>
+
+                <label class="lbl-upload">Upload de arquivo</label>
+                <div class="upload">
+                    <input type="file" class="arquivo" name="arquivo-material" id="arquivo-material"  multiple required>
+                </div>
+
+                <div id="file-list"></div>
+
+                <div class="select">
+                    <div class="selected">
+                      <script>
+                        function changeDay(pasta){
+                          document.getElementById("text-selected-pasta").textContent = pasta;
+                        }
+                      </script>
+                      <span id="text-selected-pasta">Pasta</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                        class="arrow"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        ></path>
+                      </svg>
+                    </div><!--selected-data-->
+                    <div class="options">
+                      <div>
+                        <input id="pasta-1" name="pasta-1" type="radio" checked="" onClick="changeDay('Pasta 1')"/>
+                        <label class="option" for="pasta-1" data-txt="Pasta 1"></label>
+                      </div>
+                
+                      <div>
+                        <input id="pasta-2" name="pasta-2" type="radio" onClick="changeDay('Pasta 2')"/>
+                        <label class="option" for="pasta-2" data-txt="Pasta 2"></label>
+                      </div>
+                
+                      <div>
+                        <input id="pasta-3" name="pasta-3" type="radio" onClick="changeDay('Pasta 3')"/>
+                        <label class="option" for="pasta-3" data-txt="Pasta 3"></label>
+                      </div>
+                
+                      <div>
+                        <input id="pasta-4" name="pasta-4" type="radio" onClick="changeDay('Pasta 4')"/>
+                        <label class="option" for="pasta-4" data-txt="Pasta 4"></label>
+                      </div>
+                
+                    </div><!--options-->
+                  </div><!--Select-->
+
+                  <div class="mensagem">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    Preencha todos os campos antes de avançar
+                </div>
+                  
+                <div class="botoes">
+                    <button name="limpar" id="limpar" class="button">Limpar</button>
+                    <button name="salvar" class="button">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </article>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <script>
+      const fileInput = document.getElementById('arquivo-material');
+      const fileList = document.getElementById('file-list');
+
+      fileInput.addEventListener('change', (event) => {
+          const files = event.target.files;
+          fileList.innerHTML = ''; // Limpa a lista anterior
+
+          if (files.length > 0) {
+              fileList.style.display = 'block'; // Mostra a div se arquivos foram selecionados
+          } else {
+              fileList.style.display = 'none'; // Esconde a div se nenhum arquivo foi selecionado
+          }
+
+          for (let i = 0; i < files.length; i++) {
+              const fileName = document.createElement('div');
+              fileName.textContent = files[i].name;
+              fileList.appendChild(fileName);
+          }
+      });
+  </script>
+
+  </body>
+</html>

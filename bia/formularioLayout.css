@@ -114,6 +114,17 @@ input[type="color"]{
     width: 9rem ;
 }
 
+#file-list {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#file-list div {
+    padding: 5px; 
+}
+
 
 /*RESPONSIVIDADE----------------------------------------------------------------------------------*/
 /* Extra small devices (phones, 600px and down) */
@@ -280,6 +291,11 @@ input[type="color"]{
         justify-content: space-between;
         margin-top: 3rem;
     }
+
+    /*ADICIONAR E ALTERAR MATERIAL - BIA*/
+    #file-list {
+        margin-top: 8px;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -304,5 +320,11 @@ input[type="color"]{
         text-align: center;
         justify-content: space-between;
         margin-top: 3rem;
+    }
+
+     /*ADICIONAR E ALTERAR MATERIAL - BIA*/
+     #file-list {
+        margin-top: 2px;
+        margin-bottom: 39px;
     }
 }
