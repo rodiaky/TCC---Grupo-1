@@ -104,13 +104,8 @@
             <div class="container-items-redacao">
                 <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
                     <div class="tema-secao hover">
-<<<<<<< Updated upstream
-                        <div class="container-imagem">
-                            <img src="{{$tema->imagem}}" alt="" class="imagem-tema">
-=======
                         <div class="container-imagem-tema">
-                            <img src="" alt="" class="imagem-tema">
->>>>>>> Stashed changes
+                            <img src="{{$tema->imagem}}" alt="" class="imagem-tema">
                         </div>
                         <div class="frase-tematica">
                             <p>{{$tema->frase_tematica}}</p>
