@@ -73,4 +73,6 @@ class HomeController extends Controller
 
         return view('site.aluno.home',compact('redacoesCorrigidas','semanas','semanaSelecionada','temaSemana','materialSemana','repertorioSemana'));
     }
+
+    
 }

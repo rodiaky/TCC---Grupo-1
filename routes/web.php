@@ -120,6 +120,10 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
         Route::prefix('pastaMateriais')->group(function() {
             Route::get('/', [PastaMateriaisController::class, 'index'])->name('admin.pastaMateriais');
         });
+
+        Route::prefix('carregarSemana')->group(function() {
+            Route::get('/', [PastaMateriaisController::class, 'index'])->name('admin.carregarSemana');
+        });
     });
 
     // Other Routes

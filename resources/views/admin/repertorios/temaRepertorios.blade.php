@@ -38,6 +38,18 @@
                         <p>{{ $pasta->nome }}</p>
                     </div>
                 </a>
+
+                @if ($isAdmin)
+                <button class="botao-editar">
+                    <i class="material-icons">more_horizon</i>
+                    <div class="editar-opcoes">
+                        <a href="#" class="editar-opcoes-texto">Editar</a>
+                        <hr>
+                        <a href="#" class="editar-opcoes-texto">Excluir</a>
+                    </div>
+                </button>
+                @endif
+                
             </div>
             @empty
             <p>Nenhum tema disponível.</p>

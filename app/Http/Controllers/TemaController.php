@@ -70,10 +70,6 @@ class TemaController extends Controller
         Temas::find($id)->update($dados);
         return redirect()->route('admin.temas');
     }
-<<<<<<< Updated upstream
-
-    public function store(Request $request) {
-=======
     public function store(Request $request)
     {
         $idUser = $_SESSION['id'];
@@ -97,7 +93,6 @@ class TemaController extends Controller
         ->first();
 
         $id_bancas=$idtema->id_banca;
->>>>>>> Stashed changes
         // Validar a imagem
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -109,10 +104,6 @@ class TemaController extends Controller
 
         // Salvar o caminho da imagem no banco de dados
         $image = new Redacoes();
-<<<<<<< Updated upstream
-        $image->image_path = 'assets/redacao_enviada/' . $imageName;
-        $image->save();
-=======
         $image->redacao_enviada = $imageName;
         $image->situacao_redacao= 'Pendente';
         $image->id_banca = $id_bancas;
@@ -122,7 +113,6 @@ class TemaController extends Controller
         
         dd($image);
         /*
->>>>>>> Stashed changes
 
         if ($image->save()) {
             return back()->with('success', 'Imagem enviada com sucesso!');

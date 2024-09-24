@@ -29,26 +29,28 @@
 
         <section class="pastas"> 
         @forelse ($pastas as $pasta)
-            <div class="wrapper">
-                <div class="quadrado">
-                <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}" style="text-decoration: none; color: inherit;">
-                    <img src="{{ $pasta->imagem }}" alt="Imagem do tema" class="img-tema">
-                </a>
-                @if ($isAdmin)
-                    <button class="botao-editar">
-                        <i class="material-icons">more_horizon</i>
-                        <div class="editar-opcoes">
-                            <a href="#" class="editar-opcoes-texto">Editar</a>
-                            <hr>
-                            <a href="#" class="editar-opcoes-texto">Excluir</a>
-                        </div>
-                    </button>
-                @endif
+
+            
+                <div class="wrapper">
+                
+                    <div class="quadrado">
+                        <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}" class="imagem-tema" style="background-image:url('{{ $pasta->imagem }}'"></a>
+                    @if ($isAdmin)
+                        <button class="botao-editar">
+                            <i class="material-icons">more_horizon</i>
+                            <div class="editar-opcoes">
+                                <a href="#" class="editar-opcoes-texto">Editar</a>
+                                <hr>
+                                <a href="#" class="editar-opcoes-texto">Excluir</a>
+                            </div>
+                        </button>
+                    @endif
+                    </div>
+                    <div class="escrito">
+                        <p>{{ $pasta->nome }}</p>
+                    </div>
                 </div>
-                <div class="escrito">
-                    <p>{{ $pasta->nome }}</p>
-                </div>
-            </div>
+
             @empty
             <p>Nenhuma pasta disponível.</p>
             @endforelse

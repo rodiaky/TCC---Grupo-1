@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     transition: 200ms all ease;
 }
 
@@ -35,6 +36,86 @@
     margin-top: .5rem;
     text-align: center;
     text-wrap: wrap;
+}
+
+/* BOTAO ---------------------------------------------------------- */
+
+.botao-editar {
+
+    position: absolute;
+
+    right: 10px;
+
+    border: none;
+    background: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+}
+
+.botao-editar .material-icons{
+
+    font-size: 2rem;
+    color: var(--varPreto);
+    width: 2rem;
+
+    transition: color 200ms ease;
+}
+
+.botao-editar .material-icons:hover {
+    color: var(--varLaranjaEscuro);
+}
+
+.editar-opcoes{
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    width: 0;
+    height: 0;
+
+    top: 25px;
+    right: 0;
+    padding: 0;
+
+    opacity: 0;
+
+    background-color: var(--varLaranjaClaro);
+    border-radius: .5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    transition: width 200ms ease, opacity 200ms ease;
+}
+
+.editar-opcoes hr{
+    border: 1px solid var(--varPreto);
+}
+
+.editar-opcoes-texto{
+    width: fit-content;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--varPreto);
+    text-decoration: none;
+    transition: all 200ms ease;
+}
+
+.botao-editar:focus > .editar-opcoes {
+    width: 7rem;
+    height: 5rem;
+    opacity: 1;
+    padding: .8rem .5rem .8rem .5rem;
+}
+
+.editar-opcoes-texto:hover{
+    opacity: .6;
 }
 
 /*RESPONSIVIDADE ----------------------------------------------------------------- */
