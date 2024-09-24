@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 article{
     display: flex;
     justify-content: center;
@@ -7,7 +13,7 @@ article{
 
 .form-value{
     margin-top: 3rem;
-    display: flex;
+    display: flex;  
 }
 
 form{
@@ -28,6 +34,7 @@ form{
 }
 
 
+
 /*BOTÃO*/
 .button{
     width: 160px;
@@ -36,7 +43,7 @@ form{
 
 .botoes{
     width: 100%;
-    margin-top: 7dvh;
+    margin-top: 1.5rem;
     display: flex;
     justify-content: center;
 }
@@ -67,25 +74,52 @@ form{
     height: 20rem;
 }
 
+/*ADICIONAR E ALTERAR PASTA*/
+input[type="color"]{
+    border-color: var(--varLaranjaEscuro);
+    border-width: 2px;
+    width: 7rem;
+    height: 2.4rem;
+    margin-top: 0.7rem;
+    padding: 0.1rem;
+    cursor: pointer;
+}
 
 
 /*MENSAGEM DE AVISO ---------------------------------------------------------*/
 .mensagem{
-    margin-top: 1rem;
+    display: flex;
+    margin-top: 3rem;
 }
 
 .mensagem ion-icon{
+    margin-right: 2px;
+    background-color: transparent;
     color: red;
 }
 
-.textoQuestao{
+.textoQuestao{ 
     height: 20rem;
     padding: 10px;
     margin-top: 10px;
     width: 100%;
 }
 
-/*Adicionar arquivo-------------------------------------------------------------------------------------------------------------------------*/
+.textoAlternativa{ 
+    height: 7rem;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.textoAlternativa::-webkit-scrollbar{ 
+    display: none;
+}
+
+#msg-centro{
+    justify-content: center;
+}
 
 /*RESPONSIVIDADE----------------------------------------------------------------------------------*/
 /* Extra small devices (phones, 600px and down) */
@@ -136,6 +170,14 @@ form{
     #limpar{
         margin-right: 4rem;
     }
+
+    .lbl-color{
+        font-size: 1rem;
+    }
+    
+    .mensagem{
+        margin-top: 1rem;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -179,6 +221,10 @@ form{
 
     #limpar{
         margin-right: 4rem;
+    }
+
+    .lbl-color{
+        font-size: 1.5rem;
     }
 
     /*ADICIONAR E ALTERAR REPERTÓRIO*/

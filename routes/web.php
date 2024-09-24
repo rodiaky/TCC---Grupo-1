@@ -128,10 +128,20 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
 
         Route::prefix('temasRepertorios')->group(function() {
             Route::get('/', [TemaRepertoriosController::class, 'index'])->name('admin.temasRepertorios');
+            Route::get('/adicionar', [TemaRepertoriosController::class, 'adicionar'])->name('admin.temasRepertorios.adicionar');
+            Route::post('/salvar', [TemaRepertoriosController::class, 'salvar'])->name('admin.temasRepertorios.salvar');
+            Route::get('/editar/{id}', [TemaRepertoriosController::class, 'editar'])->name('admin.temasRepertorios.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [TemaRepertoriosController::class, 'atualizar'])->name('admin.temasRepertorios.atualizar');
+            Route::get('/excluir/{id}', [TemaRepertoriosController::class, 'excluir'])->name('admin.temasRepertorios.excluir');            
         });
 
-        Route::prefix('pastaMateriais')->group(function() {
-            Route::get('/', [PastaMateriaisController::class, 'index'])->name('admin.pastaMateriais');
+        Route::prefix('pastasMateriais')->group(function() {
+            Route::get('/', [PastaMateriaisController::class, 'index'])->name('admin.pastasMateriais');
+            Route::get('/adicionar', [PastaMateriaisController::class, 'adicionar'])->name('admin.pastasMateriais.adicionar');
+            Route::post('/salvar', [PastaMateriaisController::class, 'salvar'])->name('admin.pastasMateriais.salvar');
+            Route::get('/editar/{id}', [PastaMateriaisController::class, 'editar'])->name('admin.pastasMateriais.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [PastaMateriaisController::class, 'atualizar'])->name('admin.pastasMateriais.atualizar');
+            Route::get('/excluir/{id}', [PastaMateriaisController::class, 'excluir'])->name('admin.pastasMateriais.excluir');            
         });
 
         Route::prefix('carregarSemana')->group(function() {

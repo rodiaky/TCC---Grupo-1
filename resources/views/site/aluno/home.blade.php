@@ -28,7 +28,7 @@
 
             <!-- MATERIAIS -->
             <div class="card">
-                <a href="{{ url('/materiais') }}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDaUfHGduhGapOSADboo67PDCiZkpAWdK1g&s" alt="" class="imagem-card"></a>
+                <a href="{{ route('admin.pastasMateriais') }}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDaUfHGduhGapOSADboo67PDCiZkpAWdK1g&s" alt="" class="imagem-card"></a>
                 <div class="texto-card">Materiais</div>
             </div>
 

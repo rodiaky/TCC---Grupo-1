@@ -71,3 +71,12 @@ h1{
     border-style: solid;
     border-width: 2px;
 }
+
+.textoAlternativa{
+    background-color: var(--varBranco);
+    border-radius: 15px;
+    border-color: var(--varLaranjaEscuro);
+    border-style: solid;
+    border-width: 2px;
+}
+
