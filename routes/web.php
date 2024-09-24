@@ -75,7 +75,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::match(['get', 'post'], '/atualizar/{id}', [TemaController::class, 'atualizar'])->name('admin.temas.atualizar');
             Route::get('/excluir/{id}', [TemaController::class, 'excluir'])->name('admin.temas.excluir');
             Route::get('/visualizarTema/{id}', [TemaController::class, 'visualizarTema'])->name('admin.temas.visualizar');
-            Route::get('/uploadRedacao', [TemaController::class, 'store'])->name('admin.temas.store');
+            Route::post('/store', [TemaController::class, 'store'])->name('admin.temas.store');
         });
 
         Route::prefix('turmas')->group(function() {

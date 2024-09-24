@@ -70,6 +70,10 @@ class TemaController extends Controller
         Temas::find($id)->update($dados);
         return redirect()->route('admin.temas');
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     public function store(Request $request)
     {
         $idUser = $_SESSION['id'];
@@ -79,20 +83,25 @@ class TemaController extends Controller
         $perfil = DB::table('users')
         ->join('alunos', 'users.id', '=', 'alunos.id_user')
         ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
-        ->select('users.name as name', 'turmas.nome as nome_turma', 'users.email as email', 'users.password as password', 'turmas.id as id_turma', 'alunos.id as id_aluno')            
+        ->select('turmas.id as id_turma', 'alunos.id as id_aluno')            
         ->where('users.id', '=', $idUser)
         ->first();
 
         $idturma=$perfil->id_turma;
         $idaluno=$perfil->id_aluno;
 
-        $idtema = DB::table('temas')
+        $tema = DB::table('temas')
         ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
-        ->select('temas.*', 'temas.id_banca as id_banca', 'temas.id as temas_id') // Select all fields from temas and banca name
+        ->select( 'temas.id_banca as id_banca') // Select all fields from temas and banca name
         ->where('temas.id', '=', $idTema)
         ->first();
 
+<<<<<<< Updated upstream
         $id_bancas=$idtema->id_banca;
+=======
+        $id_bancas=$tema->id_banca;
+
+>>>>>>> Stashed changes
         // Validar a imagem
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -104,6 +113,10 @@ class TemaController extends Controller
 
         // Salvar o caminho da imagem no banco de dados
         $image = new Redacoes();
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         $image->redacao_enviada = $imageName;
         $image->situacao_redacao= 'Pendente';
         $image->id_banca = $id_bancas;
@@ -111,15 +124,20 @@ class TemaController extends Controller
         $image->id_turma = $idturma;
         $image->id_aluno = $idaluno;
         
+<<<<<<< Updated upstream
         dd($image);
         /*
+=======
+        
+
+>>>>>>> Stashed changes
 
         if ($image->save()) {
             return back()->with('success', 'Imagem enviada com sucesso!');
         } else {
             return back()->with('error', 'Falha ao salvar a imagem no banco de dados.');
         }
-            */
+        
     }
 }
 
