@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="selecao.css">
+    <link rel="stylesheet" type="text/css" href="teste.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://dicadodesenvolvedor.com.br/script/select-busca.js"></script>
     <title>Informações da semana</title>
@@ -15,30 +13,32 @@
     <main>
         <h1>Informações da semana</h1><hr>
     </main>
-    
-    <article>
-        <div class="form-value">
-            <form action="">
-              <select class="">
-                <option value="3620194" selected="selected">Semana </option>
-              </select>
+     
+    <div class="select-box">
+        <div class="select-option">
+            <input type="text" placeholder="Select" id="soVAlue" readonly name="">
 
-                  <div class="mensagem">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    Preencha todos os campos antes de avançar 
-                </div>
-
-                </div>
-                  
-                <div class="botoes">
-                    <button name="limpar" id="limpar" class="button">Limpar</button>
-                    <button name="salvar" class="button">Salvar</button>
-                </div>
-            </form>
         </div>
-    </article>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <div class="content">
+            <div class="search">
+                <input type="text" id="optionSearch" placeholder="Search" name="">
+            </div>
+             <ul class="options">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>Python</li>
+                <li>Laravel</li>
+                <li>Angular</li>
+
+             </ul>
+
+        </div>
+    </div>
+
+              
+    
     <script src="semana.js"></script>
 </body>
 </html>

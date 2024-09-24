@@ -1,4 +1,4 @@
-$(".js-data-example-ajax").select2({
+/*$(".js-data-example-ajax").select2({
     ajax: {
       url: "https://api.github.com/search/repositories",
       dataType: 'json',
@@ -23,4 +23,9 @@ $(".js-data-example-ajax").select2({
     minimumInputLength: 1,
     templateResult: formatRepo, // omitted for brevity, see the source of this page
     templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
-  });
+  });*/
+
+  // In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+  $('.js-example-basic-single').select2();
+});
