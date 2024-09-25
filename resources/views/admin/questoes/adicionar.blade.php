@@ -4,48 +4,50 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <title>Adicionar Questão</title>
-@endsection
+    <title>Adicionar questão</title>
+    @endsection
 
 @section('conteudo')
     <main>
-        <h1>Adicionar</h1><hr>
+        <h1>Adicionar questão</h1><hr>
     </main>
     
     <article>
         <div class="form-value">
-            <form action="{{route('admin.questoes.salvar')}}" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
+        <form action="{{ route('admin.questoes.salvar') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+
                 <div class="inputbox">
                     <label for="">Texto da questão</label>
-                    <textarea class="textoQuestao" required></textarea>
+                    <textarea class="textoQuestao" name="enunciado" required>{{ isset($questoes->enunciado) ? $questoes->enunciado : '' }}</textarea>
                 </div>
+                
 
                 <div class="inputbox">
-                    <label for="">Alternativa A</label>
-                    <textarea class="textoQuestao" required></textarea>
+                  <label for="">Alternativa A</label>
+                  <textarea id="alt-a" class="textoAlternativa" name="alternativa_A" required>{{ isset($questoes->alternativa_A) ? $questoes->alternativa_A : '' }}</textarea>
                 </div>
-
                 <div class="inputbox">
-                    <label for="">Alternativa B</label>
-                    <textarea class="textoQuestao" required></textarea>
+                  <label for="">Alternativa B</label>
+                  <textarea id="alt-b" class="textoAlternativa" name="alternativa_B" required>{{ isset($questoes->alternativa_B) ? $questoes->alternativa_B : '' }}</textarea>
                 </div>
-
                 <div class="inputbox">
-                    <label for="">Alternativa C</label>
-                    <textarea class="textoQuestao" required></textarea>
+                  <label for="">Alternativa C</label>
+                  <textarea id="alt-c" class="textoAlternativa" name="alternativa_C" required>{{ isset($questoes->alternativa_C) ? $questoes->alternativa_C : '' }}</textarea>
                 </div>
-
                 <div class="inputbox">
-                    <label for="">Alternativa D</label>
-                    <textarea class="textoQuestao" required></textarea>
+                  <label for="">Alternativa D</label>
+                  <textarea id="alt-d" class="textoAlternativa" name="alternativa_D" required>{{ isset($questoes->alternativa_D) ? $questoes->alternativa_D : '' }}</textarea>
                 </div>
-
                 <div class="inputbox">
-                    <label for="">Alternativa E</label>
-                    <textarea class="textoQuestao"></textarea>
+                  <label for="">Alternativa E</label>
+                  <textarea id="alt-e" class="textoAlternativa" name="alternativa_E">{{ isset($questoes->alternativa_E) ? $questoes->alternativa_E : '' }}</textarea>
                 </div>
 
+                <div id="inputboxAno" class="inputbox">
+                    <label for="ano">Ano</label>
+                    <input type="number" id="ano" name="ano" min="2000" value="{{ isset($questoes->ano) ? $questoes->ano : '2024' }}">
+                </div>
 
                 <div class="addAltQuestao">
                 <div id="alternativa" class="select"> <!--Select para alternativa-->
@@ -55,7 +57,7 @@
                           document.getElementById("text-selected-alternativa").textContent = alternativa;
                         }
                       </script>
-                      <span id="text-selected-alternativa">Resposta</span>
+                      <span id="text-selected-alternativa">Alternativa</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"
@@ -67,7 +69,7 @@
                         ></path>
                       </svg>
                     </div>
-                    <div class="options">
+                    <div id="primeiro" class="options">
                       <div>
                         <input id="alt-a" name="alt-a" type="radio" checked="" onclick="changeAlternativa('A')"/>
                         <label class="option" for="alt-a" data-txt="A"></label>

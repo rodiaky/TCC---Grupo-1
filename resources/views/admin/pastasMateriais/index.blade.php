@@ -22,7 +22,7 @@
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
-                <a href="" class="botao-texto">Adicionar Pasta</a>
+                <a href="{{ route('admin.pastasMateriais.adicionar') }}" class="botao-texto">Adicionar Pasta</a>
             </div>
         </button>
         @endif
@@ -41,9 +41,9 @@
                         <button class="botao-editar">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
-                                <a href="#" class="editar-opcoes-texto">Editar</a>
+                                <a href="{{ route('admin.pastasMateriais.editar',$pasta->id) }}" class="editar-opcoes-texto">Editar</a>
                                 <hr>
-                                <a href="#" class="editar-opcoes-texto">Excluir</a>
+                                <a href="{{ route('admin.pastasMateriais.excluir',$pasta->id) }}" class="editar-opcoes-texto">Excluir</a>
                             </div>
                         </button>
                     @endif

@@ -21,7 +21,7 @@
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
-                <a href="#" class="botao-texto">Adicionar Tema</a>
+                <a href="{{ route('admin.temasRepertorios.adicionar') }}" class="botao-texto">Adicionar Tema</a>
                 <hr id="linhaBotao">
                 <a href="#" class="botao-texto">Adicionar Repertório</a>
             </div>
@@ -43,9 +43,9 @@
                 <button class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
-                        <a href="#" class="editar-opcoes-texto">Editar</a>
+                        <a href="{{ route('admin.temasRepertorios.editar',$pasta->id) }}" class="editar-opcoes-texto">Editar</a>
                         <hr>
-                        <a href="#" class="editar-opcoes-texto">Excluir</a>
+                        <a href="{{ route('admin.temasRepertorios.excluir',$pasta->id) }}" class="editar-opcoes-texto">Excluir</a>
                     </div>
                 </button>
                 @endif
