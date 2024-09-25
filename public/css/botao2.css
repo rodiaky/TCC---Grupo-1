@@ -25,6 +25,9 @@
     background-color: var(--varLaranjaEscuro);
     border-radius: 50%;
     color: var(--varBranco);
+}
+
+.botao-circulo i {
     font-size: 2.5rem;
 }
 

@@ -2,10 +2,10 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     <link rel="stylesheet" type="text/css" href="/css/repertorios.css">
     <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
     <link rel="stylesheet" type="text/css" href="/css/repertoriosFiltros.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Repertórios</title>
@@ -18,7 +18,15 @@
     @endphp
 
     <main>
-        <h1 class="titulo-pagina">Repertórios</h1>
+        
+        <div class="container-titulo-repertorio">
+           <div class="container-seta">
+                <a href="{{ route('admin.temasRepertorios') }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Repertórios</h1>
+        </div>
         <hr class="titulo-linha">
 
         @if ($isAdmin)

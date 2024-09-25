@@ -34,7 +34,9 @@
                 <div class="wrapper">
                 
                     <div class="quadrado">
-                        <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}" class="imagem-tema" style="background-image:url('{{ $pasta->imagem }}'"></a>
+                        <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}" class="imagem-tema">
+                            <img src="{{ $pasta->imagem }}" alt="{{ $pasta->imagem }}">
+                        </a>
                     @if ($isAdmin)
                         <button class="botao-editar">
                             <i class="material-icons">more_horizon</i>

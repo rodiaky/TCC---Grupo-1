@@ -1,7 +1,7 @@
 /* BOTÃO --------------------------------------------------------------- */
 
 .botao{
-    display :flex;
+    display: flex;
     justify-content: row;
     align-items: center;
     position: fixed;
@@ -26,6 +26,9 @@
     background-color: var(--varLaranjaEscuro);
     border-radius: 50%;
     color: var(--varBranco);
+}
+
+.botao-circulo i {
     font-size: 2.5rem;
 }
 
@@ -41,11 +44,14 @@
     left: -2rem;
     transition: all 200ms ease;
 
-    border-radius: 0 15px 15px 0;
+    border-radius: 1rem;
     background-color: var(--varLaranjaClaro);
     font-weight: 500;
     color: var(--varBranco);
     font-size: 1.2rem;
+
+    opacity: 0;
+    visibility: hidden;
 }
 
 .botao-texto{
@@ -58,7 +64,9 @@
 }
 
 .botao-expand:hover, .botao-circulo:hover ~ .botao-expand{
-    width: 12.5rem;
+    width: 15rem;
+    opacity: 1;
+    visibility: visible;
 } 
 
 .botao-circulo:hover ~ .botao-expand > .botao-texto{

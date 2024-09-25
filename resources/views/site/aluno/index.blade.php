@@ -66,7 +66,7 @@
 
                 -->
                 <br>
-                Exibindo {{ $pessoas->count() }} alunos de {{ $pessoas->total() }} (de {{ $pessoas->firstItem() }} a {{ $pessoas    ->lastItem() }})
+                Exibindo {{ $pessoas->count() }} alunos de {{ $pessoas->total() }} (de {{ $pessoas->firstItem() }} a {{ $pessoas->lastItem() }})
             </div>
         </div>
 

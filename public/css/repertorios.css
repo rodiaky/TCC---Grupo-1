@@ -14,6 +14,14 @@
 
 /* ----------------------------------------------------- */
 
+.container-titulo-repertorio {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+/* ----------------------------------------------------- */
+
 .card-repertorio {
     
     background-color: var(--varCinzaEscuro);
