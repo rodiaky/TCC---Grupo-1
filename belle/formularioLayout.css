@@ -33,8 +33,6 @@ form{
     height: 3rem;
 }
 
-
-
 /*BOTÃO*/
 .button{
     width: 160px;
@@ -97,6 +95,13 @@ input[type="color"]{
     cursor: pointer;
 }
 
+/*INFO SEMANA*/
+.infoSemana{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3dvh;
+}
+
 
 /*MENSAGEM DE AVISO ---------------------------------------------------------*/
 .mensagem{
@@ -143,6 +148,14 @@ input[type="color"]{
     }
 
     .inputbox input{
+        height: 2.5rem;
+    }
+
+    .infoSemana label{
+        font-size: 1rem;
+    }
+
+    .infoSemana select{
         height: 2.5rem;
     }
 
@@ -197,6 +210,10 @@ input[type="color"]{
     }
   
     .inputbox label{
+        font-size: 1.5rem;
+    }
+
+    .infoSemana label{
         font-size: 1.5rem;
     }
 
