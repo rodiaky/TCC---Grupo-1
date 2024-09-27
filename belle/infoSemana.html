@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="teste.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://dicadodesenvolvedor.com.br/script/select-busca.js"></script>
+    <link rel="stylesheet" type="text/css" href="semanaLayout.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <title>Informações da semana</title>
 </head>
 <body>
@@ -14,30 +15,55 @@
         <h1>Informações da semana</h1><hr>
     </main>
      
-    <div class="select-box">
-        <div class="select-option">
-            <input type="text" placeholder="Select" id="soVAlue" readonly name="">
+    <article>
+        <div class="form-value">
+            <form action="">
+                <div class="infoSemana">
+                    <label>Atribuir semana</label>
+                    <select class="atribuir-semana" required>
+                        <option value="1">Semana 1</option>
+                        <option value="2">Semana 2</option>
+                        <option value="6">Semana 6</option>
+                        <option value="7">Semana 7</option>
+                        <option value="8">Semana 8</option>
+                        <option value="9">Semana 9</option>
+                        <option value="3">Semana 3</option>
+                        <option value="4">Semana 4</option>                        
+                        <option value="5">Semana 5</option>
+                    </select>
+                </div>
 
+                <div class="infoSemana">
+                    <label>Atribuir materiais</label>
+                    <select class="atribuir-material" multiple="multiple" required>
+                        <option value="3620194">select2/select2</option>
+                        <option value="3620195">zebra</option>
+                        <option value="3620196">yumi</option>
+                        <option value="3620197">livia</option>
+                        <option value="3620198">mario</option>
+                        <option value="3620199">nicolas</option>
+                        <option value="3620190">bosi</option>
+                        <option value="3620191">helena</option>
+                        <option value="3620192">joao</option>
+                        <option value="3620193">rodo</option>
+                        <option value="3620180">isa</option>
+                        <option value="3620181">vitor</option>
+                        <option value="3620182">camila</option>
+                        <option value="3620183">ola</option>
+                        <option value="3620184">jovem</option>
+                        <option value="3620185">abelha</option>
+                        <option value="3620186">baleia</option>
+                        <option value="3620187">dado</option>
+                    </select>
+                </div>
+                
+                <div class="botoes">
+                    <button name="limpar" id="limpar" class="button">Limpar</button>
+                    <button name="salvar" class="button">Salvar</button>
+                </div>
+            </form>
         </div>
-        <div class="content">
-            <div class="search">
-                <input type="text" id="optionSearch" placeholder="Search" name="">
-            </div>
-             <ul class="options">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Python</li>
-                <li>Laravel</li>
-                <li>Angular</li>
-
-             </ul>
-
-        </div>
-    </div>
-
-              
+    </article>
     
     <script src="semana.js"></script>
 </body>
