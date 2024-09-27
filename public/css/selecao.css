@@ -3,233 +3,234 @@
     width: 17rem;
     position: relative;
     overflow: hidden;
-  }
+}
   
-  .selected{
-    padding: 10px;
-    position: relative;
-    z-index: 100000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .arrow {
-    position: relative;
-    right: 0px;
-    height: 10px;
-    width: 25px;
-    z-index: 100000;
-  }
-  
-  .options {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    position: relative;
-    top: -100px;  
-    height: 10rem;
-    overflow: auto;
-  
-    background: var(--varBranco);
-  }
-  
-  .options div{
-    display: flex;
-    background: var(--varBranco);
-  }
-  
-  .select:hover{
-    height: fit-content;
-  }
-  
-  .select:hover > .options {
-    opacity: 1;
-    top: 0;
-  }
-  
-  .select:hover > .selected .arrow {
-    transform: rotate(0deg);
-  }
-  
-  .option {
-  
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-  
-    border-radius: .8rem;
-  
-    padding: 5px;
-    padding-left: 0.7rem;
-    width: 100%;   
-  }
-  
-  .option:hover{
-    background-color: #fea572;
-  }
-  
-  .options input[type="radio"] {
-    display: none;
-  }
-  
-  .options label::before {
-    content: attr(data-txt);
-  }
-  
-  .option p {
-    width: fit-content;
-    background: none;
-  }
-  
-  .option input[type="checkbox"] {
-    margin-right: .5rem;
-    width: fit-content;
-  }
-  
-  /*UI-----------------------------------------------------------------------------*/
-  .select{
-    cursor: pointer;
-    transition: 300ms;
-    color: var(--varLaranjaEscuro);
-    border-color: var(--varLaranjaEscuro);
-  }
-  
-  .selected{
-    background-color: var(--varBranco);
-    border-radius: 15px;
-    font-size: 1.3rem;
-    border: 2px solid var(--varLaranjaEscuro);
-    margin-bottom: 10px;
-  }
-  
-  .selected span{
-    background-color: var(--varBranco);
-  }
-  
-  svg.arrow{
-    background-color: var(--varBranco);
-  }
-  
-  .arrow{
-    transform: rotate(-90deg);
-    fill: var(--varLaranjaEscuro);
-    transition: 300ms;
-  }
-  
-  .options{
-    border-radius: 5px;
-    background-color: var(--varBranco);
-    color: var(--varPreto);
-    opacity: 0;
-    transition: 300ms;
-    box-shadow: rgba(0, 0, 0, 0.24) 2px 3px 8px;
-  }
-  
-  .option{
-    transition: 300ms;
-    background-color: var(--varBranco);
-    font-size: 1.2rem;
-  }
-  
-  .options span{
-    background-color: var(--varBranco);
-    align-content: center;
-  }
-  
-  /*RESPONSIVIDADE -----------------------------------------------------------------------------------------------------*/
-  /* Extra small devices (phones, 475px and down) */
-  @media only screen and (max-width: 475px) {
-    .select {
-        height: 3rem;
-        width: 9rem;
-        position: relative;
-        overflow: hidden;
-    }
-  
-    #inputboxAno{
+.selected{
+  height: fit-content;
+  padding: 10px;
+  position: relative;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  position: relative;
+  right: 0px;
+  height: 10px;
+  width: 25px;
+  z-index: 100000;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  position: relative;
+  top: -100px;  
+  height: 10rem;
+  overflow: auto;
+
+  background: var(--varBranco);
+}
+
+.options div{
+  display: flex;
+  background: var(--varBranco);
+}
+
+.select:hover{
+  height: fit-content;
+}
+
+.select:hover > .options {
+  opacity: 1;
+  top: 0;
+}
+
+.select:hover > .selected .arrow {
+  transform: rotate(0deg);
+}
+
+.option {
+
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+
+  border-radius: .8rem;
+
+  padding: 5px;
+  padding-left: 0.7rem;
+  width: 100%;   
+}
+
+.option:hover{
+  background-color: #fea572;
+}
+
+.options input[type="radio"] {
+  display: none;
+}
+
+.options label::before {
+  content: attr(data-txt);
+}
+
+.option p {
+  width: fit-content;
+  background: none;
+}
+
+.option input[type="checkbox"] {
+  margin-right: .5rem;
+  width: fit-content;
+}
+
+/*UI-----------------------------------------------------------------------------*/
+.select{
+  cursor: pointer;
+  transition: 300ms;
+  color: var(--varLaranjaEscuro);
+  border-color: var(--varLaranjaEscuro);
+}
+
+.selected{
+  background-color: var(--varBranco);
+  border-radius: 15px;
+  font-size: 1.3rem;
+  border: 2px solid var(--varLaranjaEscuro);
+  margin-bottom: 10px;
+}
+
+.selected span{
+  background-color: var(--varBranco);
+}
+
+svg.arrow{
+  background-color: var(--varBranco);
+}
+
+.arrow{
+  transform: rotate(-90deg);
+  fill: var(--varLaranjaEscuro);
+  transition: 300ms;
+}
+
+.options{
+  border-radius: 5px;
+  background-color: var(--varBranco);
+  color: var(--varPreto);
+  opacity: 0;
+  transition: 300ms;
+  box-shadow: rgba(0, 0, 0, 0.24) 2px 3px 8px;
+}
+
+.option{
+  transition: 300ms;
+  background-color: var(--varBranco);
+  font-size: 1.2rem;
+}
+
+.options span{
+  background-color: var(--varBranco);
+  align-content: center;
+}
+
+/*RESPONSIVIDADE -----------------------------------------------------------------------------------------------------*/
+/* Extra small devices (phones, 475px and down) */
+@media only screen and (max-width: 475px) {
+  .select {
+      height: 3rem;
       width: 9rem;
-    } 
+      position: relative;
+      overflow: hidden;
+  }
+
+  #inputboxAno{
+    width: 9rem;
+  } 
+  
+  .selected{
+      padding: 10px;
+      position: relative;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .select{
+    width: 11rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #inputboxAno{
+    width: 11rem;
+  } 
+
+  .selected{
+    font-size: 1rem;
     
-    .selected{
-        padding: 10px;
-        position: relative;
-        z-index: 100000;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
   }
-  
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 600px) {
-    .select{
-      width: 11rem;
-      margin-bottom: 1.5rem;
-    }
-  
-    #inputboxAno{
-      width: 11rem;
-    } 
-  
-    .selected{
-      font-size: 1rem;
-      
-    }
-  
-    .option{
-      font-size: 1rem;
-    }
-  
-    .select:hover{
-      height: 13.5rem;
-    }
+
+  .option{
+    font-size: 1rem;
   }
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-    .select{
-      width: 13rem;
-    }
-  
-    #inputboxAno{
-      width: 13rem;
-    } 
+
+  .select:hover{
+    height: 13.5rem;
   }
-  
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    .select{
-      width: 14rem;
-    }
-  
-    #inputboxAno{
-      width: 14rem;
-    } 
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .select{
+    width: 13rem;
   }
-  
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    .select{
-      width: 15rem;
-    }
-  
-    #inputboxAno{
-      width: 15rem;
-    } 
+
+  #inputboxAno{
+    width: 13rem;
+  } 
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .select{
+    width: 14rem;
   }
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-    .select{
-      width: 15rem;
-    }
-  
-    #inputboxAno{
-      width: 15rem;
-    }  
-  
-    #selectDuas:hover{
-      height: 5rem;
-    }
+
+  #inputboxAno{
+    width: 14rem;
+  } 
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .select{
+    width: 15rem;
   }
+
+  #inputboxAno{
+    width: 15rem;
+  } 
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .select{
+    width: 15rem;
+  }
+
+  #inputboxAno{
+    width: 15rem;
+  }  
+
+  #selectDuas:hover{
+    height: 5rem;
+  }
+}

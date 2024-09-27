@@ -24,24 +24,24 @@
                 
 
                 <div class="inputbox">
-                  <label for="">Alternativa A</label>
-                  <textarea id="alt-a" class="textoAlternativa" name="alternativa_A" required>{{ isset($questoes->alternativa_A) ? $questoes->alternativa_A : '' }}</textarea>
+                  <label for="txt-a">Alternativa A</label>
+                  <textarea id="txt-a" class="textoAlternativa" name="alternativa_A" required>{{ isset($questoes->alternativa_A) ? $questoes->alternativa_A : '' }}</textarea>
                 </div>
                 <div class="inputbox">
-                  <label for="">Alternativa B</label>
-                  <textarea id="alt-b" class="textoAlternativa" name="alternativa_B" required>{{ isset($questoes->alternativa_B) ? $questoes->alternativa_B : '' }}</textarea>
+                  <label for="txt-b">Alternativa B</label>
+                  <textarea id="txt-b" class="textoAlternativa" name="alternativa_B" required>{{ isset($questoes->alternativa_B) ? $questoes->alternativa_B : '' }}</textarea>
                 </div>
                 <div class="inputbox">
-                  <label for="">Alternativa C</label>
-                  <textarea id="alt-c" class="textoAlternativa" name="alternativa_C" required>{{ isset($questoes->alternativa_C) ? $questoes->alternativa_C : '' }}</textarea>
+                  <label for="txt-c">Alternativa C</label>
+                  <textarea id="txt-c" class="textoAlternativa" name="alternativa_C" required>{{ isset($questoes->alternativa_C) ? $questoes->alternativa_C : '' }}</textarea>
                 </div>
                 <div class="inputbox">
-                  <label for="">Alternativa D</label>
-                  <textarea id="alt-d" class="textoAlternativa" name="alternativa_D" required>{{ isset($questoes->alternativa_D) ? $questoes->alternativa_D : '' }}</textarea>
+                  <label for="txt-d">Alternativa D</label>
+                  <textarea id="txt-d" class="textoAlternativa" name="alternativa_D" required>{{ isset($questoes->alternativa_D) ? $questoes->alternativa_D : '' }}</textarea>
                 </div>
                 <div class="inputbox">
-                  <label for="">Alternativa E</label>
-                  <textarea id="alt-e" class="textoAlternativa" name="alternativa_E">{{ isset($questoes->alternativa_E) ? $questoes->alternativa_E : '' }}</textarea>
+                  <label for="txt-e">Alternativa E</label>
+                  <textarea id="txt-e" class="textoAlternativa" name="alternativa_E">{{ isset($questoes->alternativa_E) ? $questoes->alternativa_E : '' }}</textarea>
                 </div>
 
                 <div id="inputboxAno" class="inputbox">
@@ -130,7 +130,7 @@
                       </div>
 
                       <div>
-                        <input id="cat-3" name="cat-3" type="radio" onclick="changeCategoria('Interpretação de texto')"/>
+                        <input id="cat-3" name="cat-3" type="radio" onclick="changeCategoria('Interpretação')"/>
                         <label class="option" for="cat-3" data-txt="Interpretação de texto"></label>
                       </div>
 
