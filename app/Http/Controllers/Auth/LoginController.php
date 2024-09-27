@@ -15,19 +15,19 @@ class LoginController extends Controller
 
         switch ($opcao) {   
             case 1:
-                $erro = 'Usuário e ou senha não existe';
+                $erro = 'Usuário e ou senha não existem';
                 break;
             case 2:
-                $erro = 'Necessario realizar login para como Aluno ter acesso a página';
+                $erro = 'Necessário realizar login para como Aluno ter acesso à página';
                 break;
             case 3:
-                $erro = 'Necessario realizar login como Professor para ter acesso a página';
+                $erro = 'Necessário realizar login como Professor para ter acesso à página';
                 break;
             case 4:
-                $erro = 'Necessario realizar login como Administrador para ter acesso a página';
+                $erro = 'Necessário realizar login como Administrador para ter acesso à página';
                 break;
             case 5:
-                $erro = 'Necessario realizar login primeiramente';
+                $erro = 'Necessário realizar login primeiramente';
                 break;
             case 6:
                 $erro = '';
@@ -40,28 +40,33 @@ class LoginController extends Controller
     }
 
     public function login(Request $request) {
+        // Validate input
+        $validatedData = $request->validate([
+            'usuario' => 'required|string|email|max:255',
+            'senha' => 'required|string',
+        ], [
+            'usuario.required' => 'O email é obrigatório.',
+            'usuario.email' => 'O email deve ser um endereço de email válido.',
+            'senha.required' => 'A senha é obrigatória.',
+        ]);
 
-        //recuperamos os parâmetros do formulário
-        $email = $request->get('usuario');
-        $password = $request->get('senha');
+        // Retrieve email and password from validated data
+        $email = $validatedData['usuario'];
+        $password = $validatedData['senha'];
 
-        //iniciar o Model User
-        $aluno = new User();
+        // Check user credentials
+        $usuario = User::where('email', $email)
+                       ->where('password', $password) // Avoid using plain passwords in production
+                       ->first();
 
-        $usuario = $aluno->where('email', $email)
-                    ->where('password', $password)
-                    ->get()
-                    ->first();
-
-        if(isset($usuario->name)) {
+        if ($usuario) {
             session_start();
             $_SESSION['id'] = $usuario->id;
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
             $_SESSION['eh_admin'] = $usuario->eh_admin;
 
-            if($_SESSION['eh_admin'] == "Aluno"){return redirect()->route('aluno.home');}
-            else{return redirect()->route('professor.home');}
+            return redirect()->route($_SESSION['eh_admin'] === "Aluno" ? 'aluno.home' : 'professor.home');
         } else {
             return redirect()->route('login', ['erro' => 1]);
         }

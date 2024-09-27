@@ -18,24 +18,24 @@
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
-                <a href="{{ route('admin.turmas.adicionar')}}" class="botao-texto">Adicionar Turma</a>
+                <a href="{{ route('admin.turmas.adicionar') }}" class="botao-texto">Adicionar Turma</a>
             </div>
         </button>
 
         <article class="container-turmas">
-
-            @foreach($rows as $turma)
+            @foreach($diasAula as $dia)
                 <section class="turma">
                     <button class="turma-retangulo">
-                        <h1 class="titulo-cardTurmas">{{ $turma->nome }}</h1>
+                        <h1 class="titulo-cardTurmas">{{ $dia->dias_aula }}</h1>
                         <i class="material-icons turma-seta">arrow_forward_ios</i>
                     </button>
                     
                     <div class="turma-dropdown">
-                        
-                            <a class="turma-horario" href="#">{{ $turma->horario_entrada }}</a>
-                            <a class="turma-horario" href="#">{{ $turma->horario_entrada }}</a>
-                        
+                        @if (isset($turmasPorDia[$dia->dias_aula]))
+                            @foreach($turmasPorDia[$dia->dias_aula] as $turma)
+                                <a class="turma-horario" href="#">{{ $turma->nome }}</a>
+                            @endforeach
+                        @endif
                     </div>
                 </section>
             @endforeach

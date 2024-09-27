@@ -150,7 +150,7 @@
                 radio.addEventListener('click', function(event) {
                     if (lastChecked === this) {
                         this.checked = false;
-                        lastChecked = null;
+                        return (admin.repertorios);
                     } else {
                         lastChecked = this;
                     }
