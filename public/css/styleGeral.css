@@ -33,21 +33,29 @@ main {
 }
 
 .titulo-linha {
-    border: 1px solid var(--varPreto);
+    border: .8px solid var(--varPreto);
     margin-bottom: 1rem;
     width: 100%;
 }
 
 a {
     text-decoration: none;
-    color: var(--varPreto)ç
+    color: var(--varPreto);
 }
 
 .seta-back {
     color: var(--varPreto);
+    user-select: none;
+    -webkit-user-select: none;
     transition: all 200ms ease;
 }
 
 .seta-back:hover {
     color: var(--varLaranjaEscuro);
+}
+
+.container-titulo-seta {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
 }

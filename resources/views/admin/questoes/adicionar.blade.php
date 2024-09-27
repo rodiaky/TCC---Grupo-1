@@ -4,12 +4,21 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <title>Adicionar questão</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <title>Adicionar Questão</title>
     @endsection
 
 @section('conteudo')
     <main>
-        <h1>Adicionar questão</h1><hr>
+      <div class="container-titulo-seta">
+        <div class="container-seta">
+              <a href="{{ route('admin.questoes') }}" class="seta-back">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+          </div>
+          <h1 class="titulo-pagina">Adicionar Questão</h1>
+      </div>
+      <hr class="titulo-linha">
     </main>
     
     <article>

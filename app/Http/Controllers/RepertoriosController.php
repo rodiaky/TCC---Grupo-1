@@ -11,7 +11,7 @@ class RepertoriosController extends Controller
     public function index($id)
     {
         $id_pasta = $id;
-        $repertorios = Materiais::where('id_pasta', $id)->paginate(10); // Use paginate here
+        $repertorios = Materiais::where('id_pasta', $id)->paginate(5); // Use paginate here
         return view('admin.repertorios.repertorios', compact('repertorios', 'id_pasta'));
     }
 

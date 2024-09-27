@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
     <link rel="stylesheet" type="text/css" href="/css/repertoriosFiltros.css">
     <link rel="stylesheet" type="text/css" href="/css/botao1.css">
+    <link rel="stylesheet" type="text/css" href="/css/pagination.css">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Repertórios</title>
@@ -19,7 +20,7 @@
 
     <main>
         
-        <div class="container-titulo-repertorio">
+        <div class="container-titulo-seta">
            <div class="container-seta">
                 <a href="{{ route('admin.temasRepertorios') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
@@ -87,55 +88,56 @@
 
             <section class="section-cards">
                 @forelse ($repertorios as $repertorio)
-                    <article class="card-repertorio">
-                        <div class="container-imagem">
-                            <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
+                <article class="card-repertorio">
+                    <div class="container-imagem">
+                        <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
+                    </div>
+                    
+                    <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}">
+                        <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
+                    <a>
+    
+                    <div class="tipo-repertorio">
+                        <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
+                            <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
+                            <p>{{ $repertorio->classificacao }}</p>
                         </div>
-                        <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}" style="text-decoration: none; color: inherit;">
-                            <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
-                        </a>
-
-                        <div class="tipo-repertorio">
-                            <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
-                                <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
-                                <p>{{ $repertorio->classificacao }}</p>
+                    </div>
+                    <div class="spoiler-repertorio">
+                        <p>{{ $repertorio->descricao }}</p>
+                    </div>
+                    @if ($isAdmin)
+                        <button class="botao-editar botao-repertorio" onclick="event.preventDefault(); showOptions(this);">
+                            <i class="material-icons">more_horizon</i>
+                            <div class="editar-opcoes">
+                                <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
+                                <hr>
+                                <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
                             </div>
-                        </div>
-                        <div class="spoiler-repertorio">
-                            <p>{{ $repertorio->descricao }}</p>
-                        </div>
-                        @if ($isAdmin)
-                            <button class="botao-editar botao-repertorio" onclick="event.preventDefault(); showOptions(this);">
-                                <i class="material-icons">more_horizon</i>
-                                <div class="editar-opcoes">
-                                    <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
-                                    <hr>
-                                    <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
-                                </div>
-                            </button>
-                        @endif
-                    </article>
+                        </button>
+                    @endif
+                </article>
                 @empty
                     <p>Nenhum repertório encontrado.</p>
                 @endforelse
             </section>
 
             <!-- Pagination Links -->
-<div class="pagination">
-    <div class="flex justify-between">
-        {{-- Pagination Elements --}}
-        <div>
-            {{-- Exibe os números das páginas --}}
-            @for ($i = 1; $i <= $repertorios->lastPage(); $i++)
-                @if ($i == $repertorios->currentPage())
-                    <span class="active">{{ $i }}</span>
-                @else
-                    <a href="{{ $repertorios->url($i) }}" class="pagination-link">{{ $i }}</a>
-                @endif
-            @endfor
-        </div>
-    </div>
-</div>
+            <div class="pagination">
+                <div class="flex justify-between">
+                    {{-- Pagination Elements --}}
+                    <div class="links">
+                        {{-- Exibe os números das páginas --}}
+                        @for ($i = 1; $i <= $repertorios->lastPage(); $i++)
+                            @if ($i == $repertorios->currentPage())
+                                <div class="active"><span>{{ $i }}</span></div>
+                            @else
+                                <a class="pagination-link" href="{{ $repertorios->url($i) }}">{{ $i }}</a>
+                            @endif
+                        @endfor
+                    </div>
+                </div>
+            </div>
 
         </form>
     </main>

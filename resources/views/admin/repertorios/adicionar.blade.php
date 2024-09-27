@@ -10,8 +10,6 @@
     <title>Adicionar/alterar repertório</title>
 </head>
 <body>
-    <main>
-        <h1>Adicionar/alterar repertório</h1><hr>
     
         <article>
             <div class="form-value">
@@ -156,7 +154,7 @@
             </div><!--form-value-->
             
         </article>
-    </main>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

@@ -14,13 +14,11 @@
 
 /* ----------------------------------------------------- */
 
-.container-titulo-repertorio {
-    display: flex;
-    gap: .5rem;
-    align-items: center;
+.link-repertorio {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid red;
 }
-
-/* ----------------------------------------------------- */
 
 .card-repertorio {
     

@@ -4,12 +4,21 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
-    <title>Adicionar pasta de materiais</title>
+    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <title>Adicionar Pasta</title>
 @endsection
 
 @section('conteudo')
     <main>
-        <h1>Adicionar pasta de materiais</h1><hr>
+      <div class="container-titulo-seta">
+        <div class="container-seta">
+              <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+          </div>
+          <h1 class="titulo-pagina">Adicionar Pasta</h1>
+      </div>
+      <hr class="titulo-linha">
     </main>
 
     <article>

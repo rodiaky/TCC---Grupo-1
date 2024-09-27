@@ -4,12 +4,21 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
-    <title>Alterar tema de repertório</title>
+    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <title>Editar Pasta</title>
 @endsection
 
 @section('conteudo')
     <main>
-        <h1>Alterar tema de repertório</h1><hr>
+      <div class="container-titulo-seta">
+        <div class="container-seta">
+              <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+          </div>
+          <h1 class="titulo-pagina">Editar Pasta</h1>
+      </div>
+      <hr class="titulo-linha">
     </main>
 
     <article>

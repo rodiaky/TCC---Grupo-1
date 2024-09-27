@@ -4,12 +4,21 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
-    <title>Adicionar tema de repertório</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <title>Adicionar Tema de Repertório</title>
 @endsection
 
 @section('conteudo')
     <main>
-        <h1>Adicionar tema de repertório</h1><hr>
+        <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ route('admin.temasRepertorios') }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Adicionar Tema de Repertório</h1>
+        </div>
+        <hr class="titulo-linha">
     </main>
 
     <article>
