@@ -13,8 +13,16 @@
     $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     @endphp
     <main>
-        <h1 class="titulo-pagina">Questões</h1>
-        <hr class="titulo-linha">
+
+    <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ route('admin.questoes') }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Questões</h1>
+    </div>
+     <hr class="titulo-linha">
         
         @if ($isAdmin)
         <button class="botao">

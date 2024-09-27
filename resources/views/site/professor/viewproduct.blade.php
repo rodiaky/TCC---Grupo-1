@@ -285,7 +285,7 @@
         let history = []; // Array para armazenar o histórico de alterações
 
         function init() {
-            const filePath = '{{ asset('assets/' . ($redacao->redacao_enviada ?? '')) }}';
+            const filePath = '{{ asset('assets/redacao_enviada/' . ($redacao->redacao_enviada ?? '')) }}';
             console.log('Caminho da imagem:', filePath);
             if (filePath) {
                 loadImage(filePath);

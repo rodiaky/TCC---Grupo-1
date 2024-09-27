@@ -75,6 +75,7 @@ class TemaController extends Controller
     {
         $idUser = $_SESSION['id'];
 
+        
         $idTema = $request->id_tema;
 
         $perfil = DB::table('users')
@@ -83,7 +84,7 @@ class TemaController extends Controller
         ->select('turmas.id as id_turma', 'alunos.id as id_aluno')            
         ->where('users.id', '=', $idUser)
         ->first();
-
+    
         $idturma=$perfil->id_turma;
         $idaluno=$perfil->id_aluno;
 
@@ -93,37 +94,32 @@ class TemaController extends Controller
         ->where('temas.id', '=', $idTema)
         ->first();
 
-
         $id_bancas=$tema->id_banca;
-
-
-        // Validar a imagem
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
-
+        
+        try{
         // Fazer o upload da imagem
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('assets/redacao_enviada'), $imageName); 
+        $file = $request->file('redacao_enviada');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets/redacao_enviada'), $filename);
 
+        
         // Salvar o caminho da imagem no banco de dados
-        $image = new Redacoes();
+        $redacao = new Redacoes();
 
-        $image->redacao_enviada = $imageName;
-        $image->situacao_redacao= 'Pendente';
-        $image->id_banca = $id_bancas;
-        $image->id_tema = $idTema;
-        $image->id_turma = $idturma;
-        $image->id_aluno = $idaluno;
-        dd($image);
-        /*
+        $redacao->redacao_enviada =  $filename;
+        $redacao->situacao_redacao= 'Pendente';
+        $redacao->id_banca = $id_bancas;
+        $redacao->id_tema = $idTema;
+        $redacao->id_turma = $idturma;
+        $redacao->id_aluno = $idaluno;
+        
+        $redacao->save();
 
-        if ($image->save()) {
-            return back()->with('success', 'Imagem enviada com sucesso!');
-        } else {
-            return back()->with('error', 'Falha ao salvar a imagem no banco de dados.');
+        return redirect()->back()->with('success', 'Redação enviada com sucesso!');
+        } catch (\Exception $e) {
+            // Exibir mensagem de erro
+            return redirect()->back()->with('error', 'Falha ao enviar a redação. Tente novamente.');
         }
-        */
     }
 }
 

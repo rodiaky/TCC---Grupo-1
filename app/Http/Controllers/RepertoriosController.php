@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Materiais;
+use App\Models\Pastas;
 use Illuminate\Support\Facades\DB;
 
 class RepertoriosController extends Controller
@@ -35,8 +36,9 @@ class RepertoriosController extends Controller
 
     public function editar($id) 
     {
-        $materiais = Materiais::find($id);
-        return view('admin.repertorios.editar', compact('materiais'));
+        $repertorios = Materiais::find($id);
+        $temasRepertorios = Pastas::where('tipo', 'Repertório')->pluck('nome', 'id')->all();
+        return view('admin.repertorios.editar', compact('repertorios','temasRepertorios'));
     }
 
     public function search(Request $request)
@@ -68,7 +70,7 @@ class RepertoriosController extends Controller
                 return $query->where('classificacao', $filtros);
             });
 
-        $repertorios = $query->paginate(10); // Use paginate here
+        $repertorios = $query->paginate(5); // Use paginate here
 
         return view('admin.repertorios.repertorios', compact('repertorios', 'id_pasta'));
     }
@@ -76,21 +78,21 @@ class RepertoriosController extends Controller
     public function excluir($id) 
     {
         Materiais::find($id)->delete();
-        return redirect()->route('admin.repertorios');
+        return redirect()->route('admin.temasRepertorios');
     }
 
     public function salvar(Request $req)
     {
         $dados = $req->all();  
         Materiais::create($dados);
-        return redirect()->route('admin.repertorios');
+        return redirect()->route('admin.temasRepertorios');
     }
 
     public function atualizar(Request $req, $id)
     {
         $dados = $req->all();
         Materiais::find($id)->update($dados);
-        return redirect()->route('admin.repertorios');
+        return redirect()->route('admin.temasRepertorios');
     }
 }
 

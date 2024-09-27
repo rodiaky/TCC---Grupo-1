@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts._partials._cabecalho')
+
+@section('css')
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
     <link rel="stylesheet" type="text/css" href="/css/visualizarTema.css">
     <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Visualização de Repertório</title>
-</head>
+@endsection
+
+@section('conteudo')
 @php
 $isAdmin = $_SESSION['eh_admin'] === 'Professor';
 @endphp
@@ -22,7 +21,9 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             <div class="grid-layout">
 
                 <div class="container-seta">
+                <a href="{{ route('admin.temas') }}" class="seta-back">
                     <i class="material-icons seta-back"> arrow_back</i>
+                </a>
                 </div>
                 @if ($isAdmin)
                 <div class="container-botao">
@@ -49,10 +50,13 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             <form action="{{ route('admin.temas.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="upload">
-                <input type="file" class="arquivo" name="image" id="image" accept="image/*" required>
+                <input type="file" class="arquivo" name="redacao_enviada" required>
                 <input type="hidden" name="id_tema" value="{{$tema->id}}">
             </div>
             
+
+            <br>
+            <br>
             <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
 
             </form>
@@ -61,5 +65,4 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     </main>
 
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
-</body>
-</html>
+@endsection

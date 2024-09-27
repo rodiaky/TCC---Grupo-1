@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="selecao.css">
+@extends('layouts._partials._cabecalho')
+
+@section('css')
+    <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
     <title>Adicionar/alterar repertório</title>
+<<<<<<< HEAD
 </head>
 <body>
+=======
+    @endsection
+
+@section('conteudo')
+    <main>
+        <h1>Adicionar/alterar repertório</h1><hr>
+>>>>>>> 80151ad64a92d08ba6d56987497eafccb45f19ee
     
         <article>
             <div class="form-value">
                 <form action="">
+                <input type="hidden" name="categoria" value="Repertório">
                     <div class="inputbox">
                         <label for="">Título do repertório</label>
                         <input type="text" name="titulo" required>
@@ -157,5 +163,4 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+@endsection

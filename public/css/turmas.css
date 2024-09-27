@@ -124,8 +124,7 @@
 }
 
 .turma-retangulo:focus ~ .turma-dropdown, .turma-dropdown:hover{
-    height: 7rem;
-    max-height: auto;
+    height: fit-content;
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 1rem;
