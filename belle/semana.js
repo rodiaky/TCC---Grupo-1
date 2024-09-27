@@ -1,31 +1,29 @@
-/*$(".js-data-example-ajax").select2({
-    ajax: {
-      url: "https://api.github.com/search/repositories",
-      dataType: 'json',
-      delay: 250,
-      data: function (params) {
-        return {
-          q: params.term, // search term
-          page: params.page
-        };
-      },
-      processResults: function (data, page) {
-        // parse the results into the format expected by Select2.
-        // since we are using custom formatting functions we do not need to
-        // alter the remote JSON data
-        return {
-          results: data.items
-        };
-      },
-      cache: true
-    },
-    escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-    minimumInputLength: 1,
-    templateResult: formatRepo, // omitted for brevity, see the source of this page
-    templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
-  });*/
+$(document).ready(function(){
+  $('.atribuir-semana').select2();
 
-  // In your Javascript (external .js resource or <script> tag)
-$(document).ready(function() {
-  $('.js-example-basic-single').select2();
+  $('.atribuir-material').select2({
+    placeholder: 'Select an option'
+  });
+
+  ordenarSemana();
+  ordenarMaterial();
 });
+
+function ordenarSemana() {
+  var itensOrdenados = $('.atribuir-semana option').sort(function (a, b) {
+      return a.text < b.text ? -1 : 1;
+  });
+
+  $('.atribuir-semana').html(itensOrdenados);
+}
+
+
+function ordenarMaterial() {
+  var itensOrdenados = $('.atribuir-material option').sort(function (a, b) {
+      return a.text < b.text ? -1 : 1;
+  });
+
+  $('.atribuir-material').html(itensOrdenados);
+}
+
+

@@ -1,0 +1,16 @@
+.infoSemana{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3dvh;
+}
+
+.infoSemana label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.atribuir-semana option{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

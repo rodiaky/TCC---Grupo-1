@@ -75,3 +75,7 @@ h1{
 .lbl-color{
     color: var(--varLaranjaEscuro);
 }
+
+.infoSemana label{
+    color: var(--varLaranjaEscuro);
+}
