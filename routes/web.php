@@ -48,10 +48,17 @@ Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
 // Professor Routes
 Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(function() {
     Route::get('/home_professor', [HomeProfessorController::class, 'index'])->name('home');
-    Route::get('/turmas', function () { return view('site.professor.turmas'); })->name('turmas');
     Route::get('/redacoes_pendentes', [RedacoesPendentesController::class, 'index'])->name('redPendentes');
     Route::get('/cadastrar_aluno', [CadastroAlunoController::class, 'index'])->name('cadastroAluno.index');
     Route::post('/cadastrar_aluno', [CadastroAlunoController::class, 'store'])->name('cadastroAluno.store');
+
+    Route::get('/admin/alunos/{id}', ['as' =>'admin.alunos', 'uses' => 'App\Http\Controllers\AlunoController@index']);
+    Route::get('/admin/alunos/adicionar', ['as' =>'admin.alunos.adicionar', 'uses' => 'App\Http\Controllers\AlunoController@adicionar']);
+    Route::post('/admin/alunos/salvar', ['as' =>'admin.alunos.salvar', 'uses' => 'App\Http\Controllers\AlunoController@salvar']);
+    Route::get('/admin/alunos/editar/{id}', ['as' =>'admin.alunos.editar', 'uses' => 'App\Http\Controllers\AlunoController@editar']);
+    Route::put('/admin/alunos/atualizar/{id}', ['as' => 'admin.alunos.atualizar', 'uses' => 'App\Http\Controllers\AlunoController@atualizar']);
+
+    Route::get('/admin/alunos/excluir/{id}', ['as' =>'admin.alunos.excluir', 'uses' => 'App\Http\Controllers\AlunoController@excluir']);
 });
 // Autenticacao Middleware Routes
 Route::middleware(AutenticacaoMiddleware::class)->group(function() {

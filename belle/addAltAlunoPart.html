@@ -1,34 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="selecao.css">
-    <title>Adicionar e alterar aluno particular</title>
-</head>
-<body>
+@extends('layouts._partials._cabecalho')
+
+@section('css')
+    <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <title>Adicionar e Alterar Aluno Particular</title>
+@endsection
+
+@section('conteudo')
     <main>
-        <h1>Extends (Adicionar/alterar aluno particular)</h1><hr>
+        <h1>Editar Aluno Particular</h1>
+        <hr>
     </main>
-    
+
     <article>
         <div class="form-value">
-            <form action="">
+            <form action="{{ route('professor.admin.alunos.atualizar', $aluno->id) }}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="inputbox">
                     <label for="">Nome do Aluno</label>
-                    <input type="text" name="nome" required>
+                    <input type="text" name="nome" value="{{ $aluno->nome }}" required>
                 </div>
-                <div class="select"> <!--Select para horário-->
+                <div class="select"> <!-- Select para horário -->
                     <div class="selected">
                       <script>
-                        function changeHour(hour){
+                        function changeHour(hour) {
                           document.getElementById("text-selected-hour").textContent = hour;
                         }
                       </script>
-                      <span id="text-selected-hour">Horário</span>
+                      <span id="text-selected-hour">{{ $aluno->horario }}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"
@@ -42,40 +43,39 @@
                     </div>
                     <div class="options">
                       <div>
-                        <input id="hour-1" name="hour-1" type="radio" checked="" onclick="changeHour('Horário 1')"/>
+                        <input id="hour-1" name="horario" type="radio" value="Horário 1" {{ $aluno->horario == 'Horário 1' ? 'checked' : '' }} onclick="changeHour('Horário 1')"/>
                         <label class="option" for="hour-1" data-txt="Horário 1"></label>
                       </div>
 
                       <div>
-                        <input id="hour-2" name="hour-2" type="radio" onclick="changeHour('Horário 2')"/>
+                        <input id="hour-2" name="horario" type="radio" value="Horário 2" {{ $aluno->horario == 'Horário 2' ? 'checked' : '' }} onclick="changeHour('Horário 2')"/>
                         <label class="option" for="hour-2" data-txt="Horário 2"></label>
                       </div>
 
                       <div>
-                        <input id="hour-3" name="hour-3" type="radio" onclick="changeHour('Horário 3')"/>
+                        <input id="hour-3" name="horario" type="radio" value="Horário 3" {{ $aluno->horario == 'Horário 3' ? 'checked' : '' }} onclick="changeHour('Horário 3')"/>
                         <label class="option" for="hour-3" data-txt="Horário 3"></label>
                       </div>
 
                       <div>
-                        <input id="hour-4" name="hour-4" type="radio" onclick="changeHour('Horário 4')"/>
+                        <input id="hour-4" name="horario" type="radio" value="Horário 4" {{ $aluno->horario == 'Horário 4' ? 'checked' : '' }} onclick="changeHour('Horário 4')"/>
                         <label class="option" for="hour-4" data-txt="Horário 4"></label>
                       </div>
-
-                    </div><!--options-->
-                  </div><!--Select para horário-->
-                  <div class="mensagem">
+                    </div><!-- options -->
+                </div><!-- Select para horário -->
+                <div class="mensagem">
                     <ion-icon name="alert-circle-outline"></ion-icon>
-                    Preencha todos os campos antes de avançar
+                    Preencha todos os campos antes de avançar.
                 </div>
                 
                 <div class="botoes">
-                    <button name="limpar" id="limpar" class="button">Limpar</button>
-                    <button name="salvar" class="button">Salvar</button>
+                    <button type="reset" class="button">Limpar</button>
+                    <button type="submit" class="button">Salvar</button>
                 </div>
             </form>
         </div>
     </article>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+@endsection
