@@ -1,9 +1,7 @@
 $(document).ready(function(){
   $('.atribuir-semana').select2();
 
-  $('.atribuir-material').select2({
-    placeholder: 'Select an option'
-  });
+  $('.atribuir-material').select2();
 
   ordenarSemana();
   ordenarMaterial();
