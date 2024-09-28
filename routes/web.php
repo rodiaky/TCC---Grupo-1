@@ -6,6 +6,7 @@ use App\Http\Middleware\ProfessorMiddleware;
 use App\Http\Middleware\AdministradorMiddleware;
 use App\Http\Middleware\AutenticacaoMiddleware;
 use App\Http\Controllers\RedacoesPendentesController;
+use App\Http\Controllers\RedacoesCorrigidasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AlterarSenhaController;
 use App\Http\Controllers\HomeProfessorController;
@@ -41,6 +42,7 @@ Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/alterar_senha', [AlterarSenhaController::class, 'index'])->name('alterar_senha');
     Route::post('/alterar_senha', [AlterarSenhaController::class, 'update'])->name('alterar_senha.update');
     Route::get('/painel_redacoes', function () { return view('site.aluno.painel_redacoes'); })->name('painel_redacoes');
+   
 });
 
 // Professor Routes
@@ -53,6 +55,7 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
 });
 // Autenticacao Middleware Routes
 Route::middleware(AutenticacaoMiddleware::class)->group(function() {
+    Route::get('/redacao_corrigida/{id}',[RedacoesCorrigidasController::class,'view'])->name('redacao_corrigida');
 
     Route::get('/perfilA', [PerfilController::class, 'indexAluno'])->name('perfil.aluno');
     Route::get('/perfilP', [PerfilController::class, 'indexProfessor'])->name('perfil.professor');
@@ -178,5 +181,8 @@ Route::middleware(AdministradorMiddleware::class)->group(function() {
 Route::resource('tarefa', TarefaController::class);
 
 // Redacoes Pendentes Routes
+
+//Redacoes_corrigidas alunos
+
 
 

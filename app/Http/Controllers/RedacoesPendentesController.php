@@ -159,12 +159,13 @@ class RedacoesPendentesController extends Controller
 
           // Gera um nome de arquivo único para a imagem editada
           $newFileName = 'corrigida_' . uniqid() . '.png';
-          $imagePath = public_path('assets/redacao_corrigida' . $newFileName);
+          $imagePath = public_path('assets/redacao_corrigida/' . $newFileName);
 
           // Salva a imagem editada
           if (file_put_contents($imagePath, base64_decode($imageData))) {
                // Atualiza a coluna 'redacao_corrigida' com o nome do novo arquivo
                $redacao->redacao_corrigida = $newFileName;
+               
                $redacao->save();
 
                return response()->json(['success' => true, 'message' => 'Imagem corrigida salva com sucesso!']);

@@ -24,7 +24,8 @@ class HomeController extends Controller
             'temas.texto_apoio as texto_apoio',
             'bancas.nome as banca_nome',
             'temas.ano as tema_ano',
-            'temas.imagem as tema_imagem'
+            'temas.imagem as tema_imagem',
+            'redacoes.id as id_redacao'
         )
         ->where('redacoes.situacao_redacao', 'Corrigida')
         ->where('users.id', '=', $idUser)

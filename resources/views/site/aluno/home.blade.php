@@ -53,7 +53,7 @@
             @forelse ($redacoesCorrigidas as $redacoes)
             <div class="container-items-redacao">
 
-                <a href="">
+                <a href="{{ route('redacao_corrigida', $redacoes->id_redacao) }}">
                     <div class="tema-secao hover">
                         <div class="container-imagem-tema">
                             <img src="{{ $redacoes->tema_imagem }}" alt="{{ $redacoes->tema_imagem }}" class="imagem-tema">
