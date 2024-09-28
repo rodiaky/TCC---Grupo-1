@@ -1,21 +1,36 @@
 .select {
-    height: 3rem;
-    width: 17rem;
-    position: relative;
-    overflow: hidden;
+  color: var(--varLaranjaEscuro);
+  border-color: var(--varLaranjaEscuro);
+
+  height: 3rem;
+  width: 17rem;
+  position: relative;
 }
-  
+
 .selected{
-  height: fit-content;
+  background-color: var(--varBranco);
+  border-radius: 15px;
+  font-size: 1.3rem;
+  border: 2px solid var(--varLaranjaEscuro);
+  margin-bottom: 10px;
+
   padding: 10px;
   position: relative;
-  z-index: 100000;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.selected span{
+  background-color: var(--varBranco);
+}
+
 .arrow {
+  transform: rotate(-90deg);
+  fill: var(--varLaranjaEscuro);
+
+  transition: transform 500ms;
   position: relative;
   right: 0px;
   height: 10px;
@@ -23,16 +38,24 @@
   z-index: 100000;
 }
 
+svg.arrow{
+  background-color: var(--varBranco);
+}
+
 .options {
+  border-radius: 5px;
+  color: var(--varPreto);
+  background: var(--varBranco);
+
+  transition: all 300ms ease-out;
   display: flex;
   flex-direction: column;
-  padding: 5px;
   position: relative;
-  top: -100px;  
-  height: 10rem;
+  top: -10px;  
+  height: 0px;
+  padding: 0px;
   overflow: auto;
-
-  background: var(--varBranco);
+  z-index: 1;
 }
 
 .options div{
@@ -40,13 +63,9 @@
   background: var(--varBranco);
 }
 
-.select:hover{
-  height: fit-content;
-}
-
 .select:hover > .options {
-  opacity: 1;
-  top: 0;
+  height: 9rem;
+  padding: 5px;
 }
 
 .select:hover > .selected .arrow {
@@ -54,16 +73,23 @@
 }
 
 .option {
+  background-color: var(--varBranco);
+  font-size: 1.2rem;
+  border-radius: .8rem;
 
+  cursor: pointer;
   display: flex;
   align-content: center;
   flex-direction: row;
-
-  border-radius: .8rem;
-
+  transition: all 300ms;
   padding: 5px;
   padding-left: 0.7rem;
   width: 100%;   
+}
+
+.options span{
+  background-color: var(--varBranco);
+  align-content: center;
 }
 
 .option:hover{
@@ -88,78 +114,21 @@
   width: fit-content;
 }
 
-/*UI-----------------------------------------------------------------------------*/
-.select{
-  cursor: pointer;
-  transition: 300ms;
-  color: var(--varLaranjaEscuro);
-  border-color: var(--varLaranjaEscuro);
+#primeiro{
+  z-index: 100;
 }
 
-.selected{
-  background-color: var(--varBranco);
-  border-radius: 15px;
-  font-size: 1.3rem;
-  border: 2px solid var(--varLaranjaEscuro);
-  margin-bottom: 10px;
-}
-
-.selected span{
-  background-color: var(--varBranco);
-}
-
-svg.arrow{
-  background-color: var(--varBranco);
-}
-
-.arrow{
-  transform: rotate(-90deg);
-  fill: var(--varLaranjaEscuro);
-  transition: 300ms;
-}
-
-.options{
-  border-radius: 5px;
-  background-color: var(--varBranco);
-  color: var(--varPreto);
-  opacity: 0;
-  transition: 300ms;
-  box-shadow: rgba(0, 0, 0, 0.24) 2px 3px 8px;
-}
-
-.option{
-  transition: 300ms;
-  background-color: var(--varBranco);
-  font-size: 1.2rem;
-}
-
-.options span{
-  background-color: var(--varBranco);
-  align-content: center;
-}
 
 /*RESPONSIVIDADE -----------------------------------------------------------------------------------------------------*/
 /* Extra small devices (phones, 475px and down) */
 @media only screen and (max-width: 475px) {
   .select {
-      height: 3rem;
-      width: 9rem;
-      position: relative;
-      overflow: hidden;
+    width: 9rem;
   }
 
   #inputboxAno{
     width: 9rem;
   } 
-  
-  .selected{
-      padding: 10px;
-      position: relative;
-      z-index: 100000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-  }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -182,8 +151,8 @@ svg.arrow{
     font-size: 1rem;
   }
 
-  .select:hover{
-    height: 13.5rem;
+  .select:hover > .options {
+    height: 7.7rem;
   }
 }
 
@@ -232,5 +201,13 @@ svg.arrow{
 
   #selectDuas:hover{
     height: 5rem;
+  }
+
+  #filtro{
+    overflow: hidden;
+  }
+
+  .select:hover  > #filtro{
+    height: 7rem;
   }
 }

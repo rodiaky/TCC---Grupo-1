@@ -86,7 +86,7 @@
 
                         <!-- Turmas -->
                         <li class="sidebar-item">
-                            <a href="{{ route('professor.turmas') }}" class="sidebar-item-link">
+                            <a href="{{ route('admin.turmas') }}" class="sidebar-item-link">
                                 <i class="material-icons">school</i>
                                 <span class="sidebar-link">Turmas</span>
                             </a>

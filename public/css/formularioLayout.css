@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 article{
     display: flex;
     justify-content: center;
@@ -89,6 +95,13 @@ input[type="color"]{
     cursor: pointer;
 }
 
+/*INFO SEMANA*/
+.infoSemana{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3dvh;
+}
+
 
 /*MENSAGEM DE AVISO ---------------------------------------------------------*/
 .mensagem{
@@ -109,6 +122,17 @@ input[type="color"]{
 /*RESPONSIVIDADE----------------------------------------------------------------------------------*/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    h1{
+        margin-top: 1rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    hr{
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
     .form-value{
         width: 90%;
         height: auto;
@@ -124,6 +148,14 @@ input[type="color"]{
     }
 
     .inputbox input{
+        height: 2.5rem;
+    }
+
+    .infoSemana label{
+        font-size: 1rem;
+    }
+
+    .infoSemana select{
         height: 2.5rem;
     }
 
@@ -156,6 +188,17 @@ input[type="color"]{
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    h1{
+        margin-top: 1rem;
+        text-align: left;
+        margin-bottom: 0.5rem;
+        margin-left: 4.5rem;
+    }
+
+    hr{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
 
     .form-value{
         width: 94%;
@@ -167,6 +210,10 @@ input[type="color"]{
     }
   
     .inputbox label{
+        font-size: 1.5rem;
+    }
+
+    .infoSemana label{
         font-size: 1.5rem;
     }
 
@@ -201,6 +248,11 @@ input[type="color"]{
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    h1{
+        margin-top: 1rem;
+        margin-left: 4.5rem;
+        margin-bottom: 0.5rem;
+    }
 
     .form-value{
         width: 80%;

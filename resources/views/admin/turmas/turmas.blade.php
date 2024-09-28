@@ -14,7 +14,6 @@
         <h1 class="titulo-pagina">Turmas</h1>
         <hr class="titulo-linha">
 
-        <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
@@ -31,15 +30,16 @@
                     </button>
                     
                     <div class="turma-dropdown">
-                        @if (isset($turmasPorDia[$dia->dias_aula]))
+                        @if (!empty($turmasPorDia[$dia->dias_aula]))
                             @foreach($turmasPorDia[$dia->dias_aula] as $turma)
-                                <a class="turma-horario" href="#">{{ $turma->nome }}</a>
+                                <a class="turma-horario" href="{{ route('professor.admin.alunos', ['id' => $turma->id]) }}">{{ $turma->nome }}</a>
                             @endforeach
+                        @else
+                            <p>Nenhuma turma cadastrada para este dia.</p>
                         @endif
                     </div>
                 </section>
             @endforeach
-
         </article>
         
     </main>

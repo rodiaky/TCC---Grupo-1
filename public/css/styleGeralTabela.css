@@ -1,0 +1,92 @@
+:root {
+    /* Paleta de Cores */
+    --varLaranjaEscuro: #F46F20;
+    --varLaranjaClaro: #FEA572;
+    --varCinzaEscuro: #EAEAEA;
+    --varCinzaClaro: #F4F3F2;
+    --varBranco: #F8F8F8;
+    --varPreto: #000000;
+}
+
+
+/* TABELA -------------------------------------------------------------- */
+
+table, th, td{
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: .5rem;
+}
+
+th {
+    height: 3.5rem;
+    background: var(--varLaranjaEscuro);
+    font-size: 1.1rem;
+}
+
+td {
+    height: 3.5rem;
+    font-size: 1rem;
+}
+
+#tabela {
+    width: 100%;
+    max-width: 100%;
+    color: var(--varBranco);
+}
+
+.overflow {
+    overflow-x: auto;
+}
+
+.imagem {
+    width: 15%;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.imagem-tabela {
+    height: 100%;
+    width: 2.5rem;
+    object-fit: cover;
+    border-radius: 12.5%;
+}
+
+.alunos {
+    overflow-x: auto;
+    text-align: left;
+    width: 65%;
+}
+
+.editar, .excluir {
+    width: 12.5%;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+td {
+    color: var(--varPreto);
+}
+
+tr {
+    background: var(--varBranco);
+}
+
+tr:nth-child(even) {
+    background: #e0e0e0;
+}
+
+.icone-tabela {
+    color: var(--varPreto);
+    text-decoration: none;
+    font-size: 2rem;
+    transition: all 200ms ease;
+}
+
+.editar:hover > .icone-tabela,
+.excluir:hover > .icone-tabela{
+    color: var(--varLaranjaEscuro);
+}

@@ -14,10 +14,10 @@ class TurmasController extends Controller
         // Obter dias_aula únicos
         $diasAula = DB::table('turmas')
             ->select('dias_aula')
-            ->distinct() // Para garantir que não haja duplicatas
+            ->distinct()
             ->get();
     
-        // Mapear os dias da semana para seus respectivos índices
+        // Mapear dias da semana
         $diasSemana = [
             'Domingo' => 0,
             'Segunda' => 1,
@@ -28,28 +28,28 @@ class TurmasController extends Controller
             'Sábado' => 6,
         ];
     
-        // Ordenar diasAula com base no mapeamento
+        // Ordenar dias
         $diasAula = $diasAula->sortBy(function ($dia) use ($diasSemana) {
-            // Retorna o índice do dia, se não existir, atribui um valor alto (7)
-            return $diasSemana[$dia->dias_aula] ?? 7; 
-        })->values(); // Reindexa a coleção
+            return $diasSemana[$dia->dias_aula] ?? 7;
+        })->values();
     
-        // Inicializar um array para armazenar as turmas
+        // Inicializar array
         $turmasPorDia = [];
     
         foreach ($diasAula as $dia) {
             // Obter turmas que correspondem ao dia atual
             $turmas = DB::table('turmas')
-                ->select('nome')
-                ->where('dias_aula', $dia->dias_aula) // Usar o valor da coluna
+                ->select('id', 'nome') // Certifique-se de incluir o ID
+                ->where('dias_aula', $dia->dias_aula)
                 ->get();
     
-            // Armazenar turmas em um array, usando o dia como chave
+            // Armazenar turmas em um array
             $turmasPorDia[$dia->dias_aula] = $turmas;
         }
     
         return view('admin.turmas.turmas', compact('turmasPorDia', 'diasAula'));
     }
+    
     
     
     
