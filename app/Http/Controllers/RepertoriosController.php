@@ -31,12 +31,16 @@ class RepertoriosController extends Controller
 
     public function adicionar() 
     {
-        return view('admin.repertorios.adicionar');
+        $temasRepertorios = Pastas::where('tipo', 'Repertório')->pluck('nome', 'id')->all();
+        return view('admin.repertorios.adicionar',compact('temasRepertorios'));
     }
 
     public function editar($id) 
     {
-        $repertorios = Materiais::find($id);
+        $repertorios = Materiais::join('pastas', 'materiais.id_pasta', '=', 'pastas.id')
+        ->where('materiais.id', $id)
+        ->select('materiais.*', 'pastas.nome as nome_pasta')
+        ->first();
         $temasRepertorios = Pastas::where('tipo', 'Repertório')->pluck('nome', 'id')->all();
         return view('admin.repertorios.editar', compact('repertorios','temasRepertorios'));
     }

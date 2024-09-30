@@ -113,7 +113,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/{id}', [RepertoriosController::class, 'index'])->name('admin.repertorios');
             Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
             Route::get('/visualizar/{id}/{id_pasta}', [RepertoriosController::class, 'visualizar'])->name('admin.repertorios.visualizar');
-            Route::get('/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
+            Route::get('/1/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
             Route::post('/salvar', [RepertoriosController::class, 'salvar'])->name('admin.repertorios.salvar');
             Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');

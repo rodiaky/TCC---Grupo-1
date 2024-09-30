@@ -56,6 +56,7 @@ $currentFilter = request('filtros');
                 <div class="container-imagem-tema">
                     <img src="{{ $tema->imagem }}" alt="" class="imagem-tema">
                 </div>
+                
                 <div class="frase-tematica">
                     <p>{{ $tema->frase_tematica }}</p>
                 </div>

@@ -23,7 +23,7 @@
             <div class="botao-expand">
                 <a href="{{ route('admin.temasRepertorios.adicionar') }}" class="botao-texto">Adicionar Tema</a>
                 <hr id="linhaBotao">
-                <a href="#" class="botao-texto">Adicionar Repertório</a>
+                <a href="{{ route('admin.repertorios.adicionar')}}" class="botao-texto">Adicionar Repertório</a>
             </div>
         </button>
         @endif

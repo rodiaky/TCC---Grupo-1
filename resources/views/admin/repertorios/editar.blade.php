@@ -4,27 +4,28 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <title>Adicionar/alterar repertório</title>
+    <title>Alterar repertório</title>
 @endsection
 
 @section('conteudo')
 <main>
-    <h1>Adicionar/alterar repertório</h1><hr>
+    <h1>Alterar repertório</h1><hr>
     
     <article>
         <div class="form-value">
             <form action="{{ route('admin.repertorios.atualizar', $repertorios->id) }}" method="post" enctype="multipart/form-data">
-                @csrf
+                {{ csrf_field() }}
                 <input type="hidden" name="categoria" value="Repertório">
                 
                 <div class="inputbox">
                     <label for="">Título do repertório</label>
-                    <input type="text" name="titulo" value="{{ isset($repertorios->nome) ? $repertorios->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ isset($repertorios->nome) ? $repertorios->nome : '' }}" required>
                 </div>
                 
                 <div class="inputbox">
                     <label for="">Conteúdo</label>
-                    <textarea class="content" name="descricao" required>{{ isset($repertorios->descricao) ? $repertorios->descricao : '' }}</textarea>   
+
+                    <textarea class="content" name="descricao" required>{{ old('descricao', $repertorios->descricao) }}</textarea>
                 </div>
 
                 <div class="addAltRep">
@@ -38,7 +39,7 @@
                                     document.getElementById("id_pasta").value = id; // Atualiza o valor do input hidden para o ID
                                 }
                             </script>
-                            <span id="text-selected-theme">Tema</span>
+                            <span id="text-selected-theme">{{$repertorios->nome_pasta}}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow">
                                 <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
                             </svg>
@@ -54,7 +55,7 @@
                         </div><!--options-->
                         
                         <input type="hidden" id="selected-theme" name="selected-theme" value="" />
-                        <input type="hidden" id="id_pasta" name="id_pasta" value="" /> <!-- Hidden input for ID -->
+                        <input type="hidden" id="id_pasta" name="id_pasta" value="{{$repertorios->id_pasta}}" /> <!-- Hidden input for ID -->
                     </div><!--Select Tema-->
 
                     <!-- Select Categoria -->
@@ -98,7 +99,7 @@
                                 <label class="option" for="categoria-6" data-txt="História"></label>
                             </div>
                             <div>
-                                <input id="categoria-7" name="classificacao" type="radio" onclick="changeCategory('Obra literária')"/>
+                                <input id="categoria-7" name="classificacao" type="radio" onclick="changeCategory('Obra Literária')"/>
                                 <label class="option" for="categoria-7" data-txt="Obra literária"></label>
                             </div>
                             <div>
@@ -106,12 +107,12 @@
                                 <label class="option" for="categoria-8" data-txt="Sociologia"></label>
                             </div>
                             <div>
-                                <input id="categoria-9" name="classificacao" type="radio" onclick="changeCategory('Textos legais')"/>
+                                <input id="categoria-9" name="classificacao" type="radio" onclick="changeCategory('Textos Legais')"/>
                                 <label class="option" for="categoria-9" data-txt="Textos legais"></label>
                             </div>
                         </div><!--options-->
 
-                        <input type="hidden" id="classificacao" name="classificacao" value="" />
+                        <input type="hidden" id="classificacao" name="classificacao" value="{{$repertorios->classificacao}}" />
                         <input type="hidden" id="categoria" name="categoria" value="Repertório" />
                     </div><!--Select Categoria-->
                 </div><!--addAltRep-->
