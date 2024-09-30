@@ -49,7 +49,10 @@ class TemaController extends Controller
     }
 
     public function editar($id) {
-        $temas = Temas::findOrFail($id);
+        $temas = Temas::join('bancas', 'temas.id_banca', '=', 'bancas.id')
+        ->where('temas.id', $id)
+        ->select('temas.*', 'bancas.nome as nome_banca')
+        ->first();
         $bancas = Bancas::pluck('nome', 'id')->all();
         return view('admin.temas.editar', compact('temas', 'bancas'));
     }

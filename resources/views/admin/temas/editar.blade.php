@@ -50,7 +50,7 @@
                                     document.getElementById("id_banca").value = id;
                                 }
                             </script>
-                            <span id="text-selected-banca">Banca</span>  <!--Fazer o inner join e puxar banca_nome-->
+                            <span id="text-selected-banca">{{$temas->nome_banca}}</span>  <!--Fazer o inner join e puxar banca_nome-->
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="1em"
