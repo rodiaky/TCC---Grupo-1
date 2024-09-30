@@ -24,7 +24,6 @@
                 
                 <div class="inputbox">
                     <label for="">Conteúdo</label>
-
                     <textarea class="content" name="descricao" required>{{ old('descricao', $repertorios->descricao) }}</textarea>
                 </div>
 

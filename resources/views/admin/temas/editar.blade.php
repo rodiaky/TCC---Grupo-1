@@ -33,7 +33,7 @@
 
                 <div class="inputbox">
                     <label for="textoApoio">Textos de apoio</label>
-                    <textarea id="textoApoio" class="content" name="texto_apoio" required>{{ isset($temas->texto_apoio) ? $temas->texto_apoio : '' }}</textarea>
+                    <textarea id="textoApoio" class="content" name="texto_apoio" required>{{ old('descricao', $temas->texto_apoio) }}</textarea>
                 </div>
 
                 <div id="inputboxAno" class="inputbox">
@@ -50,7 +50,7 @@
                                     document.getElementById("id_banca").value = id;
                                 }
                             </script>
-                            <span id="text-selected-banca">Banca</span>
+                            <span id="text-selected-banca">Banca</span>  <!--Fazer o inner join e puxar banca_nome-->
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="1em"
