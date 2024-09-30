@@ -15,57 +15,31 @@
     <main>
 
         <section class="conteudo">
-
+        <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
             <i class="material-icons seta-voltar">arrow_back</i>
+        </a>
 
             <div class="escrito">
                 <p>Nome da Pasta</p>
             </div>
 
+            @forelse ($materiais as $material)
             <div class="branco">
-                <p class="nomeMaterial">Material</p>
+                <p class="nomeMaterial">{{$material->nome}}</p>
                 @if ($isAdmin)
                 <button class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
-                        <a href="#" class="editar-opcoes-texto">Editar</a>
+                        <a href="{{ route('admin.materiais.editar', ['id' => $material->id]) }}" class="editar-opcoes-texto">Editar</a>
                         <hr>
-                        <a href="#" class="editar-opcoes-texto">Excluir</a>
+                        <a href="{{ route('admin.materiais.excluir', ['id' => $material->id]) }}" class="editar-opcoes-texto">Excluir</a>
                     </div>
                 </button>
                 @endif
             </div>
-
-            
-            <div class="branco">
-                <p class="nomeMaterial">Material</p>
-                <button class="botao-editar">
-                    <i class="material-icons">more_horizon</i>
-                    <div class="editar-opcoes">
-                        <a href="#" class="editar-opcoes-texto">Editar</a>
-                        <hr>
-                        <a href="#" class="editar-opcoes-texto">Excluir</a>
-                    </div>
-                </button>
-            </div>
-
-            
-            <div class="branco">
-                <p class="nomeMaterial">Material</p>
-                <button class="botao-editar">
-                    <i class="material-icons">more_horizon</i>
-                    <div class="editar-opcoes">
-                        <a href="#" class="editar-opcoes-texto">Editar</a>
-                        <hr>
-                        <a href="#" class="editar-opcoes-texto">Excluir</a>
-                    </div>
-                </button>
-            </div>
-
-            
-            <div class="branco">
-                <p class="nomeMaterial">Material</p>
-            </div>
+            @empty
+                    <p>Nenhum material encontrado.</p>
+                @endforelse
 
         </section>
 

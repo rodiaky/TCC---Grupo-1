@@ -1,62 +1,27 @@
-@extends('layouts._partials._cabecalho')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <title>Adicionar Questão</title>
-    @endsection
-
-@section('conteudo')
+    <title>Adicionar e alterar questão</title>
+</head>
+<body>
     <main>
-      <div class="container-titulo-seta">
-        <div class="container-seta">
-              <a href="{{ route('admin.questoes') }}" class="seta-back">
-                  <i class="material-icons">arrow_back</i>
-              </a>
-          </div>
-          <h1 class="titulo-pagina">Adicionar Questão</h1>
-      </div>
-      <hr class="titulo-linha">
+        <h1>Adicionar e alterar questão</h1><hr>
     </main>
     
     <article>
         <div class="form-value">
-        <form action="{{ route('admin.questoes.salvar') }}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
-
+            <form action="">
                 <div class="inputbox">
                     <label for="">Texto da questão</label>
-                    <textarea class="textoQuestao" name="enunciado" required>{{ isset($questoes->enunciado) ? $questoes->enunciado : '' }}</textarea>
-                </div>
-                
-
-                <div class="inputbox">
-                  <label for="txt-a">Alternativa A</label>
-                  <textarea id="txt-a" class="textoAlternativa" name="alternativa_A" required>{{ isset($questoes->alternativa_A) ? $questoes->alternativa_A : '' }}</textarea>
-                </div>
-                <div class="inputbox">
-                  <label for="txt-b">Alternativa B</label>
-                  <textarea id="txt-b" class="textoAlternativa" name="alternativa_B" required>{{ isset($questoes->alternativa_B) ? $questoes->alternativa_B : '' }}</textarea>
-                </div>
-                <div class="inputbox">
-                  <label for="txt-c">Alternativa C</label>
-                  <textarea id="txt-c" class="textoAlternativa" name="alternativa_C" required>{{ isset($questoes->alternativa_C) ? $questoes->alternativa_C : '' }}</textarea>
-                </div>
-                <div class="inputbox">
-                  <label for="txt-d">Alternativa D</label>
-                  <textarea id="txt-d" class="textoAlternativa" name="alternativa_D" required>{{ isset($questoes->alternativa_D) ? $questoes->alternativa_D : '' }}</textarea>
-                </div>
-                <div class="inputbox">
-                  <label for="txt-e">Alternativa E</label>
-                  <textarea id="txt-e" class="textoAlternativa" name="alternativa_E">{{ isset($questoes->alternativa_E) ? $questoes->alternativa_E : '' }}</textarea>
+                    <textarea class="textoQuestao" required></textarea>
                 </div>
 
-                <div id="inputboxAno" class="inputbox">
-                    <label for="ano">Ano</label>
-                    <input type="number" id="ano" name="ano" min="2000" value="{{ isset($questoes->ano) ? $questoes->ano : '2024' }}">
-                </div>
 
                 <div class="addAltQuestao">
                 <div id="alternativa" class="select"> <!--Select para alternativa-->
@@ -78,7 +43,7 @@
                         ></path>
                       </svg>
                     </div>
-                    <div id="primeiro" class="options">
+                    <div class="options">
                       <div>
                         <input id="alt-a" name="alt-a" type="radio" checked="" onclick="changeAlternativa('A')"/>
                         <label class="option" for="alt-a" data-txt="A"></label>
@@ -139,7 +104,7 @@
                       </div>
 
                       <div>
-                        <input id="cat-3" name="cat-3" type="radio" onclick="changeCategoria('Interpretação')"/>
+                        <input id="cat-3" name="cat-3" type="radio" onclick="changeCategoria('Interpretação de texto')"/>
                         <label class="option" for="cat-3" data-txt="Interpretação de texto"></label>
                       </div>
 
@@ -213,4 +178,5 @@
     </article>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-@endsection
+</body>
+</html>
