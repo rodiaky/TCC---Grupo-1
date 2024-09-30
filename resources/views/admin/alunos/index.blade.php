@@ -11,57 +11,58 @@
 @section('conteudo')
     <main>
 
-        <h1 class="titulo-pagina">Alunos - {{$nome_turma -> nome_turma}}</h1>
+        <h1 class="titulo-pagina">Alunos - {{ $nome_turma ? $nome_turma : 'Turma não encontrada' }}</h1>
         <hr class="titulo-linha">
 
         <section class="section-barra-de-pesquisa">
-
             <label class="pesquisa" for="barra-pesquisa">
-                <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite o nome do aluno.">
+                <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite o nome do aluno." aria-label="Pesquisar aluno">
                 <button type="submit" id="pesquisar" name="pesquisar" value="">
                     <i class="material-icons lupa-pesquisa">search</i>
                 </button>
             </label>
-
         </section>
         
-        <section class="tabela">
-
-            <div class="overflow">
-                <table id="tabela">
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Nome</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
-                    </tr>
-
-                    @foreach ($pessoas as $pessoa)
+        @if($pessoas->isNotEmpty())
+            <section class="tabela">
+                <div class="overflow">
+                    <table id="tabela">
                         <tr>
-                            <td class="imagem">
-                                <img src="{{ $pessoa->foto }}" alt="" class="imagem-tabela"> <!-- Acesse a foto do usuário -->
-                            </td>
-                            <td class="alunos">{{ $pessoa->name }}</td> <!-- Acesse o nome do usuário -->
-                            <td class="editar">
-                                <a href="{{ route('professor.admin.alunos.editar', $pessoa->id) }}"> <!-- Use a propriedade correta para o ID do aluno -->
-                                    <i class="material-icons icone-tabela">edit</i>
-                                </a>
-                            </td>
-                            <td class="excluir">
-                                <form action="{{ route('professor.admin.alunos.excluir', $pessoa->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="button-excluir">
-                                        <i class="material-icons icone-tabela">close</i>
-                                    </button>
-                                </form>
-                            </td>
+                            <th scope="col">Imagem</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Excluir</th>
                         </tr>
-                    @endforeach
-                </table>
-            </div>
-
-        </section>
+                        @foreach ($pessoas as $pessoa)
+                            <tr>
+                                <td class="imagem">
+                                    <img src="{{ $pessoa->foto }}" alt="Foto de {{ $pessoa->name }}" class="imagem-tabela">
+                                </td>
+                                <td class="alunos">{{ $pessoa->name }}</td>
+                                <td class="editar">
+                                    <a href="{{ route('professor.admin.alunos.editar', $pessoa->id) }}">
+                                        <i class="material-icons icone-tabela">edit</i>
+                                    </a>
+                                </td>
+                                <td class="excluir">
+                                    <form action="{{ route('professor.admin.alunos.excluir', $pessoa->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir {{ $pessoa->name }}?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="button-excluir">
+                                            <i class="material-icons icone-tabela">close</i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </section>
+        @else
+            <section class="tabela">
+                <p>Nenhum aluno cadastrado</p>
+            </section>
+        @endif
 
     </main>
 @endsection

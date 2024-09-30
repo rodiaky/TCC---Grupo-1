@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; // Certifique-se de que o modelo Aluno está configurado
 use App\Models\Alunos;
+use App\Models\Turmas;
 
 class CadastroAlunoController extends Controller
 {
     // Exibir o formulário de cadastro
     public function index()
     {
-        return view('site.professor.cadastroAluno'); // Certifique-se de que a view está no local correto
+        $turmas = Turmas::all(); // Obtém todas as turmas
+
+        return view('site.professor.cadastroAluno', compact('turmas')); // Certifique-se de que a view está no local correto
     }
 
     // Armazenar o novo aluno
