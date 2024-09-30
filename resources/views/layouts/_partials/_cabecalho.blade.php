@@ -70,7 +70,7 @@
     
                         <!-- Materiais -->
                         <li class="sidebar-item">
-                            <a href="{{ route('materiais') }}" class="sidebar-item-link">
+                            <a href="{{ route('admin.pastasMateriais') }}" class="sidebar-item-link">
                                 <i class="material-icons">folder</i>
                                 <span class="sidebar-link">Materiais</span>
                             </a>
