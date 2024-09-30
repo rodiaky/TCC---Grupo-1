@@ -21,6 +21,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PastaMateriaisController;
 use App\Http\Controllers\MateriaisController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\AlunoController;
 
 // Auth Routes
 Auth::routes();
@@ -57,8 +58,8 @@ Route::name('professor.')->middleware(ProfessorMiddleware::class)->group(functio
     Route::post('/admin/alunos/salvar', ['as' =>'admin.alunos.salvar', 'uses' => 'App\Http\Controllers\AlunoController@salvar']);
     Route::get('/admin/alunos/editar/{id}', ['as' =>'admin.alunos.editar', 'uses' => 'App\Http\Controllers\AlunoController@editar']);
     Route::put('/admin/alunos/atualizar/{id}', ['as' => 'admin.alunos.atualizar', 'uses' => 'App\Http\Controllers\AlunoController@atualizar']);
+    Route::delete('admin/alunos/excluir/{id}', [AlunoController::class, 'excluir'])->name('admin.alunos.excluir');
 
-    Route::get('/admin/alunos/excluir/{id}', ['as' =>'admin.alunos.excluir', 'uses' => 'App\Http\Controllers\AlunoController@excluir']);
 });
 // Autenticacao Middleware Routes
 Route::middleware(AutenticacaoMiddleware::class)->group(function() {

@@ -14,62 +14,41 @@
     <article>
         <div class="form-value">
             <form action="{{ route('professor.cadastroAluno.store') }}" method="POST" onsubmit="return validateForm()">
-                @csrf <!-- Token CSRF para proteção contra ataques -->
+                @csrf
 
                 <div class="inputbox">
                     <label for="nome">Nome do Aluno</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" id="nome" name="nome" >
                 </div>
 
                 <div class="inputbox">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" >
                 </div>
 
                 <div class="inputbox">
                     <label for="senha">Senha Provisória</label>
-                    <input type="password" id="senha" name="senha" required>
+                    <input type="password" id="senha" name="senha" >
                 </div>
 
                 <div class="select">
                     <div class="selected">
                         <span id="text-selected-turma" style="background-color: white;">Turma</span>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="1em"
-                            viewBox="0 0 512 512"
-                            class="arrow"
-                        >
-                            <path
-                                d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                            ></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow">
+                            <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
                         </svg>
-                    </div><!--selected-data-->
+                    </div>
 
                     <div class="options">
-                        <div>
-                            <input id="turma-1" name="turma" type="radio" value="1" onClick="changeDay('Turma 1')" />
-                            <label class="option" for="turma-1">Turma 1</label>
-                        </div>
+                        @foreach ($turmas as $turma)
+                            <div>
+                                <input id="turma-{{ $turma->id }}" name="turma" type="radio" value="{{ $turma->id }}" onClick="changeDay('{{ $turma->nome }}')" />
+                                <label class="option" for="turma-{{ $turma->id }}">{{ $turma->nome }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
-                        <div>
-                            <input id="turma-2" name="turma" type="radio" value="2" onClick="changeDay('Turma 2')" />
-                            <label class="option" for="turma-2">Turma 2</label>
-                        </div>
-
-                        <div>
-                            <input id="turma-3" name="turma" type="radio" value="3" onClick="changeDay('Turma 3')" />
-                            <label class="option" for="turma-3">Turma 3</label>
-                        </div>
-
-                        <div>
-                            <input id="turma-4" name="turma" type="radio" value="4" onClick="changeDay('Turma 4')" />
-                            <label class="option" for="turma-4">Turma 4</label>
-                        </div>
-                    </div><!--options-->
-                </div><!--Select-->
-
-                <!-- Mensagem de feedback -->
                 <div class="mensagem" style="display: none;" id="mensagem-feedback">
                     <ion-icon name="alert-circle-outline"></ion-icon>
                     <span id="mensagem-texto"></span>
@@ -80,55 +59,47 @@
                     <button type="submit" id="salvar" class="button">Salvar</button>
                 </div>
             </form>
-        </div><!--form-value-->
+        </div>
     </article>
 </main>
 
-<!-- Scripts de ionicons e funções de manipulação -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script>
-    // Função para alterar a seleção de turma
     function changeDay(turma) {
-    document.getElementById("text-selected-turma").textContent = turma;
-    document.getElementById("selected-turma").value = turma; // Aqui, você está atribuindo o texto ao invés do valor
-}
+        document.getElementById("text-selected-turma").textContent = turma;
+    }
 
-
-    // Verificar se existem mensagens de feedback e exibir na tela
     document.addEventListener('DOMContentLoaded', function () {
         var mensagemDiv = document.getElementById('mensagem-feedback');
         var mensagemTexto = document.getElementById('mensagem-texto');
 
-        // Verifica se existe uma mensagem de sucesso na sessão
         @if(session('success'))
             mensagemTexto.textContent = "{{ session('success') }}";
-            mensagemDiv.style.display = 'flex'; // Mostra a mensagem de sucesso
-            mensagemDiv.querySelector('ion-icon').setAttribute('name', 'checkmark-circle-outline'); // Ícone de sucesso
+            mensagemDiv.style.display = 'flex';
+            mensagemDiv.querySelector('ion-icon').setAttribute('name', 'checkmark-circle-outline');
         @endif
 
-        // Verifica se existe uma mensagem de erro na sessão
         @if($errors->any())
             mensagemTexto.textContent = "Erro ao cadastrar o aluno. Verifique os dados e tente novamente.";
-            mensagemDiv.style.display = 'flex'; // Mostra a mensagem de erro
-            mensagemDiv.querySelector('ion-icon').setAttribute('name', 'alert-circle-outline'); // Ícone de erro
+            mensagemDiv.style.display = 'flex';
+            mensagemDiv.querySelector('ion-icon').setAttribute('name', 'alert-circle-outline');
         @endif
     });
 
-    // Validação do formulário (verifica se uma turma foi selecionada)
     function validateForm() {
-        var selectedTurma = document.getElementById("selected-turma").value;
+        var selectedTurma = document.querySelector('input[name="turma"]:checked');
         var mensagemDiv = document.getElementById('mensagem-feedback');
         var mensagemTexto = document.getElementById('mensagem-texto');
 
         if (!selectedTurma) {
             mensagemTexto.textContent = 'Selecione uma turma antes de salvar.';
-            mensagemDiv.style.display = 'flex'; // Mostra a mensagem de erro
-            mensagemDiv.querySelector('ion-icon').setAttribute('name', 'alert-circle-outline'); // Ícone de erro
-            return false; // Impede o envio do formulário
+            mensagemDiv.style.display = 'flex';
+            mensagemDiv.querySelector('ion-icon').setAttribute('name', 'alert-circle-outline');
+            return false;
         }
-        return true; // Permite o envio do formulário
+        return true;
     }
 </script>
 @endsection

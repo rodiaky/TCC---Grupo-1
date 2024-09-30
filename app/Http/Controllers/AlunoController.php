@@ -18,10 +18,8 @@ class AlunoController extends Controller
             ->where('turmas.id', $id)
             ->get();
 
-        $nome_turma = User::join('alunos', 'users.id', '=', 'alunos.id_user')
-            ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
-            ->select('turmas.nome as nome_turma')
-            ->where('turmas.id', $id)
+        $nome_turma = Turmas::where('id', $id)
+            ->pluck('nome')
             ->first();
     
         return view('admin.alunos.index', compact('pessoas', 'nome_turma'));
@@ -50,9 +48,17 @@ class AlunoController extends Controller
     
     
     public function excluir($id_pessoa) {
-        User::find($id_pessoa)->delete();
-        return redirect()->route('admin.alunos');
+        $user = User::find($id_pessoa);
+        $id_turma = Alunos::where('id_user', $id_pessoa)
+            ->pluck('id_turma')
+            ->first();
+        if ($user) {
+            $user->delete();
+            return redirect()->route('professor.admin.alunos', ['id' => $id_turma])->with('success', 'Aluno excluído com sucesso.');
+        }
+        return redirect()->route('professor.admin.alunos', ['id' => $id_turma])->with('error', 'Aluno não encontrado.');
     }
+    
     
     public function salvar(Request $req) {
         $dados = $req->all();
