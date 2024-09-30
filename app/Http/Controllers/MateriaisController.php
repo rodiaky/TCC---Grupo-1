@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Materiais;
+use App\Models\Pastas;
 use Illuminate\Support\Facades\DB;
 
 class MateriaisController extends Controller
@@ -11,54 +12,47 @@ class MateriaisController extends Controller
     public function index($id){
         $id_pasta = $id;
         $materiais = Materiais::join('pastas', 'materiais.id_pasta', '=', 'pastas.id')
-        ->where('materiais.id', $id)
-        ->select('materiais.*', 'pastas.nome as nome_pasta')
+        ->where('materiais.id_pasta', $id_pasta)
+        ->select('materiais.*')
         ->get();
-        return view('admin.materiais.materiais', compact('materiais','id_pasta'));
-    }
-
-    public function visualizar($id,$id_pasta)
-    {
-        // Recupera o item com o ID fornecido
-        $material = Materiais::where('id', $id)
-        ->where('id_pasta', $id_pasta)
+        $nome_pasta = Pastas::where('id', $id_pasta)
+        ->select('pastas.nome')
         ->first();
-        // Verifica se o item foi encontrado
-        if (!$material) {
-            // Redireciona ou exibe uma mensagem de erro se o item não for encontrado
-            return redirect()->route('admin.materiais')->with('error', 'Repertório não encontrado.');
-        }
 
-        // Retorna a view com o item encontrado
-        return view('admin.materiais.visualizarMaterial', compact('material','id_pasta'));
+        return view('admin.materiais.materiais', compact('materiais','id_pasta','nome_pasta'));
     }
 
     public function adicionar() {
-        return view('admin.materiais.adicionar');
+        $pastas = Pastas::where('tipo', 'Material')->pluck('nome', 'id')->all();
+        return view('admin.materiais.adicionar',compact('pastas'));
     }
 
     public function editar($id) {
-        $materiais = Materiais::find($id);
-        return view('admin.materiais.editar',compact('materiais'));
+        $materiais = Materiais::join('pastas', 'materiais.id_pasta', '=', 'pastas.id')
+        ->where('materiais.id', $id)
+        ->select('materiais.*', 'pastas.nome as nome_pasta')
+        ->first();
+        $pastas = Pastas::where('tipo', 'Material')->pluck('nome', 'id')->all();
+        return view('admin.materiais.editar',compact('materiais','pastas'));
     }
 
 
     
     public function excluir($id) {
         Materiais::find($id)->delete();
-        return redirect()->route('admin.materiais');
+        return redirect()->route('admin.pastasMateriais');
     }
 
     public function salvar(Request $req){
         $dados = $req->all();  
         Materiais::create($dados);
-        return redirect()->route('admin.materiais');
+        return redirect()->route('admin.pastasMateriais');
 
     }
 
     public function atualizar(Request $req, $id){
         $dados = $req->all();
         Materiais::find($id)->update($dados);
-        return redirect()->route('admin.materiais');
+        return redirect()->route('admin.pastasMateriais');
     }
 }

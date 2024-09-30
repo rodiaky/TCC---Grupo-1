@@ -126,7 +126,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/pesquisar', [MateriaisController::class, 'search'])->name('admin.materiais.search');
             Route::get('/filtrar', [MateriaisController::class, 'filtrar'])->name('admin.materiais.filtrar');
             Route::get('/visualizar/{id}/{id_pasta}', [MateriaisController::class, 'visualizar'])->name('admin.materiais.visualizar');
-            Route::get('/adicionar', [MateriaisController::class, 'adicionar'])->name('admin.materiais.adicionar');
+            Route::get('/1/adicionar', [MateriaisController::class, 'adicionar'])->name('admin.materiais.adicionar');
             Route::post('/salvar', [MateriaisController::class, 'salvar'])->name('admin.materiais.salvar');
             Route::get('/editar/{id}', [MateriaisController::class, 'editar'])->name('admin.materiais.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [MateriaisController::class, 'atualizar'])->name('admin.materiais.atualizar');

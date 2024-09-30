@@ -18,11 +18,12 @@
         <hr class="titulo-linha">
 
         @if ($isAdmin)
-        <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.pastasMateriais.adicionar') }}" class="botao-texto">Adicionar Pasta</a>
+                <hr id="linhaBotao">
+                <a href="{{ route('admin.materiais.adicionar')}}" class="botao-texto">Adicionar Material</a>
             </div>
         </button>
         @endif

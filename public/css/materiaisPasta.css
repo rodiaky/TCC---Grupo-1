@@ -103,8 +103,15 @@
     height: 5rem;
     opacity: 1;
     padding: .8rem .5rem .8rem .5rem;
-}
-
-.editar-opcoes-texto:hover{
+  }
+  
+  .editar-opcoes-texto:hover{
     opacity: .6;
-}
+  }
+  
+  .editar-opcoes:hover{
+    width: 10rem;
+    height: 5rem;
+    opacity: 1;
+    padding: .8rem .5rem .8rem .5rem;
+  }

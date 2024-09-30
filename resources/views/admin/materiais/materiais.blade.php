@@ -19,8 +19,9 @@
             <i class="material-icons seta-voltar">arrow_back</i>
         </a>
 
+
             <div class="escrito">
-                <p>Nome da Pasta</p>
+            <p>{{ $nome_pasta->nome }}</p>
             </div>
 
             @forelse ($materiais as $material)
