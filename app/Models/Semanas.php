@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Semanas extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome', 'descricao', 'data_incio', 'data_fim']; 
+    protected $fillable = ['nome', 'descricao', 'data_inicio', 'data_fim']; 
 }

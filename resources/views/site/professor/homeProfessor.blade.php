@@ -51,6 +51,11 @@
                 <div class="texto-card">Turmas</div>
             </div>
 
+            <div class="card">
+                <a href="{{route('admin.cruds')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <div class="texto-card">Cruds sem botão</div>
+            </div>
+
         </section>
 
         

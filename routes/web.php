@@ -22,6 +22,9 @@ use App\Http\Controllers\PastaMateriaisController;
 use App\Http\Controllers\MateriaisController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\CriterioController;
+use App\Http\Controllers\BancaController;
+use App\Http\Controllers\SemanaController;
 
 // Auth Routes
 Auth::routes();
@@ -75,6 +78,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
     Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
 
+    Route::get('/cruds', function () { return view('site.cruds'); })->name('admin.cruds');
     // Admin Routes
     Route::prefix('admin')->group(function() {
         Route::prefix('temas')->group(function() {
@@ -105,6 +109,33 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/editar/{id}', [AlunoController::class, 'editar'])->name('admin.alunos.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [AlunoController::class, 'atualizar'])->name('admin.alunos.atualizar');
             Route::get('/excluir/{id}', [AlunoController::class, 'excluir'])->name('admin.alunos.excluir');            
+        });
+
+        Route::prefix('semanas')->group(function() {
+            Route::get('/', [SemanaController::class, 'index'])->name('admin.semanas');
+            Route::get('/adicionar', [SemanaController::class, 'adicionar'])->name('admin.semanas.adicionar');
+            Route::post('/salvar', [SemanaController::class, 'salvar'])->name('admin.semanas.salvar');
+            Route::get('/editar/{id}', [SemanaController::class, 'editar'])->name('admin.semanas.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [SemanaController::class, 'atualizar'])->name('admin.semanas.atualizar');
+            Route::get('/excluir/{id}', [SemanaController::class, 'excluir'])->name('admin.semanas.excluir');            
+        });
+
+        Route::prefix('bancas')->group(function() {
+            Route::get('/', [BancaController::class, 'index'])->name('admin.bancas');
+            Route::get('/adicionar', [BancaController::class, 'adicionar'])->name('admin.bancas.adicionar');
+            Route::post('/salvar', [BancaController::class, 'salvar'])->name('admin.bancas.salvar');
+            Route::get('/editar/{id}', [BancaController::class, 'editar'])->name('admin.bancas.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [BancaController::class, 'atualizar'])->name('admin.bancas.atualizar');
+            Route::get('/excluir/{id}', [BancaController::class, 'excluir'])->name('admin.bancas.excluir');            
+        });
+
+        Route::prefix('criterios')->group(function() {
+            Route::get('/', [CriterioController::class, 'index'])->name('admin.criterios');
+            Route::get('/adicionar', [CriterioController::class, 'adicionar'])->name('admin.criterios.adicionar');
+            Route::post('/salvar', [CriterioController::class, 'salvar'])->name('admin.criterios.salvar');
+            Route::get('/editar/{id}', [CriterioController::class, 'editar'])->name('admin.criterios.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [CriterioController::class, 'atualizar'])->name('admin.criterios.atualizar');
+            Route::get('/excluir/{id}', [CriterioController::class, 'excluir'])->name('admin.criterios.excluir');            
         });
 
 
@@ -185,6 +216,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
 
     Route::match(['get','post'],'/admin/correcao/atualizar/{id}', ['as' =>'admin.correcao.atualizar', 'uses' => 'App\Http\Controllers\RedacoesPendentesController@atualizar']);
 
+    
 // Other Pages
     Route::get('/pasta_materiais', function () { return view('site.matPasta'); })->name('matPasta');
     Route::get('/materiais', function () { return view('site.materiais'); })->name('materiais');
