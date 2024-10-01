@@ -33,6 +33,14 @@ form{
     height: 3rem;
 }
 
+#nota-max{
+    width: 50%;
+}
+
+#descricao-crit{
+    height: 16rem;
+}
+
 /*BOTÃO*/
 .button{
     width: 160px;
@@ -67,18 +75,6 @@ form{
     margin-bottom: 1.7rem;
 }
 
-.textoQuestao{ 
-    height: 20rem;
-    padding: 10px;
-    margin-top: 10px;
-    width: 100%;
-}
-
-/*ADICIONAR E ALTERAR SEMANA*/
-#textoDescricao{
-    height: 8rem;
-}
-
 /*ADICIONAR E ALTERAR TEMA*/
 #textoApoio{
     height: 20rem;
@@ -95,13 +91,6 @@ input[type="color"]{
     cursor: pointer;
 }
 
-/*INFO SEMANA*/
-.infoSemana{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 3dvh;
-}
-
 
 /*MENSAGEM DE AVISO ---------------------------------------------------------*/
 .mensagem{
@@ -113,6 +102,25 @@ input[type="color"]{
     margin-right: 2px;
     background-color: transparent;
     color: red;
+}
+
+.textoQuestao{ 
+    height: 20rem;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.textoAlternativa{ 
+    height: 7rem;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.textoAlternativa::-webkit-scrollbar{ 
+    display: none;
 }
 
 #msg-centro{
@@ -148,14 +156,6 @@ input[type="color"]{
     }
 
     .inputbox input{
-        height: 2.5rem;
-    }
-
-    .infoSemana label{
-        font-size: 1rem;
-    }
-
-    .infoSemana select{
         height: 2.5rem;
     }
 
@@ -210,10 +210,6 @@ input[type="color"]{
     }
   
     .inputbox label{
-        font-size: 1.5rem;
-    }
-
-    .infoSemana label{
         font-size: 1.5rem;
     }
 

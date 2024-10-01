@@ -51,71 +51,37 @@ class TurmasController extends Controller
     }
     
     
-    
-    
-    
+
 
     public function adicionar() {
-        $professores = DB::table('users')
-        ->join('funcionarios', 'users.id', '=', 'funcionarios.id_user')
-        ->select('users.name', 'funcionarios.id')
-        ->where('users.eh_admin', "Professor")
-        ->get();
-        return view('admin.turmas.adicionar',compact('professores'));
+        return view('admin.turmas.adicionar');
     }
 
     public function editar($id) {
-        $linha = Turmas::find($id);
-        $professores = DB::table('users')
-        ->join('funcionarios', 'users.id', '=', 'funcionarios.id_user')
-        ->select('users.name', 'funcionarios.id')
-        ->where('users.eh_admin', "Professor")
-        ->get();
-        return view('admin.turmas.editar',compact('linha','professores'));
+        $turmas = Turmas::find($id);
+ 
+        return view('admin.turmas.editar',compact('turmas'));
     }
 
 
     public function excluir($id) {
         Turmas::find($id)->delete();
-        return redirect()->route('admin.turmas.turmas');
+        return redirect()->route('admin.turmas');
     }
 
     public function salvar(Request $req){
-        // Validação dos dados
-        $validatedData = $req->validate([
-            'nome-turma' => 'required|string|max:255',
-            'dias_aula' => 'required|string',
-            'horario' => 'required|string',
-        ], [
-            'nome-turma.required' => 'O nome da turma é obrigatório.',
-            'dias_aula.required' => 'O dia da aula é obrigatório.',
-            'horario.required' => 'O horário é obrigatório.',
-        ]);
-    
-        Turmas::create($validatedData);
-    
-        return redirect()->route('admin.turmas.turmas')->with('success', 'Turma adicionada com sucesso!');
+        $dados = $req->all();  
+        Turmas::create($dados);
+        return redirect()->route('admin.turmas');
+
     }
-    
+
     public function atualizar(Request $req, $id){
-        // Validação dos dados
-        $validatedData = $req->validate([
-            'nome-turma' => 'required|string|max:255',
-            'dias_aula' => 'required|string',
-            'horario' => 'required|string',
-        ], [
-            'nome-turma.required' => 'O nome da turma é obrigatório.',
-            'dias_aula.required' => 'O dia da aula é obrigatório.',
-            'horario.required' => 'O horário é obrigatório.',
-        ]);
+        $dados = $req->all();
     
-        $turma = Turmas::find($id);
-        if (!$turma) {
-            return redirect()->route('admin.turmas.turmas')->withErrors(['error' => 'Turma não encontrada.']);
-        }
+        
+        Turmas::find($id)->update($dados);
     
-        $turma->update($validatedData);
-    
-        return redirect()->route('admin.turmas.turmas')->with('success', 'Turma atualizada com sucesso!');
-    }    
+        return redirect()->route('admin.turmas');
+    }
 }

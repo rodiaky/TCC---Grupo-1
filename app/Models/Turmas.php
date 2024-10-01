@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Turmas extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome', 'horario_entrada', 'horario_saida', 'dias_aula', 'quantidade_aluno', 'id_funcionario'];
+    protected $fillable = ['nome', 'horario_entrada', 'horario_saida', 'dias_aula', 'id_funcionario'];
 }

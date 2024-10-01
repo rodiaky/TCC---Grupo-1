@@ -9,10 +9,21 @@
 @endsection
 
 @section('conteudo')
+
+
     <main>
 
         <h1 class="titulo-pagina">Alunos - {{ $nome_turma ? $nome_turma : 'Turma não encontrada' }}</h1>
         <hr class="titulo-linha">
+
+ 
+        <button class="botao"> <!-- ajustar o CSS  -->
+            <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
+            <div class="botao-expand">
+                <a href="{{ route('admin.alunos.adicionar') }}" class="botao-texto">Adicionar Aluno</a>
+            </div>
+        </button>
+ 
 
         <section class="section-barra-de-pesquisa">
             <label class="pesquisa" for="barra-pesquisa">
@@ -30,6 +41,7 @@
                         <tr>
                             <th scope="col">Imagem</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Excluir</th>
                         </tr>
@@ -39,8 +51,9 @@
                                     <img src="{{ $pessoa->foto }}" alt="Foto de {{ $pessoa->name }}" class="imagem-tabela">
                                 </td>
                                 <td class="alunos">{{ $pessoa->name }}</td>
+                                <td class="alunos">{{ $pessoa->email }}</td>
                                 <td class="editar">
-                                    <a href="{{ route('professor.admin.alunos.editar', $pessoa->id) }}">
+                                    <a href="{{ route('admin.alunos.editar', $pessoa->id) }}">
                                         <i class="material-icons icone-tabela">edit</i>
                                     </a>
                                 </td>

@@ -32,18 +32,19 @@ class AlunoController extends Controller
     }
     
     public function editar($id_pessoa) {
-        // Busca a pessoa e as informações do aluno
-        $pessoa = DB::table('users')
-            ->join('alunos', 'users.id', '=', 'alunos.id_user')
-            ->select('users.*', 'alunos.*', 'users.id as id')
-            ->where('users.id', $id_pessoa)
-            ->first();
+
+        $alunos = DB::table('users')
+        ->join('alunos', 'users.id', '=', 'alunos.id_user')
+        ->join('turmas', 'alunos.id_turma', '=', 'turmas.id') 
+        ->select('users.*', 'alunos.*', 'turmas.nome as nome_turma', 'users.id as id') 
+        ->where('users.id', $id_pessoa)
+        ->first();
     
-        // Pega todas as turmas
+ 
         $turmas = Turmas::pluck('nome', 'id')->all();
     
-        // Retorna a view com os dados
-        return view('admin.alunos.editar', compact('pessoa', 'turmas'));
+  
+        return view('admin.alunos.editar', compact('alunos', 'turmas'));
     }
     
     
@@ -78,7 +79,7 @@ class AlunoController extends Controller
         $funcionario->id_turma = $dados['id_turma']; 
         $funcionario->id_user = $ultimoId; 
         $funcionario->save();
-        return redirect()->route('admin.alunos');
+        return redirect()->route('admin.turmas');
     }
     
     public function atualizar(Request $request, $id)

@@ -41,7 +41,7 @@
             @forelse ($questoes as $questao)
                 <div class="sectionCinza">
                     <div class="superior">
-                        <div class="nome">{{ $questao->vestibular }} ({{ $questao->ano }})</div>
+                        <div class="nome">{{ $questao->banca_nome }} ({{ $questao->ano }})</div>
                         @if ($isAdmin)
                         <button class="botao-editar">
                             <i class="material-icons">more_horizon</i>

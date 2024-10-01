@@ -98,6 +98,16 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/excluir/{id}', [TurmasController::class, 'excluir'])->name('admin.turmas.excluir');            
         });
 
+        Route::prefix('alunos')->group(function() {
+            Route::get('/', [AlunoController::class, 'index'])->name('admin.alunos');
+            Route::get('/1/adicionar', [AlunoController::class, 'adicionar'])->name('admin.alunos.adicionar');
+            Route::post('/salvar', [AlunoController::class, 'salvar'])->name('admin.alunos.salvar');
+            Route::get('/editar/{id}', [AlunoController::class, 'editar'])->name('admin.alunos.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [AlunoController::class, 'atualizar'])->name('admin.alunos.atualizar');
+            Route::get('/excluir/{id}', [AlunoController::class, 'excluir'])->name('admin.alunos.excluir');            
+        });
+
+
         Route::prefix('questoes')->group(function() {
             Route::get('/', [QuestoesController::class, 'index'])->name('admin.questoes');
             Route::get('/gramatica', [QuestoesController::class, 'gramatica'])->name('admin.questoes.gramatica');
