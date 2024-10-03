@@ -17,7 +17,6 @@
 .link-repertorio {
     width: fit-content;
     height: fit-content;
-    border: 1px solid red;
 }
 
 .card-repertorio {
@@ -292,7 +291,6 @@
     
     .spoiler-repertorio {
         display: none;
-    
     }
     
     .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
@@ -504,7 +502,6 @@
     .tipo-repertorio {
         grid-column: 2 / span 4;
         grid-row: 2;
-
     }
     
     .spoiler-repertorio {

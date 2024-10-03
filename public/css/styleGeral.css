@@ -19,6 +19,7 @@ body {
     background-color: var(--varCinzaClaro);
     width: 100%;
     max-width: 100%;
+    min-height: 100%;
 }
 
 main {

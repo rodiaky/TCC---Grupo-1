@@ -25,7 +25,7 @@
             </div>
 
             @forelse ($materiais as $material)
-            <div class="branco">
+            <div class="branco hover">
                 <p class="nomeMaterial">{{$material->nome}}</p>
                 @if ($isAdmin)
                 <button class="botao-editar">

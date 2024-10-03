@@ -1,14 +1,3 @@
-:root {
-    /* Paleta de Cores */
-    --varLaranjaEscuro: #F46F20;
-    --varLaranjaClaro: #FEA572;
-    --varCinzaEscuro: #EAEAEA;
-    --varCinzaClaro: #F4F3F2;
-    --varBranco: #F8F8F8;
-    --varPreto: #000000;
-}
-
-
 /* TABELA -------------------------------------------------------------- */
 
 table, th, td{
@@ -34,6 +23,7 @@ td {
     width: 100%;
     max-width: 100%;
     color: var(--varBranco);
+    margin-bottom: 50px;
 }
 
 .overflow {
@@ -86,7 +76,44 @@ tr:nth-child(even) {
     transition: all 200ms ease;
 }
 
-.editar:hover > .icone-tabela,
-.excluir:hover > .icone-tabela{
+.editar:hover > a > .icone-tabela,
+
+.excluir:hover > a > .icone-tabela{
     color: var(--varLaranjaEscuro);
+}
+
+/* CRITERIOS ---------------------------------- */
+
+.criterioNome {
+    width: 20%;
+}
+
+.criterioNota {
+    width: 15%;
+}
+
+.criterioDescricao {
+    width: 25%;
+}
+
+.criterioBanca {
+    width: 15%;
+}
+
+/* SEMANAS ----------------------------------------- */
+
+.semanaNome{
+    width: 15%;
+}
+
+.semanaDescricao {
+    width: 30%;
+}
+
+.semanaInicio {
+    width: 15%;
+}
+
+.semanaFim {
+    width: 15%;
 }

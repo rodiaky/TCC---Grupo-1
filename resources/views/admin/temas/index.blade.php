@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
     <link rel="stylesheet" type="text/css" href="/css/temaRedacoes.css">
     <link rel="stylesheet" type="text/css" href="/css/botao1.css">
+    <link rel="stylesheet" type="text/css" href="/css/pagination.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Temas de Redações</title>
 @endsection
@@ -75,13 +76,17 @@ $currentFilter = request('filtros');
     <!-- Pagination Links -->
     <div class="pagination">
         <div class="flex justify-between">
-            @for ($i = 1; $i <= $temas->lastPage(); $i++)
-                @if ($i == $temas->currentPage())
-                    <span class="active">{{ $i }}</span>
-                @else
-                    <a href="{{ $temas->url($i) }}" class="pagination-link">{{ $i }}</a>
-                @endif
-            @endfor
+            {{-- Pagination Elements --}}
+            <div class="links">
+                {{-- Exibe os números das páginas --}}
+                @for ($i = 1; $i <= $temas->lastPage(); $i++)
+                    @if ($i == $temas->currentPage())
+                        <div class="active"><span>{{ $i }}</span></div>
+                    @else
+                        <a class="pagination-link" href="{{ $temas->url($i) }}">{{ $i }}</a>
+                    @endif
+                @endfor
+            </div>
         </div>
     </div>
 

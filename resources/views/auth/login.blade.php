@@ -8,11 +8,19 @@
     <link rel="stylesheet" type="text/css" href="css/loginLayout.css">
     <link rel="stylesheet" type="text/css" href="css/loginLayoutCelular.css">
     <link rel="stylesheet" type="text/css" href="css/loginLayoutTablet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Login</title>
 </head>
 <body>
     <section>
         <div class="form-box">
+
+            <div class="container-seta">
+                <a href="{{ route('welcome') }}" class="seta-back">
+                    <i class="material-symbols-outlined">arrow_back</i>
+                </a>
+            </div>
+
             <div class="form-value">
                 <form action="{{ route('login') }}" method="post">
                     @csrf
@@ -57,5 +65,6 @@
     </section>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -4,16 +4,28 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
     <title>Adicionar repertório</title>
 @endsection
 
 @section('conteudo')
-<main>
-    <h1>Adicionar repertório</h1><hr>
+
+<!-- TEM QUE ARRUMAR -->
+    <main>
+        <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ route('admin.repertorios')}}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Adicionar Repertório</h1>
+        </div>
+        <hr class="titulo-linha">
+    </main>
     
     <article>
         <div class="form-value">
-            <form action="{{ route('admin.repertorios.salvar') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.repertorios.salvar', ['id' => $repertorio->id]) }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="categoria" value="Repertório">
                 
@@ -128,7 +140,6 @@
             </form>
         </div><!--form-value-->
     </article>
-</main>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 @endsection

@@ -50,15 +50,26 @@
                 <a href="{{route('admin.turmas')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
                 <div class="texto-card">Turmas</div>
             </div>
-
+            
+            <!-- CRITÉRIOS -->
             <div class="card">
-                <a href="{{route('admin.cruds')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
-                <div class="texto-card">Cruds sem botão</div>
+                <a href="{{route('admin.criterios')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <div class="texto-card">Critérios</div>
+            </div>
+
+            <!-- BANCAS -->
+            <div class="card">
+                <a href="{{route('admin.bancas')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <div class="texto-card">Bancas</div>
+            </div>
+
+            <!-- SEMANAS -->
+            <div class="card">
+                <a href="{{route('admin.semanas')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <div class="texto-card">Semanas</div>
             </div>
 
         </section>
-
-        
 
     </main>
 

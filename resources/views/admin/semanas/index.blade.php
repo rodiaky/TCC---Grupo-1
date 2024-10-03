@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
     <link rel="stylesheet" type="text/css" href="/css/styleGeralTabela.css">
     <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Crud Semanas</title>
 @endsection
@@ -48,10 +49,10 @@
                         </tr>
                         @foreach ($semanas as $semana)
                             <tr>
-                                <td class="alunos">{{ $semana->nome }}</td>
-                                <td class="alunos">{{ $semana->descricao }}</td>
-                                <td class="alunos">{{ $semana->data_inicio }}</td>
-                                <td class="alunos">{{ $semana->data_fim }}</td>
+                                <td class="semanaNome">{{ $semana->nome }}</td>
+                                <td class="semanaDescricao">{{ $semana->descricao }}</td>
+                                <td class="semanaInicio">{{ $semana->data_inicio }}</td>
+                                <td class="semanaFim">{{ $semana->data_fim }}</td>
                                 <td class="editar">
                                     <a href="{{ route('admin.semanas.editar', $semana->id) }}">
                                         <i class="material-icons icone-tabela">edit</i>
@@ -76,4 +77,6 @@
         @endif
 
     </main>
+    <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+
     @endsection

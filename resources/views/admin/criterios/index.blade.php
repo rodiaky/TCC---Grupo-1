@@ -4,8 +4,9 @@
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
     <link rel="stylesheet" type="text/css" href="/css/styleGeralTabela.css">
     <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Crud Criterios</title>
+    <title>Crud Critérios</title>
 @endsection
 
 @section('conteudo')
@@ -13,11 +14,11 @@
 
     <main>
 
-        <h1 class="titulo-pagina">Criterios</h1>
+        <h1 class="titulo-pagina">Critérios</h1>
         <hr class="titulo-linha">
 
  
-        <button class="botao"> <!-- ajustar o CSS  -->
+        <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.criterios.adicionar') }}" class="botao-texto">Adicionar Critério</a>
@@ -48,10 +49,10 @@
                         </tr>
                         @foreach ($criterios as $criterio)
                             <tr>
-                                <td class="alunos">{{ $criterio->nome }}</td>
-                                <td class="alunos">{{ $criterio->nota_maxima_criterio }}</td>
-                                <td class="alunos">{{ $criterio->descricao }}</td>
-                                <td class="alunos">{{ $criterio->banca_nome }}</td>
+                                <td class="criterioNome">{{ $criterio->nome }}</td>
+                                <td class="criterioNota">{{ $criterio->nota_maxima_criterio }}</td>
+                                <td class="criterioDescricao">{{ $criterio->descricao }}</td>
+                                <td class="criterioBanca">{{ $criterio->banca_nome }}</td>
                                 <td class="editar">
                                     <a href="{{ route('admin.criterios.editar', $criterio->id) }}">
                                         <i class="material-icons icone-tabela">edit</i>
@@ -71,9 +72,10 @@
             </section>
         @else
             <section class="tabela">
-                <p>Nenhum aluno cadastrado</p>
+                <p>Nenhum critério cadastrado.</p>
             </section>
         @endif
 
     </main>
+    <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
 @endsection

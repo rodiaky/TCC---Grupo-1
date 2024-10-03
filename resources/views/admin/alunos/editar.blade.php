@@ -4,12 +4,23 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
     <title>Editar Aluno</title>
 @endsection
 
 @section('conteudo')
+
     <main>
-        <h1>Editar Aluno</h1><hr>
+        <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ route('admin.alunos') }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Editar Aluno</h1>
+        </div>
+        <hr class="titulo-linha">
+    </main>
     
         <article>
             <div class="form-value">
@@ -75,7 +86,6 @@
             </div><!--form-value-->
             
         </article>
-    </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 @endsection

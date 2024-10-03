@@ -1,9 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .form-box{
     display: flex;
     flex-direction: column;
@@ -65,4 +59,19 @@ button{
 
 .mensagem ion-icon{
     margin-right: 3px;
+}
+
+.container-seta {
+    width: 85%;
+}
+
+.seta-back {
+    color: #FFF;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: all 200ms ease;
+}
+
+.seta-back:hover {
+    color: var(--varPreto);
 }

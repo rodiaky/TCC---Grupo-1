@@ -96,7 +96,7 @@
                     
                     <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}">
                         <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
-                    <a>
+                    </a>
     
                     <div class="tipo-repertorio">
                         <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
@@ -104,9 +104,11 @@
                             <p>{{ $repertorio->classificacao }}</p>
                         </div>
                     </div>
+
                     <div class="spoiler-repertorio">
                         <p>{{ $repertorio->descricao }}</p>
                     </div>
+
                     @if ($isAdmin)
                         <button class="botao-editar botao-repertorio" onclick="event.preventDefault(); showOptions(this);">
                             <i class="material-icons">more_horizon</i>
@@ -117,6 +119,8 @@
                             </div>
                         </button>
                     @endif
+
+
                 </article>
                 @empty
                     <p>Nenhum repertório encontrado.</p>

@@ -32,6 +32,7 @@ Route::get('/logout', [LoginController::class, 'sair'])->name('logout');
 
 // Public Routes
 Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () { return view('welcome'); })->name('welcome');
 
 /*Route::get('/turma', [TurmasController::class, 'index'])->name('site.turmas');
 Route::get('/turma_adicionar', [TurmasController::class, 'adicionar'])->name('site.turmas.adicionar');
