@@ -18,25 +18,25 @@
         {{ csrf_field() }}
                 <div class="inputbox">
                     <label for="">Texto da questão</label>
-                    <textarea class="textoQuestao" name="enunciado" required>{{ isset($questoes->enunciado) ? $questoes->enunciado : '' }}</textarea>
+                    <textarea class="textoQuestao" name="enunciado" >{{ isset($questoes->enunciado) ? $questoes->enunciado : '' }}</textarea>
                 </div>
                 
 
                 <div class="inputbox">
                   <label for="txt-A">Alternativa A</label>
-                  <textarea id="txt-A" class="textoAlternativa" name="alternativa_A" required>{{ isset($questoes->alternativa_A) ? $questoes->alternativa_A : '' }}</textarea>
+                  <textarea id="txt-A" class="textoAlternativa" name="alternativa_A">{{ isset($questoes->alternativa_A) ? $questoes->alternativa_A : '' }}</textarea>
                 </div>
                 <div class="inputbox">
                   <label for="txt-B">Alternativa B</label>
-                  <textarea id="txt-B" class="textoAlternativa" name="alternativa_B" required>{{ isset($questoes->alternativa_B) ? $questoes->alternativa_B : '' }}</textarea>
+                  <textarea id="txt-B" class="textoAlternativa" name="alternativa_B">{{ isset($questoes->alternativa_B) ? $questoes->alternativa_B : '' }}</textarea>
                 </div>
                 <div class="inputbox">
                   <label for="txt-C">Alternativa C</label>
-                  <textarea id="txt-C" class="textoAlternativa" name="alternativa_C" required>{{ isset($questoes->alternativa_C) ? $questoes->alternativa_C : '' }}</textarea>
+                  <textarea id="txt-C" class="textoAlternativa" name="alternativa_C" >{{ isset($questoes->alternativa_C) ? $questoes->alternativa_C : '' }}</textarea>
                 </div>
                 <div class="inputbox">
                   <label for="txt-D">Alternativa D</label>
-                  <textarea id="txt-D" class="textoAlternativa" name="alternativa_D" required>{{ isset($questoes->alternativa_D) ? $questoes->alternativa_D : '' }}</textarea>
+                  <textarea id="txt-D" class="textoAlternativa" name="alternativa_D">{{ isset($questoes->alternativa_D) ? $questoes->alternativa_D : '' }}</textarea>
                 </div>
                 <div class="inputbox">
                   <label for="txt-E">Alternativa E</label>
@@ -50,7 +50,7 @@
 
                 <div class="inputbox">
                     <label for="">Assunto</label>
-                    <input type="text" name="assunto" value="{{ isset($questoes->assunto) ? $questoes->assunto : '' }}" required>
+                    <input type="text" name="assunto" value="{{ isset($questoes->assunto) ? $questoes->assunto : '' }}" >
                 </div>
 
                 <div class="addAltQuestao">
@@ -169,10 +169,18 @@
 
                  
 
-                  <div class="mensagem">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    <div class="mensagem">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                @if($errors->any())
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @else
                     Preencha todos os campos antes de avançar 
-                </div>
+                @endif
+            </div>
 
                 </div>
                   
