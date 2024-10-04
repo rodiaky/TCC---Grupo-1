@@ -25,6 +25,7 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\BancaController;
 use App\Http\Controllers\SemanaController;
+use App\Http\Controllers\EstatisticaController;
 
 // Auth Routes
 Auth::routes();
@@ -46,7 +47,7 @@ Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/alterar_senha', [AlterarSenhaController::class, 'index'])->name('alterar_senha');
     Route::post('/alterar_senha', [AlterarSenhaController::class, 'update'])->name('alterar_senha.update');
-    Route::get('/painel_redacoes', function () { return view('site.aluno.painel_redacoes'); })->name('painel_redacoes');
+    Route::get('/painel_redacoes', [EstatisticaController::class, 'index'])->name('painel_redacoes');
    
 });
 
@@ -152,16 +153,18 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/excluir/{id}', [QuestoesController::class, 'excluir'])->name('admin.questoes.excluir');
         });
 
-        Route::prefix('repertorios')->group(function() {
-            Route::get('/{id}', [RepertoriosController::class, 'index'])->name('admin.repertorios');
-            Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
-            Route::get('/visualizar/{id}/{id_pasta}', [RepertoriosController::class, 'visualizar'])->name('admin.repertorios.visualizar');
-            Route::get('/1/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
-            Route::post('/salvar', [RepertoriosController::class, 'salvar'])->name('admin.repertorios.salvar');
-            Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
-            Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');
-            Route::get('/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('admin.repertorios.excluir');
-        });
+            Route::prefix('repertorios')->group(function() {
+                Route::get('/{id}', [RepertoriosController::class, 'index'])->name('admin.repertorios');
+                Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+                Route::get('/visualizar/{id}/{id_pasta}', [RepertoriosController::class, 'visualizar'])->name('admin.repertorios.visualizar');
+                Route::get('/1/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
+                Route::post('/salvar', [RepertoriosController::class, 'salvar'])->name('admin.repertorios.salvar');
+                Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
+                Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');
+                Route::get('/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('admin.repertorios.excluir');
+                Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+                Route::get('/filtrar/{id}', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
+            });
 
         Route::prefix('materiais')->group(function() {
             Route::get('/{id}', [MateriaisController::class, 'index'])->name('admin.materiais');
@@ -203,11 +206,9 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     });
 
     // Other Routes
-    Route::get('/repertorios', [RepertoriosController::class, 'index'])->name('repertorios');
    
     // Rota para buscar repertórios (pesquisa)
-    Route::get('/repertorios/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
-    Route::get('/repertorios/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
+
     
     // Redacoes Pendentes Routes
     Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
