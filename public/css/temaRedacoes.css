@@ -37,7 +37,6 @@
   width: 90%;
 
   font-weight: 700;
-  color: var(--varLaranjaEscuro);
 }
 
 .frase-tematica p {
@@ -50,6 +49,7 @@
   text-align: justify;
   white-space: normal;
   height: fit-content;
+  color: var(--varLaranjaEscuro);
 }
 
 .banca-ano {

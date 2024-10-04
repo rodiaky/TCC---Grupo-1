@@ -76,11 +76,19 @@
                         <ion-icon name="alert-circle-outline"></ion-icon>
                         Preencha todos os campos antes de avançar 
                     </div>
+                
+                </div>
+                <br>
+                <div class="upload">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="hidden" name="imagem" value="{{$tema->imagem}}">
                 </div>
 
                 <!-- Campo oculto para id_banca -->
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">
 
+
+            
                 <div class="botoes">
                     <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
                     <button type="submit" name="salvar" class="button">Salvar</button>

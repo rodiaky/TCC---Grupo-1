@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <link rel="stylesheet" type="text/css" href="/css/visualizarTema.css">
     <title>Editar Tema</title>
 @endsection
 
@@ -71,12 +72,19 @@
                             @endforeach
                         </div><!--options-->
                     </div><!--Select para banca-->  
+                    <br>
+                    <div class="upload">
+                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                        <input type="hidden" name="id_tema" value="{{$temas->id}}">
+                        <input type="hidden" name="imagem" value="{{$temas->imagem}}">
+                    </div>
 
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
                         Preencha todos os campos antes de avançar 
                     </div>
                 </div>
+
 
                 <!-- Campo oculto para id_banca -->
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">

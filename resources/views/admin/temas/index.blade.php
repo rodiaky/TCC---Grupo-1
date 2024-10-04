@@ -42,8 +42,8 @@ $currentFilter = request('filtros');
 
     <section class="container-tema">
         @forelse ($temas as $tema)
-        <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
-        </a>
+        
+        
             <div class="tema-secao">
                 @if ($isAdmin)
                 <button class="botao-editar">
@@ -55,18 +55,24 @@ $currentFilter = request('filtros');
                     </div>
                 </button>
                 @endif
+                
                 <div class="container-imagem-tema">
+<<<<<<< Updated upstream
                     <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
+=======
+                    <img src="/assets/{{ $tema->imagem }}" alt="" class="imagem-tema">
+>>>>>>> Stashed changes
                 </div>
                 
                 <div class="frase-tematica">
-                    <p>{{ $tema->frase_tematica }}</p>
+                    <p><a href="{{ route('admin.temas.visualizar', $tema->id) }}">{{ $tema->frase_tematica }}</a></p>
                 </div>
                 <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
                 <div class="spoiler">
                     <p>{{ $tema->texto_apoio }}</p>
                 </div>
             </div>
+            
        
         @empty
             <p>Nenhum tema encontrado.</p>
