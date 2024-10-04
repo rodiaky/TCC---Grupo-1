@@ -36,15 +36,16 @@ class AlunoController extends Controller
         $alunos = DB::table('users')
         ->join('alunos', 'users.id', '=', 'alunos.id_user')
         ->join('turmas', 'alunos.id_turma', '=', 'turmas.id') 
-        ->select('users.*', 'alunos.*', 'turmas.nome as nome_turma', 'users.id as id') 
+        ->select('users.*', 'alunos.*', 'turmas.nome as nome_turma', 'users.id as id', 'turmas.id as id_turma') 
         ->where('users.id', $id_pessoa)
         ->first();
-    
+
+        $id = $alunos->id_turma;
  
         $turmas = Turmas::pluck('nome', 'id')->all();
     
   
-        return view('admin.alunos.editar', compact('alunos', 'turmas'));
+        return view('admin.alunos.editar', compact('alunos', 'turmas','id'));
     }
     
     
