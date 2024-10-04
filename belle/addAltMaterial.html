@@ -24,8 +24,10 @@
 
                 <label class="lbl-upload">Upload de arquivo</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" name="arquivo-material" id="arquivo-material" required>
+                    <input type="file" class="arquivo" name="arquivo-material" id="arquivo-material"  multiple required>
                 </div>
+
+                <div id="file-list"></div>
 
                 <div class="select">
                     <div class="selected">
@@ -84,5 +86,28 @@
     </article>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
+    
+    <script>
+      const fileInput = document.getElementById('arquivo-material');
+      const fileList = document.getElementById('file-list');
+
+      fileInput.addEventListener('change', (event) => {
+          const files = event.target.files;
+          fileList.innerHTML = ''; // Limpa a lista anterior
+
+          if (files.length > 0) {
+              fileList.style.display = 'block'; // Mostra a div se arquivos foram selecionados
+          } else {
+              fileList.style.display = 'none'; // Esconde a div se nenhum arquivo foi selecionado
+          }
+
+          for (let i = 0; i < files.length; i++) {
+              const fileName = document.createElement('div');
+              fileName.textContent = files[i].name;
+              fileList.appendChild(fileName);
+          }
+      });
+  </script>
+
+  </body>
 </html>

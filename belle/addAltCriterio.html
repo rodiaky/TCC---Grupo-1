@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="formularioLayout.css">
+    <link rel="stylesheet" type="text/css" href="selecao.css">
+    <title>Adicionar e alterar critério</title>
+</head>
+<body>
+    <main>
+        <h1>Adicionar e alterar critério</h1><hr>
+    </main>
+    
+    <article>
+        <div class="form-value">
+            <form action="">
+
+                <div class="inputbox">
+                    <label for="">Nome do Critério</label>
+                    <input type="text" name="nome-criterio" required>
+                </div>
+
+                <div class="inputbox" id="descricao-crit">
+                    <label for="">Descrição do Critério</label>
+                    <textarea class="textoQuestao" name="descricao-criterio" required></textarea>
+                </div>
+                
+                <div class="inputbox" id="nota-max">
+                    <label for="">Nota Máxima do Critério</label>
+                    <input type="number" name="nota-max-criterio" min="0" max="200" required>
+                </div>
+
+                <div class="addAltQuestao">
+                <div id="banca" class="select"> <!--Select para banca-->
+                    <div class="selected">
+                      <script>
+                        function changeBanca(banca){
+                          document.getElementById("text-selected-banca").textContent = banca;
+                        }
+                      </script>
+                      <span id="text-selected-banca">Banca</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 512 512"
+                        class="arrow"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div id="primeiro" class="options">
+                      <div>
+                        <input id="alt-fuvest" name="alt-fuvest" type="radio" checked="" onclick="changeBanca('Fuvest')"/>
+                        <label class="option" for="alt-fuvest" data-txt="Fuvest"></label>
+                      </div>
+
+                      <div>
+                        <input id="alt-vunesp" name="alt-vunesp" type="radio" onclick="changeBanca('Vunesp')"/>
+                        <label class="option" for="alt-vunesp" data-txt="Vunesp"></label>
+                      </div>
+
+                      <div>
+                        <input id="alt-comvest" name="alt-comvest" type="radio" onclick="changeBanca('Comvest')"/>
+                        <label class="option" for="alt-comvest" data-txt="Comvest"></label>
+                      </div>
+
+                      <div>
+                        <input id="alt-enem" name="alt-enem" type="radio" onclick="changeBanca('ENEM')"/>
+                        <label class="option" for="alt-enem" data-txt="ENEM"></label>
+                      </div>
+                      
+                      <div>
+                        <input id="alt-extra" name="alt-extra" type="radio" onclick="changeBanca('Extra')"/>
+                        <label class="option" for="alt-extra" data-txt="Extra"></label>
+                      </div>
+                    </div><!--options-->
+                  </div><!--Select para Banca-->  
+
+                  <div class="mensagem">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    Preencha todos os campos antes de avançar 
+                </div>
+
+                </div>
+                                  
+                <div class="botoes">
+                    <button name="limpar" id="limpar" class="button">Limpar</button>
+                    <button name="salvar" class="button">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </article>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

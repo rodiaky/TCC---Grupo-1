@@ -61,10 +61,12 @@ form{
 /*ADICIONAR E ALTERAR QUESTÃO*/
 #alternativa{
     margin-bottom: 1.7rem;
+    z-index: 100;
 }
 
 #categoria{
     margin-bottom: 1.7rem;
+    z-index: 50;
 }
 
 .textoQuestao{ 
@@ -73,6 +75,19 @@ form{
     margin-top: 10px;
     width: 100%;
 }
+
+.textoAlternativa{ 
+    height: 7rem;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.textoAlternativa::-webkit-scrollbar{ 
+    display: none;
+}
+
 
 /*ADICIONAR E ALTERAR SEMANA*/
 #textoDescricao{
@@ -95,6 +110,11 @@ input[type="color"]{
     cursor: pointer;
 }
 
+/*ADICIONAR E ALTERAR TURMA*/
+#dia{
+    margin-bottom: 1.7rem;
+}
+
 /*MENSAGEM DE AVISO ---------------------------------------------------------*/
 .mensagem{
     display: flex;
@@ -110,6 +130,22 @@ input[type="color"]{
 #msg-centro{
     justify-content: center;
 }
+
+#nota-maxima{
+    width: 9rem ;
+}
+
+#file-list {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#file-list div {
+    padding: 5px; 
+}
+
 
 /*RESPONSIVIDADE----------------------------------------------------------------------------------*/
 /* Extra small devices (phones, 600px and down) */

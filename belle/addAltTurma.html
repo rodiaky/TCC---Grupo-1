@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="formularioUI.css">
     <link rel="stylesheet" type="text/css" href="formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="addAltTurma.css">
     <link rel="stylesheet" type="text/css" href="selecao.css">
     <title>Adicionar e alterar turma</title>
 </head>
@@ -16,6 +15,12 @@
     <article>
         <div class="form-value">
             <form action="">
+
+              <div class="inputbox">
+                <label for="">Nome da Turma</label>
+                <input type="text" name="nome-turma" required>
+              </div>
+
                 <div class="addAltTurma">
                     <div id="dia" class="select">
                         <div class="selected">
@@ -107,7 +112,7 @@
                       </div><!--Select para horário-->
                 </div><!--addAltTurma-->
 
-                <div id="msg-centro" class="mensagem">
+                <div class="mensagem">
                   <ion-icon name="alert-circle-outline"></ion-icon>
                   Preencha todos os campos antes de avançar
               </div>
