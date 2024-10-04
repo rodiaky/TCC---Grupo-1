@@ -11,7 +11,7 @@
 .botao-expand:hover, .botao-circulo:hover ~ .botao-expand{
     width: 15rem;
 } 
-
+ 
 /* ----------------------------------------------------- */
 
 .link-repertorio {
@@ -207,29 +207,30 @@
     text-align: left;
     color: var(--varPreto);
     text-decoration: none;
+    z-index: 50;
     transition: color 200ms ease;
 }
 
 /*BUG do botão*/
-.botao-editar:focus > .editar-opcoes {
+/*.botao-editar:focus > .editar-opcoes {
     width: 10rem;
     height: 5rem;
     opacity: 1;
     padding: .8rem .5rem .8rem .5rem;
-  }
-  
-  .editar-opcoes-texto:hover{
-    opacity: .6;
-  }
-  
-  .editar-opcoes:hover{
-    width: 10rem;
-    height: 5rem;
-    opacity: 1;
-    padding: .8rem .5rem .8rem .5rem;
-  }
+}*/
 
-  .pagination {
+.editar-opcoes-texto:hover{
+    opacity: .6;
+}
+
+.editar-opcoes:hover{
+    width: 10rem;
+    height: 5rem;
+    opacity: 1;
+    padding: .8rem .5rem .8rem .5rem;
+}
+
+.pagination {
     display: flex;
     justify-content: center;
     margin: 20px 0;
@@ -246,6 +247,36 @@
 .pagination .pagination-link.active {
     background-color: #007bff;
     color: white;
+}
+
+/* ----------------------------------------------------------------- */
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+.grid-geral {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 84.5%;
+}
+
+.section-filtros {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.section-cards {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.pagination {
+    grid-column: 1;
+    grid-row: 3;
 }
 
 /* RESPONSIVIDADE ------------------------------------------------- */

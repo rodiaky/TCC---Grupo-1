@@ -6,7 +6,7 @@
 }
 
 .span_teste{
-  background-color: white;
+  background-color: var(--varBranco);
 }
 
 .infoSemana label{
@@ -18,7 +18,7 @@
   }
 
 .select2.select2-container .select2-selection {
-    background-color: white;
+    background-color: var(--varBranco);
     padding-top: 6px;
     padding-left: 5px;  
     padding-right: 5px;
@@ -33,7 +33,7 @@
 
   .select2.select2-container .select2-selection .select2-selection__rendered {
     color: var(--varLaranjaEscuro);
-    background-color: white;
+    background-color: var(--varBranco);
     line-height: 32px;
   }
 
@@ -44,7 +44,7 @@
   }
 
   .select2.select2-container.select2-container--open .select2-selection.select2-selection--single {
-    background: #ffffff;
+    background: var(--varBranco);
   }
 
   .select2.select2-container.select2-container--open .select2-selection.select2-selection--single .select2-selection__arrow {
@@ -74,7 +74,7 @@
   }
 
   .select2.select2-container .select2-selection--multiple .select2-selection__choice {
-    background-color: white;
+    background-color: var(--varBranco);
     border: 1.5px solid var(--varLaranjaEscuro);
     -webkit-border-radius: 2px;
     -moz-border-radius: 3px;
@@ -85,6 +85,10 @@
     line-height: 24px;
     font-size: 1rem;
     position: relative;
+  }
+
+  .select2.select2-container .select2-selection--multiple .select2-selection__choice *{
+    background-color: var(--varBranco);
   }
   
   .select2.select2-container .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
@@ -98,11 +102,11 @@
     color: #ff0000;
     font-weight: bold;
     font-size: 16px;
-    background-color: white;
+    background-color: var(--varBranco);
   }
 
   .select2.select2-container .select2-selection--multiple .select2-selection__choice .select2-selection__choice__display{
-    background-color: white;
+    background-color: var(--varBranco);
   }
 
   .select2-container .select2-dropdown {
@@ -127,7 +131,7 @@
   }
   
   .select2-container .select2-dropdown .select2-results ul {
-    background: #fff;
+    background: var(--varBranco);
     border: 2px solid var(--varLaranjaEscuro);
   }
   
@@ -136,7 +140,7 @@
   }
 
   span .select2-search.select2-search--inline{
-    background-color: white;
+    background-color: var(--varBranco);
   }
 
  

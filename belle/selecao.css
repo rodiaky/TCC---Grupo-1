@@ -1,0 +1,214 @@
+.select {
+    color: var(--varLaranjaEscuro);
+    border-color: var(--varLaranjaEscuro);
+  
+    height: 3rem;
+    width: 17rem;
+    position: relative;
+  }
+  
+  .selected{
+    background-color: var(--varBranco);
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border: 2px solid var(--varLaranjaEscuro);
+    margin-bottom: 10px;
+  
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  
+  .selected span{
+    background-color: var(--varBranco);
+  }
+  
+  .arrow {
+    transform: rotate(-90deg);
+    fill: var(--varLaranjaEscuro);
+  
+    transition: transform 500ms;
+    position: relative;
+    right: 0px;
+    height: 10px;
+    width: 25px;
+    z-index: 100000;
+  }
+  
+  svg.arrow{
+    background-color: var(--varBranco);
+  }
+  
+  .options {
+    border-radius: 5px;
+    color: var(--varPreto);
+    background: var(--varBranco);
+  
+    transition: all 300ms ease-out;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -10px;  
+    height: 0px;
+    padding: 0px;
+    overflow: auto;
+    z-index: 1;
+  }
+  
+  .options div{
+    display: flex;
+    background: var(--varBranco);
+  }
+  
+  .select:hover > .options {
+    height: 9rem;
+    padding: 5px;
+  }
+  
+  .select:hover > .selected .arrow {
+    transform: rotate(0deg);
+  }
+  
+  .option {
+    background-color: var(--varBranco);
+    font-size: 1.2rem;
+    border-radius: .8rem;
+  
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    transition: all 300ms;
+    padding: 5px;
+    padding-left: 0.7rem;
+    width: 100%;   
+  }
+  
+  .options span{
+    background-color: var(--varBranco);
+    align-content: center;
+  }
+  
+  .option:hover{
+    background-color: #fea572;
+  }
+  
+  .options input[type="radio"] {
+    display: none;
+  }
+  
+  .options label::before {
+    content: attr(data-txt);
+  }
+  
+  .option p {
+    width: fit-content;
+    background: none;
+  }
+  
+  .option input[type="checkbox"] {
+    margin-right: .5rem;
+    width: fit-content;
+  }
+  
+  #primeiro{
+    z-index: 100;
+  }
+  
+  
+  /*RESPONSIVIDADE -----------------------------------------------------------------------------------------------------*/
+  /* Extra small devices (phones, 475px and down) */
+  @media only screen and (max-width: 475px) {
+    .select {
+      width: 9rem;
+    }
+  
+    #inputboxAno{
+      width: 9rem;
+    } 
+  }
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .select{
+      width: 11rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    #inputboxAno{
+      width: 11rem;
+    } 
+  
+    .selected{
+      font-size: 1rem;
+      
+    }
+  
+    .option{
+      font-size: 1rem;
+    }
+  
+    .select:hover > .options {
+      height: 7.7rem;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .select{
+      width: 13rem;
+    }
+  
+    #inputboxAno{
+      width: 13rem;
+    } 
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .select{
+      width: 14rem;
+    }
+  
+    #inputboxAno{
+      width: 14rem;
+    } 
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .select{
+      width: 15rem;
+    }
+  
+    #inputboxAno{
+      width: 15rem;
+    } 
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .select{
+      width: 15rem;
+    }
+  
+    #inputboxAno{
+      width: 15rem;
+    }  
+  
+    #selectDuas:hover{
+      height: 5rem;
+    }
+  
+    #filtro{
+      overflow: hidden;
+    }
+  
+    .select:hover  > #filtro{
+      height: 7rem;
+    }
+  }

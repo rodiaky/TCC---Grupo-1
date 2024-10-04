@@ -105,7 +105,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
         });
 
         Route::prefix('alunos')->group(function() {
-            Route::get('/', [AlunoController::class, 'index'])->name('admin.alunos');
+            Route::get('/{id}', [AlunoController::class, 'index'])->name('admin.alunos');
             Route::get('/1/adicionar', [AlunoController::class, 'adicionar'])->name('admin.alunos.adicionar');
             Route::post('/salvar', [AlunoController::class, 'salvar'])->name('admin.alunos.salvar');
             Route::get('/editar/{id}', [AlunoController::class, 'editar'])->name('admin.alunos.editar');

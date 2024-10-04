@@ -166,6 +166,21 @@
     visibility: visible;
 }
 
+/* ----------------------------------------- */
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+  }
+  
+  .grid-geral {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+  }
+
 /* BOTAO ---------------------------------------------------------- */
 
 .botao-editar {

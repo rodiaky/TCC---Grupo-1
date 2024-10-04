@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
     <link rel="stylesheet" type="text/css" href="/css/styleGeralTabela.css">
     <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Crud Alunos</title>
 @endsection
@@ -78,4 +79,5 @@
         @endif
 
     </main>
+    <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
 @endsection
