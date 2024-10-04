@@ -14,7 +14,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ route('admin.repertorios')}}" class="seta-back">
+                <a href="{{ route('admin.repertorios', $repertorios->id_pasta) }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
