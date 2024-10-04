@@ -53,7 +53,11 @@
             </form>
         </section>
 
+<<<<<<< HEAD
         <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral">
+=======
+        <form method="GET" action="{{ route('admin.repertorios.filtrar', ['id' => $id_pasta]) }}" id="filter-form">
+>>>>>>> 953f4d5f6bd8ddfd2c5c3d83ab341ff26eebc467
             <section class="section-filtros">
                 @php
                     $filters = [
@@ -83,8 +87,6 @@
                         <p class="texto-filtro">{{ ucfirst($filter) }} {{ $extra }}</p>
                     </label>
                 @endforeach
-
-                <input type="hidden" name="id_pasta" value="{{ $id_pasta }}">
             </section>
 
             <section class="section-cards">
@@ -152,7 +154,7 @@
         window.onload = function() {
             let lastChecked = document.querySelector('input[type="radio"]:checked');
             const radios = document.querySelectorAll('input[type="radio"]');
-
+                    
             radios.forEach(radio => {
                 radio.addEventListener('click', function(event) {
                     if (lastChecked === this) {

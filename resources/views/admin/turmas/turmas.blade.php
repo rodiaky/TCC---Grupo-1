@@ -32,7 +32,7 @@
                     <div class="turma-dropdown">
                         @if (!empty($turmasPorDia[$dia->dias_aula]))
                             @foreach($turmasPorDia[$dia->dias_aula] as $turma)
-                                <a class="turma-horario" href="{{ route('professor.admin.alunos', ['id' => $turma->id]) }}">{{ $turma->nome }}</a>
+                                <a class="turma-horario" href="{{ route('admin.alunos', ['id' => $turma->id]) }}">{{ $turma->nome }}</a>
                             @endforeach
                         @else
                             <p>Nenhuma turma cadastrada para este dia.</p>
