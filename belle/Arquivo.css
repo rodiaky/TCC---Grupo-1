@@ -27,7 +27,7 @@ input[type="file"] {
   
   input[type="file"]:focus-within::file-selector-button,
   input[type="file"]:focus::file-selector-button {
-    outline: 2px solid var(--varLaranjaClaro);
+    outline: 2px solid var(--varLaranjaEscuro);
     outline-offset: 2px;
   }
   
