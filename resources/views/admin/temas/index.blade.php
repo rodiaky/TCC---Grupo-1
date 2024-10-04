@@ -16,7 +16,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
 $currentFilter = request('filtros');
 @endphp
 
-<main>
+<main class="grid-geral">
     <h1 class="titulo-pagina">Temas de Redações</h1>
     <hr class="titulo-linha">
 
@@ -56,7 +56,7 @@ $currentFilter = request('filtros');
                 </button>
                 @endif
                 <div class="container-imagem-tema">
-                    <img src="{{ $tema->imagem }}" alt="" class="imagem-tema">
+                    <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
                 </div>
                 
                 <div class="frase-tematica">

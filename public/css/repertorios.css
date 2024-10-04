@@ -11,7 +11,7 @@
 .botao-expand:hover, .botao-circulo:hover ~ .botao-expand{
     width: 15rem;
 } 
-
+ 
 /* ----------------------------------------------------- */
 
 .link-repertorio {
@@ -246,6 +246,36 @@
 .pagination .pagination-link.active {
     background-color: #007bff;
     color: white;
+}
+
+/* ----------------------------------------------------------------- */
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+.grid-geral {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 84.5%;
+}
+
+.section-filtros {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.section-cards {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.pagination {
+    grid-column: 1;
+    grid-row: 3;
 }
 
 /* RESPONSIVIDADE ------------------------------------------------- */
