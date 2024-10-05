@@ -81,6 +81,8 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
 
     Route::get('/cruds', function () { return view('site.cruds'); })->name('admin.cruds');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('aluno.home');
     // Admin Routes
     Route::prefix('admin')->group(function() {
         Route::prefix('temas')->group(function() {
