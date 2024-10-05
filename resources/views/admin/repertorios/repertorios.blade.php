@@ -29,6 +29,7 @@
             <div class="texto-card">Repertórios</div>
         </div>
 
+<<<<<<< HEAD
         <!-- MATERIAIS -->
         <div class="card">
             <a href="{{ route('admin.pastasMateriais') }}">
@@ -44,6 +45,36 @@
             </a>
             <div class="texto-card">Questões</div>
         </div>
+=======
+        <section class="section-barra-de-pesquisa">
+            <form method="GET" action="{{ route('admin.repertorios.search') }}" id="search-form">
+                <label class="pesquisa" for="barra-pesquisa">
+                    <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o repertório." value="{{ request('search') }}">
+                    <input type="hidden" name="id_pasta" value="{{ $id_pasta }}">
+                    <input type="hidden" name="filtros" value="{{ $currentFilter }}">
+                    <button type="submit" id="pesquisar">
+                        <i class="material-icons lupa-pesquisa">search</i>
+                    </button>
+                </label>
+            </form>
+        </section>
+        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral">
+
+            <section class="section-filtros">
+                @php
+                    $filters = [
+                        'filosofia' => ['fa-graduation-cap', ''],
+                        'sociologia' => ['fa-users', ''],
+                        'obra' => ['fa-book', 'Literária'],
+                        'estatística' => ['fa-chart-simple', ''],
+                        'textos' => ['fa-scale-balanced', 'Legais'],
+                        'cinema' => ['fa-film', ''],
+                        'artes' => ['fa-palette', ''],
+                        'história' => ['fa-landmark', ''],
+                        'atualidades' => ['fa-earth-americas', '']
+                    ];
+                @endphp
+>>>>>>> origin/master
 
         <!-- MINHAS REDACOES -->
         <div class="card">

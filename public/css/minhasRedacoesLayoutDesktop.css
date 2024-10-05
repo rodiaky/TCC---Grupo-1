@@ -1,0 +1,11 @@
+@media only screen and (min-width: 1000px) {
+    .grade-correcao{
+        position: absolute;
+        right: 7rem; /* Distância do lado direito */
+        background-color: var(--varBranco);
+        padding: 0.8%;
+        border-radius: 1rem;
+        font-size: medium;
+        text-align: center;
+    }
+}

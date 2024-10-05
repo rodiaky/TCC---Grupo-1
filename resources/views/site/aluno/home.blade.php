@@ -58,10 +58,31 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <!-- REDACOES CORRIGIDAS -->
     <section class="section-cinza" id="ultimas-redacoes">
         <div class="texto-section-cinza">Últimas Redações Corrigidas</div>
         @forelse ($redacoesCorrigidas as $redacao)
+=======
+            <!-- MINHAS REDACOES -->
+            <div class="card">
+                <a href="{{ route('aluno.painel_redacoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
+                <div class="texto-card">Minhas Redações</div>
+            </div>
+
+            <div class="card">
+                <a href="{{ route('aluno.estatistica') }}"><img src="https://cdn-icons-png.flaticon.com/512/3832/3832383.png" alt="" class="imagem-card"></a>
+                <div class="texto-card">Estatísticas</div>
+            </div>
+
+        </section>
+
+        <!-- REDACOES CORRIGIDAS -->
+        <section class="section-cinza" id="ultimas-redacoes">
+
+            <div class="texto-section-cinza">Últimas Redações Corrigidas</div>
+            @forelse ($redacoesCorrigidas as $redacoes)
+>>>>>>> origin/master
             <div class="container-items-redacao">
                 <a href="{{ route('redacao_corrigida', $redacao->id_redacao) }}">
                     <div class="tema-secao hover">
