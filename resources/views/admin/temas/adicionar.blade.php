@@ -81,7 +81,7 @@
                 <br>
                 <div class="upload">
                     <input type="file" class="arquivo" id="arquivo" name="arquivo">
-                    <input type="hidden" name="imagem" value="{{$tema->imagem}}">
+                  
                 </div>
 
                 <!-- Campo oculto para id_banca -->

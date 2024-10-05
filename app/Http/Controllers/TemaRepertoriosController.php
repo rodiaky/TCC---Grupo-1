@@ -33,14 +33,39 @@ class TemaRepertoriosController extends Controller
     }
 
     public function salvar(Request $req) {
-        $dados = $req->all();  
-        Pastas::create($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets'), $filename);
+        $req->imagem =  $filename;
+
+        $nome = $req->input('nome');
+        
+        $meuVetor = [
+            'nome' => $nome,
+            'imagem' => $filename,
+            'tipo' => "Repertório"
+            
+        ];
+
+        Pastas::create($meuVetor);
         return redirect()->route('admin.temasRepertorios');
     }
 
     public function atualizar(Request $req, $id) {
-        $dados = $req->all();
-        Pastas::find($id)->update($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets'), $filename);
+        $req->imagem =  $filename;
+
+        $nome = $req->input('nome');
+        
+        $meuVetor = [
+            'nome' => $nome,
+            'imagem' => $filename,
+            'tipo' => "Repertório"
+            
+        ];
+        Pastas::find($id)->update($meuVetor);
         return redirect()->route('admin.temasRepertorios');
     }
 

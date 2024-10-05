@@ -1,9 +1,10 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/botao2.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/temaRepertorio.css') }}">
+    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao2.css">
+    <link rel="stylesheet" type="text/css" href="/css/materiais.css">
+    <link rel="stylesheet" type="text/css" href="/css/temaRepertorio.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Repertórios</title>
 @endsection
@@ -32,11 +33,8 @@
 
             @forelse ($pastas as $pasta)
             <div class="wrapper">
-                <a href="{{ route('admin.repertorios', ['id' => $pasta->id]) }}" style="text-decoration: none; color: inherit;">
-                    <img src="{{ $pasta->imagem }}" alt="{{ $pasta->imagem }}" class="img-tema">
-                    <div class="escrito">
-                        <p>{{ $pasta->nome }}</p>
-                    </div>
+                <a href="{{ route('admin.repertorios', ['id' => $pasta->id]) }}">
+                    <img src="/assets/{{$pasta->imagem}}" alt="" class="img-tema">
                 </a>
 
                 @if ($isAdmin)
@@ -49,7 +47,9 @@
                     </div>
                 </button>
                 @endif
-                
+                <div class="escrito">
+                        <p>{{ $pasta->nome }}</p>
+                </div>
             </div>
             @empty
             <p>Nenhum tema disponível.</p>

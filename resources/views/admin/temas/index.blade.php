@@ -57,11 +57,7 @@ $currentFilter = request('filtros');
                 @endif
                 
                 <div class="container-imagem-tema">
-<<<<<<< Updated upstream
-                    <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
-=======
                     <img src="/assets/{{ $tema->imagem }}" alt="" class="imagem-tema">
->>>>>>> Stashed changes
                 </div>
                 
                 <div class="frase-tematica">
