@@ -2,7 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao2.css">
     <link rel="stylesheet" type="text/css" href="/css/materiais.css">
     <link rel="stylesheet" type="text/css" href="/css/temaRepertorio.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

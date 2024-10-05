@@ -7,11 +7,10 @@
     --varBranco: #F8F8F8;
     --varPreto: #000000;
 }
-
+/*
 *{
-    font-family: 'Open Sans', sans-serif;
     background-color: var(--varCinzaClaro);
-}
+}*/
 
 h1{
     color: var(--varLaranjaEscuro);
