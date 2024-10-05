@@ -1,0 +1,25 @@
+/*Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-height: 990px) {
+    /*Minhas Redações*/
+    :root {
+        /* Paleta de Cores */
+        --varLaranjaEscuro: #F46F20;
+        --varLaranjaClaro: #FEA572;
+        --varCinzaEscuro: #EAEAEA;
+        --varCinzaClaro: #F4F3F2;
+        --varBranco: #F8F8F8;
+        --varPreto: #000000;
+        --varTamanhoFonteTitulo: 2.058rem;
+    }
+
+    .grade-correcao{
+        position: absolute;
+        right: 6rem; /* Distância do lado direito */
+        background-color: var(--varBranco);
+        padding: 1.5%;
+        border-radius: 1rem;
+        font-size: medium;
+        text-align: center;
+    }
+    
+}
