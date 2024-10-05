@@ -52,12 +52,8 @@
                 </label>
             </form>
         </section>
-
-<<<<<<< HEAD
         <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral">
-=======
-        <form method="GET" action="{{ route('admin.repertorios.filtrar', ['id' => $id_pasta]) }}" id="filter-form">
->>>>>>> 953f4d5f6bd8ddfd2c5c3d83ab341ff26eebc467
+
             <section class="section-filtros">
                 @php
                     $filters = [
