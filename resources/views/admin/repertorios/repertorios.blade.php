@@ -53,7 +53,11 @@
             </form>
         </section>
 
+<<<<<<< HEAD
+        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral">
+=======
         <form method="GET" action="{{ route('admin.repertorios.filtrar', ['id' => $id_pasta]) }}" id="filter-form">
+>>>>>>> 953f4d5f6bd8ddfd2c5c3d83ab341ff26eebc467
             <section class="section-filtros">
                 @php
                     $filters = [
@@ -126,7 +130,7 @@
             </section>
 
             <!-- Pagination Links -->
-            <div class="pagination">
+            <section class="pagination">
                 <div class="flex justify-between">
                     {{-- Pagination Elements --}}
                     <div class="links">
@@ -140,7 +144,7 @@
                         @endfor
                     </div>
                 </div>
-            </div>
+            </section>
 
         </form>
     </main>

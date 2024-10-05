@@ -10,21 +10,21 @@
 @endsection
 
 @section('conteudo')
-    @php
+    @php 
     $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     @endphp
-    <main>
+    <main class="grid-geral">
 
-    <div class="container-titulo-seta">
-           <div class="container-seta">
-                <a href="{{ route('admin.questoes') }}" class="seta-back">
-                    <i class="material-icons">arrow_back</i>
-                </a>
-            </div>
-            <h1 class="titulo-pagina">Questões</h1>
-    </div>
-     <hr class="titulo-linha">
-        
+        <div class="container-titulo-seta">
+            <div class="container-seta">
+                    <a href="{{ route('admin.questoes') }}" class="seta-back">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                </div>
+                <h1 class="titulo-pagina">Questões</h1>
+        </div>
+        <hr class="titulo-linha">
+            
         @if ($isAdmin)
         <button class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
@@ -38,8 +38,9 @@
             <h1 class="subtitulo">{{ $titulo }}</h1>
         </section>
 
-        @forelse ($questoes as $questao)
-        <section class="questao">
+        <section>
+            @forelse ($questoes as $questao)
+            <article class="questao">
                 <div class="sectionCinza">
                     <div class="superior">
                         <div class="nome">{{ $questao->banca_nome }} ({{ $questao->ano }})</div>
@@ -54,7 +55,6 @@
                         </button>
                         @endif
                     </div>
-
                     <div class="texto">{{ $questao->enunciado }}</div>
                     
                     <ul class="alternativas">
@@ -64,17 +64,17 @@
                         <li>{{ $questao->alternativa_D }}</li>
                         @if ($questao->alternativa_E)<li>{{ $questao->alternativa_E }}</li>@endif
                     </ul>
-
                     <button class="mostrar-resposta">
                         <div>Alternativa</div>
                         <div><i class="material-icons">arrow_forward_ios</i></div>
                     </button>
                 </div>
                 <div class="resposta-correta">{{ $questao->resposta }}</div>
+            </article>
+                @empty
+                    <p>Nenhuma questão encontrada.</p>
+            @endforelse
         </section>
-            @empty
-                <p>Nenhuma questão encontrada.</p>
-        @endforelse
 
         <!-- Pagination Links -->
         <div class="pagination">

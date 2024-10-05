@@ -82,6 +82,15 @@ tr:nth-child(even) {
     color: var(--varLaranjaEscuro);
 }
 
+.button-excluir {
+    background: none;
+    border: none;
+}
+
+.button-excluir:hover i {
+    color: var(--varLaranjaEscuro);
+}
+
 /* CRITERIOS ---------------------------------- */
 
 .criterioNome {

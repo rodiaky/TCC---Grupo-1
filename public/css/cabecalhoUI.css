@@ -12,6 +12,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.cabecalho *{
+    background-color: var(--varCinzaEscuro);
+}
+
 .cabecalho {
     background-color: var(--varCinzaEscuro);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -54,7 +58,7 @@
 /* SIDEBAR ------------------------------------------------------------------- */
 
 .sidebar, .sidebar-aberta {
-    background-color: var(--varBranco);
+    background-color: var(--varCinzaClaro);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     user-select: none;
     -webkit-user-select: none;

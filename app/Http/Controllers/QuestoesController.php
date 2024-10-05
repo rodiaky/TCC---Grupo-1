@@ -63,16 +63,44 @@ class QuestoesController extends Controller
         return redirect()->route('admin.questoes');
     }
 
-    public function salvar(Request $req){
+    public function salvar(Request $req) {
+        $req->validate([
+            'enunciado' => 'required|string|max:255',
+            'alternativa_A' => 'required|string|max:255',
+            'alternativa_B' => 'required|string|max:255',
+            'alternativa_C' => 'required|string|max:255',
+            'alternativa_D' => 'required|string|max:255',
+            'alternativa_E' => 'nullable|string|max:255',
+            'ano' => 'required|integer|min:2000',
+            'assunto' => 'required|string|max:100',
+            'resposta' => 'required|string|in:A,B,C,D,E',
+            'disciplina' => 'required|string|max:100',
+            'id_banca' => 'required|exists:bancas,id',
+        ]);
+    
         $dados = $req->all();  
         Perguntas::create($dados);
-        return redirect()->route('admin.questoes');
-
+        return redirect()->route('admin.questoes')->with('success', 'Questão adicionada com sucesso!');
     }
-
-    public function atualizar(Request $req, $id){
+    
+    public function atualizar(Request $req, $id) {
+        $req->validate([
+            'enunciado' => 'required|string|max:255',
+            'alternativa_A' => 'required|string|max:255',
+            'alternativa_B' => 'required|string|max:255',
+            'alternativa_C' => 'required|string|max:255',
+            'alternativa_D' => 'required|string|max:255',
+            'alternativa_E' => 'nullable|string|max:255',
+            'ano' => 'required|integer|min:2000',
+            'assunto' => 'required|string|max:100',
+            'resposta' => 'required|string|in:A,B,C,D,E',
+            'disciplina' => 'required|string|max:100',
+            'id_banca' => 'required|exists:bancas,id',
+        ]);
+    
         $dados = $req->all();
         Perguntas::find($id)->update($dados);
-        return redirect()->route('admin.questoes');
+        return redirect()->route('admin.questoes')->with('success', 'Questão atualizada com sucesso!');
     }
+    
 }

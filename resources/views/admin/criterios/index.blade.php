@@ -61,9 +61,7 @@
                                 <td class="excluir">
                                     <a href="{{ route('admin.criterios.excluir', $criterio->id) }}">
                                             <i class="material-icons icone-tabela">close</i>
-                                        </a>
-                                        </button>
-                                    </form>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
