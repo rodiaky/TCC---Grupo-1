@@ -72,10 +72,26 @@ h1{
     border-width: 2px;
 }
 
-.lbl-color{
-    color: var(--varLaranjaEscuro);
+.textoAlternativa{
+    background-color: var(--varBranco);
+    border-radius: 15px;
+    border-color: var(--varLaranjaEscuro);
+    border-style: solid;
+    border-width: 2px;
 }
 
-.infoSemana label{
-    color: var(--varLaranjaEscuro);
+#file-list {
+    border-radius: 15px; 
+    border: 2px solid var(--varLaranjaEscuro); 
+    background-color: var(--varBranco);
+}
+
+#file-list div {
+    padding: 5px; 
+    border-bottom: 1px solid #eee; 
+    background-color: var(--varBranco);
+}
+
+#file-list div:last-child {
+    border-bottom: none; 
 }
