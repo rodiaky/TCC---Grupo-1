@@ -36,12 +36,7 @@
   padding-top: .5rem;
   width: 90%;
   font-weight: 700;
-<<<<<<< HEAD
   color: var(--varLaranjaEscuro);
-=======
-}
->>>>>>> origin/master
-
   margin: 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -49,13 +44,8 @@
   text-overflow: ellipsis;
   text-align: justify;
   white-space: normal;
-<<<<<<< HEAD
-
   -webkit-line-clamp: 4;
-=======
   height: fit-content;
-  color: var(--varLaranjaEscuro);
->>>>>>> origin/master
 }
 
 .banca-ano {
@@ -304,7 +294,7 @@ input[type="checkbox"]{
     grid-column: 1;
 
     display: grid;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
 
   }

@@ -150,16 +150,6 @@ input[type="color"]{
 /*RESPONSIVIDADE----------------------------------------------------------------------------------*/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    h1{
-        margin-top: 1rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-
-    hr{
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
 
     .form-value{
         width: 90%;
@@ -216,17 +206,6 @@ input[type="color"]{
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    h1{
-        margin-top: 1rem;
-        text-align: left;
-        margin-bottom: 0.5rem;
-        margin-left: 4.5rem;
-    }
-
-    hr{
-        margin-left: 3rem;
-        margin-right: 3rem;
-    }
 
     .form-value{
         width: 94%;
@@ -276,11 +255,6 @@ input[type="color"]{
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    h1{
-        margin-top: 1rem;
-        margin-left: 4.5rem;
-        margin-bottom: 0.5rem;
-    }
 
     .form-value{
         width: 80%;

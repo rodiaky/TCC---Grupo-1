@@ -86,7 +86,7 @@
     color: var(--varPreto);
     font-weight: 400;
 }
-
+ 
 .sidebar-item-link:hover .material-icons, 
 .sidebar-item-link:hover .sidebar-link {
     color: var(--varBranco);

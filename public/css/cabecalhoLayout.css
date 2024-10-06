@@ -5,7 +5,7 @@ header {
 }
 
 .cabecalho {
-    width: 100%;
+    width: 100%; 
     height: 60px;
     display: flex;
     align-items: center;
@@ -58,7 +58,8 @@ header {
 
 .sidebar-conteudo {
     height: 100%;
-    padding: 30px 16px;
+    margin-top: 10px;
+    margin-left: 16px;
 }
 
 .sidebar-item-link {

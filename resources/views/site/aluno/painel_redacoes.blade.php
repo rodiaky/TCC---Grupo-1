@@ -1,13 +1,17 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <title>Notas do Aluno com Linha de Média Acumulada</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/estatistica.css') }}">
+    <title>Estatísticas</title>
 @endsection
 
 @section('conteudo')
-    <h1 class="subtitulo">Estatísticas</h1>
+<main>
+    <h1 class="titulo-pagina">Estatísticas</h1>
+    <hr class="titulo-linha">
+
     <section class="mt-5 container-estatistica">
         <div class="row mb-3">
             <div id="selecionar-seta">
@@ -24,8 +28,11 @@
                 <canvas id="myBarChart"></canvas>
             </div>
         </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/estatistica.js') }}"></script>
     </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/estatistica.js') }}"></script>
 @endsection

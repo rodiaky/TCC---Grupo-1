@@ -15,6 +15,9 @@
     font-weight: 700;
     background-color: var(--varLaranjaEscuro);
     color: #FFF;
+
+    cursor: pointer;
+    -webkit-cursor:pointer;
 }
 
 .pagination-link {
@@ -28,4 +31,7 @@
     color: var(--varPreto);
     border: none;
     outline: none;
+
+    cursor: pointer;
+    -webkit-cursor:pointer;
 }

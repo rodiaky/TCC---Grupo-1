@@ -33,6 +33,14 @@
             <div class="texto-card">Repertórios</div>
         </div>
 
+        <!-- ESTATÍSTICAS -->
+        <div class="card">
+            <a href="{{ route('aluno.estatistica') }}">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQElTwwYKc4LXiYe3nPA-MnM-hhH0V8EqZO_Q&s" alt="" class="imagem-card">
+            </a>
+            <div class="texto-card">Estatísticas</div>
+        </div>
+
         <!-- MATERIAIS -->
         <div class="card">
             <a href="{{ route('admin.pastasMateriais') }}">
@@ -46,59 +54,38 @@
             <a href="{{ route('admin.questoes') }}">
                 <img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card">
             </a>
-            <div class="texto-card">Questões</div>
+            <div class="texto-card">Banco de Questões</div>
         </div>
 
         <!-- MINHAS REDACOES -->
         <div class="card">
             <a href="{{ url('/painel_redacoes') }}">
-                <img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card">
+                <img src="https://m.media-amazon.com/images/S/aplus-media/vc/f70120c7-a5a8-4f96-b86e-6d1db6eaa559._CR0,0,300,300_PT0_SX300__.png" alt="" class="imagem-card">
             </a>
             <div class="texto-card">Minhas Redações</div>
         </div>
     </section>
 
-<<<<<<< HEAD
     <!-- REDACOES CORRIGIDAS -->
     <section class="section-cinza" id="ultimas-redacoes">
         <div class="texto-section-cinza">Últimas Redações Corrigidas</div>
         @forelse ($redacoesCorrigidas as $redacao)
-=======
-            <!-- MINHAS REDACOES -->
-            <div class="card">
-                <a href="{{ route('aluno.painel_redacoes') }}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
-                <div class="texto-card">Minhas Redações</div>
-            </div>
 
-            <div class="card">
-                <a href="{{ route('aluno.estatistica') }}"><img src="https://cdn-icons-png.flaticon.com/512/3832/3832383.png" alt="" class="imagem-card"></a>
-                <div class="texto-card">Estatísticas</div>
-            </div>
+            <article class="tema-secao hover">
+                <a href="{{ route('redacao_corrigida', $redacao->id_redacao) }}" class="container-info">
 
-        </section>
-
-        <!-- REDACOES CORRIGIDAS -->
-        <section class="section-cinza" id="ultimas-redacoes">
-
-            <div class="texto-section-cinza">Últimas Redações Corrigidas</div>
-            @forelse ($redacoesCorrigidas as $redacoes)
->>>>>>> origin/master
-            <div class="container-items-redacao">
-                <a href="{{ route('redacao_corrigida', $redacao->id_redacao) }}">
-                    <div class="tema-secao hover">
-                        <div class="container-imagem-tema">
-                            <img src="{{ $redacao->tema_imagem }}" alt="{{ $redacao->tema_imagem }}" class="imagem-tema">
-                        </div>
-                        <div class="frase-tematica">
-                            <p>{{ $redacao->frase_tematica }}</p>
-                        </div>
-                        <div class="banca-ano">{{ $redacao->banca_nome }}/{{ $redacao->tema_ano }}</div>
-                        <div class="spoiler">
-                            <p>{{ $redacao->texto_apoio }}</p>
-                        </div>
+                    <div class="container-imagem-tema">
+                        <img src="{{ $redacao->tema_imagem }}" alt="" class="imagem-tema"></img>
                     </div>
+                    
+                    <div class="frase-tematica">
+                        <p>{{ $redacao->frase_tematica }}</p>
+                    </div>
+
+                    <div class="banca-ano">{{ $redacao->banca_nome }}/{{ $redacao->tema_ano }}</div>
                 </a>
-            </div>
+            </article>
+
         @empty
             <p>Nenhuma redação corrigida.</p>
         @endforelse
@@ -134,22 +121,24 @@
         @if(!is_null($temaSemana) && $temaSemana->isNotEmpty())
             <div class="texto-section-cinza">Temas da Semana</div>
             @forelse ($temaSemana as $tema)
-                <div class="container-items-redacao">
-                    <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
-                        <div class="tema-secao hover">
-                            <div class="container-imagem-tema">
-                                <img src="{{ $tema->imagem }}" alt="" class="imagem-tema">
-                            </div>
-                            <div class="frase-tematica">
-                                <p>{{ $tema->frase_tematica }}</p>
-                            </div>
-                            <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
-                            <div class="spoiler">
-                                <p>{{ $tema->texto_apoio }}</p>
-                            </div>
+
+                <article class="tema-secao hover">
+
+                    <a href="{{ route('admin.temas.visualizar', $tema->id) }}" class="container-info">
+
+                        <div class="container-imagem-tema">
+                            <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
                         </div>
+                        
+                        <div class="frase-tematica">
+                            <p>{{ $tema->frase_tematica }}</p>
+                        </div>
+
+                        <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
                     </a>
-                </div>
+
+                </article>
+                
             @empty
                 <p>Nenhum tema disponível.</p>
             @endforelse

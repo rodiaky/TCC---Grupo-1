@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @yield('css')
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    @yield('css')
     <link rel="stylesheet" type="text/css" href="/css/cabecalhoUI.css">
     <link rel="stylesheet" type="text/css" href="/css/cabecalhoLayout.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -140,11 +140,28 @@
                                 <span class="sidebar-link">Início</span>
                             </a>
                         </li>
+
                         <!-- Temas -->
                         <li class="sidebar-item">
                             <a href="{{ route('temaRedacoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">edit_square</i>
                                 <span class="sidebar-link">Temas de Redações</span>
+                            </a>
+                        </li>
+
+                        <!-- Repertórios -->
+                        <li class="sidebar-item">
+                            <a href="{{ route('admin.temasRepertorios') }}" class="sidebar-item-link">
+                                <i class="material-icons">history_edu</i>
+                                <span class="sidebar-link">Repertórios</span>
+                            </a>
+                        </li>
+
+                        <!-- Estatísticas -->
+                        <li class="sidebar-item">
+                            <a href="{{ route('aluno.estatistica') }}" class="sidebar-item-link">
+                                <i class="material-icons">insert_chart</i>
+                                <span class="sidebar-link">Estatísticas</span>
                             </a>
                         </li>
     
@@ -153,14 +170,6 @@
                             <a href="{{ route('admin.pastasMateriais') }}" class="sidebar-item-link">
                                 <i class="material-icons">folder</i>
                                 <span class="sidebar-link">Materiais</span>
-                            </a>
-                        </li>
-    
-                        <!-- Repertórios -->
-                        <li class="sidebar-item">
-                            <a href="{{ route('admin.temasRepertorios') }}" class="sidebar-item-link">
-                                <i class="material-icons">history_edu</i>
-                                <span class="sidebar-link">Repertórios</span>
                             </a>
                         </li>
                         
@@ -177,13 +186,6 @@
                             <a href="{{ route('aluno.painel_redacoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">edit_document</i>
                                 <span class="sidebar-link">Minhas Redações</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('aluno.estatistica') }}" class="sidebar-item-link">
-                                <i class="material-icons">insert_chart</i>
-                                <span class="sidebar-link">Estatísticas</span>
                             </a>
                         </li>
                     

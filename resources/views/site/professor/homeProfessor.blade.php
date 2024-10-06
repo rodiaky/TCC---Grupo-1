@@ -42,7 +42,7 @@
             <!-- QUESTOES -->
             <div class="card">
                 <a href="{{route('admin.questoes')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
-                <div class="texto-card">Questões</div>
+                <div class="texto-card">Banco de Questões</div>
             </div>
 
             <!-- TURMAS -->
