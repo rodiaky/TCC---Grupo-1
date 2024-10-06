@@ -166,8 +166,6 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');
             Route::get('/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('admin.repertorios.excluir');
-            Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
-            Route::get('/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
         });
 
         Route::prefix('materiais')->group(function() {
@@ -204,6 +202,12 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/', [PastaMateriaisController::class, 'index'])->name('admin.carregarSemana');
         });
     });
+
+    Route::get('/repertorios', [RepertoriosController::class, 'index'])->name('repertorios');
+   
+    // Rota para buscar repertórios (pesquisa)
+    Route::get('/repertorios/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+    Route::get('/repertorios/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
 
     // Other Routes
    
