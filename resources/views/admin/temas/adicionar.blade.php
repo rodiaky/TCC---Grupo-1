@@ -86,7 +86,7 @@
 
                 <!-- Campo oculto para id_banca -->
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">
-                <input type="hidden" name="url" id="url" value="{{ $url }}">
+                <input type="hidden" name="url" id="url" value="{{$url}}">
 
             
                 <div class="botoes">

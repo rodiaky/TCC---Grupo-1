@@ -14,6 +14,7 @@ class TemaController extends Controller
         $temas = DB::table('temas')
             ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
             ->select('temas.*', 'bancas.nome as banca_nome')
+            ->orderBy('temas.ano', 'desc')
             ->paginate(10);
 
 

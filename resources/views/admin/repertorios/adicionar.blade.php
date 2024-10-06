@@ -40,6 +40,8 @@
                     <textarea class="content" name="descricao" required>{{ isset($repertorios->descricao) ? $repertorios->descricao : '' }}</textarea>
                 </div>
 
+                
+
                 <div class="addAltRep">
                     <!-- Select Tema -->
                     <div class="select"> 

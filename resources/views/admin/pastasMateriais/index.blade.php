@@ -36,7 +36,7 @@
                 <div class="wrapper">
                     <div class="quadrado">
                         <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}">                       
-                            <img src="/assets/{{$pasta->imagem}}" alt="" class="img-tema">
+                            <img src="{{ asset('assets/pastasMateriais/' . $pasta->imagem) }}" alt="" class="img-tema">
                         </a>
                     @if ($isAdmin)
                         <button class="botao-editar">

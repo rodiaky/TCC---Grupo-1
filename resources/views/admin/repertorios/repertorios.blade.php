@@ -95,7 +95,7 @@
                     <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}" class="container-info">
 
                         <div class="container-imagem">
-                            <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
+                            <img src="{{ asset('assets/repertorios/' . $repertorio->imagem) }}" alt="" class="imagem-repertorio">
                         </div>
                         
                         <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>

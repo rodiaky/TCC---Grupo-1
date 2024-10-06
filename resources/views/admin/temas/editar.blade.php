@@ -79,6 +79,7 @@
                         <input type="file" class="arquivo" id="arquivo" name="arquivo">
                         <input type="hidden" name="id_tema" value="{{$temas->id}}">
                         <input type="hidden" name="imagem" value="{{$temas->imagem}}">
+                        <input type="hidden" name="url" id="url" value="{{$url}}">
                     </div>
 
                      @if($temas->imagem)

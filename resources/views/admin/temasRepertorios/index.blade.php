@@ -34,7 +34,7 @@
             @forelse ($pastas as $pasta)
             <div class="wrapper">
                 <a href="{{ route('admin.repertorios', ['id' => $pasta->id]) }}">
-                    <img src="/assets/{{$pasta->imagem}}" alt="" class="img-tema">
+                    <img src="{{ asset('assets/temasRepertorios/' . $pasta->imagem) }}" alt="" class="img-tema">
                 </a>
 
                 @if ($isAdmin)
