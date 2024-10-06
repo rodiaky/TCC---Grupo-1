@@ -53,7 +53,7 @@
             </form>
         </section>
 
-        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form">
+        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral">
             <section class="section-filtros">
                 @php
                     $filters = [
@@ -88,29 +88,34 @@
             </section>
 
             <section class="section-cards">
-                @forelse ($repertorios as $repertorio)
-                <article class="card-repertorio">
-                    <div class="container-imagem">
-                        <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
-                    </div>
-                    
-                    <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}">
-                        <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
-                    </a>
-    
-                    <div class="tipo-repertorio">
-                        <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
-                            <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
-                            <p>{{ $repertorio->classificacao }}</p>
-                        </div>
-                    </div>
 
-                    <div class="spoiler-repertorio">
-                        <p>{{ $repertorio->descricao }}</p>
-                    </div>
+                @forelse ($repertorios as $repertorio)
+                <article class="card-repertorio hover">
+
+                    <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}" class="container-info">
+
+                        <div class="container-imagem">
+                            <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
+                        </div>
+                        
+                        <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
+                        
+                        <div class="tipo-repertorio">
+                            <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
+                                <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
+                                <p>{{ $repertorio->classificacao }}</p>
+                            </div>
+                        </div>
+
+                        <div class="spoiler-repertorio">
+                            <p>{{ $repertorio->descricao }}</p>
+                        </div>
+
+                    </a>
 
                     @if ($isAdmin)
-                        <button class="botao-editar botao-repertorio" onclick="event.preventDefault(); showOptions(this);">
+                    <div class="container-options">
+                        <button class="botao-editar botao-repertorio">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
                                 <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
@@ -118,10 +123,11 @@
                                 <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
                             </div>
                         </button>
+                    </div>
                     @endif
 
-
                 </article>
+
                 @empty
                     <p>Nenhum repertório encontrado.</p>
                 @endforelse

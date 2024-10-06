@@ -14,7 +14,7 @@
 
     <main>
         <h1 class="titulo-pagina">Meu Perfil</h1>
-        <hr>
+        <hr class="titulo-linha">
 
         <section class="container">
 
@@ -22,19 +22,19 @@
             
             <div class="info-pessoal">
 
-                <div class="subtitulo"><h1>Informações Pessoais</h1><i class="fa-solid fa-pen"></i></div>
+                <div class="subtitulo"><h1>Informações Pessoais</h1><i class="icon-perfil fa-solid fa-pen"></i></div>
                 <h2 class="info">Nome</h1>
                 <div class="info-dado">{{$perfil->name}}</div>
                 <h2 class="info">E-mail</h1>
                 <div class="info-dado">{{$perfil->email}}</div>
 
                 @if ($aluno)
-                <div class="subtitulo"><h1>Informações de Turma</h1><i class="fa-solid fa-pen"></i></div>
+                <div class="subtitulo"><h1>Informações de Turma</h1><i class="icon-perfil fa-solid fa-pen"></i></div>
                 <h2 class="info">Turma</h2>
                 <div class="info-dado">{{$perfil->nome_turma}}</div>
                 @endif
 
-                <div class="subtitulo"><h1>Segurança</h1><i class="fa-solid fa-pen"></i></div>
+                <div class="subtitulo"><h1>Segurança</h1><i class="icon-perfil fa-solid fa-pen"></i></div>
                 <h2 class="info">Senha</h2>
                 <div class="info-dado">r{{$perfil->password}}</div>
             </div>

@@ -112,8 +112,6 @@
     </form>
 </section>
 
-    
-
     <!-- ROTEIRO DE AULA -->
     <section class="section-cinza" id="roteiro">
         <div class="texto-section-cinza texto-section-cinza-subtitulo">Roteiro de Aula</div>
@@ -169,23 +167,32 @@
                 @endphp
 
             @foreach ($repertorioSemana as $repertorio)
-                <article class="repertorio-home card-repertorio hover">
-                    <div class="container-imagem">
-                        <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
-                    </div>
-                    <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $repertorio->id_pasta]) }}" style="text-decoration: none; color: inherit;">
-                        <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
-                    </a>
-                    <div class="tipo-repertorio">
-                        <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
-                            <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
-                            <p>{{ $repertorio->classificacao }}</p>
+
+                <article class="card-repertorio hover">
+
+                    <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $repertorio->id_pasta]) }}" class="container-info">
+
+                        <div class="container-imagem">
+                            <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
                         </div>
-                    </div>
-                    <div class="spoiler-repertorio">
-                        <p>{{ $repertorio->descricao }}</p>
-                    </div>
+                        
+                        <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
+                        
+                        <div class="tipo-repertorio">
+                            <div id="tipo-{{ Str::slug(strtolower(explode(' ', $repertorio->classificacao)[0])) }}">
+                                <i class="fa-solid {{ $filters[strtolower(explode(' ', $repertorio->classificacao)[0])][0] ?? 'fa-question-circle' }}"></i>
+                                <p>{{ $repertorio->classificacao }}</p>
+                            </div>
+                        </div>
+
+                        <div class="spoiler-repertorio">
+                            <p>{{ $repertorio->descricao }}</p>
+                        </div>
+
+                    </a>
+
                 </article>
+
             @endforeach
         @endif
     </section>

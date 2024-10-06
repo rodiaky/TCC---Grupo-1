@@ -40,14 +40,14 @@
     color: var(--varLaranjaEscuro);
 }
 
-i {
+.icon-perfil {
     color: var(--varLaranjaEscuro);
     font-size: 1rem;
     cursor: pointer;
     transition: 100ms all ease;
 }
 
-i:active {
+.icon-perfil:active {
     opacity: .6;
 }
 

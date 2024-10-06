@@ -1,17 +1,7 @@
-:root {
-    /* Paleta de Cores */
-    --varLaranjaEscuro: #F46F20;
-    --varLaranjaClaro: #FEA572;
-    --varCinzaEscuro: #EAEAEA;
-    --varCinzaClaro: #F4F3F2;
-    --varBranco: #F8F8F8;
-    --varPreto: #000000;
-}
-
 .botao-expand:hover, .botao-circulo:hover ~ .botao-expand{
     width: 15rem;
-} 
- 
+}
+
 /* ----------------------------------------------------- */
 
 .link-repertorio {
@@ -114,6 +104,8 @@
 
     border-radius: 50%;
 
+    aspect-ratio: 1/1;
+
     user-select: none;
     -webkit-user-select: none;
 
@@ -146,6 +138,13 @@
     text-overflow: ellipsis;
     text-align: justify;
     white-space: normal;
+}
+
+/* ------------------------------------------------- */
+
+.container-options {
+    display: flex;
+    align-items: start;
 }
 
 .botao-repertorio {
@@ -185,7 +184,7 @@
     height: 0;
 
     top: 25px;
-    right: 0;
+    right: -2rem;
     padding: 0;
 
     opacity: 0;
@@ -207,20 +206,19 @@
     text-align: left;
     color: var(--varPreto);
     text-decoration: none;
-    z-index: 50;
     transition: color 200ms ease;
 }
 
+.editar-opcoes-texto:hover{
+    opacity: .6;
+}
+
 /*BUG do botão*/
-/*.botao-editar:focus > .editar-opcoes {
+.botao-editar:focus > .editar-opcoes {
     width: 10rem;
     height: 5rem;
     opacity: 1;
     padding: .8rem .5rem .8rem .5rem;
-}*/
-
-.editar-opcoes-texto:hover{
-    opacity: .6;
 }
 
 .editar-opcoes:hover{
@@ -229,6 +227,15 @@
     opacity: 1;
     padding: .8rem .5rem .8rem .5rem;
 }
+
+.editar-opcoes:has(.editar-opcoes-texto:focus) {
+    width: 10rem;
+    height: 5rem;
+    opacity: 1;
+    padding: .8rem .5rem .8rem .5rem;
+}
+
+/* ---------------------------------------- */
 
 .pagination {
     display: flex;
@@ -261,7 +268,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    min-height: 84.5%;
+    min-height: 78%;
 }
 
 .section-filtros {
@@ -285,39 +292,62 @@ body {
 @media only screen and (max-width: 600px) {
     .card-repertorio {
 
-        width: 100%;
-        height: 4.5rem;
+        margin-bottom: 1.2rem;
+        height: 80px;
         padding: .5rem;
         border-radius: .7rem;
     
-        grid-template-columns: 25% 65% 10%;
-        grid-template-rows: 40% 60%
+        grid-template-rows: 1fr;
+        grid-template-columns: 90% 10%;
+
+    }
+
+    .container-info {
+        grid-row: 1;
+        grid-column: 1;
+    
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto 1fr;
+    }
+
+    .container-options {
+        grid-row: 1;
+        grid-column: 2;
     }
     
     .container-imagem {
         grid-column: 1;
-        grid-row: 1 / span 2;
-    
+        grid-row: 1 / span 3;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .imagem-repertorio {
-    
-        width: 60px;
-        height: 60px;
-    
+        height: 65px;
+        width: 65px;
     }
     
     .titulo-repertorio {
 
-        font-size: 1.3rem;
         grid-column: 2;
         grid-row: 1;
+        font-size: 1.1rem;
     
     }
     
     .tipo-repertorio {
-        grid-column: 2 / span 4;
+        grid-column: 2;
         grid-row: 2;
+    }
+
+    .tipo-repertorio i {
+        font-size: .6rem;
+    }
+    
+    .tipo-repertorio p {
+        margin-left: 5px;
+        font-size: .8rem;
     }
     
     .spoiler-repertorio {
@@ -332,7 +362,8 @@ body {
 
         grid-column: 3;
         grid-row: 1;
-        right: 10px;
+
+        /* right: 10px; */
     }
 
     .botao-repertorio .material-icons{
@@ -351,45 +382,57 @@ body {
 @media only screen and (min-width: 600px) {
     .card-repertorio {
 
-        width: 100%;
-        height: 5.5rem;
+        margin-bottom: 1.2rem;
+        height: 100px;
         padding: .5rem;
         border-radius: .7rem;
     
-        grid-template-columns: 15% 75% 10%;
-        grid-template-rows: 35% 65%;
+        grid-template-rows: 1fr;
+        grid-template-columns: 95% 5%;
+
+    }
+
+    .container-info {
+        grid-row: 1;
+        grid-column: 1;
+    
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto 1fr;
+    }
+
+    .container-options {
+        grid-row: 1;
+        grid-column: 2;
     }
     
     .container-imagem {
         grid-column: 1;
-        grid-row: 1 / span 2;
-    
+        grid-row: 1 / span 3;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .imagem-repertorio {
-    
-        width: 65px;
-        height: 65px;
-    
+        height: 80px;
+        width: 80px;
     }
     
     .titulo-repertorio {
 
-        font-size: 1.4rem;
         grid-column: 2;
         grid-row: 1;
+        font-size: 1.2rem;
     
     }
     
     .tipo-repertorio {
-
-        grid-column: 2 / span 4;
+        grid-column: 2;
         grid-row: 2;
     }
     
     .spoiler-repertorio {
         display: none;
-    
     }
     
     .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
@@ -418,54 +461,63 @@ body {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .card-repertorio {
-
-        width: 100%;
-        height: 8rem;
+        height: 120px;
         padding: .5rem;
         border-radius: .7rem;
+
+        grid-template-rows: 1fr;
+        grid-template-columns: 95% 5%;
+
+    }
+
+    .container-info {
+        grid-row: 1;
+        grid-column: 1;
     
-        grid-template-columns: 15% 75% 10%;
-        grid-template-rows: 25% 25% 50%;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: auto 1fr;
+    }
+
+    .container-options {
+        grid-row: 1;
+        grid-column: 2;
     }
     
     .container-imagem {
         grid-column: 1;
         grid-row: 1 / span 3;
-    
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .imagem-repertorio {
-    
-        width: 90px;
         height: 90px;
-    
+        width: 90px;
     }
     
     .titulo-repertorio {
 
-        font-size: 1.5rem;
-
         grid-column: 2;
         grid-row: 1;
+        font-size: 1.3rem;
     
     }
     
     .tipo-repertorio {
-        
-        grid-column: 2 / span 4;
+        grid-column: 2;
         grid-row: 2;
     }
     
     .spoiler-repertorio {
 
         display: block;
-        grid-column: 2 / span 4;
+        grid-column: 2;
         grid-row: 3;
 
-        line-height: 1.3em;
-    
+        margin-bottom: 1rem;
     }
-
+    
     .spoiler-repertorio p{
         
         padding-right: 2%;
@@ -501,47 +553,61 @@ body {
 
         width: 90%;
         max-width: 85vw;
-        height: 8rem;
+        height: 130px;
         padding: .5rem;
         border-radius: .7rem;
     
-        grid-template-columns: 13% 77% 10%;
-        grid-template-rows: 25% 25% 50%;
+        grid-template-rows: 1fr;
+        grid-template-columns: 95% 5%;
+
+    }
+
+    .container-info {
+        grid-row: 1;
+        grid-column: 1;
+    
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: auto 1fr;
+    }
+
+    .container-options {
+        grid-row: 1;
+        grid-column: 2;
     }
     
     .container-imagem {
         grid-column: 1;
         grid-row: 1 / span 3;
-    
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     .imagem-repertorio {
-    
-        width: 100px;
         height: 100px;
-    
+        width: 100px;
     }
     
     .titulo-repertorio {
 
-        font-size: 1.5rem;
         grid-column: 2;
         grid-row: 1;
+        font-size: 1.5rem;
     
     }
     
     .tipo-repertorio {
-        grid-column: 2 / span 4;
+        grid-column: 2;
         grid-row: 2;
     }
     
     .spoiler-repertorio {
 
         display: block;
-        grid-column: 2 / span 4;
+        grid-column: 2;
         grid-row: 3;
 
-        line-height: 1.4em;
+        margin-bottom: 1rem;
     }
 
     .spoiler-repertorio p{
@@ -553,12 +619,6 @@ body {
     
     .titulo-repertorio, .tipo-repertorio, .spoiler-repertorio {
         padding: .2rem;
-    }
-    
-    .botao-repertorio {
-
-        grid-column: 3;
-        grid-row: 1;
     }
 
     .botao-repertorio .material-icons{
