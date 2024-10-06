@@ -42,32 +42,37 @@ $currentFilter = request('filtros');
 
     <section class="container-tema">
         @forelse ($temas as $tema)
-        <a href="{{ route('admin.temas.visualizar', $tema->id) }}">
-        </a>
-            <div class="tema-secao">
-                @if ($isAdmin)
-                <button class="botao-editar">
-                    <i class="material-icons">more_horizon</i>
-                    <div class="editar-opcoes">
-                        <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
-                        <hr>
-                        <a href="{{ route('admin.temas.excluir',$tema->id) }}" class="editar-opcoes-texto">Excluir</a>
+            <article class="tema-secao">
+
+                <a href="{{ route('admin.temas.visualizar', $tema->id) }}" class="container-info">
+
+                    <div class="container-imagem-tema">
+                        <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
                     </div>
-                </button>
+                    
+                    <div class="frase-tematica">
+                        <p>{{ $tema->frase_tematica }}</p>
+                    </div>
+
+                    <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
+
+                </a>
+
+                @if ($isAdmin)
+                <div class="container-options">
+                    <button class="botao-editar">
+                        <i class="material-icons">more_horizon</i>
+                        <div class="editar-opcoes">
+                            <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
+                            <hr>
+                            <a href="{{ route('admin.temas.excluir',$tema->id) }}" class="editar-opcoes-texto">Excluir</a>
+                        </div>
+                    </button>
+                </div>
                 @endif
-                <div class="container-imagem-tema">
-                    <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
-                </div>
-                
-                <div class="frase-tematica">
-                    <p>{{ $tema->frase_tematica }}</p>
-                </div>
-                <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
-                <div class="spoiler">
-                    <p>{{ $tema->texto_apoio }}</p>
-                </div>
-            </div>
-       
+
+            </article>
+        
         @empty
             <p>Nenhum tema encontrado.</p>
         @endforelse

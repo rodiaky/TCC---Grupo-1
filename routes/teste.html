@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir PDF com PDF.js</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #pdf-container {
+            width: 80%;
+            height: 90%;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            overflow: auto;
+        }
+
+        #pdf-render {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="pdf-container">
+        <canvas id="pdf-render"></canvas>
+    </div>
+
+    <!-- Adiciona a biblioteca PDF.js remotamente -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+
+    <script>
+        const url = 'Banner - Carbono das Estrelas.pdf'; // Coloque o link do PDF que você quer exibir
+
+        const scale = 1.5,
+              canvas = document.getElementById('pdf-render'),
+              ctx = canvas.getContext('2d');
+
+        // Pega o documento PDF
+        pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
+            // Pega a primeira página do PDF (única página)
+            pdfDoc_.getPage(1).then(page => {
+                const viewport = page.getViewport({ scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderCtx = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+
+                page.render(renderCtx);
+            });
+        });
+    </script>
+
+</body>
+</html>

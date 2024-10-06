@@ -35,21 +35,18 @@
 .frase-tematica{
   padding-top: .5rem;
   width: 90%;
-
   font-weight: 700;
   color: var(--varLaranjaEscuro);
-}
 
-.frase-tematica p {
   margin: 0;
-  padding-right: 2%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: justify;
   white-space: normal;
-  height: fit-content;
+
+  -webkit-line-clamp: 4;
 }
 
 .banca-ano {
@@ -57,23 +54,9 @@
   font-weight: 700;
 }
 
-.spoiler{
-  grid-column: 2 / span 4;
-  grid-row: 3;
-  font-size: 1rem;
-}
-
-.spoiler p{
-  margin: 0;
-  padding-right: 2%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: justify;
-  white-space: normal;
-  -webkit-line-clamp: 2;
-  height: fit-content;
+.container-options {
+  display: flex;
+  align-items: start;
 }
 
 /* ---------------------------------------- */
@@ -302,85 +285,102 @@ input[type="checkbox"]{
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .tema-secao{
-    height: 100px;
-    grid-template-rows: 30% 40% 30%;
-    grid-template-columns: 35% 50% 15%;
+    height: 130px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 90% 10%;
   }
 
-  .container-imagem-tema {
+  .container-info {
+    grid-row: 1;
     grid-column: 1;
-    grid-row: 1 / span 4;  
+
+    display: grid;
+    grid-template-rows: 70% 30%;
+    grid-template-columns: auto 1fr;
+
+  }
+
+  .container-options {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .container-imagem-tema{
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .imagem-tema {
     height: 80px;
   }
 
-  .spoiler {
-    display: none;
-  }
-
   .frase-tematica{
-    grid-column: 2 / span 4;
-    grid-row: 1 / span 3;
+    grid-column: 2;
+    grid-row: 1;
     font-size: 1rem;
-  }
-
-  .frase-tematica p{
-    -webkit-line-clamp: 3;
-    text-align: left;
+    margin-bottom:.5rem;
   }
 
   .banca-ano {
-    grid-column: 2 / span 4;
-    grid-row: 3;
-    font-size: 1rem;
+    grid-column: 2;
+    grid-row: 2;
   }
 
-  .botao-editar {
+  /* .botao-editar {
     padding-right: .5rem;
-  }
+  } */
 
   .botao-editar .material-icons {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .tema-secao{
-    height: 100px;
-    grid-template-rows: 30% 25% 45%;
-    grid-template-columns: 20% 70% 10%;
+    height: 130px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 95% 5%;
   }
 
-  .container-imagem-tema { 
+  .container-info {
+    grid-row: 1;
     grid-column: 1;
-    grid-row: 1 / span 4;  
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+
+  }
+
+  .container-options {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .container-imagem-tema{
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .imagem-tema {
     height: 80px;
   }
 
-  .spoiler {
-    display: none;
-  }
-
   .frase-tematica{
-    grid-column: 2 / span 4;
-    grid-row: 1 / span 3;
+    grid-column: 2;
+    grid-row: 1;
     font-size: 1.1rem;
-  }
-
-  .frase-tematica p{
-    -webkit-line-clamp: 2;
+    margin-bottom: .5rem;
   }
 
   .banca-ano {
-    grid-column: 2 / span 4;
-    grid-row: 3;
-    font-size: 1rem;
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .botao-editar {
@@ -397,35 +397,45 @@ input[type="checkbox"]{
 @media only screen and (min-width: 768px) {
   .tema-secao{
     height: 130px;
-    grid-template-rows: 30% 25% 45%;
-    grid-template-columns: 20% 75% 5%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 95% 5%;
   }
 
-  .container-imagem-tema {
+  .container-info {
+    grid-row: 1;
     grid-column: 1;
-    grid-row: 1 / span 4;  
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+
+  }
+
+  .container-options {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .container-imagem-tema{
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .imagem-tema {
     height: 100px;
   }
 
-  .spoiler {
-    display: block;
-  }
-
   .frase-tematica{
-    grid-column: 2 / span 4;
+    grid-column: 2;
     grid-row: 1;
     font-size: 1.2rem;
-  }
-
-  .frase-tematica p{
-    -webkit-line-clamp: 1;
+    margin-bottom: .5rem;
   }
 
   .banca-ano {
-    grid-column: 2 / span 4;
+    grid-column: 2;
     grid-row: 2;
   }
 
@@ -442,35 +452,45 @@ input[type="checkbox"]{
 @media only screen and (min-width: 992px) {
   .tema-secao{
     height: 130px;
-    grid-template-rows: 30% 25% 45%;
-    grid-template-columns: 15% 80% 5%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 95% 5%;
   }
 
-  .container-imagem-tema {
+  .container-info {
+    grid-row: 1;
     grid-column: 1;
-    grid-row: 1 / span 4;  
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+
+  }
+
+  .container-options {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .container-imagem-tema{
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .imagem-tema {
     height: 100px;
   }
 
-  .spoiler {
-    display: block;
-  }
-
   .frase-tematica{
-    grid-column: 2 / span 4;
+    grid-column: 2;
     grid-row: 1;
     font-size: 1.2rem;
-  }
-
-  .frase-tematica p{
-    -webkit-line-clamp: 1;
+    margin-bottom: .5rem;
   }
 
   .banca-ano {
-    grid-column: 2 / span 4;
+    grid-column: 2;
     grid-row: 2;
   }
 
@@ -489,35 +509,45 @@ input[type="checkbox"]{
   
   .tema-secao{
     height: 130px;
-    grid-template-rows: 30% 25% 45%;
-    grid-template-columns: 15% 80% 5%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 95% 5%;
+  }
+
+  .container-info {
+    grid-row: 1;
+    grid-column: 1;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+
+  }
+
+  .container-options {
+    grid-row: 1;
+    grid-column: 2;
   }
 
   .container-imagem-tema{
     grid-column: 1;
-    grid-row: 1 / span 4;  
+    grid-row: 1 / span 3;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .imagem-tema {
     height: 100px;
   }
 
-  .spoiler {
-    display: block;
-  }
-
   .frase-tematica{
-    grid-column: 2 / span 4;
+    grid-column: 2;
     grid-row: 1;
     font-size: 1.2rem;
-  }
-
-  .frase-tematica p{
-    -webkit-line-clamp: 1;
+    margin-bottom: 1rem;
   }
 
   .banca-ano {
-    grid-column: 2 / span 4;
+    grid-column: 2;
     grid-row: 2;
   }
 

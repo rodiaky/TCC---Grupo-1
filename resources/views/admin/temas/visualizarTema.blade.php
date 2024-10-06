@@ -21,10 +21,11 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             <div class="grid-layout">
 
                 <div class="container-seta">
-                <a href="{{ route('admin.temas') }}" class="seta-back">
-                    <i class="material-icons seta-back"> arrow_back</i>
-                </a>
+                    <a href="{{ route('admin.temas') }}" class="seta-back">
+                        <i class="material-icons seta-back"> arrow_back</i>
+                    </a>
                 </div>
+
                 @if ($isAdmin)
                 <div class="container-botao">
                     <button class="botao-editar">
@@ -48,21 +49,18 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             </div>
 
             <form action="{{ route('admin.temas.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="upload">
-                <input type="file" class="arquivo" name="redacao_enviada" required>
-                <input type="hidden" name="id_tema" value="{{$tema->id}}">
-            </div>
-            
-
-            <br>
-            <br>
-            <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
+                
+                @csrf
+                <div class="upload">
+                    <input type="file" class="arquivo" name="redacao_enviada" required>
+                    <input type="hidden" name="id_tema" value="{{$tema->id}}">
+                </div>
+                
+                <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
 
             </form>
+
         </section>
 
     </main>
-
-    <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
 @endsection

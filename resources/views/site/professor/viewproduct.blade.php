@@ -22,9 +22,6 @@
 
         <section class="redacao-correcao">
 
-
-
-
             <article class="paintbrush" id="vertical">
 
                 <!-- Mostra ferramentas -->
@@ -92,9 +89,6 @@
             </article>
 
 
-
-
-            
             <article id="canvasarea">
                 <canvas id="myCanvas"></canvas>
             </article>
