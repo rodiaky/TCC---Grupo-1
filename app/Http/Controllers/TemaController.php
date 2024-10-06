@@ -45,17 +45,19 @@ class TemaController extends Controller
     }
 
     public function adicionar() {
+        $url = url()->previous();
         $bancas = Bancas::pluck('nome', 'id')->all();
-        return view('admin.temas.adicionar', compact('bancas'));
+        return view('admin.temas.adicionar', compact('bancas','url'));
     }
 
     public function editar($id) {
+        $url = url()->previous();
         $temas = Temas::join('bancas', 'temas.id_banca', '=', 'bancas.id')
         ->where('temas.id', $id)
         ->select('temas.*', 'bancas.nome as nome_banca')
         ->first();
         $bancas = Bancas::pluck('nome', 'id')->all();
-        return view('admin.temas.editar', compact('temas', 'bancas'));
+        return view('admin.temas.editar', compact('temas', 'bancas','url'));
     }
 
     public function excluir($id) {
@@ -66,7 +68,7 @@ class TemaController extends Controller
     public function salvar(Request $req) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets'), $filename);
+        $file->move(public_path('assets/temas'), $filename);
         $req->imagem =  $filename;
 
         $fraseTematica = $req->input('frase_tematica');
@@ -84,13 +86,15 @@ class TemaController extends Controller
         ];
         
         Temas::create($meuVetor);
-        return redirect()->route('admin.temas');
+
+        $url = $req->input('url');
+        return redirect()->to($url);
     }
 
     public function atualizar(Request $req, $id) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets'), $filename);
+        $file->move(public_path('assets/temas'), $filename);
         $req->imagem =  $filename;
         
         $fraseTematica = $req->input('frase_tematica');
@@ -109,7 +113,8 @@ class TemaController extends Controller
 
     
         Temas::find($id)->update($meuVetor);
-        return redirect()->route('admin.temas');
+        $url = $req->input('url');
+        return redirect()->to($url);
     }
 
     public function store(Request $request)
@@ -141,7 +146,7 @@ class TemaController extends Controller
         // Fazer o upload da imagem
         $file = $request->file('redacao_enviada');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/redacao_enviada'), $filename);
+        $file->move(public_path('assets/temas'), $filename);
 
         
         // Salvar o caminho da imagem no banco de dados

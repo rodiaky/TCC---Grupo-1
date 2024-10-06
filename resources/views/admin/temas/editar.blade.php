@@ -13,7 +13,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ route('admin.temas') }}" class="seta-back">
+                <a href="{{ url()->previous() }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -73,11 +73,19 @@
                         </div><!--options-->
                     </div><!--Select para banca-->  
                     <br>
+
+                    
                     <div class="upload">
                         <input type="file" class="arquivo" id="arquivo" name="arquivo">
                         <input type="hidden" name="id_tema" value="{{$temas->id}}">
                         <input type="hidden" name="imagem" value="{{$temas->imagem}}">
                     </div>
+
+                     @if($temas->imagem)
+                    <div class="preview">
+                        <img src="{{ asset('assets/temas/' . $temas->imagem) }}" alt="Imagem do tema" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                @endif
 
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>

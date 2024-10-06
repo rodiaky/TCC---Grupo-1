@@ -21,7 +21,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             <div class="grid-layout">
 
                 <div class="container-seta">
-                    <a href="{{ route('admin.temas') }}" class="seta-back">
+                    <a href="{{ url()->previous() }}" class="seta-back">
                         <i class="material-icons seta-back"> arrow_back</i>
                     </a>
                 </div>

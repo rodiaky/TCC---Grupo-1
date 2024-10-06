@@ -15,7 +15,7 @@
     <main>
 
         <section class="conteudo">
-        <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
+        <a href="{{ url()->previous() }}" class="seta-back">
             <i class="material-icons seta-voltar">arrow_back</i>
         </a>
 

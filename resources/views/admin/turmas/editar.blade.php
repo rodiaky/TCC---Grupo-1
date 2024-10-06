@@ -5,14 +5,14 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/addAltTurma.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <title>Adicionar Turma</title>
+    <title>Editar Turma</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 @endsection
 
 @section('conteudo')
     <main>
-        <h1>Adicionar Turma</h1><hr>
+        <h1>Editar Turma</h1><hr>
         <article>
             <div class="form-value">
             <form action="{{ route('admin.turmas.salvar') }}" method="post" enctype="multipart/form-data">

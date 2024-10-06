@@ -35,7 +35,7 @@
 
                 <!-- Set Back Button -->
                 <div class="container-seta">
-                    <a href="{{ route('admin.repertorios', ['id' => $id_pasta]) }}" class="seta-back">
+                    <a href="{{ url()->previous() }}" class="seta-back">
                         <i class="material-icons">arrow_back</i>
                     </a>
                 </div>

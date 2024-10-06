@@ -14,7 +14,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ route('admin.repertorios', $temasRepertorios->id) }}" class="seta-back">
+                <a href="{{ url()->previous() }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -25,7 +25,7 @@
     
     <article>
         <div class="form-value">
-            <form action="{{ route('admin.repertorios.salvar', ['id' => $repertorio->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.repertorios.salvar') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="categoria" value="Repertório">
                 

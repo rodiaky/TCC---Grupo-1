@@ -12,7 +12,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ route('admin.temas') }}" class="seta-back">
+                <a href="{{ url()->previous() }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -86,7 +86,7 @@
 
                 <!-- Campo oculto para id_banca -->
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">
-
+                <input type="hidden" name="url" id="url" value="{{ $url }}">
 
             
                 <div class="botoes">

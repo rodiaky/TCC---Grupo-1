@@ -48,7 +48,7 @@ $currentFilter = request('filtros');
                 <a href="{{ route('admin.temas.visualizar', $tema->id) }}" class="container-info">
 
                     <div class="container-imagem-tema">
-                        <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
+                        <img src="{{ asset('assets/temas/' . $tema->imagem) }}" alt="" class="imagem-tema">
                     </div>
                     
                     <div class="frase-tematica">

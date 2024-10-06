@@ -49,6 +49,6 @@ class CriterioController extends Controller
     public function atualizar(Request $req, $id){
         $dados = $req->all();
         Criterios::find($id)->update($dados);
-        return redirect()->route('admin.criterios');
+        return redirect()->to(url()->previous());
     }
 }
