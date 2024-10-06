@@ -105,7 +105,7 @@
 
                 <!-- Campo oculto para armazenar a alternativa selecionada (agora como resposta) -->
                 <input type="hidden" name="resposta" id="resposta" value="{{ isset($questoes->resposta) ? $questoes->resposta : '' }}">
-
+                <input type="hidden" name="url" id="url" value="{{ $url }}">
                 <!-- Select para Categoria/Disciplina -->
                 <div id="categoria" class="select">
                     <div class="selected">

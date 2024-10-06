@@ -31,18 +31,20 @@ class RepertoriosController extends Controller
 
     public function adicionar() 
     {
+        $url = url()->previous();
         $temasRepertorios = Pastas::where('tipo', 'Repertório')->pluck('nome', 'id')->all();
-        return view('admin.repertorios.adicionar',compact('temasRepertorios'));
+        return view('admin.repertorios.adicionar',compact('temasRepertorios','url'));
     }
 
     public function editar($id) 
     {
+        $url = url()->previous();
         $repertorios = Materiais::join('pastas', 'materiais.id_pasta', '=', 'pastas.id')
         ->where('materiais.id', $id)
         ->select('materiais.*', 'pastas.nome as nome_pasta')
         ->first();
         $temasRepertorios = Pastas::where('tipo', 'Repertório')->pluck('nome', 'id')->all();
-        return view('admin.repertorios.editar', compact('repertorios','temasRepertorios'));
+        return view('admin.repertorios.editar', compact('repertorios','temasRepertorios','url'));
     }
 
     public function search(Request $request)
@@ -89,13 +91,15 @@ class RepertoriosController extends Controller
     {
         $dados = $req->all();  
         Materiais::create($dados);
-        return redirect()->route('admin.temasRepertorios');
+        $url = $req->input('url');
+        return redirect()->to($url);
     }
 
     public function atualizar(Request $req, $id)
     {
         $dados = $req->all();
         Materiais::find($id)->update($dados);
-        return redirect()->route('admin.temasRepertorios');
+        $url = $req->input('url');
+        return redirect()->to($url);
     }
 }

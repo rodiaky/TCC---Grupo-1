@@ -44,8 +44,9 @@ class QuestoesController extends Controller
     }
 
     public function adicionar() {
+        $url = url()->previous();
         $bancas = Bancas::pluck('nome', 'id')->all();
-        return view('admin.questoes.adicionar',compact('bancas'));
+        return view('admin.questoes.adicionar',compact('bancas','url'));
     }
 
     public function editar($id) {
@@ -65,12 +66,12 @@ class QuestoesController extends Controller
 
     public function salvar(Request $req) {
         $req->validate([
-            'enunciado' => 'required|string|max:255',
-            'alternativa_A' => 'required|string|max:255',
-            'alternativa_B' => 'required|string|max:255',
-            'alternativa_C' => 'required|string|max:255',
-            'alternativa_D' => 'required|string|max:255',
-            'alternativa_E' => 'nullable|string|max:255',
+            'enunciado' => 'required|string|max:3000',
+            'alternativa_A' => 'required|string|max:1000',
+            'alternativa_B' => 'required|string|max:1000',
+            'alternativa_C' => 'required|string|max:1000',
+            'alternativa_D' => 'required|string|max:1000',
+            'alternativa_E' => 'nullable|string|max:1000',
             'ano' => 'required|integer|min:2000',
             'assunto' => 'required|string|max:100',
             'resposta' => 'required|string|in:A,B,C,D,E',
@@ -80,17 +81,18 @@ class QuestoesController extends Controller
     
         $dados = $req->all();  
         Perguntas::create($dados);
-        return redirect()->route('admin.questoes')->with('success', 'Questão adicionada com sucesso!');
+        $url = $req->input('url');
+        return redirect()->to($url);
     }
     
     public function atualizar(Request $req, $id) {
         $req->validate([
-            'enunciado' => 'required|string|max:255',
-            'alternativa_A' => 'required|string|max:255',
-            'alternativa_B' => 'required|string|max:255',
-            'alternativa_C' => 'required|string|max:255',
-            'alternativa_D' => 'required|string|max:255',
-            'alternativa_E' => 'nullable|string|max:255',
+            'enunciado' => 'required|string|max:3000',
+            'alternativa_A' => 'required|string|max:1000',
+            'alternativa_B' => 'required|string|max:1000',
+            'alternativa_C' => 'required|string|max:1000',
+            'alternativa_D' => 'required|string|max:1000',
+            'alternativa_E' => 'nullable|string|max:1000',
             'ano' => 'required|integer|min:2000',
             'assunto' => 'required|string|max:100',
             'resposta' => 'required|string|in:A,B,C,D,E',

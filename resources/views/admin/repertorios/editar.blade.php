@@ -27,6 +27,7 @@
             <form action="{{ route('admin.repertorios.atualizar', $repertorios->id) }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="categoria" value="Repertório">
+                <input type="hidden" name="url" id="url" value="{{ $url }}">
                 
                 <div class="inputbox">
                     <label for="">Título do repertório</label>
