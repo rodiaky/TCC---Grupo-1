@@ -32,10 +32,10 @@
 
                 <label class="lbl-upload">Upload de imagem</label>
                 <div class="upload">
-                    <input type="file" accept="image/*" class="img-arquivo" name="img-repertorio" id="img-repertorio" >
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="hidden" name="id_tema" value="{{$pastas->id}}">
+                    <input type="hidden" name="imagem" value="{{$pastas->imagem}}">
                 </div>
-
-                <input type="hidden" name="tipo" value="Repertório">
 
                 <div class="botoes">
                     <button name="limpar" id="limpar" class="button">Limpar</button>

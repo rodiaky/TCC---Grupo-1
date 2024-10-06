@@ -16,6 +16,7 @@ class TemaController extends Controller
             ->select('temas.*', 'bancas.nome as banca_nome')
             ->paginate(10);
 
+
         return view('admin.temas.index', compact('temas'));
     }
 
@@ -63,14 +64,51 @@ class TemaController extends Controller
     }
 
     public function salvar(Request $req) {
-        $dados = $req->all();  
-        Temas::create($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets'), $filename);
+        $req->imagem =  $filename;
+
+        $fraseTematica = $req->input('frase_tematica');
+        $textoApoio = $req->input('texto_apoio');
+        $ano = $req->input('ano');
+        $idBanca = $req->input('id_banca');
+
+        $meuVetor = [
+            'frase_tematica' => $fraseTematica,
+            'texto_apoio' => $textoApoio,
+            'ano' => $ano,
+            'id_banca' => $idBanca,
+            'imagem' => $filename
+            
+        ];
+        
+        Temas::create($meuVetor);
         return redirect()->route('admin.temas');
     }
 
     public function atualizar(Request $req, $id) {
-        $dados = $req->all();
-        Temas::find($id)->update($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets'), $filename);
+        $req->imagem =  $filename;
+        
+        $fraseTematica = $req->input('frase_tematica');
+        $textoApoio = $req->input('texto_apoio');
+        $ano = $req->input('ano');
+        $idBanca = $req->input('id_banca');
+
+        $meuVetor = [
+            'frase_tematica' => $fraseTematica,
+            'texto_apoio' => $textoApoio,
+            'ano' => $ano,
+            'id_banca' => $idBanca,
+            'imagem' => $filename
+            
+        ];
+
+    
+        Temas::find($id)->update($meuVetor);
         return redirect()->route('admin.temas');
     }
 

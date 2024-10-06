@@ -2,8 +2,9 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
+    <link rel="stylesheet" type="text/css" href="/css/botao2.css">
     <link rel="stylesheet" type="text/css" href="/css/materiais.css">
+    <link rel="stylesheet" type="text/css" href="/css/temaRepertorio.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Materiais</title>
 @endsection
@@ -33,10 +34,9 @@
 
             
                 <div class="wrapper">
-                
                     <div class="quadrado">
-                        <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}" class="imagem-tema">
-                            <img src="{{ $pasta->imagem }}" alt="{{ $pasta->imagem }}">
+                        <a href="{{ route('admin.materiais', ['id' => $pasta->id]) }}">                       
+                            <img src="/assets/{{$pasta->imagem}}" alt="" class="img-tema">
                         </a>
                     @if ($isAdmin)
                         <button class="botao-editar">

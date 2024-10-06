@@ -32,10 +32,10 @@
 
                 <label class="lbl-upload">Upload de imagem</label>
                 <div class="upload">
-                    <input type="file" accept="image/*" class="img-arquivo" name="img-repertorio" id="img-repertorio" >
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
                 </div>
 
-                <input type="hidden" name="tipo" value="Material">
+               
 
 
                 <div class="botoes">

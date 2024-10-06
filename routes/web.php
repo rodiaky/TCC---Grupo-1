@@ -26,6 +26,7 @@ use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\BancaController;
 use App\Http\Controllers\SemanaController;
 use App\Http\Controllers\EstatisticaController;
+use App\Http\Controllers\MinhasRedacoesController;
 
 // Auth Routes
 Auth::routes();
@@ -47,7 +48,8 @@ Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/alterar_senha', [AlterarSenhaController::class, 'index'])->name('alterar_senha');
     Route::post('/alterar_senha', [AlterarSenhaController::class, 'update'])->name('alterar_senha.update');
-    Route::get('/painel_redacoes', [EstatisticaController::class, 'index'])->name('painel_redacoes');
+    Route::get('/painel_redacoes', [MinhasRedacoesController::class, 'index'])->name('painel_redacoes');
+    Route::get('/estatistica', [EstatisticaController::class, 'index'])->name('estatistica');
    
 });
 
@@ -81,6 +83,8 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
 
     Route::get('/cruds', function () { return view('site.cruds'); })->name('admin.cruds');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('aluno.home');
     // Admin Routes
     Route::prefix('admin')->group(function() {
         Route::prefix('temas')->group(function() {
@@ -153,18 +157,18 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/excluir/{id}', [QuestoesController::class, 'excluir'])->name('admin.questoes.excluir');
         });
 
-            Route::prefix('repertorios')->group(function() {
-                Route::get('/{id}', [RepertoriosController::class, 'index'])->name('admin.repertorios');
-                Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
-                Route::get('/visualizar/{id}/{id_pasta}', [RepertoriosController::class, 'visualizar'])->name('admin.repertorios.visualizar');
-                Route::get('/1/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
-                Route::post('/salvar', [RepertoriosController::class, 'salvar'])->name('admin.repertorios.salvar');
-                Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
-                Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');
-                Route::get('/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('admin.repertorios.excluir');
-                Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
-                Route::get('/filtrar/{id}', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
-            });
+        Route::prefix('repertorios')->group(function() {
+            Route::get('/{id}', [RepertoriosController::class, 'index'])->name('admin.repertorios');
+            Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+            Route::get('/visualizar/{id}/{id_pasta}', [RepertoriosController::class, 'visualizar'])->name('admin.repertorios.visualizar');
+            Route::get('/1/adicionar', [RepertoriosController::class, 'adicionar'])->name('admin.repertorios.adicionar');
+            Route::post('/salvar', [RepertoriosController::class, 'salvar'])->name('admin.repertorios.salvar');
+            Route::get('/editar/{id}', [RepertoriosController::class, 'editar'])->name('admin.repertorios.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [RepertoriosController::class, 'atualizar'])->name('admin.repertorios.atualizar');
+            Route::get('/excluir/{id}', [RepertoriosController::class, 'excluir'])->name('admin.repertorios.excluir');
+            Route::get('/pesquisar', [RepertoriosController::class, 'search'])->name('admin.repertorios.search');
+            Route::get('/filtrar', [RepertoriosController::class, 'filtrar'])->name('admin.repertorios.filtrar');
+        });
 
         Route::prefix('materiais')->group(function() {
             Route::get('/{id}', [MateriaisController::class, 'index'])->name('admin.materiais');
@@ -177,10 +181,6 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::match(['get', 'post'], '/atualizar/{id}', [MateriaisController::class, 'atualizar'])->name('admin.materiais.atualizar');
             Route::get('/excluir/{id}', [MateriaisController::class, 'excluir'])->name('admin.materiais.excluir');
         });
-
-        
-        
-    
 
         Route::prefix('temasRepertorios')->group(function() {
             Route::get('/', [TemaRepertoriosController::class, 'index'])->name('admin.temasRepertorios');
@@ -217,24 +217,5 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
 
     Route::match(['get','post'],'/admin/correcao/atualizar/{id}', ['as' =>'admin.correcao.atualizar', 'uses' => 'App\Http\Controllers\RedacoesPendentesController@atualizar']);
-
-    
-// Other Pages
-    Route::get('/pasta_materiais', function () { return view('site.matPasta'); })->name('matPasta');
-    Route::get('/materiais', function () { return view('site.materiais'); })->name('materiais');
 });
-
-// Admin Routes
-Route::middleware(AdministradorMiddleware::class)->group(function() {
-    // Add routes specific to administrators here
-});
-
-// Resource Route
-Route::resource('tarefa', TarefaController::class);
-
-// Redacoes Pendentes Routes
-
-//Redacoes_corrigidas alunos
-
-
-
+?>

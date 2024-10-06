@@ -150,7 +150,7 @@
     
                         <!-- Materiais -->
                         <li class="sidebar-item">
-                            <a href="{{ route('materiais') }}" class="sidebar-item-link">
+                            <a href="{{ route('admin.pastasMateriais') }}" class="sidebar-item-link">
                                 <i class="material-icons">folder</i>
                                 <span class="sidebar-link">Materiais</span>
                             </a>
@@ -177,6 +177,13 @@
                             <a href="{{ route('aluno.painel_redacoes') }}" class="sidebar-item-link">
                                 <i class="material-icons">edit_document</i>
                                 <span class="sidebar-link">Minhas Redações</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="{{ route('aluno.estatistica') }}" class="sidebar-item-link">
+                                <i class="material-icons">insert_chart</i>
+                                <span class="sidebar-link">Estatísticas</span>
                             </a>
                         </li>
                     

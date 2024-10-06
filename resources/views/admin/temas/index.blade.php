@@ -42,12 +42,25 @@ $currentFilter = request('filtros');
 
     <section class="container-tema">
         @forelse ($temas as $tema)
+<<<<<<< HEAD
             <article class="tema-secao">
 
                 <a href="{{ route('admin.temas.visualizar', $tema->id) }}" class="container-info">
 
                     <div class="container-imagem-tema">
                         <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
+=======
+        
+        
+            <div class="tema-secao">
+                @if ($isAdmin)
+                <button class="botao-editar">
+                    <i class="material-icons">more_horizon</i>
+                    <div class="editar-opcoes">
+                        <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
+                        <hr>
+                        <a href="{{ route('admin.temas.excluir',$tema->id) }}" class="editar-opcoes-texto">Excluir</a>
+>>>>>>> origin/master
                     </div>
                     
                     <div class="frase-tematica">
@@ -70,9 +83,27 @@ $currentFilter = request('filtros');
                     </button>
                 </div>
                 @endif
+<<<<<<< HEAD
 
             </article>
         
+=======
+                
+                <div class="container-imagem-tema">
+                    <img src="/assets/{{ $tema->imagem }}" alt="" class="imagem-tema">
+                </div>
+                
+                <div class="frase-tematica">
+                    <p><a href="{{ route('admin.temas.visualizar', $tema->id) }}">{{ $tema->frase_tematica }}</a></p>
+                </div>
+                <div class="banca-ano">{{ $tema->banca_nome }}/{{ $tema->ano }}</div>
+                <div class="spoiler">
+                    <p>{{ $tema->texto_apoio }}</p>
+                </div>
+            </div>
+            
+       
+>>>>>>> origin/master
         @empty
             <p>Nenhum tema encontrado.</p>
         @endforelse

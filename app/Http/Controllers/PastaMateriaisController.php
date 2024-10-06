@@ -19,6 +19,7 @@ class PastaMateriaisController extends Controller
     }
 
     public function adicionar() {
+
         return view('admin.pastasMateriais.adicionar');
     }
 
@@ -33,14 +34,40 @@ class PastaMateriaisController extends Controller
     }
 
     public function salvar(Request $req) {
-        $dados = $req->all();  
-        Pastas::create($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets'), $filename);
+        $req->imagem =  $filename;
+
+        $nome = $req->input('nome');
+        
+        $meuVetor = [
+            'nome' => $nome,
+            'imagem' => $filename,
+            'tipo' => "Material"
+            
+        ];
+
+        Pastas::create($meuVetor);
         return redirect()->route('admin.pastasMateriais');
     }
 
     public function atualizar(Request $req, $id) {
-        $dados = $req->all();
-        Pastas::find($id)->update($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets'), $filename);
+        $req->imagem =  $filename;
+
+        $nome = $req->input('nome');
+        
+        $meuVetor = [
+            'nome' => $nome,
+            'imagem' => $filename,
+            'tipo' => "Material"
+            
+        ];
+    
+        Pastas::find($id)->update($meuVetor);
         return redirect()->route('admin.pastasMateriais');
     }
 

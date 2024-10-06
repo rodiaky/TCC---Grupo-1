@@ -36,7 +36,11 @@
   padding-top: .5rem;
   width: 90%;
   font-weight: 700;
+<<<<<<< HEAD
   color: var(--varLaranjaEscuro);
+=======
+}
+>>>>>>> origin/master
 
   margin: 0;
   display: -webkit-box;
@@ -45,8 +49,13 @@
   text-overflow: ellipsis;
   text-align: justify;
   white-space: normal;
+<<<<<<< HEAD
 
   -webkit-line-clamp: 4;
+=======
+  height: fit-content;
+  color: var(--varLaranjaEscuro);
+>>>>>>> origin/master
 }
 
 .banca-ano {
