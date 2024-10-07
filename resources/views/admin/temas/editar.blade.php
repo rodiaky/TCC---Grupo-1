@@ -74,12 +74,12 @@
                     <br>
                     <label class="lbl-upload">Upload de imagem</label>
                 <div class="upload">
-                    <input type="file" class="imagem" id="imagem" name="imagem">
+                    <input type="file" class="imagem" id="imagem" name="imagem" {{ isset($temas->imagem) ? $temas->imagem : '' }}>
                 </div>
                 <br>
                 <label class="lbl-upload">Upload de texto de apoio</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" {{ isset($temas->texto_apoio) ? $temas->texto_apoio : '' }}>
                 </div>
 
 
