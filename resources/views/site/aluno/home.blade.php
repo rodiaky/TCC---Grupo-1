@@ -94,8 +94,10 @@
    <section class="semanas">
     <form action="{{ route('aluno.home') }}" method="GET" id="semanaForm">
         <div id="cCarousel">
+        @if(count($semanas) > 4)
             <div class="arrow" id="prev"><i class="fa-solid fa-chevron-left"></i></div>
             <div class="arrow" id="next"><i class="fa-solid fa-chevron-right"></i></div>
+            @endif
             <div id="carousel-vp">
                 <div id="cCarousel-inner">
                     @forelse ($semanas as $semana)
