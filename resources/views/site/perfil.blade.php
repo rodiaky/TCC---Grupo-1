@@ -18,7 +18,10 @@
 
         <section class="container">
 
-            <div class="container-img"><img src='{{$perfil->foto}}' alt=""></div>
+        
+
+            <div class="container-img"><img src="{{ asset('assets/fotoPerfil/'.$perfil->foto) }}" alt=""></div>
+
             
             <div class="info-pessoal">
 

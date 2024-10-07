@@ -77,7 +77,12 @@
                     </div><!--Select para turma-->
 
 
-
+                    <div class="upload">
+                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                        <input type="hidden" name="id_aluno" value="{{$alunos->id}}">
+                        <input type="hidden" name="foto" value="{{$alunos->foto}}">
+                        <input type="hidden" name="url" id="url" value="{{$url}}">
+                    </div>
 
                       <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
