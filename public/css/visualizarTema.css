@@ -13,6 +13,7 @@
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
     width: 100%;
     max-width: 1350px;
     padding: 1.5rem;
@@ -122,6 +123,14 @@
 #salvar:focus {
     color: var(--varBranco);
     background-color: var(--varLaranjaEscuro);
+}
+
+/* ------------------------------------------------------------------- */
+
+iframe {
+    margin-top: 2rem;
+    width: 100%;
+    aspect-ratio: 1/1;
 }
 
 /* BOTAO ---------------------------------------------------------- */
