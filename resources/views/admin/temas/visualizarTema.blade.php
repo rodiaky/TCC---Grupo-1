@@ -31,9 +31,9 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                     <button class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
-                            <a href="" class="editar-opcoes-texto">Editar</a>
+                            <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
                             <hr>
-                            <a href="#" class="editar-opcoes-texto">Excluir</a>
+                            <a href="{{ route('admin.temas.excluir',$tema->id) }}" class="editar-opcoes-texto">Excluir</a>
                         </div>
                     </button>
                 </div>

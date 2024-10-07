@@ -64,28 +64,37 @@ class AlunoController extends Controller
     
     
     public function salvar(Request $req) {
-        $dados = $req->all();
-        if($req->hasFile('foto')){
-            $imagem = $req->file('foto');
-            $num = rand(1111,9999);
-            $dir = "foto/alunos/";
-            $ex = $imagem->guessClientExtension();
-            $nomeImagem = "imagem_".$num.".".$ex;
-            $imagem->move($dir,$nomeImagem);
-            $dados['foto'] = $dir."/".$nomeImagem;
-            }
-        $dados['eh_admin'] = "Aluno";
-        User::create($dados);
+        $file = $req->file('arquivo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('assets/fotoPerfil'), $filename);
+        $req->foto =  $filename;
+
+        $nome = $req->input('name');
+        $email = $req->input('email');
+        $senha = $req->input('password');
+        $id_turma= $req->input('id_turma');
+        
+        $meuVetor = [
+            'name' => $nome,
+            'foto' => $filename,
+            'eh_admin' => "Aluno",
+            'email' =>  $email,
+            'password' => $senha     
+        ];
+
+        User::create($meuVetor);
         $ultimoId = User::latest()->value('id');
-        $funcionario = new Alunos();
-        $funcionario->id_turma = $dados['id_turma']; 
-        $funcionario->id_user = $ultimoId; 
-        $funcionario->save();
+        $aluno = new Alunos();
+        $aluno->id_turma = $id_turma; 
+        $aluno->id_user = $ultimoId; 
+        $aluno->save();
+        
         return redirect()->route('admin.turmas');
     }
     
     public function atualizar(Request $request, $id)
 {
+
     $aluno = $_SESSION['eh_admin'] === 'Aluno';
     // Validação dos dados recebidos
     $request->validate([
@@ -108,9 +117,16 @@ class AlunoController extends Controller
     // Atualiza a turma do aluno
     $aluno->id_turma = $request->id_turma; 
 
+    $file = $request->file('arquivo');
+    $filename = time() . '.' . $file->getClientOriginalExtension();
+    $file->move(public_path('assets/fotoPerfil'), $filename);
+    $request->foto =  $filename;
+
     // Atualiza também o nome do usuário
     $user = User::findOrFail($id); 
-    $user->name = $request->name; 
+    $user->name = $request->name;
+    $user->email=$request->email;
+    $user->foto = $filename;
 
     // Salva as alterações
     $userSaved = $user->save();
@@ -131,9 +147,5 @@ class AlunoController extends Controller
         return redirect()->to($url);
     }
 }
-
-
-
-
 
 }

@@ -24,7 +24,7 @@
 
     <article>
         <div class="form-value">
-            <form action="{{ route('admin.alunos.salvar') }}" method="POST" onsubmit="return validateForm()">
+            <form action="{{ route('admin.alunos.salvar') }}" method="POST" onsubmit="return validateForm()" enctype="multipart/form-data">
                 @csrf
 
                 <div class="inputbox">
@@ -77,6 +77,12 @@
                         <!-- Input hidden para o ID da turma selecionada -->
                         <input type="hidden" id="id_turma" name="id_turma" value="{{ isset($alunos->id_turma) ? $alunos->id_turma : '' }}" />
                     </div><!--Select para turma-->
+                    <br>
+                    <label class="lbl-upload">Upload de imagem</label>
+                    <div class="upload">
+                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    </div>
+                    <br>
 
                 <div class="mensagem" style="display: none;" id="mensagem-feedback">
                     <ion-icon name="alert-circle-outline"></ion-icon>

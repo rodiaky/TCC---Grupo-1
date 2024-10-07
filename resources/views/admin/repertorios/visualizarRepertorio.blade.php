@@ -78,7 +78,7 @@
             </div>
             
             <div class="container-texto">
-                <p>{{ $repertorio->descricao }}</p>
+                <p><pre>{{ $repertorio->descricao }}</pre></p>
             </div>
 
         </section>
