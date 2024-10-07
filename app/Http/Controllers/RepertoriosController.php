@@ -22,9 +22,7 @@ class RepertoriosController extends Controller
             ->where('id_pasta', $id_pasta)
             ->first();
 
-        if (!$repertorio) {
-            return redirect()->route('admin.repertorios')->with('error', 'Repertório não encontrado.');
-        }
+       
 
         return view('admin.repertorios.visualizarRepertorio', compact('repertorio', 'id_pasta'));
     }
@@ -100,6 +98,11 @@ class RepertoriosController extends Controller
         $dados = $req->all();
         Materiais::find($id)->update($dados);
         $url = $req->input('url');
-        return redirect()->to($url);
+        try {
+            return redirect()->to($url);
+        } catch (Exception $e) {
+            return redirect()->to('admin.temasRepertorios');
+        }
+        
     }
 }
