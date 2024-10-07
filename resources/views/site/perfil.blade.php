@@ -18,7 +18,7 @@
 
         <section class="container">
 
-            <div class="container-img"><img src='{{$perfil->foto}}' alt="{{$perfil->foto}}"></div>
+            <div class="container-img"><img src='{{$perfil->foto}}' alt=""></div>
             
             <div class="info-pessoal">
 
@@ -34,7 +34,7 @@
                 <div class="info-dado">{{$perfil->nome_turma}}</div>
                 @endif
 
-                <div class="subtitulo"><h1>Segurança</h1><a href="{{ route('aluno.alterar_senha') }}"> <i class="icon-perfil fa-solid fa-pen"></i></a></div>
+                <div class="subtitulo"><h1>Segurança</h1>@if ($aluno)<a href="{{ route('aluno.alterar_senha') }}"> <i class="icon-perfil fa-solid fa-pen"></i>@endif</a></div>
                 <h2 class="info">Senha</h2>
                 <div class="info-dado">{{$perfil->password}}</div>
             </div>
