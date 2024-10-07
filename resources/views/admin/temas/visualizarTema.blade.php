@@ -43,10 +43,8 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                 <h1 class="titulo-tema">{{$tema->frase_tematica}}</h1>
                 <div class="banca-tema">{{$tema->banca_nome}}</div>
             </div>
-            
-            <div class="container-texto">
-            <a href="{{ route('pdf.mostrar', ['imageName' => ($tema->texto_apoio)]) }}"><p style="color: #F46F20; text-decoration: underline;">Acesse o texto de apoio aqui!</p></a>
-            </div>
+
+            <iframe src="{{ route('pdf.mostrar', ['imageName' => ($tema->texto_apoio)]) }}"></iframe>
 
             @if (!$isAdmin)
             <form action="{{ route('admin.temas.store') }}" method="POST" enctype="multipart/form-data">
@@ -59,7 +57,6 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                 
                 <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
             
-
             </form>
             @endif
 
