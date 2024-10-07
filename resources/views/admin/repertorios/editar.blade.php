@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
     <title>Editar repertório</title>
 @endsection
 
@@ -38,6 +39,12 @@
                     <label for="">Conteúdo</label>
                     <textarea class="content" name="descricao" required>{{ old('descricao', $repertorios->descricao) }}</textarea>
                 </div>
+
+                <label class="lbl-upload">Upload de imagem</label>
+                    <div class="upload">
+                        <input type="file" class="imagem" name="imagem" id="imagem">
+                    </div>
+              
 
                 <div class="addAltRep">
                     <!-- Select Tema -->
@@ -127,12 +134,7 @@
                         <input type="hidden" id="categoria" name="categoria" value="Repertório" />
                     </div><!--Select Categoria-->
                 </div><!--addAltRep-->
-                <label class="lbl-upload">Upload de arquivo</label>
-                <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
-                    <input type="hidden" name="id_tema" value="{{$repertorios->id}}">
-                    <input type="hidden" name="imagem" value="{{$repertorios->imagem}}">
-                </div>
+                
                 <div class="mensagem">
                     <ion-icon name="alert-circle-outline"></ion-icon>
                     Preencha todos os campos antes de avançar

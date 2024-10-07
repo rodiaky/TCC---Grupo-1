@@ -1,6 +1,7 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/Arquivo.css')}}">
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
@@ -24,18 +25,16 @@
     
     <article>
         <div class="form-value">
+
             <form action="{{ route('admin.temas.atualizar', $temas->id) }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-
+                <input type="hidden" name="url" id="url" value="{{$url}}">
                 <div class="inputbox">
                     <label for="frase_tematica">Frase temática</label>
                     <input type="text" id="frase_tematica" name="frase_tematica" value="{{ isset($temas->frase_tematica) ? $temas->frase_tematica : '' }}" required>
                 </div>
 
-                <div class="inputbox">
-                    <label for="textoApoio">Textos de apoio</label>
-                    <textarea id="textoApoio" class="content" name="texto_apoio" required>{{ old('texto_apoio', $temas->texto_apoio) }}</textarea>
-                </div>
+         
 
                 <div id="inputboxAno" class="inputbox">
                     <label for="ano">Ano</label>
@@ -73,20 +72,16 @@
                         </div><!--options-->
                     </div><!--Select para banca-->  
                     <br>
+                    <label class="lbl-upload">Upload de imagem</label>
+                <div class="upload">
+                    <input type="file" class="imagem" id="imagem" name="imagem">
+                </div>
+                <br>
+                <label class="lbl-upload">Upload de texto de apoio</label>
+                <div class="upload">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                </div>
 
-                    
-                    <div class="upload">
-                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
-                        <input type="hidden" name="id_tema" value="{{$temas->id}}">
-                        <input type="hidden" name="imagem" value="{{$temas->imagem}}">
-                        <input type="hidden" name="url" id="url" value="{{$url}}">
-                    </div>
-
-                     @if($temas->imagem)
-                    <div class="preview">
-                        <img src="{{ asset('assets/temas/' . $temas->imagem) }}" alt="Imagem do tema" style="max-width: 200px; max-height: 200px;">
-                    </div>
-                @endif
 
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>

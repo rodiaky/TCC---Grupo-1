@@ -60,7 +60,7 @@
                 @endif
 
                 <div class="container-imagem">
-                    <img src="{{ asset('assets/materiais/'.$repertorio->imagem) }}" alt="" class="imagem-repertorio">
+                    <img src="{{ asset('assets/repertorios/'.$repertorio->imagem) }}" alt="" class="imagem-repertorio">
                 </div> 
                 <h1 class="titulo-repertorio">{{ $repertorio->nome }}</h1>
                 <div class="tema-repertorio">

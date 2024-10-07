@@ -1,6 +1,8 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
+
+<link rel="stylesheet" type="text/css" href="{{asset('css/Arquivo.css')}}">
     <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
@@ -29,12 +31,9 @@
                 <div class="inputbox">
                     <label for="frase_tematica">Frase temática</label>
                     <input type="text" id="frase_tematica" name="frase_tematica" value="{{ isset($temas->frase_tematica) ? $temas->frase_tematica : '' }}" required>
-                </div>
+</div>
 
-                <div class="inputbox">
-                    <label for="textoApoio">Textos de apoio</label>
-                    <textarea id="textoApoio" class="content" name="texto_apoio" required>{{ isset($temas->texto_apoio) ? $temas->texto_apoio : '' }}</textarea>
-                </div>
+
 
                 <div id="inputboxAno" class="inputbox">
                     <label for="ano">Ano</label>
@@ -70,12 +69,21 @@
                                 </div>
                             @endforeach
                         </div><!--options-->
+
                     </div><!--Select para banca-->  
                     <br>
-                    <div class="upload">
-                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
-                    </div>
-                    <br>
+                    <label class="lbl-upload">Upload de imagem</label>
+                <div class="upload">
+                    <input type="file" class="imagem" id="imagem" name="imagem">
+                </div>
+                <br>
+                <label class="lbl-upload">Upload de texto de apoio</label>
+                <div class="upload">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                </div>
+        
+                    
+               
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
                         Preencha todos os campos antes de avançar 

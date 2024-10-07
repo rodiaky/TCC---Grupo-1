@@ -29,7 +29,7 @@
                 <div class="upload">
                     <input type="file" class="arquivo" name="filename" id="filename">
                 </div>
-
+                <br>
                     <!-- Select Tema -->
                     <div class="select"> 
                         <div class="selected">

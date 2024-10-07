@@ -72,6 +72,11 @@ class TemaController extends Controller
         $file->move(public_path('assets/textosApoio'), $filename);
         $req->texto_apoio =  $filename;
 
+        $image = $req->file('imagem');
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/temas'), $imagename);
+        $req->imagem =  $imagename;
+        
         $fraseTematica = $req->input('frase_tematica');
         $ano = $req->input('ano');
         $idBanca = $req->input('id_banca');
@@ -80,7 +85,8 @@ class TemaController extends Controller
             'frase_tematica' => $fraseTematica,
             'texto_apoio' => $filename,
             'ano' => $ano,
-            'id_banca' => $idBanca
+            'id_banca' => $idBanca,
+            'imagem' => $imagename
             
         ];
         
@@ -95,9 +101,13 @@ class TemaController extends Controller
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('assets/textosApoio'), $filename);
         $req->texto_apoio =  $filename;
+
+        $image = $req->file('imagem');
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/temas'), $imagename);
+        $req->imagem =  $imagename;
         
         $fraseTematica = $req->input('frase_tematica');
-        $textoApoio = $req->input('texto_apoio');
         $ano = $req->input('ano');
         $idBanca = $req->input('id_banca');
 
@@ -105,7 +115,8 @@ class TemaController extends Controller
             'frase_tematica' => $fraseTematica,
             'texto_apoio' => $filename,
             'ano' => $ano,
-            'id_banca' => $idBanca
+            'id_banca' => $idBanca,
+            'imagem' => $imagename
             
         ];
 

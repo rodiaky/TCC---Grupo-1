@@ -39,7 +39,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                 </div>
                 @endif
 
-                <div class="container-imagem"><img src="{{$tema->imagem}}" alt="" class="imagem-tema"></div> 
+                <div class="container-imagem"><img src="{{ asset('assets/temas/' . $tema->imagem) }}" alt="" class="imagem-tema"></div> 
                 <h1 class="titulo-tema">{{$tema->frase_tematica}}</h1>
                 <div class="banca-tema">{{$tema->banca_nome}}</div>
             </div>

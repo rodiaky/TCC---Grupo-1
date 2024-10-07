@@ -87,10 +87,10 @@ class RepertoriosController extends Controller
 
     public function salvar(Request $req)
     {
-        $image = $req->file('arquivo');
-        $imageName = time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('assets/materiais'), $imageName);
-        $req->imagem =  $imageName;
+        $image = $req->file('imagem');
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/repertorios'), $imagename);
+        $req->imagem =  $imagename;
         
         $nome = $req->input('nome');
         $idpasta = $req->input('id_pasta');
@@ -100,12 +100,11 @@ class RepertoriosController extends Controller
 
         $meuVetor = [
             'nome' => $nome,
-            'imagem' => $imageName,
             'categoria' => "Repertório",
-            'id_pasta' => $idpasta,
             'classificacao' => $classificacao,
-            'descricao' => $descricao
-            
+            'descricao' => $descricao,
+            'imagem' => $imagename,
+            'id_pasta' => $idpasta
         ];
          
         Materiais::create($meuVetor);
@@ -115,28 +114,29 @@ class RepertoriosController extends Controller
 
     public function atualizar(Request $req, $id)
     {
-        $image = $req->file('arquivo');
-        $imageName = time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('assets/materiais'), $imageName);
-        $req->imagem =  $imageName;
+        $image = $req->file('imagem');
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/repertorios'), $imagename);
+        $req->imagem =  $imagename;
         
         $nome = $req->input('nome');
         $idpasta = $req->input('id_pasta');
+        $classificacao= $req->input('classificacao');
+        $descricao = $req->input('descricao');
+
 
         $meuVetor = [
             'nome' => $nome,
-            'imagem' => $imageName,
             'categoria' => "Repertório",
-            'id_pasta'=> $idpasta
-            
+            'classificacao' => $classificacao,
+            'descricao' => $descricao,
+            'imagem' => $imagename,
+            'id_pasta' => $idpasta,
         ];
+
         Materiais::find($id)->update($meuVetor);
         $url = $req->input('url');
-        try {
-            return redirect()->to($url);
-        } catch (Exception $e) {
-            return redirect()->to('admin.temasRepertorios');
-        }
+        return redirect()->to('admin/temasRepertorios');
         
     }
 }

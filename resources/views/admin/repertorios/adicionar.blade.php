@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
     <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
     <title>Adicionar repertório</title>
 @endsection
 
@@ -39,6 +40,12 @@
                     <label for="">Conteúdo</label>
                     <textarea class="content" name="descricao" required>{{ isset($repertorios->descricao) ? $repertorios->descricao : '' }}</textarea>
                 </div>
+
+                <label class="lbl-upload">Upload de imagem</label>
+                    <div class="upload">
+                        <input type="file" class="imagem" name="imagem" id="imagem">
+                    </div>
+                <br>
 
                 
 
@@ -130,12 +137,7 @@
                         <input type="hidden" id="categoria" name="categoria" value="Repertório" />
                     </div><!--Select Categoria-->
                 </div><!--addAltRep-->
-                <br>
-                <label class="lbl-upload">Upload de arquivo</label>
-                    <div class="upload">
-                        <input type="file" class="arquivo" name="arquivo" id="arquivo">
-                    </div>
-                <br>
+            
 
                 <div class="mensagem">
                     <ion-icon name="alert-circle-outline"></ion-icon>
