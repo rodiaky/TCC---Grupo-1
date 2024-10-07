@@ -130,6 +130,12 @@
                         <input type="hidden" id="categoria" name="categoria" value="Repertório" />
                     </div><!--Select Categoria-->
                 </div><!--addAltRep-->
+                <br>
+                <label class="lbl-upload">Upload de arquivo</label>
+                    <div class="upload">
+                        <input type="file" class="arquivo" name="arquivo" id="arquivo">
+                    </div>
+                <br>
 
                 <div class="mensagem">
                     <ion-icon name="alert-circle-outline"></ion-icon>

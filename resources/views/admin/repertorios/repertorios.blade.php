@@ -58,7 +58,7 @@
             </form>
         </section>
 
-        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral">
+        <form method="GET" action="{{ route('admin.repertorios.filtrar') }}" id="filter-form" class="grid-geral" enctype="multipart/form-data">
             <section class="section-filtros">
                 @php
                     $filters = [
@@ -100,7 +100,7 @@
                     <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $id_pasta]) }}" class="container-info">
 
                         <div class="container-imagem">
-                            <img src="{{ asset('assets/repertorios/' . $repertorio->imagem) }}" alt="" class="imagem-repertorio">
+                            <img src="{{ asset('assets/materiais/' . $repertorio->imagem) }}" alt="" class="imagem-repertorio">
                         </div>
                         
                         <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>

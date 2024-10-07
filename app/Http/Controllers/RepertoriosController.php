@@ -87,16 +87,50 @@ class RepertoriosController extends Controller
 
     public function salvar(Request $req)
     {
-        $dados = $req->all();  
-        Materiais::create($dados);
+        $image = $req->file('arquivo');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('assets/materiais'), $imageName);
+        $req->imagem =  $imageName;
+        
+        $nome = $req->input('nome');
+        $idpasta = $req->input('id_pasta');
+        $classificacao= $req->input('classificacao');
+        $descricao = $req->input('descricao');
+
+
+        $meuVetor = [
+            'nome' => $nome,
+            'imagem' => $imageName,
+            'categoria' => "Repertório",
+            'id_pasta' => $idpasta,
+            'classificacao' => $classificacao,
+            'descricao' => $descricao
+            
+        ];
+         
+        Materiais::create($meuVetor);
         $url = $req->input('url');
         return redirect()->to($url);
     }
 
     public function atualizar(Request $req, $id)
     {
-        $dados = $req->all();
-        Materiais::find($id)->update($dados);
+        $image = $req->file('arquivo');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('assets/materiais'), $imageName);
+        $req->imagem =  $imageName;
+        
+        $nome = $req->input('nome');
+        $idpasta = $req->input('id_pasta');
+
+        $meuVetor = [
+            'nome' => $nome,
+            'imagem' => $imageName,
+            'categoria' => "Repertório",
+            'id_pasta'=> $idpasta
+            
+        ];
+        Materiais::find($id)->update($meuVetor);
         $url = $req->input('url');
         try {
             return redirect()->to($url);
