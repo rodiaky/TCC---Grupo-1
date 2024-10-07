@@ -15,9 +15,15 @@
     <main>
 
         <section class="conteudo">
-        <a href="{{ url()->previous() }}" class="seta-back">
-            <i class="material-icons seta-voltar">arrow_back</i>
-        </a>
+        @if ($isAdmin)
+                <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                @else
+                <a href="{{ url()->previous() }}" class="seta-back">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                @endif
 
 
             <div class="escrito">

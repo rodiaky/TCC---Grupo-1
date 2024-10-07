@@ -35,9 +35,15 @@
 
                 <!-- Set Back Button -->
                 <div class="container-seta">
-                    <a href="{{ url()->previous() }}" class="seta-back">
+                @if ($isAdmin)
+                <a href="{{ route('admin.repertorios', ['id' => $id_pasta]) }}" class="seta-back">
                         <i class="material-icons">arrow_back</i>
                     </a>
+                @else
+                <a href="{{ url()->previous() }}" class="seta-back">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                @endif
                 </div>
 
                 @if ($isAdmin)
