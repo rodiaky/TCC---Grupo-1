@@ -12,7 +12,8 @@ class PastaMateriaisController extends Controller
     public function index() {
         $pastas = DB::table('pastas')
         ->select('pastas.*') 
-        ->where('tipo', 'Material') 
+        ->where('tipo', 'Material')
+        ->orderby('nome','ASC') 
         ->get();
 
         

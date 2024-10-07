@@ -26,7 +26,7 @@
         <form action="{{ route('admin.pastasMateriais.salvar') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
                 <div class="inputbox">
-                    <label for="">Nome do tema de repertório</label>
+                    <label for="">Nome da pasta</label>
                     <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" required>
                 </div>
 

@@ -14,6 +14,7 @@ class MateriaisController extends Controller
         $materiais = Materiais::join('pastas', 'materiais.id_pasta', '=', 'pastas.id')
         ->where('materiais.id_pasta', $id_pasta)
         ->select('materiais.*')
+        ->orderby('materiais.nome','ASC')
         ->get();
         
         $nome_pasta = Pastas::where('id', $id_pasta)
@@ -41,7 +42,7 @@ class MateriaisController extends Controller
     
     public function excluir($id) {
         Materiais::find($id)->delete();
-        return redirect()->route('admin.pastasMateriais');
+        return back();
     }
 
     public function salvar(Request $req){

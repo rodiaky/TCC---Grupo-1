@@ -5,12 +5,12 @@
     <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
     <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
     <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <title>Adicionar Material</title>
+    <title>Editar Material</title>
 @endsection
 
 @section('conteudo')
     <main>
-        <h1>Adicionar Material</h1><hr>
+        <h1>Editar Material</h1><hr>
     </main>
 
     <article>
@@ -31,6 +31,7 @@
                     <input type="hidden" name="id_tema" value="{{$materiais->id}}">
                     <input type="hidden" name="imagem" value="{{$materiais->descricao}}">
                 </div>
+                <br>
 
                     <!-- Select Tema -->
                     <div class="select"> 
