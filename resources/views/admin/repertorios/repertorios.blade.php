@@ -1,12 +1,12 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/repertorios.css">
-    <link rel="stylesheet" type="text/css" href="/css/barraDePesquisa.css">
-    <link rel="stylesheet" type="text/css" href="/css/repertoriosFiltros.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
-    <link rel="stylesheet" type="text/css" href="/css/pagination.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/styleGeral.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/repertorios.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/barraDePesquisa.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/repertoriosFiltros.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/botao1.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/pagination.css')}}">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Repertórios</title>
