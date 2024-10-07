@@ -27,7 +27,7 @@
 
                 <label class="lbl-upload">Upload de arquivo</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="file" class="arquivo" name="filename" id="filename">
                 </div>
 
                     <!-- Select Tema -->

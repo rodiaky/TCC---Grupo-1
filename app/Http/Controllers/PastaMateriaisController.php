@@ -15,6 +15,8 @@ class PastaMateriaisController extends Controller
         ->where('tipo', 'Material') 
         ->get();
 
+        
+
         return view('admin.pastasMateriais.index', compact('pastas'));
     }
 
@@ -34,6 +36,7 @@ class PastaMateriaisController extends Controller
     }
 
     public function salvar(Request $req) {
+
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('assets/pastasMateriais'), $filename);

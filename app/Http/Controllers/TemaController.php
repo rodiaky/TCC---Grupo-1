@@ -69,20 +69,18 @@ class TemaController extends Controller
     public function salvar(Request $req) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/temas'), $filename);
-        $req->imagem =  $filename;
+        $file->move(public_path('assets/textosApoio'), $filename);
+        $req->texto_apoio =  $filename;
 
         $fraseTematica = $req->input('frase_tematica');
-        $textoApoio = $req->input('texto_apoio');
         $ano = $req->input('ano');
         $idBanca = $req->input('id_banca');
 
         $meuVetor = [
             'frase_tematica' => $fraseTematica,
-            'texto_apoio' => $textoApoio,
+            'texto_apoio' => $filename,
             'ano' => $ano,
-            'id_banca' => $idBanca,
-            'imagem' => $filename
+            'id_banca' => $idBanca
             
         ];
         
@@ -95,8 +93,8 @@ class TemaController extends Controller
     public function atualizar(Request $req, $id) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/temas'), $filename);
-        $req->imagem =  $filename;
+        $file->move(public_path('assets/textosApoio'), $filename);
+        $req->texto_apoio =  $filename;
         
         $fraseTematica = $req->input('frase_tematica');
         $textoApoio = $req->input('texto_apoio');
@@ -105,10 +103,9 @@ class TemaController extends Controller
 
         $meuVetor = [
             'frase_tematica' => $fraseTematica,
-            'texto_apoio' => $textoApoio,
+            'texto_apoio' => $filename,
             'ano' => $ano,
-            'id_banca' => $idBanca,
-            'imagem' => $filename
+            'id_banca' => $idBanca
             
         ];
 
@@ -167,6 +164,27 @@ class TemaController extends Controller
             // Exibir mensagem de erro
             return redirect()->back()->with('error', 'Falha ao enviar a redação. Tente novamente.');
         }
+    }
+    public function show($imageName)
+    {
+        $diretorio = public_path('assets/textosApoio/');
+
+        if (file_exists($diretorio.$imageName)) {
+            // Retorna o arquivo PDF
+            return response()->file($diretorio.$imageName, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; width= 50%; filename=' . $imageName,
+                
+            ]);
+            /*return view('file', [
+                'pdf_url' => asset($diretorio . $imageName)
+            ]);*/
+        } else {
+            // Se o arquivo não existir, retorna uma resposta com status 404
+            return response()->json(['error' => 'Arquivo nao encontrado.'], 404);
+        }
+   
+        
     }
 }
 

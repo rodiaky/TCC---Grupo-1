@@ -27,7 +27,9 @@
 
                 <label class="lbl-upload">Upload de arquivo</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" name="arquivo-material" id="arquivo-material">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="hidden" name="id_tema" value="{{$materiais->id}}">
+                    <input type="hidden" name="imagem" value="{{$materiais->descricao}}">
                 </div>
 
                     <!-- Select Tema -->

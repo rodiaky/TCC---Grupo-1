@@ -71,7 +71,11 @@
                             @endforeach
                         </div><!--options-->
                     </div><!--Select para banca-->  
-
+                    <br>
+                    <div class="upload">
+                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    </div>
+                    <br>
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
                         Preencha todos os campos antes de avançar 
@@ -79,10 +83,7 @@
                 
                 </div>
                 <br>
-                <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
-                  
-                </div>
+
 
                 <!-- Campo oculto para id_banca -->
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">

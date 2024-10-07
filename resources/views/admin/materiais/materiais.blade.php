@@ -26,7 +26,7 @@
 
             @forelse ($materiais as $material)
             <div class="branco hover">
-                <p class="nomeMaterial">{{$material->nome}}</p>
+                <a href="{{ route('pdf.show', ['imageName' => ($material->descricao)]) }}"><p class="nomeMaterial">{{$material->nome}}</p></a>
                 @if ($isAdmin)
                 <button class="botao-editar">
                     <i class="material-icons">more_horizon</i>

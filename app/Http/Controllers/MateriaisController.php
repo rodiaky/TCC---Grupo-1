@@ -15,6 +15,7 @@ class MateriaisController extends Controller
         ->where('materiais.id_pasta', $id_pasta)
         ->select('materiais.*')
         ->get();
+        
         $nome_pasta = Pastas::where('id', $id_pasta)
         ->select('pastas.nome')
         ->first();
@@ -44,15 +45,70 @@ class MateriaisController extends Controller
     }
 
     public function salvar(Request $req){
-        $dados = $req->all();  
-        Materiais::create($dados);
+
+
+            $image = $req->file('filename');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('assets/materiais'), $imageName);
+            $req->descricao =  $imageName;
+            
+            $nome = $req->input('nome');
+            $idpasta = $req->input('id_pasta');
+
+            $meuVetor = [
+                'nome' => $nome,
+                'descricao' => $imageName,
+                'categoria' => "Material",
+                'id_pasta'=> $idpasta
+                
+            ];
+            
+          
+        Materiais::create($meuVetor);
         return redirect()->route('admin.pastasMateriais');
 
     }
 
     public function atualizar(Request $req, $id){
-        $dados = $req->all();
-        Materiais::find($id)->update($dados);
+        $image = $req->file('arquivo');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('assets/materiais'), $imageName);
+        $req->descricao =  $imageName;
+            
+        $nome = $req->input('nome');
+        $idpasta = $req->input('id_pasta');
+
+        $meuVetor = [
+            'nome' => $nome,
+            'descricao' => $imageName,
+            'categoria' => "Material",
+            'id_pasta'=> $idpasta
+                
+        ];
+            
+          
+        Materiais::find($id)->update($meuVetor);
         return redirect()->route('admin.pastasMateriais');
+    }
+    public function show($imageName)
+    {
+        $diretorio = public_path('assets/materiais/');
+
+        if (file_exists($diretorio.$imageName)) {
+            // Retorna o arquivo PDF
+            return response()->file($diretorio.$imageName, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; width= 50%; filename=' . $imageName,
+                
+            ]);
+            /*return view('file', [
+                'pdf_url' => asset($diretorio . $imageName)
+            ]);*/
+        } else {
+            // Se o arquivo não existir, retorna uma resposta com status 404
+            return response()->json(['error' => 'Arquivo nao encontrado.'], 404);
+        }
+   
+        
     }
 }

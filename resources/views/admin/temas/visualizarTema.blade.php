@@ -45,9 +45,10 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
             </div>
             
             <div class="container-texto">
-                <p>{{$tema->texto_apoio}}</p>
+            <a href="{{ route('pdf.mostrar', ['imageName' => ($tema->texto_apoio)]) }}"><p style="color: #F46F20; text-decoration: underline;">Acesse o texto de apoio aqui!</p></a>
             </div>
 
+            @if (!$isAdmin)
             <form action="{{ route('admin.temas.store') }}" method="POST" enctype="multipart/form-data">
                 
                 @csrf
@@ -57,8 +58,10 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                 </div>
                 
                 <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
+            
 
             </form>
+            @endif
 
         </section>
 

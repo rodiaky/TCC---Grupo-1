@@ -169,6 +169,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
         });
 
         Route::prefix('materiais')->group(function() {
+            
             Route::get('/{id}', [MateriaisController::class, 'index'])->name('admin.materiais');
             Route::get('/pesquisar', [MateriaisController::class, 'search'])->name('admin.materiais.search');
             Route::get('/filtrar', [MateriaisController::class, 'filtrar'])->name('admin.materiais.filtrar');
@@ -178,6 +179,8 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/editar/{id}', [MateriaisController::class, 'editar'])->name('admin.materiais.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [MateriaisController::class, 'atualizar'])->name('admin.materiais.atualizar');
             Route::get('/excluir/{id}', [MateriaisController::class, 'excluir'])->name('admin.materiais.excluir');
+            
+           
         });
 
         Route::prefix('temasRepertorios')->group(function() {
@@ -219,7 +222,10 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
     Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
     Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
-
     Route::match(['get','post'],'/admin/correcao/atualizar/{id}', ['as' =>'admin.correcao.atualizar', 'uses' => 'App\Http\Controllers\RedacoesPendentesController@atualizar']);
+
+    Route::get('/public/assets/materiais/{imageName}', 'App\Http\Controllers\MateriaisController@show')->name('pdf.show');
+    Route::get('/public/assets/textosApoio/{imageName}', 'App\Http\Controllers\TemaController@show')->name('pdf.mostrar');
 });
+
 ?>
