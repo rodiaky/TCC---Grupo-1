@@ -108,6 +108,7 @@
 }
 
 .mostrar-resposta {
+    margin-top: 1.5rem;
     background: none;
     
     display: flex;

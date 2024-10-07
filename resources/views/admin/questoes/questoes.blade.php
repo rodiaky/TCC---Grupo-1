@@ -55,7 +55,7 @@
                         </button>
                         @endif
                     </div>
-                    <div class="texto">{{ $questao->enunciado }}</div>
+                    <div class="texto"><pre>{{ $questao->enunciado }}</pre></div>
                     
                     <ul class="alternativas">
                         <li>{{ $questao->alternativa_A }}</li>
