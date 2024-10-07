@@ -9,6 +9,9 @@
 @endsection
 
 @section('conteudo')
+    @php
+    $aluno = $_SESSION['eh_admin'] === 'Aluno';
+    @endphp
 
     <main>
         <div class="container-titulo-seta">
@@ -57,16 +60,19 @@
                         <div class="options">
                             @foreach($turmas as $id => $nome)
                                 <div>
-                                    <input id="turma-{{ $id }}" name="id_turma" type="radio" 
+                                <input id="turma-{{ $id }}" name="id_turma" type="radio" 
                                         value="{{ $id }}" 
-                                        onClick="changeTurma('{{ $nome }}', '{{ $id }}')"
-                                    />
-                                    <label class="option" for="turma-{{ $id }}" data-txt="">{{ $nome }}</label>
+                                        onClick="changeTurma('{{ $nome }}', '{{ $id }}')" 
+                                        {{ $aluno ? 'disabled' : '' }} />
+
+                                <label class="option" for="turma-{{ $id }}" data-txt="">{{ $nome }}</label>
+
                                 </div>
                             @endforeach
                         </div>
 
                         <!-- Input hidden para o ID da turma selecionada -->
+                        <input type="hidden" name="url" id="url" value="{{$url}}">
                         <input type="hidden" id="id_turma" name="id_turma" value="{{ $alunos->id_turma }}" />
                     </div><!--Select para turma-->
 

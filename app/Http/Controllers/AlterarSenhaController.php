@@ -17,13 +17,15 @@ class AlterarSenhaController extends Controller
             ->select('users.*')
             ->where('users.email', $email)
             ->get();
+        $url = url()->previous();
 
         // Passe os dados para a visão
-        return view('site.aluno.alterarSenha', compact('email'));
+        return view('site.aluno.alterarSenha', compact('email', 'url'));
     }
 
     public function update(Request $request)
     {
+        
         // Validar os dados recebidos do formulário
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -48,6 +50,7 @@ class AlterarSenhaController extends Controller
         ]);
 
         // Redirecionar com uma mensagem de sucesso
-        return redirect()->route('aluno.alterar_senha')->with('success', 'Senha atualizada com sucesso!');
+        $url = $request->input('url');
+        return redirect()->to($url);
     }
 }

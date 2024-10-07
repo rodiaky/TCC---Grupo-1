@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Alunos;
 
 class PerfilController extends Controller
 {
@@ -19,7 +20,7 @@ class PerfilController extends Controller
             ->where('users.id', '=', $idUser)
             ->first();
 
-        return view('site.perfil', compact('perfil'));
+        return view('site.perfil', compact('perfil', 'idUser'));
     } 
 
     public function indexProfessor() {

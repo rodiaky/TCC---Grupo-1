@@ -28,6 +28,7 @@
                     <div class="inputbox">
                         <label for="novaSenha_confirmation">Confirmar Senha</label>
                         <input type="password" id="novaSenha_confirmation" name="novaSenha_confirmation" required>
+                        <input type="hidden" name="url" id="url" value="{{$url}}">
                     </div>
 
                     <!-- Mensagem de Sucesso -->

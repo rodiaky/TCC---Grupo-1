@@ -20,6 +20,11 @@
         <section class="info-correcao">
 
             <div class="container-info">
+            <div class="container-seta">
+                    <a href="{{ url()->previous() }}" class="seta-back">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                </div>
                 <div class="info-correcao">{{ $redacao->nome_aluno }}</div>
                 <div class="info-correcao">{{ $redacao->turma_nome }}</div>
             </div>

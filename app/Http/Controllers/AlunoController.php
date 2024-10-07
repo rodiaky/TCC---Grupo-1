@@ -32,6 +32,7 @@ class AlunoController extends Controller
     }
     
     public function editar($id_pessoa) {
+        $url = url()->previous();
 
         $alunos = DB::table('users')
         ->join('alunos', 'users.id', '=', 'alunos.id_user')
@@ -45,7 +46,7 @@ class AlunoController extends Controller
         $turmas = Turmas::pluck('nome', 'id')->all();
     
   
-        return view('admin.alunos.editar', compact('alunos', 'turmas','id'));
+        return view('admin.alunos.editar', compact('alunos', 'turmas','id','url'));
     }
     
     
@@ -85,6 +86,7 @@ class AlunoController extends Controller
     
     public function atualizar(Request $request, $id)
 {
+    $aluno = $_SESSION['eh_admin'] === 'Aluno';
     // Validação dos dados recebidos
     $request->validate([
         'name' => 'required|string|max:255',
@@ -120,8 +122,14 @@ class AlunoController extends Controller
     }
 
     // Redireciona para a página de alunos da turma anterior com uma mensagem de sucesso
+    if(!$aluno){
     return redirect()->route('professor.admin.alunos', ['id' => $id_turma_antiga])
                      ->with('success', 'Aluno atualizado com sucesso.');
+    }
+    else{
+        $url = $request->input('url');
+        return redirect()->to($url);
+    }
 }
 
 
