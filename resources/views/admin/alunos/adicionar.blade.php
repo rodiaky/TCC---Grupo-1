@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <title>Cadastro de Aluno</title>
 @endsection
 
