@@ -144,7 +144,7 @@ class TemaController extends Controller
         // Fazer o upload da imagem
         $file = $request->file('redacao_enviada');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/temas'), $filename);
+        $file->move(public_path('assets/redacao_enviada'), $filename);
 
         
         // Salvar o caminho da imagem no banco de dados
