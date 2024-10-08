@@ -180,6 +180,8 @@ class TemaController extends Controller
     {
         $diretorio = public_path('assets/textosApoio/');
 
+       
+
         if (file_exists($diretorio.$imageName)) {
             // Retorna o arquivo PDF
             return response()->file($diretorio.$imageName, [
