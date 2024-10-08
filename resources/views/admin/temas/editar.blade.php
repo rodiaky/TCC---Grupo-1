@@ -2,11 +2,11 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('css/Arquivo.css')}}">
-    <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/visualizarTema.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/visualizarTema.css') }}">
     <title>Editar Tema</title>
 @endsection
 

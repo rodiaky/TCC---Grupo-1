@@ -1,9 +1,9 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/turmas.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/turmas.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botao1.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Turmas</title>
 @endsection

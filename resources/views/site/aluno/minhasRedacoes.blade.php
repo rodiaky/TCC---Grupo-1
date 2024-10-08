@@ -1,8 +1,8 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/turmas.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/turmas.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Minhas Redações</title>

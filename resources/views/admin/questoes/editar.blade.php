@@ -1,9 +1,9 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <title>Editar Questão</title>
 @endsection
 

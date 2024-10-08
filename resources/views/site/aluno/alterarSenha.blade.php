@@ -2,8 +2,8 @@
 
 @section('css')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="css/formularioUI.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
     <title>Alterar Senha</title>
 @endsection
 

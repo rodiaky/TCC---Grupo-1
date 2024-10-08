@@ -1,11 +1,11 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/Arquivo.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
     <title>Editar repertório</title>
 @endsection
 

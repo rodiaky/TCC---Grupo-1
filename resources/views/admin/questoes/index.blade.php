@@ -1,10 +1,10 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
-    <link rel="stylesheet" type="text/css" href="/css/temaRepertorio.css">
-    <link rel="stylesheet" type="text/css" href="/css/bancoDeQuestoes.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botao1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/temaRepertorio.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bancoDeQuestoes.css') }}">
     <title>Banco de Questões</title>
 @endsection
 

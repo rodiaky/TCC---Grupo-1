@@ -1,8 +1,8 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="css/perfil.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/perfil.css') }}">
     <title>Meu Perfil</title>
 @endsection
 

@@ -1,10 +1,10 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/formularioUI.css">
-    <link rel="stylesheet" type="text/css" href="/css/formularioLayout.css">
-    <link rel="stylesheet" type="text/css" href="/css/addAltTurma.css">
-    <link rel="stylesheet" type="text/css" href="/css/selecao.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/addAltTurma.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <title>Editar Turma</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>

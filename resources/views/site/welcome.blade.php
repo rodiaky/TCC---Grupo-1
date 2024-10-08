@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palavrear</title>
-    <link rel="stylesheet" type="text/css" href="/css/styleGeralTI.css">
-    <link rel="stylesheet" type="text/css" href="/css/styleCabecalhoTI.css">
-    <link rel="stylesheet" type="text/css" href="/css/styles_home.css">
-    <link rel="stylesheet" type="text/css" href="/css/slider.css">
-    <link rel="stylesheet" type="text/css" href="/css/styleRodape.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralTI.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleCabecalhoTI.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/slider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleRodape.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -17,7 +17,7 @@
     <header>
 
         <div class="cabecalho">
-            <img class="logo" src="/img/logo.png" href="#">
+            <img class="logo" src="{{ asset('img/logo.png') }}" href="#">
             <a href="{{ route('login', ['erro' => 6]) }}"><div class="entrar">Entrar</div></a>
         </div>
         
@@ -34,7 +34,7 @@
     <h1 class="titulo" id="ancora2">Nossa Missão</h1>
     <div class="container-sobre-nos">
     <section class="sobre-nos">
-        <div class="container-img"><img src="/img/vetor1.svg" alt=""></div>
+        <div class="container-img"><img src="{{ asset('img/vetor1.svg') }}" alt=""></div>
         <p>Styracosaurus (em português Estiracossauro, que significa "lagarto espinhoso" do grego styrax/στύραξ, que significa "espinho na ponta de uma haste de lança" e sauros/σαῦρος, que quer dizer "lagarto") foi um gênero de dinossauro herbívoro e quadrúpede que viveu durante o período Cretáceo, no andar Campaniano entre 75,5 e 75 milhões de anos atrás. Ele tinha de quatro a seis pontas parietais longas que se estendiam do folho do pescoço, um chifre jugal menor em cada uma das bochechas e um único chifre projetando-se do nariz, que podia ter até 60 centímetros de comprimento e 15 centímetros de largura. A função ou funções dos chifres e babados têm sido debatidas há muitos anos.</p></div>
     </section>
     </div>
@@ -59,7 +59,7 @@
                 </li>
             </ul>
             <div class="container-img">
-                <img src="/img/vetor2.svg" alt=""></div>
+                <img src="{{ asset('img/vetor2.svg') }}" alt=""></div>
         </section>
     </div>
 
@@ -133,7 +133,7 @@
 
         </article>
 
-        <article class="imagem-plataforma"><img src="/img/celular.png" alt=""></article>
+        <article class="imagem-plataforma"><img src="{{ asset('img/celular.png') }}" alt=""></article>
 
         <article class="info-plataforma">
 
@@ -177,23 +177,23 @@
     <section class="logos aprovacoes">
 
         <div class="logo_items aprovacoes_items">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
         </div>
 
         <div class="logo_items aprovacoes_items">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
-            <img src="/img/rodo.png">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
+            <img src="{{ asset('img/rodo.png') }}">
         </div>
 
     </section>

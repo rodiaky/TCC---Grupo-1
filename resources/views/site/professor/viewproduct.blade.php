@@ -1,8 +1,8 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-  <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-  <link rel="stylesheet" type="text/css" href="/css/correcao.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/correcao.css') }}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
   <title>Correcao</title>
 @endsection
@@ -264,7 +264,7 @@
         </form>
     </main>
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
-    <script src="/js/cardsDropdown.js"></script>
+    <script src="{{ asset('js/cardsDropdown.js') }}"></script>
     <script>
         const canvas = document.getElementById('myCanvas');
         const redacaoId = {{ $redacao->id }};

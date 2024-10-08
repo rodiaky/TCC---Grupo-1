@@ -1,10 +1,10 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/botao2.css">
-    <link rel="stylesheet" type="text/css" href="/css/materiais.css">
-    <link rel="stylesheet" type="text/css" href="/css/temaRepertorio.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botao2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/materiais.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/temaRepertorio.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Materiais</title>
 @endsection

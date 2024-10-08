@@ -1,10 +1,10 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="css/styleGeral.css">   
-    <link rel="stylesheet" type="text/css" href="css/repertorios.css">
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-    <link rel="stylesheet" type="text/css" href="css/carrousselHome.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">   
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/repertorios.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/carrousselHome.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>HOME</title>
 @endsection
@@ -73,7 +73,7 @@
 
     </main>
 
-    <script src="js/home.js"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
 
     @endsection

@@ -1,9 +1,9 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/css/styleGeral.css">
-    <link rel="stylesheet" type="text/css" href="/css/styleGeralRetCinza.css">
-    <link rel="stylesheet" type="text/css" href="/css/materiaisPasta.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralRetCinza.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/materiaisPasta.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Materiais Pasta</title>
 @endsection
