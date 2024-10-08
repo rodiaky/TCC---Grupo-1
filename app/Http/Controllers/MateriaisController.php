@@ -93,7 +93,7 @@ class MateriaisController extends Controller
     }
     public function show($imageName)
     {
-        $diretorio = public_path('assets/materiais/');
+        $diretorio = 'assets/materiais/';
 
         if (file_exists($diretorio.$imageName)) {
             // Retorna o arquivo PDF

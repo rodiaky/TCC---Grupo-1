@@ -178,7 +178,7 @@ class TemaController extends Controller
     }
     public function show($imageName)
     {
-        $diretorio = public_path('assets/textosApoio/');
+        $diretorio ='assets/textosApoio/';
 
        
 
