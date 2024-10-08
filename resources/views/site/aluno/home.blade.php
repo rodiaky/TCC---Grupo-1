@@ -75,7 +75,7 @@
                 <a href="{{ route('redacao_corrigida', $redacao->id_redacao) }}" class="container-info">
 
                     <div class="container-imagem-tema">
-                        <img src="{{ $redacao->tema_imagem }}" alt="" class="imagem-tema"></img>
+                        <img src="{{ asset('assets/temas/' . $redacao->tema_imagem) }}" alt="" class="imagem-tema"></img>
                     </div>
                     
                     <div class="frase-tematica">
@@ -127,7 +127,7 @@
                     <a href="{{ route('admin.temas.visualizar', $tema->id) }}" class="container-info">
 
                         <div class="container-imagem-tema">
-                            <img src="{{ $tema->imagem }}" alt="" class="imagem-tema"></img>
+                            <img src="{{ asset('assets/temas/' . $tema->imagem) }}" alt="" class="imagem-tema"></img>
                         </div>
                         
                         <div class="frase-tematica">
@@ -149,7 +149,7 @@
             @foreach ($materialSemana as $material)
                 <div class="container-items">
                     <article class="card-materiais hover">
-                        <div class="card-materiais-texto">{{ $material->nome }}</div>
+                        <a href="{{ route('pdf.show', ['imageName' => ($material->descricao)]) }}" target="_blank"><p class="nomeMaterial">{{$material->nome}}</p></a>
                     </article>
                 </div>
             @endforeach
@@ -175,7 +175,7 @@
                     <a href="{{ route('admin.repertorios.visualizar', ['id' => $repertorio->id, 'id_pasta' => $repertorio->id_pasta]) }}" class="container-info">
 
                         <div class="container-imagem">
-                            <img src="{{ $repertorio->imagem }}" alt="" class="imagem-repertorio">
+                            <img src="{{ asset('assets/repertorios/' . $repertorio->imagem) }}" alt="" class="imagem-repertorio">
                         </div>
                         
                         <h1 class="titulo-repertorio">{{ ucfirst($repertorio->nome) }}</h1>
@@ -205,4 +205,9 @@
 @section('js')
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+        <form action="{{ route('aluno.home') }}" method="GET" id="semanaForm">
+    <!-- Seus inputs -->
+    <button type="submit">Enviar</button>
+</form>
+
 @endsection
