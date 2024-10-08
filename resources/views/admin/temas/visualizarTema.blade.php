@@ -28,7 +28,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
 
                 @if ($isAdmin)
                 <div class="container-botao">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>
@@ -55,7 +55,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                     <input type="hidden" name="id_tema" value="{{$tema->id}}">
                 </div>
                 
-                <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
+                <button type="button" type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
             
             </form>
             @endif

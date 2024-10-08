@@ -21,7 +21,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     <section class="section-barra-de-pesquisa">
         <label class="pesquisa" for="barra-pesquisa">
             <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite o repertório.">
-            <button type="submit" id="pesquisar" name="pesquisar" value="">
+            <button type="button" type="submit" id="pesquisar" name="pesquisar" value="">
                 <i class="material-icons lupa-pesquisa">search</i>
             </button>
         </label>
@@ -47,7 +47,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
 
     @if ($isAdmin)
     <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
-    <button class="botao">
+    <button type="button" class="botao">
         <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
         <div class="botao-expand">
             <a href="" class="botao-texto">Adicionar Tema</a>
@@ -59,7 +59,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
         @foreach ($temas as $tema)
         <div class="tema-secao">
             @if ($isAdmin)
-            <button class="botao-editar">
+            <button type="button" class="botao-editar">
                 <i class="material-icons">more_horizon</i>
                 <div class="editar-opcoes">
                     <a href="" class="editar-opcoes-texto">Editar</a>

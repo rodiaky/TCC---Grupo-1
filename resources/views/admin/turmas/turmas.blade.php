@@ -14,7 +14,7 @@
         <h1 class="titulo-pagina">Turmas</h1>
         <hr class="titulo-linha">
 
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.turmas.adicionar') }}" class="botao-texto">Adicionar Turma</a>
@@ -24,7 +24,7 @@
         <article class="container-turmas">
             @foreach($diasAula as $dia)
                 <section class="turma">
-                    <button class="turma-retangulo">
+                    <button type="button" class="turma-retangulo">
                         <h1 class="titulo-cardTurmas">{{ $dia->dias_aula }}</h1>
                         <i class="material-icons turma-seta">arrow_forward_ios</i>
                     </button>

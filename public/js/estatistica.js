@@ -1,4 +1,10 @@
-// script.js
+function limitarCaracteres(label, limite) {
+    if (label.length > limite) {
+        return label.substring(0, limite) + '...'; // Trunca o rótulo e adiciona '...'
+    }
+    return label;
+}
+
 var ctx = document.getElementById('myBarChart').getContext('2d');
 var chart;
 
@@ -23,7 +29,7 @@ function fetchData(examType) {
             var maxGradesArray = new Array(data.length - 1).fill(maxGrade);
 
             for (var i = 1; i < data.length; i++) {
-                labels.push(data[i][0]);
+                labels.push(limitarCaracteres(data[i][0], 25)); // Limita os rótulos a X (25) caracteres
                 studentGrades.push(parseFloat(data[i][1]));
                 classAverages.push(parseFloat(data[i][2]));
             }
@@ -101,6 +107,7 @@ function updateChart(labels, studentGrades, classAverages, maxGradesArray, maxGr
         },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
             scales: {
                 x: {
                     stacked: false,

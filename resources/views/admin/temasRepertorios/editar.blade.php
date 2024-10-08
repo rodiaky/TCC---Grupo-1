@@ -38,8 +38,8 @@
                 </div>
 
                 <div class="botoes">
-                    <button name="limpar" id="limpar" class="button">Limpar</button>
-                    <button name="salvar" class="button">Salvar</button>
+                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="button" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>

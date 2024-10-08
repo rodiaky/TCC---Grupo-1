@@ -18,7 +18,7 @@
         <hr class="titulo-linha">
 
         @if ($isAdmin)
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="#" class="botao-texto">Adicionar Tema</a>

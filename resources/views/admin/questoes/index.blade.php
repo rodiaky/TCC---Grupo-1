@@ -19,7 +19,7 @@
 
         <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
         @if ($isAdmin)
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.questoes.adicionar')}}" class="botao-texto">Adicionar Questão</a>

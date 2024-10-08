@@ -23,10 +23,9 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="grafico">
-                <canvas id="myBarChart"></canvas>
-            </div>
+
+        <div class="grafico">
+            <canvas id="myBarChart"></canvas>
         </div>
     </section>
 

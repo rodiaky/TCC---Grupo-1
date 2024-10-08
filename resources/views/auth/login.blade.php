@@ -39,7 +39,7 @@
                         <label for=""><input type="checkbox">Lembrar-me</label>
                         <a href="#">Esqueci a senha</a>
                     </div>
-                    <button type="submit">Acessar a plataforma</button>
+                    <button type="button" type="submit">Acessar a plataforma</button>
                 </form>
             </div>
             <div class="mensagem">

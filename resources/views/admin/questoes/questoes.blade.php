@@ -26,7 +26,7 @@
         <hr class="titulo-linha">
             
         @if ($isAdmin)
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.questoes.adicionar') }}" class="botao-texto">Adicionar Questão</a>
@@ -45,7 +45,7 @@
                     <div class="superior">
                         <div class="nome">{{ $questao->banca_nome }} ({{ $questao->ano }})</div>
                         @if ($isAdmin)
-                        <button class="botao-editar">
+                        <button type="button" class="botao-editar">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
                                 <a href="{{ route('admin.questoes.editar', $questao->id) }}" class="editar-opcoes-texto">Editar</a>
@@ -64,7 +64,7 @@
                         <li>{{ $questao->alternativa_D }}</li>
                         @if ($questao->alternativa_E)<li>{{ $questao->alternativa_E }}</li>@endif
                     </ul>
-                    <button class="mostrar-resposta">
+                    <button type="button" class="mostrar-resposta">
                         <div>Alternativa</div>
                         <div><i class="material-icons">arrow_forward_ios</i></div>
                     </button>

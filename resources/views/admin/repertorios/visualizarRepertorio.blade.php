@@ -48,7 +48,7 @@
 
                 @if ($isAdmin)
                 <div class="container-botao">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>

@@ -19,7 +19,7 @@
 
         @if ($isAdmin)
         <!-- BOTAO "+" NO CANTO INFERIOR ESQUERDO -->
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="" class="botao-texto">Adicionar Pasta</a>
@@ -32,7 +32,7 @@
             <div class="wrapper">
                 <div class="quadrado">
                 @if ($isAdmin)
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -49,7 +49,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -65,7 +65,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -81,7 +81,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -97,7 +97,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -113,7 +113,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -129,7 +129,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -145,7 +145,7 @@
 
             <div class="wrapper">
                 <div class="quadrado">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="#" class="editar-opcoes-texto">Editar</a>

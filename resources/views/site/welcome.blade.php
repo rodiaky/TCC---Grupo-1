@@ -221,17 +221,17 @@
         <div class="column">
             <h2>Título do Artigo</h2>
             <img src="https://www.ncsaude.com.br/wp-content/uploads/2023/01/Design-sem-nome-45.png" alt="Imagem do Artigo">
-            <button class="saiba-mais">Saiba mais</button>
+            <button type="button" class="saiba-mais">Saiba mais</button>
         </div>
         <div class="column">
             <h2>Título do Artigo</h2>
             <img src="https://www.ncsaude.com.br/wp-content/uploads/2023/01/Design-sem-nome-45.png" alt="Imagem do Artigo">
-            <button class="saiba-mais">Saiba mais</button>
+            <button type="button" class="saiba-mais">Saiba mais</button>
         </div>
         <div class="column">
             <h2>Título do Artigo</h2>
             <img src="https://www.ncsaude.com.br/wp-content/uploads/2023/01/Design-sem-nome-45.png" alt="Imagem do Artigo">
-            <button class="saiba-mais">Saiba mais</button>
+            <button type="button" class="saiba-mais">Saiba mais</button>
         </div>
     </section> -->
 

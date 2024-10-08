@@ -18,7 +18,7 @@
 body {
     background-color: var(--varCinzaClaro);
     width: 100%;
-    max-width: 100%;
+    max-width: 100vw;
     min-height: 100%;
 }
 
@@ -78,3 +78,11 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
+button {
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+*:has(button) {
+    position: relative;
+}

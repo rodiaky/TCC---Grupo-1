@@ -19,7 +19,7 @@
 
         @foreach ($redacoesPorBanca as $redacao)
             <article class="turma">
-                <button class="turma-retangulo">
+                <button type="button" class="turma-retangulo">
                     <h1 class="titulo-cardTurmas">{{ $redacao->banca_nome }}</h1>
                     <i class="material-icons turma-seta">arrow_forward_ios</i>
                 </button>

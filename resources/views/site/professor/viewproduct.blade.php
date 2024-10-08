@@ -26,7 +26,7 @@
 
                 <!-- Mostra ferramentas -->
                 <i class="paintbrush-icon fa-solid fa-pen"></i>
-                <button class="esconder-botao" onclick="undo()"><i class="paintbrush-icon fa-solid fa-rotate-left"></i></button>
+                <button type="button" class="esconder-botao" onclick="undo()"><i class="paintbrush-icon fa-solid fa-rotate-left"></i></button>
 
                 <!-- Selecionar cor - predefinida -->
                 <div class="cor" id="vermelho" onclick="changeColors(this)"></div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
 
-                <button class="esconder-botao" onclick="clearCanvas()"><span class="paintbrush-icon material-symbols-outlined" id="lixo">delete</span></button>
+                <button type="button" class="esconder-botao" onclick="clearCanvas()"><span class="paintbrush-icon material-symbols-outlined" id="lixo">delete</span></button>
                 
             </article>
 
@@ -59,7 +59,7 @@
 
                 <!-- Mostra ferramentas -->
                 <i class="paintbrush-icon fa-solid fa-pen"></i>
-                <button class="esconder-botao" onclick="undo()"><i class="paintbrush-icon fa-solid fa-rotate-left"></i></button>
+                <button type="button" class="esconder-botao" onclick="undo()"><i class="paintbrush-icon fa-solid fa-rotate-left"></i></button>
 
                 <!-- Selecionar cor - predefinida -->
                 <div class="cor" id="vermelho" onclick="changeColors(this)"></div>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
 
-                <button class="esconder-botao" onclick="clearCanvas()"><span class="paintbrush-icon material-symbols-outlined" id="lixo">delete</span></button>
+                <button type="button" class="esconder-botao" onclick="clearCanvas()"><span class="paintbrush-icon material-symbols-outlined" id="lixo">delete</span></button>
                 
             </article>
 
@@ -98,7 +98,7 @@
             <hr class="linha-section codigos-margin">
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card1" data-mae="dropdown1"> A) Apresentação Estética </button>
+                <button type="button" class="header-codigo" id="card1" data-mae="dropdown1"> A) Apresentação Estética </button>
                 <ul class="options-codigo" id="dropdown1">
                     <li><p><b>A1.</b> Título: centralize-o, sem aspas ou grifo, sem ponto final. Deve ser criativo, adequado ao tema e relacionado ao texto, à tese e aos repertórios.</p></li>
                     <li><p><b>A2.</b> Respeite as margens.</p></li>
@@ -107,7 +107,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card2" data-mae="dropdown2"> G) Gramática</button>
+                <button type="button" class="header-codigo" id="card2" data-mae="dropdown2"> G) Gramática</button>
                 <ul class="options-codigo" id="dropdown2">
                     <li><p><b>G1.</b> Pontuação: Não separe elementos com relação sintática direta por vírgulas.</p></li>
                     <li><p><b>G2.</b> Ortografia.</p></li>
@@ -121,7 +121,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card3" data-mae="dropdown3"> E) Estrutura </button>
+                <button type="button" class="header-codigo" id="card3" data-mae="dropdown3"> E) Estrutura </button>
                 <ul class="options-codigo" id="dropdown3">
                     <li><p><b>E1.</b> A tese deve ser objetiva – não misture argumentos à tese.</p></li>
                     <li><p><b>E2.</b> Parágrafo argumentativo curto, com pouca informação.</p></li>
@@ -145,7 +145,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card4" data-mae="dropdown4"> C) Conteúdo </button>
+                <button type="button" class="header-codigo" id="card4" data-mae="dropdown4"> C) Conteúdo </button>
                 <ul class="options-codigo" id="dropdown4">
                     <li><p><b>C1.</b> Argumentação superficial, pouco convincente.</p></li>
                     <li><p><b>C2.</b> Uso precário ou insuficiente dos textos de apoio.</p></li>
@@ -163,7 +163,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card5" data-mae="dropdown5"> L) Linguagem </button>
+                <button type="button" class="header-codigo" id="card5" data-mae="dropdown5"> L) Linguagem </button>
                 <ul class="options-codigo" id="dropdown5">
                     <li><p><b>L1.</b> Mantenha o nível padrão: evite informalidades.</p></li>
                     <li><p><b>L2.</b> Melhore a linguagem, valorizando suas ideias.</p></li>
@@ -175,7 +175,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card6" data-mae="dropdown6"> S) Coesão </button>
+                <button type="button" class="header-codigo" id="card6" data-mae="dropdown6"> S) Coesão </button>
                 <ul class="options-codigo" id="dropdown6">
                     <li><b>S1.</b> Melhore a elaboração dos períodos, mantendo a clareza e a coesão/problema de construção frasal (Estrutura sintática).</p></li>
                     <li><b>S2.</b> Atente-se à coesão entre os parágrafos; não os fragmente.</p></li>
@@ -187,7 +187,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card7" data-mae="dropdown7"> R) Coerência </button>
+                <button type="button" class="header-codigo" id="card7" data-mae="dropdown7"> R) Coerência </button>
                 <ul class="options-codigo" id="dropdown7">
                     <li><p><b>R1.</b> Ideias contraditórias/incoerência.</p></li>
                     <li><p><b>R2.</b> Fuga ao tema.</p></li>
@@ -199,7 +199,7 @@
             </article>
 
             <article class="container-codigo">
-                <button class="header-codigo" id="card8" data-mae="dropdown8"> Outras Informações </button>
+                <button type="button" class="header-codigo" id="card8" data-mae="dropdown8"> Outras Informações </button>
                 <ul class="options-codigo" id="dropdown8">
                     <li class="outras-op"> <b>Repetitivo (ideia ou termo)</b>     <b class="simbolo-codigo">//</b> </li>
                     <li class="outras-op"> <b>Não abrevie</b>                     <b class="simbolo-codigo">◯</b> </li>
@@ -259,7 +259,7 @@
     </section>
            
 
-        <section class="container-btn"><button class="salvar" id="saveBtn">Salvar</button></section>
+        <section class="container-btn"><button type="button" class="salvar" id="saveBtn">Salvar</button></section>
           
         </form>
     </main>

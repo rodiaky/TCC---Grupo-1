@@ -25,7 +25,7 @@
             <div class="branco">
                 <p class="nomeMaterial">Material</p>
                 @if ($isAdmin)
-                <button class="botao-editar">
+                <button type="button" class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
                         <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -39,7 +39,7 @@
             
             <div class="branco">
                 <p class="nomeMaterial">Material</p>
-                <button class="botao-editar">
+                <button type="button" class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
                         <a href="#" class="editar-opcoes-texto">Editar</a>
@@ -52,7 +52,7 @@
             
             <div class="branco">
                 <p class="nomeMaterial">Material</p>
-                <button class="botao-editar">
+                <button type="button" class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
                         <a href="#" class="editar-opcoes-texto">Editar</a>

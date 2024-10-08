@@ -21,7 +21,7 @@ $currentFilter = request('filtros');
     <hr class="titulo-linha">
 
     @if ($isAdmin)
-    <button class="botao">
+    <button type="button" class="botao">
         <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
         <div class="botao-expand">
             <a href="{{ route('admin.temas.adicionar') }}" class="botao-texto">Adicionar Tema</a>
@@ -33,7 +33,7 @@ $currentFilter = request('filtros');
         <form method="GET" action="{{ route('admin.temas.search') }}">
             <label class="pesquisa" for="barra-pesquisa">
                 <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
-                <button type="submit" id="pesquisar">
+                <button type="button" type="submit" id="pesquisar">
                     <i class="material-icons lupa-pesquisa">search</i>
                 </button>
             </label>
@@ -60,7 +60,7 @@ $currentFilter = request('filtros');
 
                 @if ($isAdmin)
                 <div class="container-options">
-                    <button class="botao-editar">
+                    <button type="button" class="botao-editar">
                         <i class="material-icons">more_horizon</i>
                         <div class="editar-opcoes">
                             <a href="{{ route('admin.temas.editar',$tema->id) }}" class="editar-opcoes-texto">Editar</a>

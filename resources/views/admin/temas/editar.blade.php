@@ -94,8 +94,8 @@
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">
 
                 <div class="botoes">
-                    <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="submit" name="salvar" class="button">Salvar</button>
+                    <button type="button" type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="button" type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>

@@ -34,7 +34,7 @@
             <div class="branco hover">
                 <a href="{{ route('pdf.show', ['imageName' => ($material->descricao)]) }}" target="_blank"><p class="nomeMaterial">{{$material->nome}}</p></a>
                 @if ($isAdmin)
-                <button class="botao-editar">
+                <button type="button" class="botao-editar">
                     <i class="material-icons">more_horizon</i>
                     <div class="editar-opcoes">
                         <a href="{{ route('admin.materiais.editar', ['id' => $material->id]) }}" class="editar-opcoes-texto">Editar</a>

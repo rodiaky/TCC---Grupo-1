@@ -10,7 +10,7 @@
 
 .container-repertorio{
 
-    margin-top: 2rem;
+    margin-top: 2rem; 
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -90,7 +90,7 @@
     grid-column: 2 / 4;
 
     color: var(--varBranco);
-
+    margin-top: .5rem;
 }
 
 .container-texto {
@@ -284,7 +284,7 @@ li {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .grid-layout {
-        grid-template-rows: 30% 35% 35%;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 30% 60% 10%;
     }
 
@@ -300,7 +300,7 @@ li {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .grid-layout {
-        grid-template-rows: 30% 35% 35%;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 20% 70% 10%;
     }
 
@@ -316,7 +316,7 @@ li {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .grid-layout {
-        grid-template-rows: 30% 35% 35%;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 15% 80% 5%;
     }
 
@@ -332,7 +332,7 @@ li {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .grid-layout {
-        grid-template-rows: 30% 35% 35%;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 15% 80% 5%;
     }
 
@@ -349,7 +349,7 @@ li {
 @media only screen and (min-width: 1200px) {
 
     .grid-layout {
-        grid-template-rows: 30% 35% 35%;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 15% 80% 5%;
     }
 

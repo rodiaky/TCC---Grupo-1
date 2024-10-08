@@ -42,7 +42,7 @@
                                     <form id="form_{{ $pessoa->id }}" method="post" action="{{ route('aluno.destroy', ['aluno' => $pessoa->id]) }}">
                                         @method('DELETE')
                                         @csrf
-                                        <!--<button type="submit">Excluir</button>-->
+                                        <!--<button type="button" type="submit">Excluir</button>-->
                                         <a href="#" onclick="document.getElementById('form_{{ $pessoa->id }}').submit()">Excluir</a>
                                     </form>
                                 </td>

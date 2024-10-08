@@ -19,7 +19,7 @@
         <hr class="titulo-linha">
 
         @if ($isAdmin)
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.pastasMateriais.adicionar') }}" class="botao-texto">Adicionar Pasta</a>
@@ -39,7 +39,7 @@
                             <img src="{{ asset('assets/pastasMateriais/' . $pasta->imagem) }}" alt="" class="img-tema">
                         </a>
                     @if ($isAdmin)
-                        <button class="botao-editar">
+                        <button type="button" class="botao-editar">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
                                 <a href="{{ route('admin.pastasMateriais.editar',$pasta->id) }}" class="editar-opcoes-texto">Editar</a>

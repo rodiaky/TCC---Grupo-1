@@ -37,7 +37,7 @@
         <hr class="titulo-linha">
 
         @if ($isAdmin)
-        <button class="botao">
+        <button type="button" class="botao">
             <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
             <div class="botao-expand">
                 <a href="{{ route('admin.repertorios.adicionar') }}" class="botao-texto">Adicionar Repertório</a>
@@ -51,7 +51,7 @@
                     <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o repertório." value="{{ request('search') }}">
                     <input type="hidden" name="id_pasta" value="{{ $id_pasta }}">
                     <input type="hidden" name="filtros" value="{{ $currentFilter }}">
-                    <button type="submit" id="pesquisar">
+                    <button type="button" type="submit" id="pesquisar">
                         <i class="material-icons lupa-pesquisa">search</i>
                     </button>
                 </label>
@@ -120,7 +120,7 @@
 
                     @if ($isAdmin)
                     <div class="container-options">
-                        <button class="botao-editar botao-repertorio">
+                        <button type="button" class="botao-editar botao-repertorio">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
                                 <a href="{{ route('admin.repertorios.editar', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Editar</a>
