@@ -51,7 +51,7 @@
                     <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o repertório." value="{{ request('search') }}">
                     <input type="hidden" name="id_pasta" value="{{ $id_pasta }}">
                     <input type="hidden" name="filtros" value="{{ $currentFilter }}">
-                    <button type="button" type="submit" id="pesquisar">
+                    <button type="submit" id="pesquisar">
                         <i class="material-icons lupa-pesquisa">search</i>
                     </button>
                 </label>

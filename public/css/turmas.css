@@ -1,14 +1,3 @@
-:root {
-    /* Paleta de Cores */
-    --varLaranjaEscuro: #F46F20;
-    --varLaranjaClaro: #FEA572;
-    --varCinzaEscuro: #EAEAEA;
-    --varCinzaClaro: #F4F3F2;
-    --varBranco: #F8F8F8;
-    --varPreto: #000000;
-    --varTamanhoFonteTitulo: 2.058rem;
-}
-
 /* TURMAS --------------------------------------------------------------- */
 
 /*Celulares*/
@@ -100,6 +89,8 @@
 .turma-dropdown{
     display: flex;
     flex-direction: column;
+    gap: .5rem;
+    
     width: 90%;
     height: 0;
     opacity: 0;
@@ -115,8 +106,8 @@
     align-items: center;
     width: 100%;
     height: 2.5rem;
-    padding-left: 2.058rem;
-    transition: all 400ms ease;
+    padding-left: 2rem;
+    transition: all 200ms ease;
 
     text-decoration: none;
     font-size: 1.272rem;
@@ -136,6 +127,6 @@
 }
 
 .turma-horario:hover{
-    
-    background-color: #efefef;
+    background-color: var(--varLaranjaClaro);
+    color: var(--varBranco);
 }

@@ -55,7 +55,7 @@ $isAdmin = $_SESSION['eh_admin'] === 'Professor';
                     <input type="hidden" name="id_tema" value="{{$tema->id}}">
                 </div>
                 
-                <button type="button" type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
+                <button type="submit" name="salvar" id="salvar" href="{{ route('admin.temas.store') }}">Salvar</button>
             
             </form>
             @endif

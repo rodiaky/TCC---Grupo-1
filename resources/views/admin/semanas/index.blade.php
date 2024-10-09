@@ -28,8 +28,8 @@
 
         <section class="section-barra-de-pesquisa">
             <label class="pesquisa" for="barra-pesquisa">
-                <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite o nome do aluno." aria-label="Pesquisar aluno">
-                <button type="button" type="submit" id="pesquisar" name="pesquisar" value="">
+                <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite a semana." aria-label="Pesquisar aluno">
+                <button type="submit" id="pesquisar" name="pesquisar" value="">
                     <i class="material-icons lupa-pesquisa">search</i>
                 </button>
             </label>

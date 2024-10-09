@@ -164,16 +164,16 @@
 
     .menu-home {
         gap: 1rem;
-        max-width: 300px;
+        max-width: 400px;
     }
 
     .imagem-card {
-        height: 78px;
+        height: 90px;
     }
 
     .texto-card {
         font-size: 1rem;
-        max-width: 70px;
+        max-width: 90px;
     }
 
     .texto-section-cinza{
@@ -198,16 +198,16 @@
 
     .menu-home {
         gap: 2rem;
-        max-width: 500px;
+        max-width: 600px;
     }
 
     .imagem-card {
-        height: 120px;
+        height: 130px;
     }
 
     .texto-card {
         font-size: 1.2rem;
-        max-width: 120px;
+        max-width: 130px;
     }
 
     .texto-section-cinza{
@@ -232,16 +232,16 @@
 
     .menu-home {
         gap: 2rem;
-        max-width: 500px;
+        max-width: 600px;
     }
 
     .imagem-card {
-        height: 120px;
+        height: 130px;
     }
 
     .texto-card {
         font-size: 1.3rem;
-        max-width: 120px;
+        max-width: 130px;
     }
 
     .texto-section-cinza{
@@ -270,7 +270,8 @@
     }
 
     .imagem-card {
-        height: 120px    }
+        height: 120px    
+    }
 
     .texto-card {
         font-size: 1.3rem;

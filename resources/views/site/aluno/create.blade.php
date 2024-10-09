@@ -28,7 +28,7 @@
                     <input type="text" name="senha" value="{{ old('senha') }}" placeholder="Senha" class="borda-preta">
                     {{ $errors->has('senha') ? $errors->first('senha') : '' }}
 
-                    <button type="button" type="submit" class="borda-preta">Cadastrar</button>
+                    <button type="submit" class="borda-preta">Cadastrar</button>
                 </form>
             </div>
         </div>

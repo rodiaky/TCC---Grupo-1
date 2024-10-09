@@ -57,8 +57,8 @@
                     @endif
                     
                     <div class="botoes">
-                        <button type="button" type="reset" id="limpar" class="button">Limpar</button>
-                        <button type="button" type="submit" class="button">Salvar</button>
+                        <button type="reset" id="limpar" class="button">Limpar</button>
+                        <button type="submit" class="button">Salvar</button>
                     </div>
                 </form>
             </div>

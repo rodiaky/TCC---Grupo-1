@@ -29,7 +29,7 @@
         <section class="section-barra-de-pesquisa">
             <label class="pesquisa" for="barra-pesquisa">
                 <input type="text" id="barra-pesquisa" name="barra-pesquisa" placeholder="Digite o nome do aluno." aria-label="Pesquisar aluno">
-                <button type="button" type="submit" id="pesquisar" name="pesquisar" value="">
+                <button type="submit" id="pesquisar" name="pesquisar" value="">
                     <i class="material-icons lupa-pesquisa">search</i>
                 </button>
             </label>
@@ -62,7 +62,7 @@
                                     <form action="{{ route('professor.admin.alunos.excluir', $pessoa->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir {{ $pessoa->name }}?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" type="submit" class="button-excluir">
+                                        <button type="submit" class="button-excluir">
                                             <i class="material-icons icone-tabela">close</i>
                                         </button>
                                     </form>

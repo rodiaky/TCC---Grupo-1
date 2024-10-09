@@ -207,7 +207,7 @@
         <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
         <form action="{{ route('aluno.home') }}" method="GET" id="semanaForm">
     <!-- Seus inputs -->
-    <button type="button" type="submit">Enviar</button>
+    <button type="submit">Enviar</button>
 </form>
 
 @endsection

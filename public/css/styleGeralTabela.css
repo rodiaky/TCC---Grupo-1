@@ -1,5 +1,9 @@
 /* TABELA -------------------------------------------------------------- */
 
+table {
+    min-width: 700px;
+}
+
 table, th, td{
     border-collapse: collapse;
 }
@@ -98,11 +102,11 @@ tr:nth-child(even) {
 }
 
 .criterioNota {
-    width: 15%;
+    width: 10%;
 }
 
 .criterioDescricao {
-    width: 25%;
+    width: 30%;
 }
 
 .criterioBanca {
@@ -116,13 +120,13 @@ tr:nth-child(even) {
 }
 
 .semanaDescricao {
-    width: 30%;
+    width: 20%;
 }
 
 .semanaInicio {
-    width: 15%;
+    width: 20%;
 }
 
 .semanaFim {
-    width: 15%;
+    width: 20%;
 }

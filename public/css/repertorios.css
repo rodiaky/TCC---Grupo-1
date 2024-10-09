@@ -112,6 +112,7 @@
     pointer-events: none;
     -webkit-point-events: none;
 
+    object-fit: cover;
 }
 
 .titulo-repertorio {

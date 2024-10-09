@@ -20,12 +20,12 @@
         <section class="info-correcao">
 
             <div class="container-info">
-            <div class="container-seta">
+                <div class="container-seta">
                     <a href="{{ url()->previous() }}" class="seta-back">
                         <i class="material-icons">arrow_back</i>
                     </a>
                 </div>
-                <div class="info-correcao">{{ $redacao->nome_aluno }}</div>
+                <div class="info-correcao info-nome">{{ $redacao->nome_aluno }}</div>
                 <div class="info-correcao">{{ $redacao->turma_nome }}</div>
             </div>
 
@@ -51,36 +51,36 @@
         </section>
 
         <!-- GRADES DE CORRECAO ----------------- -->
-        <div class="titulo-section">Grade de Correção - {{ $redacao->banca_nome }}</div>
-        <hr class="linha-section">
-        <!-- Grade VUNESP -->
-        <section class="section-cinza nota-correcao"> 
-        <div class="tabela-container">
-        <table class="tabela-nota">
-            <tr>
-                @foreach($criterios as $criterio)
-                  <th><label for="criterio">{{ $criterio->nome }}</label></th>
-                @endforeach
-             </tr>
-             <tr>
-                @foreach($criterios as $criterio)
-                    <td><p class="texto-criterio">{{ $criterio->descricao }}</p></td>
-                @endforeach
-            </tr>
-            <tr>
-                @foreach($criterios as $criterio)
-                <td>
-                    <input type="number" name="criterio[{{ $criterio->id }}]" class="input input-tabela" maxlength="2" required pattern="\d*" value="{{ isset($criterio->nota_aluno_criterio) ? $criterio->nota_aluno_criterio : '' }}" disabled>
-                </td>
-                @endforeach
-                </tr>
-                </table>
+        <section class="section-cinza nota-correcao">
+            <div class="titulo-section">Grade de Correção - {{ $redacao->banca_nome }}</div>
+            <hr class="linha-section">
+            <div class="tabela-container">
+                <table class="tabela-nota">
+                    <tr>
+                        @foreach($criterios as $criterio)
+                        <th><label for="criterio">{{ $criterio->nome }}</label></th>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        @foreach($criterios as $criterio)
+                            <td><p class="texto-criterio">{{ $criterio->descricao }}</p></td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        @foreach($criterios as $criterio)
+                        <td>
+                            <input type="number" name="criterio[{{ $criterio->id }}]" class="input input-tabela" maxlength="2" required pattern="\d*" value="{{ isset($criterio->nota_aluno_criterio) ? $criterio->nota_aluno_criterio : '' }}" disabled>
+                        </td>
+                        @endforeach
+                        </tr>
+                    </table>
                 </div>
-                <div class="container-tabela-inferior">
+
+            <div class="container-tabela-inferior">
                 <label for="nota_aluno_redacao">
                 <div class="nota-container">
-                 <div class="nota-final">Nota: <input type="number" name="nota_aluno_redacao" id="nota_aluno_redacao" class="input" maxlength="2" required pattern="\d*" value="{{ isset($redacao->nota_aluno_redacao) ? $redacao->nota_aluno_redacao : '' }}" disabled></div>
-                </div>
+                    <div class="nota-final">Nota: <input type="number" name="nota_aluno_redacao" id="nota_aluno_redacao" class="input" maxlength="2" required pattern="\d*" value="{{ isset($redacao->nota_aluno_redacao) ? $redacao->nota_aluno_redacao : '' }}" disabled></div>
+                    </div>
                 </label>
             </div> 
         </section>

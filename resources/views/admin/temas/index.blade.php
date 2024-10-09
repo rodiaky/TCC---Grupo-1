@@ -33,7 +33,7 @@ $currentFilter = request('filtros');
         <form method="GET" action="{{ route('admin.temas.search') }}">
             <label class="pesquisa" for="barra-pesquisa">
                 <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
-                <button type="button" type="submit" id="pesquisar">
+                <button type="submit" id="pesquisar">
                     <i class="material-icons lupa-pesquisa">search</i>
                 </button>
             </label>

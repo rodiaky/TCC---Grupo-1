@@ -12,7 +12,7 @@
         <form action="{{ route('site.turmas.salvar') }}" method="post" enctype="multipart/form-data">
             @csrf
             @include('site.turmas._form')
-            <button type="button" type="submit" name="salvar" class="button">Salvar</button>
+            <button type="submit" name="salvar" class="button">Salvar</button>
         </form>
     </div>
 </div>

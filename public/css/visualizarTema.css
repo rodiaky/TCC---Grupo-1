@@ -70,6 +70,8 @@
     aspect-ratio: 1/1;
     border-radius: 1.5rem;
 
+    object-fit: cover;
+
     user-select: none;
     -webkit-user-select: none;
 
