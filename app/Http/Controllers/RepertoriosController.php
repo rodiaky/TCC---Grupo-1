@@ -89,7 +89,7 @@ class RepertoriosController extends Controller
     {
         $image = $req->file('imagem');
         $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('assets/repertorios'), $imagename);
+        $image->move(('assets/repertorios'), $imagename);
         $req->imagem =  $imagename;
         
         $nome = $req->input('nome');
@@ -116,7 +116,7 @@ class RepertoriosController extends Controller
     {
         $image = $req->file('imagem');
         $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('assets/repertorios'), $imagename);
+        $image->move(('assets/repertorios'), $imagename);
         $req->imagem =  $imagename;
         
         $nome = $req->input('nome');
