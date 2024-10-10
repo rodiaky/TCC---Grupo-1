@@ -40,7 +40,7 @@ class PastaMateriaisController extends Controller
 
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/pastasMateriais'), $filename);
+        $file->move(('assets/pastasMateriais'), $filename);
         $req->imagem =  $filename;
 
         $nome = $req->input('nome');
@@ -59,7 +59,7 @@ class PastaMateriaisController extends Controller
     public function atualizar(Request $req, $id) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/pastasMateriais'), $filename);
+        $file->move(('assets/pastasMateriais'), $filename);
         $req->imagem =  $filename;
 
         $nome = $req->input('nome');

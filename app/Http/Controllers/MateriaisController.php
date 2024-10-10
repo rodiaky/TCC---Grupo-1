@@ -50,7 +50,7 @@ class MateriaisController extends Controller
 
             $image = $req->file('filename');
             $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('assets/materiais'), $imageName);
+            $image->move(('assets/materiais'), $imageName);
             $req->descricao =  $imageName;
             
             $nome = $req->input('nome');
@@ -73,7 +73,7 @@ class MateriaisController extends Controller
     public function atualizar(Request $req, $id){
         $image = $req->file('arquivo');
         $imageName = time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('assets/materiais'), $imageName);
+        $image->move(('assets/materiais'), $imageName);
         $req->descricao =  $imageName;
             
         $nome = $req->input('nome');

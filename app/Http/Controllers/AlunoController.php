@@ -66,7 +66,7 @@ class AlunoController extends Controller
     public function salvar(Request $req) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/fotoPerfil'), $filename);
+        $file->move(('assets/fotoPerfil'), $filename);
         $req->foto =  $filename;
 
         $nome = $req->input('name');
@@ -119,7 +119,7 @@ class AlunoController extends Controller
 
     $file = $request->file('arquivo');
     $filename = time() . '.' . $file->getClientOriginalExtension();
-    $file->move(public_path('assets/fotoPerfil'), $filename);
+    $file->move(('assets/fotoPerfil'), $filename);
     $request->foto =  $filename;
 
     // Atualiza também o nome do usuário

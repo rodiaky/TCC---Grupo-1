@@ -53,7 +53,7 @@ class RedacoesPendentesController extends Controller
         $filename = time() . '.' . $file->getClientOriginalExtension();
         
         // Move o arquivo para a pasta 'assets'
-        $file->move(public_path('assets/redacao_enviada'), $filename);
+        $file->move(('assets/redacao_enviada'), $filename);
 
         $redacao->redacao_enviada = $filename;
         $redacao->save();
@@ -159,7 +159,7 @@ class RedacoesPendentesController extends Controller
 
           // Gera um nome de arquivo único para a imagem editada
           $newFileName = 'corrigida_' . uniqid() . '.png';
-          $imagePath = public_path('assets/redacao_corrigida/' . $newFileName);
+          $imagePath = ('assets/redacao_corrigida/' . $newFileName);
 
           // Salva a imagem editada
           if (file_put_contents($imagePath, base64_decode($imageData))) {

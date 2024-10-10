@@ -69,7 +69,7 @@ class TemaController extends Controller
     public function salvar(Request $req) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/textosApoio'), $filename);
+        $file->move(('assets/textosApoio'), $filename);
         $req->texto_apoio =  $filename;
 
         $image = $req->file('imagem');
@@ -99,7 +99,7 @@ class TemaController extends Controller
     public function atualizar(Request $req, $id) {
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/textosApoio'), $filename);
+        $file->move(('assets/textosApoio'), $filename);
         $req->texto_apoio =  $filename;
 
         $image = $req->file('imagem');
@@ -155,7 +155,7 @@ class TemaController extends Controller
         // Fazer o upload da imagem
         $file = $request->file('redacao_enviada');
         $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('assets/redacao_enviada'), $filename);
+        $file->move(('assets/redacao_enviada'), $filename);
 
         
         // Salvar o caminho da imagem no banco de dados
@@ -179,8 +179,6 @@ class TemaController extends Controller
     public function show($imageName)
     {
         $diretorio ='assets/textosApoio/';
-
-       
 
         if (file_exists($diretorio.$imageName)) {
             // Retorna o arquivo PDF
