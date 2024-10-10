@@ -93,6 +93,7 @@
                 <canvas id="myCanvas"></canvas>
             </article>
         </section>
+        
         <section class="section-cinza lista-codigos-correcao">
             <div class="titulo-section">Códigos para Correção</div>
             <hr class="linha-section codigos-margin">
