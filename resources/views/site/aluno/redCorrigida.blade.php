@@ -43,6 +43,124 @@
             </article>
         </section>
 
+        <!-- CODIGOS DA CORRECAO -->
+        <section class="section-cinza lista-codigos-correcao">
+            <div class="titulo-section">Códigos para Correção</div>
+            <hr class="linha-section codigos-margin">
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card1" data-mae="dropdown1"> A) Apresentação Estética </button>
+                <ul class="options-codigo" id="dropdown1">
+                    <li><p><b>A1.</b> Título: centralize-o, sem aspas ou grifo, sem ponto final. Deve ser criativo, adequado ao tema e relacionado ao texto, à tese e aos repertórios.</p></li>
+                    <li><p><b>A2.</b> Respeite as margens.</p></li>
+                    <li><p><b>A3.</b> Número: de zero a dez por extenso (exceto horas, datas e distâncias).</p></li>
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card2" data-mae="dropdown2"> G) Gramática</button>
+                <ul class="options-codigo" id="dropdown2">
+                    <li><p><b>G1.</b> Pontuação: Não separe elementos com relação sintática direta por vírgulas.</p></li>
+                    <li><p><b>G2.</b> Ortografia.</p></li>
+                    <li><p><b>G3.</b> Concordância.</p></li>
+                    <li><p><b>G4.</b> Regência.</p></li>
+                    <li><p><b>G5.</b> Colocação pronominal.</p></li>
+                    <li><p><b>G6.</b> Acentuação.</p></li>
+                    <li><p><b>G7.</b> Crase.</p></li>
+                    <li><p><b>G8.</b> Separação silábica.</p></li>
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card3" data-mae="dropdown3"> E) Estrutura </button>
+                <ul class="options-codigo" id="dropdown3">
+                    <li><p><b>E1.</b> A tese deve ser objetiva – não misture argumentos à tese.</p></li>
+                    <li><p><b>E2.</b> Parágrafo argumentativo curto, com pouca informação.</p></li>
+                    <li><p><b>E3.</b> Organize melhor os argumentos/as ideias.</p></li>
+                    <li><p><b>E4.</b> Texto circular.</p></li>
+                    <li><p><b>E5.</b> Não elabore parágrafos que tenham um só período.</p></li>
+                    <li><p><b>E6.</b> Não misture os argumentos à conclusão (ideia nova).</p></li>
+                    <li><p><b>E7.</b> Conclusão ou desfecho não compatível.</p></li>
+                    <li><p><b>E8.</b> Texto sem tese/sem posicionamento.</p></li>
+                    <li><p><b>E9.</b> A tese deve estar no 1º § (introdução).</p></li>
+                    <li><p><b>E10.</b> Observe a estrutura do § argumentativo.</p></li>
+                    <li><p><b>E11.</b> Parágrafo sem Tópico Frasal.</p></li>
+                    <li><p><b>E12.</b> Falta Evidência/Exemplificação.</p></li>
+                    <li><p><b>E13.</b> Falta autoria/aprofunde a Análise/falta Análise.</p></li>
+                    <li><p><b>E14.</b> Relacione melhor Evidência e Análise.</p></li>
+                    <li><p><b>E15.</b> Falta Fechamento.</p></li>
+                    <li><p><b>E16.</b> Reproduza a frase temática integralmente.</p></li>
+                    <li><p><b>E17.</b> Defina/explicite a tese.</p></li>
+                    <li><p><b>E18.</b> Retome a tese e os Tópicos Frasais.</p></li>                
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card4" data-mae="dropdown4"> C) Conteúdo </button>
+                <ul class="options-codigo" id="dropdown4">
+                    <li><p><b>C1.</b> Argumentação superficial, pouco convincente.</p></li>
+                    <li><p><b>C2.</b> Uso precário ou insuficiente dos textos de apoio.</p></li>
+                    <li><p><b>C3.</b> Explicações desnecessárias.</p></li>
+                    <li><p><b>C4.</b> Insuficiência de ideias.</p></li>
+                    <li><p><b>C5.</b> Reprodução de senso comum.</p></li>
+                    <li><p><b>C6.</b> Redundância. </p></li>
+                    <li><p><b>C7.</b> Amplie o conteúdo. </p></li>
+                    <li><p><b>C8.</b> Explore esta ideia. </p></li>
+                    <li><p><b>C9.</b> Ideia mal explicada/lacuna. </p></li>
+                    <li><p><b>C10.</b> Falta repertório/repertório não produtivo. </p> </li>
+                    <li><p><b>C11.</b> Sobreposição de ideias/lacunas. </p></li>
+                    <li><p><b>C12.</b> Não reproduza modelos prontos de redação. </p></li>
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card5" data-mae="dropdown5"> L) Linguagem </button>
+                <ul class="options-codigo" id="dropdown5">
+                    <li><p><b>L1.</b> Mantenha o nível padrão: evite informalidades.</p></li>
+                    <li><p><b>L2.</b> Melhore a linguagem, valorizando suas ideias.</p></li>
+                    <li><p><b>L3.</b> Não se dirija ao leitor; evite apelos.</p></li>
+                    <li><p><b>L4.</b> Linguagem coloquial.</p></li>
+                    <li><p><b>L5.</b> Evite subjetivismos e intromissões. Não utilize a primeira pessoa do singular.</p></li>
+                    <li><p><b>L6.</b> Palavra inadequada ao contexto. Consulte o dicionário. Desvio lexical. </p></li>
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card6" data-mae="dropdown6"> S) Coesão </button>
+                <ul class="options-codigo" id="dropdown6">
+                    <li><b>S1.</b> Melhore a elaboração dos períodos, mantendo a clareza e a coesão/problema de construção frasal (Estrutura sintática).</p></li>
+                    <li><b>S2.</b> Atente-se à coesão entre os parágrafos; não os fragmente.</p></li>
+                    <li><b>S3.</b> Ideias desconexas.</p></li>
+                    <li><b>S4.</b> Ausência de conectivo.</p></li>
+                    <li><b>S5.</b> Uso indevido de conectivo.</p></li>
+                    <li><b>S6.</b> Varie os elementos coesivos/repetição de coesivos.</p></li>              
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card7" data-mae="dropdown7"> R) Coerência </button>
+                <ul class="options-codigo" id="dropdown7">
+                    <li><p><b>R1.</b> Ideias contraditórias/incoerência.</p></li>
+                    <li><p><b>R2.</b> Fuga ao tema.</p></li>
+                    <li><p><b>R3.</b> Tangenciamento do tema.</p></li>
+                    <li><p><b>R4.</b> Incompatibilidade de ideias.</p></li>
+                    <li><p><b>R5.</b> Ideias desarticuladas.</p></li>
+                    <li><p><b>R6.</b> Evite generalizações e preconceitos.</p></li>           
+                </ul>
+            </article>
+
+            <article class="container-codigo">
+                <button type="button" class="header-codigo" id="card8" data-mae="dropdown8"> Outras Informações </button>
+                <ul class="options-codigo" id="dropdown8">
+                    <li class="outras-op"> <b>Repetitivo (ideia ou termo)</b>     <b class="simbolo-codigo">//</b> </li>
+                    <li class="outras-op"> <b>Não abrevie</b>                     <b class="simbolo-codigo">◯</b> </li>
+                    <li class="outras-op"> <b>Outro parágrafo</b>                 <b class="simbolo-codigo">#</b>  </li>
+                    <li class="outras-op"> <b>Quebra</b>                          <b class="simbolo-codigo">≠</b>  </li>      
+                </ul>
+            </article>
+            
+        </section>
+
         <!-- FEEDBACK -->
         <section class="section-cinza feedback-correcao"> 
             <div class="titulo-section">Feedback</div>
@@ -69,7 +187,7 @@
                     <tr>
                         @foreach($criterios as $criterio)
                         <td>
-                            <input type="number" name="criterio[{{ $criterio->id }}]" class="input input-tabela" maxlength="2" required pattern="\d*" value="{{ isset($criterio->nota_aluno_criterio) ? $criterio->nota_aluno_criterio : '' }}" disabled>
+                            <p class="input input-tabela"> {{ isset($criterio->nota_aluno_criterio) ? $criterio->nota_aluno_criterio : '' }} </p>
                         </td>
                         @endforeach
                         </tr>
@@ -78,11 +196,11 @@
 
             <div class="container-tabela-inferior">
                 <label for="nota_aluno_redacao">
-                <div class="nota-container">
-                    <div class="nota-final">Nota: <input type="number" name="nota_aluno_redacao" id="nota_aluno_redacao" class="input" maxlength="2" required pattern="\d*" value="{{ isset($redacao->nota_aluno_redacao) ? $redacao->nota_aluno_redacao : '' }}" disabled></div>
+                    <div class="nota-container">
+                        <div class="nota-final"> <p>Nota:</p> <p class="input"> {{ isset($redacao->nota_aluno_redacao) ? $redacao->nota_aluno_redacao : '' }} </p> </div>
                     </div>
                 </label>
-            </div> 
+            </div>  
         </section>
 
 </body>
