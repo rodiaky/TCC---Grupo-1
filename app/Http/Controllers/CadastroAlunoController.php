@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User; // Certifique-se de que o modelo Aluno está configurado
 use App\Models\Alunos;
 use App\Models\Turmas;
+use Illuminate\Support\Facades\Hash;
 
 class CadastroAlunoController extends Controller
 {
@@ -32,8 +33,9 @@ class CadastroAlunoController extends Controller
         $aluno = new User();
         $aluno->name = $validatedData['nome'];
         $aluno->email = $validatedData['email'];
-        $aluno->password = $validatedData['senha']; // Hash a senha antes de armazenar
-        $aluno->save();
+        $aluno->password = Hash::make($validatedData['senha']); // Hash a senha antes de armazenar
+        $aluno->save(); 
+
 
 
         $ultimoId = User::latest()->value('id');

@@ -130,7 +130,7 @@ class AlunoController extends Controller
 
     // Salva as alterações
     $userSaved = $user->save();
-    $alunoSaved = $aluno->save(); 
+    $alunoSaved = $aluno->save();
 
     // Verifica se as alterações foram salvas
     if (!$userSaved || !$alunoSaved) {
@@ -147,5 +147,9 @@ class AlunoController extends Controller
         return redirect()->to($url);
     }
 }
+
+    public function completo(){
+        
+    }
 
 }

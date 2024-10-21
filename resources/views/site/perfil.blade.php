@@ -19,9 +19,9 @@
         <section class="container">
 
         
-
+        @if (!empty($perfil->foto)) 
             <div class="container-img"><img src="{{ asset('assets/fotoPerfil/'.$perfil->foto) }}" alt=""></div>
-
+        @endif
             
             <div class="info-pessoal">
 

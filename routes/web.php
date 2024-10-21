@@ -113,6 +113,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/1/adicionar', [AlunoController::class, 'adicionar'])->name('admin.alunos.adicionar');
             Route::post('/salvar', [AlunoController::class, 'salvar'])->name('admin.alunos.salvar');
             Route::get('/editar/{id}', [AlunoController::class, 'editar'])->name('admin.alunos.editar');
+            Route::get('/cadastroCompleto/{id}', [AlunoController::class, 'completo'])->name('admin.alunos.completo');
             Route::match(['get', 'post'], '/atualizar/{id}', [AlunoController::class, 'atualizar'])->name('admin.alunos.atualizar');
             Route::get('/excluir/{id}', [AlunoController::class, 'excluir'])->name('admin.alunos.excluir');            
         });

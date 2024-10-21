@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -49,25 +50,25 @@ class LoginController extends Controller
             'usuario.email' => 'O email deve ser um endereço de email válido.',
             'senha.required' => 'A senha é obrigatória.',
         ]);
-
+    
         // Retrieve email and password from validated data
         $email = $validatedData['usuario'];
         $password = $validatedData['senha'];
-
+    
         // Check user credentials
-        $usuario = User::where('email', $email)
-                       ->where('password', $password) // Avoid using plain passwords in production
-                       ->first();
-
-        if ($usuario) {
+        $usuario = User::where('email', $email)->first();
+    
+        if ($usuario && Hash::check($password, $usuario->password)) {
+            // Password matches
             session_start();
             $_SESSION['id'] = $usuario->id;
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
-            $_SESSION['eh_admin'] = $usuario->eh_admin;
-
+            $_SESSION['eh_admin'] = $usuario->eh_admin; // Corrigido para 'ed_admin'
+    
             return redirect()->route($_SESSION['eh_admin'] === "Aluno" ? 'aluno.home' : 'professor.home');
         } else {
+            // Password does not match or user not found
             return redirect()->route('login', ['erro' => 1]);
         }
     }

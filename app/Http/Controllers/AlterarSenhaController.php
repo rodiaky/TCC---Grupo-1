@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash; // Importar Hash
 use App\Models\User;
 
 class AlterarSenhaController extends Controller
@@ -25,11 +26,10 @@ class AlterarSenhaController extends Controller
 
     public function update(Request $request)
     {
-        
         // Validar os dados recebidos do formulário
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'novaSenha' => 'required|min:3|confirmed', // Senha mínima de 8 caracteres e confirmação
+            'novaSenha' => 'required|min:4|confirmed', // Senha mínima de 8 caracteres e confirmação
         ]);
 
         if ($validator->fails()) {
@@ -37,16 +37,16 @@ class AlterarSenhaController extends Controller
         }
 
         // Obter o usuário logado
-        $user = $_SESSION['email'];
+        $userEmail = $_SESSION['email'];
 
         // Verificar se o email corresponde ao email do usuário logado
-        if ($user !== $request->input('email')) {
+        if ($userEmail !== $request->input('email')) {
             return redirect()->back()->with('error', 'O e-mail fornecido não corresponde ao e-mail do usuário logado.');
         }
 
-        // Atualizar a senha do usuário
-        DB::table('users')->where('email', $user)->update([
-            'password' => $request->input('novaSenha'),
+        // Atualizar a senha do usuário com Hash
+        DB::table('users')->where('email', $userEmail)->update([
+            'password' => Hash::make($request->input('novaSenha')), // Aqui você usa o Hash
         ]);
 
         // Redirecionar com uma mensagem de sucesso
@@ -69,11 +69,10 @@ class AlterarSenhaController extends Controller
 
     public function updateProfessor(Request $request)
     {
-        
         // Validar os dados recebidos do formulário
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'novaSenha' => 'required|min:3|confirmed', // Senha mínima de 8 caracteres e confirmação
+            'novaSenha' => 'required|min:8|confirmed', // Senha mínima de 8 caracteres e confirmação
         ]);
 
         if ($validator->fails()) {
@@ -81,16 +80,16 @@ class AlterarSenhaController extends Controller
         }
 
         // Obter o usuário logado
-        $user = $_SESSION['email'];
+        $userEmail = $_SESSION['email'];
 
         // Verificar se o email corresponde ao email do usuário logado
-        if ($user !== $request->input('email')) {
+        if ($userEmail !== $request->input('email')) {
             return redirect()->back()->with('error', 'O e-mail fornecido não corresponde ao e-mail do usuário logado.');
         }
 
-        // Atualizar a senha do usuário
-        DB::table('users')->where('email', $user)->update([
-            'password' => $request->input('novaSenha'),
+        // Atualizar a senha do usuário com Hash
+        DB::table('users')->where('email', $userEmail)->update([
+            'password' => Hash::make($request->input('novaSenha')), // Aqui você usa o Hash
         ]);
 
         // Redirecionar com uma mensagem de sucesso

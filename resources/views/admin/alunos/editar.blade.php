@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
     <title>Editar Aluno</title>
 @endsection
 
@@ -39,13 +40,16 @@
                     </div>
                     <div class="select">
                         <div class="selected">
+                            
                             <script>
                                 function changeTurma(nomeTurma, idTurma) {
                                     document.getElementById("text-selected-turma").textContent = nomeTurma;
                                     document.getElementById("id_turma").value = idTurma; // Atualiza o input hidden com o id da turma
                                 }
                             </script>
-                            <span id="text-selected-turma" style="background-color: white;">{{$alunos->nome_turma}}</span>
+                            
+                            <span id="text-selected-turma">{{$alunos->nome_turma}}</span>
+                            @if(!$aluno)
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="1em"
@@ -56,27 +60,29 @@
                                     d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
                                 ></path>
                             </svg>
+                            @endif
                         </div><!--selected-data-->
+                        @if(!$aluno)
                         <div class="options">
                             @foreach($turmas as $id => $nome)
                                 <div>
                                 <input id="turma-{{ $id }}" name="id_turma" type="radio" 
                                         value="{{ $id }}" 
-                                        onClick="changeTurma('{{ $nome }}', '{{ $id }}')" 
-                                        {{ $aluno ? 'disabled' : '' }} />
+                                        onClick="changeTurma('{{ $nome }}', '{{ $id }}')"  />
 
                                 <label class="option" for="turma-{{ $id }}" data-txt="">{{ $nome }}</label>
 
                                 </div>
                             @endforeach
                         </div>
+                        @endif
 
                         <!-- Input hidden para o ID da turma selecionada -->
                         <input type="hidden" name="url" id="url" value="{{$url}}">
                         <input type="hidden" id="id_turma" name="id_turma" value="{{ $alunos->id_turma }}" />
                     </div><!--Select para turma-->
-
-
+                    <br>
+                    <label class="lbl-upload">Upload de imagem</label>
                     <div class="upload">
                         <input type="file" class="arquivo" id="arquivo" name="arquivo">
                         <input type="hidden" name="id_aluno" value="{{$alunos->id}}">
@@ -90,8 +96,8 @@
                     </div>
                     
                     <div class="botoes">
-                        <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                        <button type="button" name="salvar" class="button">Salvar</button>
+                        <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                        <button type="submit" name="salvar" class="button">Salvar</button>
                     </div>
                 </form>
             </div><!--form-value-->

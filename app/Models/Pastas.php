@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Pastas extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome', 'imagem', 'tipo']; 
+    protected $fillable = ['nome', 'imagem', 'tipo'];
 }
