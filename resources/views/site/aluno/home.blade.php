@@ -94,10 +94,10 @@
    <section class="semanas">
     <form action="{{ route('aluno.home') }}" method="GET" id="semanaForm">
         <div id="cCarousel">
-        @if(count($semanas) > 4)
-            <div class="arrow" id="prev"><i class="fa-solid fa-chevron-left"></i></div>
-            <div class="arrow" id="next"><i class="fa-solid fa-chevron-right"></i></div>
-            @endif
+        
+            <div class="arrow" id="prev"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></div>
+            <div class="arrow" id="next"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></div>
+
             <div id="carousel-vp">
                 <div id="cCarousel-inner">
                     @forelse ($semanas as $semana)
@@ -110,8 +110,8 @@
                     @endforelse
                 </div>
             </div>
+            </form>
         </div>
-    </form>
 </section>
 
     <!-- ROTEIRO DE AULA -->
@@ -205,9 +205,15 @@
 @section('js')
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
-        <form action="{{ route('aluno.home') }}" method="GET" id="semanaForm">
-    <!-- Seus inputs -->
-    <button type="submit">Enviar</button>
-</form>
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Procura o elemento selecionado
+        var selectedRadio = document.querySelector('input[name="semana_id"]:checked');
+        if (selectedRadio) {
+            // Rola até o elemento no meio da tela
+            selectedRadio.scrollIntoView({behavior: "smooth", block: "center"});
+        }
+    });
+</script>
 
 @endsection
