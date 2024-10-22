@@ -29,10 +29,26 @@
 
                 <label class="lbl-upload">Upload de arquivo</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" style="display: none;" onchange="showFileName(this)">
+                    <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
+                    Escolher Arquivo
+                    </button>
+    
+                <!-- Aqui mostraremos o nome do arquivo ou mensagem caso nenhum arquivo tenha sido selecionado -->
+                <span id="file-name">
+                    {{ isset($materiais->descricao) && $materiais->descricao ? 'Arquivo atual: ' . $materiais->descricao : 'Nenhum arquivo carregado' }}
+                </span>
+
                     <input type="hidden" name="id_tema" value="{{$materiais->id}}">
                     <input type="hidden" name="imagem" value="{{$materiais->descricao}}">
                 </div>
+                <script>
+                    // Função para exibir o nome do arquivo quando selecionado
+                    function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                    }
+                </script>
                 <br>
 
                     <!-- Select Tema -->
