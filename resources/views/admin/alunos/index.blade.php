@@ -51,7 +51,7 @@
                                 <td class="imagem">
                                     <img src="{{ $pessoa->foto }}" alt="Foto de {{ $pessoa->name }}" class="imagem-tabela">
                                 </td>
-                                <td class="alunos">{{ $pessoa->name }}</td>
+                                <td class="alunos"><a href="{{ route('admin.turmas.aluno', ['id' => $pessoa->id]) }}">{{ $pessoa->name }}</a></td>
                                 <td class="alunos">{{ $pessoa->email }}</td>
                                 <td class="editar">
                                     <a href="{{ route('admin.alunos.editar', $pessoa->id) }}">

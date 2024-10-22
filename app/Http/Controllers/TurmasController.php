@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Turmas;
 use App\Models\Funcionarios;
+use App\Models\User;
 use App\Models\Pessoas;
+use App\Models\Alunos;
+use App\Models\Pagamentos;
 use Illuminate\Support\Facades\DB;
 
 class TurmasController extends Controller
@@ -84,4 +87,5 @@ class TurmasController extends Controller
     
         return redirect()->route('admin.turmas');
     }
+ 
 }

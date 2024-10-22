@@ -1,0 +1,200 @@
+section {
+    margin-bottom: 1rem;
+}
+
+.subtitulo {
+    font-size: 1.3rem;
+    color: var(--varLaranjaEscuro);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* INFORMACOES DO ALUNO ----------------------------------------------------------- */
+
+.info-aluno {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+
+    gap: 1rem;
+}
+
+.container-imagem {
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-imagem img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+    height: 100%;
+}
+
+.container-info {
+    width: 100%;
+    height: 100%;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+.nome-aluno {
+
+    display: flex;
+    align-items: center;
+
+    padding: .5rem 1rem .5rem 1.5rem;
+    color: var(--varBranco);
+    font-weight: 700;
+    height: fit-content;
+    background-color: var(--varLaranjaEscuro);
+}
+
+.email-aluno {
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--varCinzaEscuro);
+    z-index: -1;
+    padding: 0 1rem 0 1.5rem;
+    height: 30%;
+}
+
+.turma-aluno {
+    background-color: var(--varCinzaEscuro);
+    padding: 0 1rem 0 1.5rem;
+    font-weight: 600;
+    height: 100%;
+}
+
+/* TABELA ----------------------------------------------------------- */
+
+td {
+    height: 3rem;
+}
+
+.mes, .pagamento, .valor {
+    overflow-x: auto;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.mes {
+    width: 25%;
+    padding-left: 2rem;
+    font-weight: 600;
+}
+
+.pagamento, .valor {
+    width: 31.25%;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE --------------------------------------------------------------- */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+    .info-aluno {
+        height: 100px;
+    }
+
+    .nome-aluno {
+        font-size: 1rem;
+    }
+    
+    .email-aluno {
+        font-size: 1rem;
+    }
+    
+    .turma-aluno {
+        font-size: .9rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+    .info-aluno {
+        height: 125px;
+    }
+    
+    .nome-aluno {
+        font-size: 1.5rem;
+    }
+    
+    .email-aluno {
+        font-size: 1.1rem;
+    }
+    
+    .turma-aluno {
+        font-size: 1.2rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+    .info-aluno {
+        height: 150px;
+    }
+    
+    .nome-aluno {
+        font-size: 1.5rem;
+    }
+    
+    .email-aluno {
+        font-size: 1.1rem;
+    }
+    
+    .turma-aluno {
+        font-size: 1.2rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    
+    .info-aluno {
+        height: 150px;
+    }
+    
+    .nome-aluno {
+        font-size: 1.6rem;
+    }
+    
+    .email-aluno {
+        font-size: 1.2rem;
+    }
+    
+    .turma-aluno {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
+    .info-aluno {
+        height: 150px;
+    }
+    
+    .nome-aluno {
+        font-size: 1.6rem;
+    }
+    
+    .email-aluno {
+        font-size: 1.2rem;
+    }
+    
+    .turma-aluno {
+        font-size: 1.3rem;
+    }
+}

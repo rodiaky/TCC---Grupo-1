@@ -30,8 +30,9 @@ class EstatisticaController extends Controller
             ->select('redacoes.nota_aluno_redacao as nota', 'temas.frase_tematica as frase_tematica', 
                      'redacoes.id_tema as id_tema', 'bancas.nome', 'turmas.id as id_turma', 
                      'redacoes.id_banca as id_banca', 'bancas.nota_maxima_banca as nota_maxima')
-            ->where('redacoes.id_banca', $examType)
+            ->where('redacoes.id_banca', $examType) 
             ->where('redacoes.id_aluno', $id_aluno_value)
+            ->where('redacoes.situacao_redacao', 'Corrigida')
             ->orderBy('redacoes.nota_aluno_redacao', 'asc')
             ->get();
 

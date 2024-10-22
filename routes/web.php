@@ -27,6 +27,7 @@ use App\Http\Controllers\BancaController;
 use App\Http\Controllers\SemanaController;
 use App\Http\Controllers\EstatisticaController;
 use App\Http\Controllers\MinhasRedacoesController;
+use App\Http\Controllers\AlunoIndividualController;
 
 // Auth Routes
 Auth::routes();
@@ -105,7 +106,8 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::post('/salvar', [TurmasController::class, 'salvar'])->name('admin.turmas.salvar');
             Route::get('/editar/{id}', [TurmasController::class, 'editar'])->name('admin.turmas.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [TurmasController::class, 'atualizar'])->name('admin.turmas.atualizar');
-            Route::get('/excluir/{id}', [TurmasController::class, 'excluir'])->name('admin.turmas.excluir');            
+            Route::get('/excluir/{id}', [TurmasController::class, 'excluir'])->name('admin.turmas.excluir');    
+            Route::get('/aluno/{id}', [AlunoIndividualController::class, 'index'])->name('admin.turmas.aluno');         
         });
 
         Route::prefix('alunos')->group(function() {
