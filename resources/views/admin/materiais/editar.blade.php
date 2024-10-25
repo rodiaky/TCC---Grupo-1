@@ -29,7 +29,7 @@
 
                 <label class="lbl-upload">Upload de arquivo</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo" style="display: none;" onchange="showFileName(this)">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)">
                     <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
                     Escolher Arquivo
                     </button>
@@ -88,7 +88,7 @@
                   
                 <div class="botoes">
                     <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="button" name="salvar" class="button">Salvar</button>
+                    <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>

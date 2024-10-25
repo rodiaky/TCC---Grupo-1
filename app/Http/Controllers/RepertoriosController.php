@@ -114,11 +114,13 @@ class RepertoriosController extends Controller
 
     public function atualizar(Request $req, $id)
     {
+        if ($req->hasFile('imagem')) {
         $image = $req->file('imagem');
         $imagename = time() . '.' . $image->getClientOriginalExtension();
         $image->move(('assets/repertorios'), $imagename);
-        $req->imagem =  $imagename;
-        
+        } else {
+            $imagename = $req->input('imagem');
+        }
         $nome = $req->input('nome');
         $idpasta = $req->input('id_pasta');
         $classificacao= $req->input('classificacao');

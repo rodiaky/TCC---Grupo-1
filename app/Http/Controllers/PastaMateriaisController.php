@@ -57,22 +57,34 @@ class PastaMateriaisController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
-        $file = $req->file('arquivo');
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(('assets/pastasMateriais'), $filename);
-        $req->imagem =  $filename;
-
+        // Busca o registro atual no banco de dados para obter a imagem existente
+        $pastaAtual = Pastas::find($id);
+    
+        // Verifica se um novo arquivo foi enviado
+        if ($req->hasFile('arquivo')) {
+            // Se um novo arquivo foi enviado, processa e armazena o novo arquivo
+            $file = $req->file('arquivo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(('assets/pastasMateriais'), $filename);
+        } else {
+            // Se nenhum novo arquivo foi enviado, mantém a imagem existente
+            $filename = $pastaAtual->imagem;
+        }
+    
         $nome = $req->input('nome');
         
         $meuVetor = [
             'nome' => $nome,
-            'imagem' => $filename,
+            'imagem' => $filename, // Mantém a imagem existente ou usa a nova
             'tipo' => "Material"
-            
         ];
     
+        // Atualiza o registro no banco de dados
         Pastas::find($id)->update($meuVetor);
+    
+        // Redireciona para a rota especificada
         return redirect()->route('admin.pastasMateriais');
     }
+    
 
 }

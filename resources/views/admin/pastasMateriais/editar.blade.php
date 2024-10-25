@@ -32,13 +32,35 @@
 
                 <label class="lbl-upload">Upload de imagem</label>
                 <div class="upload">
-                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
-                        <input type="hidden" name="id_tema" value="{{$pastas->id}}">
-                        <input type="hidden" name="imagem" value="{{$pastas->imagem}}">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)" style="display: none;">
+                    
+                    <!-- Botão personalizado para abrir o seletor de arquivos -->
+                    <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
+                        Escolher Arquivo
+                    </button>
+
+                    <!-- Exibição do nome do arquivo ou mensagem padrão -->
+                    <span id="file-name">
+                        {{ isset($pastas->imagem) && $pastas->imagem ? 'Arquivo atual: ' . $pastas->imagem : 'Nenhum arquivo carregado' }}
+                    </span>
+
+                    <!-- Campos hidden para armazenar dados existentes -->
+                    <input type="hidden" name="id_tema" value="{{ $pastas->id }}">
+                    <input type="hidden" name="imagem" value="{{ $pastas->imagem }}">
                 </div>
+
+                <script>
+                    // Função para exibir o nome do arquivo quando selecionado
+                    function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                    }
+                </script>
+
+                
                 <div class="botoes">
                     <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="button" name="salvar" class="button">Salvar</button>
+                    <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>
