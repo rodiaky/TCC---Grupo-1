@@ -52,7 +52,7 @@ p{text-align: justify;}
 
 img {
   object-fit: cover;
-    user-select: none;
+  user-select: none;
   -webkit-user-select: none;
 }
 

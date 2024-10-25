@@ -17,14 +17,23 @@
 
     <section class="container-turmas">
 
+    @php 
+        $i = 0;
+    @endphp
+
         @foreach ($redacoesPorBanca as $redacao)
+
+            @php 
+                $i++;
+            @endphp
+
             <article class="turma">
-                <button type="button" class="turma-retangulo">
+                <div class="turma-retangulo toggleButton" data-target="drop{{$i}}">
                     <h1 class="titulo-cardTurmas">{{ $redacao->banca_nome }}</h1>
                     <i class="material-icons turma-seta">arrow_forward_ios</i>
-                </button>
+                </div>
                 
-                <div class="turma-dropdown">
+                <div class="turma-dropdown content" id="drop{{$i}}">
 
                     @foreach ($redacao->frases_tematicas as $index => $frase)
                         <a class="turma-horario" href="{{ route('redacao_corrigida', ['id' => $redacao->ids_redacoes[$index]]) }}">
@@ -40,4 +49,6 @@
     </main>
 
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/button.js') }}"></script>
+
 @endsection

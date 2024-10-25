@@ -11,13 +11,15 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleRodape.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="shortcut icon" type="imagex/png" href="{{ asset('assets/img/iconePalavrear.ico') }}">
 </head>
 <body>
 
     <header>
 
         <div class="cabecalho">
-            <img class="logo" src="{{ asset('assets/img/logo.png') }}" href="#">
+            <img class="logo" src="{{ asset('assets/img/logo.svg') }}" href="#">
             <a href="{{ route('login', ['erro' => 6]) }}"><div class="entrar">Entrar</div></a>
         </div>
         
