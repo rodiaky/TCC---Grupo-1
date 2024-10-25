@@ -28,6 +28,7 @@ use App\Http\Controllers\SemanaController;
 use App\Http\Controllers\EstatisticaController;
 use App\Http\Controllers\MinhasRedacoesController;
 use App\Http\Controllers\AlunoIndividualController;
+use App\Http\Controllers\PagamentoController;
 
 // Auth Routes
 Auth::routes();
@@ -138,6 +139,14 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/excluir/{id}', [BancaController::class, 'excluir'])->name('admin.bancas.excluir');            
         });
 
+        Route::prefix('pagamentos')->group(function() {
+            Route::get('/adicionar', [PagamentoController::class, 'adicionar'])->name('admin.pagamentos.adicionar');
+            Route::post('/salvar', [PagamentoController::class, 'salvar'])->name('admin.pagamentos.salvar');
+            Route::get('/editar/{id}', [PagamentoController::class, 'editar'])->name('admin.pagamentos.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [PagamentoController::class, 'atualizar'])->name('admin.pagamentos.atualizar');
+            Route::get('/excluir/{id}', [PagamentoController::class, 'excluir'])->name('admin.pagamentos.excluir');            
+        });
+
         Route::prefix('criterios')->group(function() {
             Route::get('/', [CriterioController::class, 'index'])->name('admin.criterios');
             Route::get('/adicionar', [CriterioController::class, 'adicionar'])->name('admin.criterios.adicionar');
@@ -184,6 +193,14 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/excluir/{id}', [MateriaisController::class, 'excluir'])->name('admin.materiais.excluir');
             
            
+        });
+
+        Route::prefix('pagamentos')->group(function() {
+            Route::get('/adicionar', [PagamentoController::class, 'adicionar'])->name('admin.pagamentos.adicionar');
+            Route::post('/salvar', [PagamentoController::class, 'salvar'])->name('admin.pagamentos.salvar');
+            Route::get('/editar/{id}', [PagamentoController::class, 'editar'])->name('admin.pagamentos.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [PagamentoController::class, 'atualizar'])->name('admin.pagamentos.atualizar');
+            Route::get('/excluir/{id}', [PagamentoController::class, 'excluir'])->name('admin.pagamentos.excluir');            
         });
 
         Route::prefix('temasRepertorios')->group(function() {

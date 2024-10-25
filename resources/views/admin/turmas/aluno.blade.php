@@ -80,18 +80,28 @@
 
         <table id="tabela">
             <tr>
+                <th>Ano</th>
                 <th>Mês</th>
                 <th>Pagamento</th>
                 <th>Valor</th>
+                <th>Editar</th>
                 <th>Excluir</th>
             </tr>
             @foreach ($pagamentos as $pagamento)
             <tr>
+                <td class="ano">{{ $pagamento->ano }}</td>
                 <td class="mes">{{ $pagamento->mes }}</td>
                 <td class="pagamento">{{ $pagamento->status_pagamento }}</td>
                 <td class="valor">R$ {{ number_format($pagamento->valor, 2, ',', '.') }}</td>
+                <td class="editar">
+                    <a href="{{ route('admin.pagamentos.editar', $pagamento->id) }}">
+                        <i class="material-icons icone-tabela">edit</i>
+                    </a>
+                </td>
                 <td class="excluir">
-                    <i class="material-icons icone-tabela">close</i>
+                    <a href="{{ route('admin.pagamentos.excluir', $pagamento->id) }}">
+                        <i class="material-icons icone-tabela">close</i>
+                    </a>
                 </td>
             </tr>
             @endforeach
