@@ -269,6 +269,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-bottom: 1rem;
 }
 
 .header-codigo {
@@ -292,6 +294,10 @@
     opacity: .6;
 }
 
+.content {
+    display: none;
+}
+
 .options-codigo {
     width: 95%;
     margin-top: .5rem;
@@ -302,25 +308,25 @@
     list-style: none;
     border-radius: 1rem 1rem;
 
-    visibility: hidden;
+    flex-direction: column;
+
+    /* visibility: hidden;
     opacity: 0;
     height: 0;
-    overflow: hidden;
+    overflow: hidden; */
 
-    transition: height 200ms ease, opacity 200ms ease;
+    height: fit-content;
+    padding: 1rem;
+
+    /* transition: height 200ms ease, opacity 200ms ease; */
 }
 
-.header-codigo:focus {
-    background-color: var(--varLaranjaEscuro);
-    color: var(--varBranco);
-}
-
-.header-codigo:focus ~ .options-codigo {
+/* .header-codigo:focus ~ .options-codigo {
     height: fit-content;
     opacity: 1;
     visibility: visible;
     padding: 1rem;
-}
+} */
 
 .options-codigo li {
     display: flex;

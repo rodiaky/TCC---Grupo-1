@@ -39,20 +39,29 @@
         </section>
 
         <section>
+            @php 
+                $i = 0;
+            @endphp
+
             @forelse ($questoes as $questao)
+
+                @php 
+                    $i++;
+                @endphp
+
             <article class="questao">
                 <div class="sectionCinza">
                     <div class="superior">
                         <div class="nome">{{ $questao->banca_nome }} ({{ $questao->ano }})</div>
                         @if ($isAdmin)
-                        <button type="button" class="botao-editar">
+                        <div class="botao-editar">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
                                 <a href="{{ route('admin.questoes.editar', $questao->id) }}" class="editar-opcoes-texto">Editar</a>
                                 <hr>
                                 <a href="{{ route('admin.questoes.excluir', $questao->id) }}" class="editar-opcoes-texto">Excluir</a>
                             </div>
-                        </button>
+                        </div>
                         @endif
                     </div>
                     <div class="texto"><pre>{{ $questao->enunciado }}</pre></div>
@@ -64,12 +73,14 @@
                         <li>{{ $questao->alternativa_D }}</li>
                         @if ($questao->alternativa_E)<li>{{ $questao->alternativa_E }}</li>@endif
                     </ul>
-                    <button type="button" class="mostrar-resposta">
+
+                    <div class="mostrar-resposta toggleButton" data-target="resp{{$i}}">
                         <div>Alternativa</div>
                         <div><i class="material-icons">arrow_forward_ios</i></div>
-                    </button>
+                    </div>
+                    
                 </div>
-                <div class="resposta-correta">{{ $questao->resposta }}</div>
+                <div class="resposta-correta content" id="resp{{$i}}">{{ $questao->resposta }}</div>
             </article>
                 @empty
                     <p>Nenhuma questão encontrada.</p>
@@ -96,4 +107,6 @@
     </main>
     
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/button.js') }}"></script>
+    
 @endsection

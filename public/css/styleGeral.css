@@ -81,8 +81,6 @@ pre {
 button {
     touch-action: manipulation;
     cursor: pointer;
-}
-
-*:has(button) {
-    position: relative;
+    /* position: relative; */
+    -webkit-touch-callout: none;
 }
