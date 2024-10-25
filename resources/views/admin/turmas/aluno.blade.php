@@ -13,9 +13,15 @@
 @section('conteudo')
     
     <main>
-
+    <div class="container-titulo-seta">
+        <div class="container-seta">
+              <a href="{{ url()->previous() }}" class="seta-back">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+          </div>
+          <h1 class="subtitulo">Informações do Aluno</h1>
+      </div>
         <!-- INFORMACOES DO ALUNO -->
-        <h1 class="subtitulo">Informações do Aluno</h1>
         <section class="info-aluno">
             <div class="container-imagem"><img src="{{ asset('assets/fotoPerfil/'.$user->foto) }}" alt=""></div>
             <div class="container-info">

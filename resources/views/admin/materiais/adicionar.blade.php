@@ -10,7 +10,15 @@
 
 @section('conteudo')
     <main>
-        <h1>Adicionar Material</h1><hr>
+    <div class="container-titulo-seta">
+        <div class="container-seta">
+              <a href="{{ url()->previous() }}" class="seta-back">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+          </div>
+          <h1 class="titulo-pagina">Adicionar Material</h1>
+      </div>
+      <hr>
     </main>
 
     <article>

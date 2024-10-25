@@ -13,23 +13,24 @@
     $isAdmin = $_SESSION['eh_admin'] === 'Professor';
     @endphp
     <main>
-
-        <section class="conteudo">
-        @if ($isAdmin)
-                <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
-                        <i class="material-icons">arrow_back</i>
-                    </a>
-                @else
-                <a href="{{ url()->previous() }}" class="seta-back">
-                        <i class="material-icons">arrow_back</i>
-                    </a>
-                @endif
-
-
-            <div class="escrito">
+    <section class="conteudo">
+    <div class="container-titulo-seta">
+        <div class="container-seta">
+            @if ($isAdmin)
+            <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            @else
+            <a href="{{ url()->previous() }}" class="seta-back">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            @endif
+        </div>
+        <div class="escrito">
             <p>{{ $nome_pasta->nome }}</p>
-            </div>
-
+        </div>
+      </div>
+      <hr>
             @forelse ($materiais as $material)
             <div class="branco hover">
                 <a href="{{ route('pdf.show', ['imageName' => ($material->descricao)]) }}" target="_blank"><p class="nomeMaterial">{{$material->nome}}</p></a>
