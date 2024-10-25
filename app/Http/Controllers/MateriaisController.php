@@ -70,27 +70,32 @@ class MateriaisController extends Controller
 
     }
 
-    public function atualizar(Request $req, $id){
-        $image = $req->file('arquivo');
-        $imageName = time().'.'.$image->getClientOriginalExtension();
-        $image->move(('assets/materiais'), $imageName);
-        $req->descricao =  $imageName;
-            
+    public function atualizar(Request $req, $id) {
+        // Verifica se um novo arquivo foi enviado
+        if ($req->hasFile('arquivo')) {
+            // Se um novo arquivo foi enviado, armazena o novo arquivo
+            $image = $req->file('arquivo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(('assets/materiais'), $imageName);
+        } else {
+            // Se não foi enviado um novo arquivo, mantém o arquivo existente
+            $imageName = $req->input('imagem'); // Nome do arquivo atual
+        }
+        
         $nome = $req->input('nome');
         $idpasta = $req->input('id_pasta');
-
+    
         $meuVetor = [
             'nome' => $nome,
             'descricao' => $imageName,
             'categoria' => "Material",
             'id_pasta'=> $idpasta
-                
         ];
-            
-          
+    
         Materiais::find($id)->update($meuVetor);
         return redirect()->route('admin.pastasMateriais');
     }
+    
     public function show($imageName)
     {
         $diretorio = 'assets/materiais/';

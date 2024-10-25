@@ -1,5 +1,12 @@
 /* CABECALHO ------------------------------------------------------------------- */
 
+.container-logo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header {
     margin-bottom: 1rem;
 }

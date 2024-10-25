@@ -52,21 +52,33 @@ class TemaRepertoriosController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
-        $file = $req->file('arquivo');
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(('assets/temasRepertorios'), $filename);
-        $req->imagem =  $filename;
-
+        // Busca a pasta que será atualizada
+        $pasta = Pastas::find($id);
+    
+        // Verifica se um novo arquivo foi enviado
+        if ($req->hasFile('arquivo')) {
+            $file = $req->file('arquivo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(('assets/temasRepertorios'), $filename);
+        } else {
+            // Mantém o arquivo existente caso nenhum novo arquivo tenha sido enviado
+            $filename = $pasta->imagem;
+        }
+    
         $nome = $req->input('nome');
         
+        // Atualiza o vetor com as informações
         $meuVetor = [
             'nome' => $nome,
             'imagem' => $filename,
             'tipo' => "Repertório"
-            
         ];
-        Pastas::find($id)->update($meuVetor);
+    
+        // Atualiza a pasta no banco de dados
+        $pasta->update($meuVetor);
+    
         return redirect()->route('admin.temasRepertorios');
     }
+    
 
 }

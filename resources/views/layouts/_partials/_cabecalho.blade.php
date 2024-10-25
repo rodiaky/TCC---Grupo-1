@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cabecalhoUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cabecalhoLayout.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="shortcut icon" type="imagex/png" href="{{ asset('assets/img/iconePalavrear.ico') }}">
 </head>
 
 <body>
@@ -23,7 +25,7 @@
             <!-- Botão de Abrir a sidebar -->
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
-            <img class="logo" src="{{ asset('assets/img/logo.png') }}" style="cursor: default"> 
+            <a href="{{ route('professor.home') }}" class="container-logo"><img class="logo" src="{{ asset('assets/img/logo.svg') }}"></a>
             <a href="{{ route('perfil.professor') }}" class="usuario"><i class="material-icons">account_circle</i></a> <!--DIV usuario-->
         </div>
 
@@ -112,7 +114,7 @@
             <!-- Botão de Abrir a sidebar -->
             <div class="menu"><i id="sidebar-abrir" class="material-icons">menu</i></div> <!--DIV menu-->
 
-            <img class="logo" src="{{asset('assets/img/logo.png')}}" style="cursor: default"> 
+            <a href="{{ route('aluno.home') }}" class="container-logo"><img class="logo" src="{{asset('assets/img/logo.svg')}}"></a>
             <a href="{{ route('perfil.aluno') }}" class="usuario"><i class="material-icons">account_circle</i></a> <!--DIV usuario-->
         </div>
 

@@ -22,14 +22,24 @@
         </button>
 
         <article class="container-turmas">
+
+            @php 
+                $i = 0;
+            @endphp
+
             @foreach($diasAula as $dia)
+
+                @php 
+                    $i++;
+                @endphp
+
                 <section class="turma">
-                    <button type="button" class="turma-retangulo">
+                    <div class="turma-retangulo toggleButton" data-target ="drop{{$i}}">
                         <h1 class="titulo-cardTurmas">{{ $dia->dias_aula }}</h1>
                         <i class="material-icons turma-seta">arrow_forward_ios</i>
-                    </button>
+                    </div>
                     
-                    <div class="turma-dropdown">
+                    <div class="turma-dropdown content" id="drop{{$i}}">
                         @if (!empty($turmasPorDia[$dia->dias_aula]))
                             @foreach($turmasPorDia[$dia->dias_aula] as $turma)
                                 <a class="turma-horario" href="{{ route('admin.alunos', ['id' => $turma->id]) }}">{{ $turma->nome }}</a>
@@ -45,4 +55,5 @@
     </main>
 
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/button.js') }}"></script>
 @endsection
