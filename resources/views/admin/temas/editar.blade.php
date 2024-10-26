@@ -74,13 +74,39 @@
                     <br>
                     <label class="lbl-upload">Upload de imagem</label>
                 <div class="upload">
-                    <input type="file" class="imagem" id="imagem" name="imagem" {{ isset($temas->imagem) ? $temas->imagem : '' }}>
+                    <input type="file" class="imagem" id="imagem" name="imagem" onchange="showFileName(this)" style="display: none;">
+                    <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
+                    Escolher Arquivo
+                    </button>
+                    <span id="file-name">
+                    {{ isset($temas->imagem) && $temas->imagem ? 'Arquivo atual: ' . $temas->imagem : 'Nenhum arquivo carregado' }}
+                    </span>
                 </div>
+                <script>
+                    // Função para exibir o nome do arquivo quando selecionado
+                    function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                    }
+                </script>
                 <br>
                 <label class="lbl-upload">Upload de texto de apoio</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo" {{ isset($temas->texto_apoio) ? $temas->texto_apoio : '' }}>
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)" style="display: none;">
+                    <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
+                    Escolher Arquivo
+                    </button>
+                    <span id="file-name">
+                    {{ isset($temas->texto_apoio) && $temas->texto_apoio ? 'Arquivo atual: ' . $temas->texto_apoio : 'Nenhum arquivo carregado' }}
+                    </span>
                 </div>
+                <script>
+                    // Função para exibir o nome do arquivo quando selecionado
+                    function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                    }
+                </script>
 
 
                     <div class="mensagem">
