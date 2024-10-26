@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/carrousselHome.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>HOME</title>
+    <title>Home</title>
 @endsection
 
 @section('conteudo')

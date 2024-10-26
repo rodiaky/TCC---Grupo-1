@@ -54,14 +54,14 @@
                     <div class="superior">
                         <div class="nome">{{ $questao->banca_nome }} ({{ $questao->ano }})</div>
                         @if ($isAdmin)
-                        <div class="botao-editar">
+                        <button type="button" class="botao-editar">
                             <i class="material-icons">more_horizon</i>
                             <div class="editar-opcoes">
                                 <a href="{{ route('admin.questoes.editar', $questao->id) }}" class="editar-opcoes-texto">Editar</a>
                                 <hr>
                                 <a href="{{ route('admin.questoes.excluir', $questao->id) }}" class="editar-opcoes-texto">Excluir</a>
                             </div>
-                        </div>
+                        </button>
                         @endif
                     </div>
                     <div class="texto"><pre>{{ $questao->enunciado }}</pre></div>

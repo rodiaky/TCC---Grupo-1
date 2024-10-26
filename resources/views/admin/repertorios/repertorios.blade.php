@@ -128,7 +128,12 @@
                 </article>
 
                 @empty
-                    <p>Nenhum repertório encontrado.</p>
+
+                    <div class="alerta">
+                        <span class="material-icons">error_outline</span>
+                        <p>Nenhum repertório encontrado.</p>
+                    </div>
+                    
                 @endforelse
             </section>
 

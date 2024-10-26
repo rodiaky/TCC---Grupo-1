@@ -72,7 +72,10 @@ $currentFilter = request('filtros');
                 @endif
             </article>
         @empty
-            <p>Nenhum tema encontrado.</p>
+            <div class="alerta">
+                <span class="material-icons">error_outline</span>
+                <p>Nenhum tema encontrado.</p>
+            </div>
         @endforelse
     </section>
 
