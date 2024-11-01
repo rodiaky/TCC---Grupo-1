@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Perguntas;
 use App\Models\Bancas;
+use App\Models\Questoes;
 
 class QuestoesController extends Controller
 {
@@ -20,7 +21,10 @@ class QuestoesController extends Controller
         ->select('perguntas.*', 'bancas.nome as banca_nome')
         ->orderBy('perguntas.ano', 'desc') 
         ->paginate(10);
-        return view('admin.questoes.questoes', compact('questoes','titulo'));
+        $bancas = Bancas::pluck('nome', 'id')->sort()->all();
+        $assuntos = Perguntas::where('disciplina', $titulo)->select('assunto')->distinct()->pluck('assunto')->sort()->all();
+        $anos = Perguntas::select('ano')->distinct()->pluck('ano')->sortDesc()->all();
+        return view('admin.questoes.questoes', compact('questoes','titulo','bancas','assuntos','anos'));
     }
 
     public function literatura(){
@@ -30,7 +34,10 @@ class QuestoesController extends Controller
         ->select('perguntas.*', 'bancas.nome as banca_nome')
         ->orderBy('perguntas.ano', 'desc') 
         ->paginate(10);
-        return view('admin.questoes.questoes', compact('questoes','titulo'));
+        $bancas = Bancas::pluck('nome', 'id')->sort()->all();
+        $assuntos = Perguntas::where('disciplina', $titulo)->select('assunto')->distinct()->pluck('assunto')->sort()->all();
+        $anos = Perguntas::select('ano')->distinct()->pluck('ano')->sortDesc()->all();
+        return view('admin.questoes.questoes', compact('questoes','titulo','bancas','assuntos','anos'));
     }
 
     public function interpretacao(){
@@ -40,8 +47,46 @@ class QuestoesController extends Controller
         ->select('perguntas.*', 'bancas.nome as banca_nome')
         ->orderBy('perguntas.ano', 'desc') 
         ->paginate(10);
-        return view('admin.questoes.questoes', compact('questoes','titulo'));
+        $bancas = Bancas::pluck('nome', 'id')->sort()->all();
+        $assuntos = Perguntas::where('disciplina', $titulo)->select('assunto')->distinct()->pluck('assunto')->sort()->all();
+        $anos = Perguntas::select('ano')->distinct()->pluck('ano')->sortDesc()->all();
+        return view('admin.questoes.questoes', compact('questoes','titulo','bancas','assuntos','anos'));
     }
+
+    public function filtrar(Request $request)
+    {
+        $query = Perguntas::select('perguntas.*', 'bancas.nome as banca_nome')
+            ->join('bancas', 'perguntas.id_banca', '=', 'bancas.id') 
+            ->orderBy('perguntas.ano', 'desc');
+
+        if ($request->filled('disciplina')) {
+            $query->where('disciplina', $request->disciplina);
+        }
+
+        if ($request->filled('id_banca')) {
+            $query->where('id_banca', $request->id_banca);
+        }
+
+
+        if ($request->filled('assunto')) {
+            $query->where('assunto', $request->assunto);
+        }
+
+
+        if ($request->filled('ano')) {
+            $query->where('ano', $request->ano);
+        }
+
+
+        $questoes = $query->paginate(10);
+        $titulo = $request->disciplina;
+        $bancas = Bancas::pluck('nome', 'id')->sort()->all();
+        $assuntos = Perguntas::where('disciplina', $titulo)->select('assunto')->distinct()->pluck('assunto')->sort()->all();
+        $anos = Perguntas::select('ano')->distinct()->pluck('ano')->sortDesc()->all();
+
+        return view('admin.questoes.questoes', compact('questoes','titulo','bancas','assuntos','anos'));
+    }
+
 
     public function adicionar() {
         $url = url()->previous();

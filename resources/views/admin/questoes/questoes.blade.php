@@ -35,7 +35,40 @@
         @endif
 
         <section class="selecionarFiltro sectionCinza">
-            <h1 class="subtitulo">{{ $titulo }}</h1>
+        <form action="{{ route('admin.questoes.filtrar') }}" method="GET">
+        <input type="hidden" name="disciplina" value="{{$titulo}}">
+        <div class="filtro-item">
+    <label for="banca">Banca:</label>
+    <select name="id_banca" id="banca">
+        <option value="">Selecione a banca</option>
+        @foreach($bancas as $id => $nome)
+            <option value="{{ $id }}" {{ request('id_banca') == $id ? 'selected' : '' }}>{{ $nome }}</option>
+        @endforeach
+    </select>
+</div>
+        
+        <div class="filtro-item">
+            <label for="assunto">Assunto:</label>
+            <select name="assunto" id="assunto">
+                <option value="">Selecione o assunto</option>
+                @foreach($assuntos as $assunto)
+                    <option value="{{ $assunto }}" {{ request('assunto') == $assunto ? 'selected' : '' }}>{{ $assunto }}</option>
+                @endforeach
+            </select>
+        </div>
+        
+        <div class="filtro-item">
+            <label for="ano">Ano:</label>
+            <select name="ano" id="ano">
+                <option value="">Selecione o ano</option>
+                @foreach($anos as $ano)
+                    <option value="{{ $ano }}" {{ request('ano') == $ano ? 'selected' : '' }}>{{ $ano }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <button type="submit">Filtrar</button>
+    </form>
         </section>
 
         <section>
@@ -88,22 +121,21 @@
         </section>
 
         <!-- Pagination Links -->
-        <div class="pagination">
-            <div class="flex justify-between">
-                {{-- Pagination Elements --}}
-                <div class="links">
-                    {{-- Exibe os números das páginas --}}
-                    @for ($i = 1; $i <= $questoes->lastPage(); $i++)
-                        @if ($i == $questoes->currentPage())
-                            <div class="active"><span>{{ $i }}</span></div>
-                        @else
-                            <a class="pagination-link" href="{{ $questoes->url($i) }}">{{ $i }}</a>
-                        @endif
-                    @endfor
-                </div>
-            </div>
+<div class="pagination">
+    <div class="flex justify-between">
+        {{-- Pagination Elements --}}
+        <div class="links">
+            {{-- Exibe os números das páginas --}}
+            @for ($i = 1; $i <= $questoes->lastPage(); $i++)
+                @if ($i == $questoes->currentPage())
+                    <div class="active"><span>{{ $i }}</span></div>
+                @else
+                    <a class="pagination-link" href="{{ $questoes->url($i) . '&' . http_build_query(request()->except('page')) }}">{{ $i }}</a>
+                @endif
+            @endfor
         </div>
-
+    </div>
+</div>
     </main>
     
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>

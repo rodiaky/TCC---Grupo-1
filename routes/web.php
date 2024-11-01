@@ -162,6 +162,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/gramatica', [QuestoesController::class, 'gramatica'])->name('admin.questoes.gramatica');
             Route::get('/literatura', [QuestoesController::class, 'literatura'])->name('admin.questoes.literatura');
             Route::get('/interpretacao', [QuestoesController::class, 'interpretacao'])->name('admin.questoes.interpretacao');
+            Route::get('/filtrar', [QuestoesController::class, 'filtrar'])->name('admin.questoes.filtrar');
             Route::get('/adicionar', [QuestoesController::class, 'adicionar'])->name('admin.questoes.adicionar');
             Route::post('/salvar', [QuestoesController::class, 'salvar'])->name('admin.questoes.salvar');
             Route::get('/editar/{id}', [QuestoesController::class, 'editar'])->name('admin.questoes.editar');
