@@ -170,7 +170,7 @@
             </article>
 
             <article class="container-codigo">
-                <div class="header-codigo toggleButton" id="card5" data-target="dropdown5"> L) Linguagem </div>
+                <div class="header-codigo toggleButton id="card5" data-target="dropdown5"> L) Linguagem </div>
                 <ul class="options-codigo content" id="dropdown5">
                     <li><p><b>L1.</b> Mantenha o nível padrão: evite informalidades.</p></li>
                     <li><p><b>L2.</b> Melhore a linguagem, valorizando suas ideias.</p></li>
@@ -266,7 +266,7 @@
     </section>
            
 
-    <section class="container-btn"><button type="submit" class="salvar" id="saveBtn">Salvar</button></section>
+    <section class="container-btn"><button type="button" class="salvar" id="saveBtn">Salvar</button></section>
           
         </form>
     </main>
