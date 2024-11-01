@@ -13,9 +13,15 @@
 
 
     <main>
-
-        <h1 class="titulo-pagina">Alunos - {{ $nome_turma ? $nome_turma : 'Turma não encontrada' }}</h1>
-        <hr class="titulo-linha">
+    <div class="container-titulo-seta">
+        <div class="container-seta">
+              <a href="{{ route('admin.turmas') }}" class="seta-back">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+          </div>
+          <h1 class="titulo-pagina">Alunos - {{ $nome_turma ? $nome_turma : 'Turma não encontrada' }}</h1>
+      </div>
+    <hr class="titulo-linha">
 
  
         <button type="button" class="botao"> <!-- ajustar o CSS  -->

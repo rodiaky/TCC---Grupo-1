@@ -41,7 +41,7 @@ class RedacoesPendentesController extends Controller
     }
     public function uploadpage()
    {
-   	return view('product');
+    return view('product');
    }
 
    public function store(Request $request)

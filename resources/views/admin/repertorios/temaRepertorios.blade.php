@@ -33,7 +33,7 @@
             @forelse ($pastas as $pasta)
             <div class="wrapper">
                 <a href="{{ route('admin.repertorios', ['id' => $pasta->id]) }}" style="text-decoration: none; color: inherit;">
-                    <img src="{{ $pasta->imagem }}" alt="Imagem do tema" class="img-tema">
+                    <img src="{{ asset('assets/temasRepertorios/'.$pasta->imagem) }}" alt="Imagem do tema" class="img-tema">
                     <div class="escrito">
                         <p>{{ $pasta->nome }}</p>
                     </div>

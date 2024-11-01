@@ -147,7 +147,7 @@
                             @if ($i == $repertorios->currentPage())
                                 <div class="active"><span>{{ $i }}</span></div>
                             @else
-                                <a class="pagination-link" href="{{ $repertorios->url($i) }}">{{ $i }}</a>
+                            <a class="pagination-link" href="{{ route('admin.repertorios.filtrar', ['page' => $i, 'filtros' => request('filtros'), 'id_pasta' => $id_pasta]) }}">{{ $i }}</a>
                             @endif
                         @endfor
                     </div>

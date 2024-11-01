@@ -239,11 +239,10 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
 
     
     // Redacoes Pendentes Routes
-    Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
-    Route::post('/save-image', [RedacoesPendentesController::class, 'saveImage'])->name('save.image');
-    Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
-    Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'saveImage']);
-    Route::match(['get','post'],'/admin/correcao/atualizar/{id}', ['as' =>'admin.correcao.atualizar', 'uses' => 'App\Http\Controllers\RedacoesPendentesController@atualizar']);
+Route::get('/view/{is}', [RedacoesPendentesController::class, 'view']);
+Route::post('/uploadproduct', [RedacoesPendentesController::class, 'store']);
+Route::post('/save-edited-image/{id}', [RedacoesPendentesController::class, 'atualizar']);
+Route::match(['get', 'post'], '/admin/correcao/atualizar/{id}', [RedacoesPendentesController::class, 'atualizar']);
 
     Route::get('/public/assets/materiais/{imageName}', 'App\Http\Controllers\MateriaisController@show')->name('pdf.show');
     Route::get('/public/assets/textosApoio/{imageName}', 'App\Http\Controllers\TemaController@show')->name('pdf.mostrar');

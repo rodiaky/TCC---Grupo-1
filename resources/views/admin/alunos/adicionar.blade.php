@@ -18,7 +18,7 @@
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
-            <h1 class="titulo-pagina">Casdastro de Aluno</h1>
+            <h1 class="titulo-pagina">Cadastro de Aluno</h1>
         </div>
         <hr class="titulo-linha">
     </main>
