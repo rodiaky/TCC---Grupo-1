@@ -44,7 +44,7 @@ class RedacoesPendentesController extends Controller
    	return view('product');
    }
 
-   public function store(Request $request)
+   /*public function store(Request $request)
    {
         $redacao = Redacoes::find($id);
         $file = $request->file('redacao_enviada');
@@ -59,7 +59,7 @@ class RedacoesPendentesController extends Controller
         $redacao->save();
 
         return redirect()->back();
-   }
+   }*/
 
    public function show()
    {
@@ -111,8 +111,43 @@ class RedacoesPendentesController extends Controller
 
    public function atualizar(Request $request, $id)
 {
-    
+    // Encontra a redação pelo ID
+    $redacao = Redacoes::find($id);
 
+    if ($redacao) {
+         $imageData = $request->input('image');
+         $imageData = str_replace('data:image/png;base64,', '', $imageData);
+         $imageData = str_replace(' ', '+', $imageData);
+
+         // Gera um nome de arquivo único para a imagem editada
+         $newFileName = 'corrigida_' . uniqid() . '.png';
+         $imagePath = ('assets/redacao_corrigida/' . $newFileName);
+
+         // Salva a imagem editada
+         if (file_put_contents($imagePath, base64_decode($imageData))) {
+              // Atualiza a coluna 'redacao_corrigida' com o nome do novo arquivo
+              $redacao->redacao_corrigida = $newFileName;
+              
+              $redacao->save();
+
+              return response()->json(['success' => true, 'message' => 'Imagem corrigida salva com sucesso!']);
+         } else {
+              return response()->json(['success' => false, 'message' => 'Erro ao salvar a imagem no diretório.']);
+         }
+        }
+
+        $file = $request->file('redacao_enviada');
+        
+        // Gera um nome único para o arquivo
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        
+        // Move o arquivo para a pasta 'assets'
+        $file->move(('assets/redacao_enviada'), $filename);
+
+        $redacao->redacao_enviada = $filename;
+        $redacao->save();
+
+        
     // Atualize a nota final da redação, se necessário
     $notaFinal = $request->input('nota_aluno_redacao');
     DB::table('redacoes')->where('id', $id)->update(['nota_aluno_redacao' => $notaFinal,
@@ -147,7 +182,7 @@ class RedacoesPendentesController extends Controller
         }
         return redirect()->back()->with('success', 'Registro excluído com sucesso!');
    }
-   public function saveImage(Request $request, $id)
+   /*public function saveImage(Request $request, $id)
      {
      // Encontra a redação pelo ID
      $redacao = Redacoes::find($id);
@@ -175,5 +210,5 @@ class RedacoesPendentesController extends Controller
      }
 
      return response()->json(['success' => false, 'message' => 'Redação não encontrada.']);
-     }
+     }*/
 }
