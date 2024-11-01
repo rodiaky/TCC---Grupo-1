@@ -138,4 +138,45 @@ class AlunoIndividualController extends Controller
 
         return view('admin.turmas.aluno', compact('aluno', 'turma', 'redacoesPorBanca', 'user', 'pagamentos','examType', 'notasArray'));
     }
+
+
+
+    public function adicionar() {
+        $alunos = DB::table('users')
+        ->join('alunos', 'users.id', '=', 'alunos.id_user')
+        ->select('users.name','alunos.id')
+        ->where('eh_admin','Aluno')
+        ->get();
+        return view('admin.pagamentos.adicionar',compact('alunos'));
+    }
+
+    public function editar($id) {
+        $alunos = DB::table('users')
+        ->join('alunos', 'users.id', '=', 'alunos.id_user')
+        ->select('users.name','alunos.id')
+        ->where('eh_admin','Aluno')
+        ->get();
+        $pagamentos = Pagamentos::find($id);
+        return view('admin.pagamentos.editar',compact('linha','alunos'));
+    }
+
+
+    public function excluir($id) {
+        Pagamentos::find($id)->delete();
+        return redirect()->route('admin.turmas.aluno');
+    }
+
+    public function salvar(Request $req){
+        $dados = $req->all();  
+        Pagamentos::create($dados);
+        return redirect()->route('admin.turmas.aluno');
+
+    }
+
+    public function atualizar(Request $req, $id){
+        $dados = $req->all();
+        Pagamentos::find($id)->update($dados);
+        return redirect()->route('admin.turmas.aluno');
+    }
+
 }

@@ -11,7 +11,6 @@
 
 @section('conteudo')
     <main>
-        <!-- TEM QUE ARRUMAR -->
         <div class="container-titulo-seta">
            <div class="container-seta">
                 <a href="{{ url()->previous() }}" class="seta-back">

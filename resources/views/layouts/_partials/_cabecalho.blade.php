@@ -9,8 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cabecalhoUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cabecalhoLayout.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <link rel="shortcut icon" type="imagex/png" href="{{ asset('assets/img/iconePalavrear.ico') }}">
 </head>
 
 <body>
@@ -51,6 +49,14 @@
                             <a href="{{ route('professor.home') }}" class="sidebar-item-link">
                                 <i class="material-icons">home</i>
                                 <span class="sidebar-link">Início</span>
+                            </a>
+                        </li>
+
+                        <!-- Redações Pendentes -->
+                        <li class="sidebar-item">
+                            <a href="{{ route('temaRedacoes') }}" class="sidebar-item-link">
+                                <i class="material-icons">error</i>
+                                <span class="sidebar-link">Redações Pendentes</span>
                             </a>
                         </li>
 

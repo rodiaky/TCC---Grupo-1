@@ -8,16 +8,17 @@
 @endsection
 
 @section('conteudo')
+
     <main>
-    <div class="container-titulo-seta">
-        <div class="container-seta">
-              <a href="{{ url()->previous() }}" class="seta-back">
-                  <i class="material-icons">arrow_back</i>
-              </a>
-          </div>
-          <h1 class="titulo-pagina">Editar Questão</h1>
-      </div>
-      <hr>
+        <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ url()->previous() }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Editar Questão</h1>
+        </div>
+        <hr class="titulo-linha">
     </main>
     
     <article>

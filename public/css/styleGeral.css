@@ -84,3 +84,18 @@ button {
     /* position: relative; */
     -webkit-touch-callout: none;
 }
+
+.alerta {
+    padding: .5rem 1rem .5rem 1rem;
+    color: rgb(217, 30, 30);
+    border: 1.5px solid rgb(217, 30, 30);
+    width: fit-content;
+    background-color: rgb(243, 226, 226);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    user-select: none;
+    -webkit-user-select: none;
+}

@@ -37,9 +37,7 @@
                 <div class="info-dado">{{$perfil->nome_turma}}</div>
                 @endif
 
-                <div class="subtitulo"><h1>Segurança</h1>@if ($aluno)<a href="{{ route('aluno.alterar_senha') }}"> <i class="icon-perfil fa-solid fa-pen"></i>@endif</a></div>
-                <h2 class="info">Senha</h2>
-                <div class="info-dado">{{$perfil->password}}</div>
+                <div class="subtitulo"><h1>Alterar Senha</h1>@if ($aluno)<a href="{{ route('aluno.alterar_senha') }}"> <i class="icon-perfil fa-solid fa-pen"></i>@endif</a></div>
             </div>
 
         </section>

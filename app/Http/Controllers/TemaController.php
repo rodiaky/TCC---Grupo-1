@@ -97,15 +97,27 @@ class TemaController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
-        $file = $req->file('arquivo');
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(('assets/textosApoio'), $filename);
-        $req->texto_apoio =  $filename;
+        
+        $tema = Temas::find($id);
+        if($req->hasFile('arquivo')){
+            $file = $req->file('arquivo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(('assets/textosApoio'), $filename);
+        }else{
 
-        $image = $req->file('imagem');
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('assets/temas'), $imagename);
-        $req->imagem =  $imagename;
+            $filename=$tema->texto_apoio;
+
+        }
+
+       
+        if($req->hasFile('imagem')){
+            $image = $req->file('imagem');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/temas'), $imagename);
+        }
+        else{
+            $imagename=$tema->imagem;
+        }
         
         $fraseTematica = $req->input('frase_tematica');
         $ano = $req->input('ano');

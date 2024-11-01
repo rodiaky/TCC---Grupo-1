@@ -6,21 +6,24 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+
     <title>Editar Material</title>
 
 @endsection
 
 @section('conteudo')
+
     <main>
-    <div class="container-titulo-seta">
-        <div class="container-seta">
-              <a href="{{ url()->previous() }}" class="seta-back">
-                  <i class="material-icons">arrow_back</i>
-              </a>
-          </div>
-          <h1 class="titulo-pagina">Editar Material</h1>
-      </div>
-      <hr>
+        <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ url()->previous() }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Editar Material</h1>
+        </div>
+        <hr class="titulo-linha">
     </main>
 
     <article>
