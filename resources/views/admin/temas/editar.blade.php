@@ -6,11 +6,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/visualizarTema.css') }}">
     <title>Editar Tema</title>
 @endsection
 
 @section('conteudo')
+
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
@@ -18,7 +18,7 @@
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
-            <h1 class="titulo-pagina">Editar Tema</h1>
+            <h1 class="titulo-pagina"> Editar Tema</h1>
         </div>
         <hr class="titulo-linha">
     </main>
