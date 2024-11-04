@@ -17,8 +17,10 @@ class TemaController extends Controller
             ->orderBy('temas.ano', 'desc')
             ->paginate(10);
 
+        $bancas = Bancas::pluck('nome', 'id')->all();
 
-        return view('admin.temas.index', compact('temas'));
+
+        return view('admin.temas.index', compact('temas','bancas'));
     }
 
     public function visualizarTema($id) {
@@ -31,18 +33,30 @@ class TemaController extends Controller
         return view('admin.temas.visualizarTema', compact('tema'));
     }
 
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
+        $bancas = Bancas::pluck('nome', 'id')->all();
+    
+        // Obtém os valores de 'search' e 'id_banca' da requisição
         $search = $request->input('search');
-
+        $idBanca = $request->input('id_banca');
+    
         $temas = DB::table('temas')
-            ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
-            ->select('temas.*', 'bancas.nome as banca_nome')
-            ->when($search, function ($query, $search) {
-                return $query->where('temas.frase_tematica', 'ILIKE', "%{$search}%");
-            })
-            ->paginate(10); // Ensure pagination is still applied
-
-        return view('admin.temas.index', compact('temas'));
+        ->join('bancas', 'temas.id_banca', '=', 'bancas.id')
+        ->select('temas.*', 'bancas.nome as banca_nome')
+        ->when($search, function ($query, $search) {
+            return $query->where('temas.frase_tematica', 'ILIKE', "%{$search}%");
+        })
+        ->when($idBanca, function ($query, $idBanca) {
+            return $query->where('temas.id_banca', $idBanca);
+        })
+        ->paginate(10)
+        ->appends([
+            'search' => $search,
+            'id_banca' => $idBanca
+        ]);
+    
+        return view('admin.temas.index', compact('temas', 'bancas'));
     }
 
     public function adicionar() {

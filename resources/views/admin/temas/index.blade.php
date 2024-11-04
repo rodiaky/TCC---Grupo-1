@@ -30,15 +30,26 @@ $currentFilter = request('filtros');
     @endif
 
     <section class="section-barra-de-pesquisa">
-        <form method="GET" action="{{ route('admin.temas.search') }}">
-            <label class="pesquisa" for="barra-pesquisa">
-                <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
-                <button type="submit" id="pesquisar">
-                    <i class="material-icons lupa-pesquisa">search</i>
-                </button>
-            </label>
-        </form>
-    </section>
+    <form method="GET" action="{{ route('admin.temas.search') }}">
+        <label class="pesquisa" for="barra-pesquisa">
+            <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
+            <button type="submit" id="pesquisar">
+                <i class="material-icons lupa-pesquisa">search</i>
+            </button>
+        </label>
+        
+        <!-- Filtro por Banca -->
+        <label for="banca-select">Banca:</label>
+        <select id="banca-select" name="id_banca">
+            <option value="">Todas</option>
+            @foreach ($bancas as $id => $nome)
+                <option value="{{ $id }}" {{ request('id_banca') == $id ? 'selected' : '' }}>
+                    {{ $nome }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+</section>
 
     <section class="container-tema">
         @forelse ($temas as $tema)
@@ -79,24 +90,29 @@ $currentFilter = request('filtros');
         @endforelse
     </section>
 
-    <!-- Pagination Links -->
-    <div class="pagination">
-        <div class="flex justify-between">
-            {{-- Pagination Elements --}}
-            <div class="links">
-                {{-- Exibe os números das páginas --}}
-                @for ($i = 1; $i <= $temas->lastPage(); $i++)
-                    @if ($i == $temas->currentPage())
-                        <div class="active"><span>{{ $i }}</span></div>
-                    @else
-                        <a class="pagination-link" href="{{ $temas->url($i) }}">{{ $i }}</a>
-                    @endif
-                @endfor
-            </div>
+   <!-- Pagination Links -->
+<div class="pagination">
+    <div class="flex justify-between">
+        {{-- Pagination Elements --}}
+        <div class="links">
+            {{-- Exibe os números das páginas --}}
+            @for ($i = 1; $i <= $temas->lastPage(); $i++)
+                @if ($i == $temas->currentPage())
+                    <div class="active"><span>{{ $i }}</span></div>
+                @else
+                    <a class="pagination-link" href="{{ $temas->url($i) }}">{{ $i }}</a>
+                @endif
+            @endfor
         </div>
     </div>
+</div>
 
 </main>
 
 <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+<script>
+    document.getElementById('banca-select').addEventListener('change', function() {
+        this.form.submit();
+    });
+</script>
 @endsection

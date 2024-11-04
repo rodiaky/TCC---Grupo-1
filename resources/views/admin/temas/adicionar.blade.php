@@ -1,8 +1,7 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/Arquivo.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
