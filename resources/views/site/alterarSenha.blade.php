@@ -9,12 +9,19 @@
 
 @section('conteudo')
     <main>
-        <h1>Alterar Senha</h1>
-        <hr>
+        <div class="container-titulo-seta">
+           <div class="container-seta">
+                <a href="{{ url()->previous() }}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Alterar Senha</h1>
+        </div>
+        <hr class="titulo-linha">
 
         <article>
             <div class="form-value">
-                <form action="{{ route('aluno.alterar_senha.update') }}" method="POST">
+                <form action="{{ route('admin.alterar_senha.update') }}" method="POST">
                     @csrf
 
                     <div class="inputbox">

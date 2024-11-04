@@ -25,7 +25,11 @@
             
             <div class="info-pessoal">
 
-                <div class="subtitulo"><h1>Informações Pessoais</h1>@if ($aluno)<a href="{{ route('admin.alunos.editar', ['id' => $idUser]) }}"><i class="icon-perfil fa-solid fa-pen" ></i></a>@endif</div>
+                <div class="subtitulo"><h1>Informações Pessoais</h1>
+                    <a href="{{ route($aluno ? 'admin.alunos.editar' : 'admin.professor.editar', ['id' => $idUser]) }}">
+                        <i class="icon-perfil fa-solid fa-pen"></i>
+                    </a>
+                </div>
                 <h2 class="info">Nome</h1>
                 <div class="info-dado">{{$perfil->name}}</div>
                 <h2 class="info">E-mail</h1>
@@ -37,7 +41,7 @@
                 <div class="info-dado">{{$perfil->nome_turma}}</div>
                 @endif
 
-                <div class="subtitulo"><h1>Alterar Senha</h1>@if ($aluno)<a href="{{ route('aluno.alterar_senha') }}"> <i class="icon-perfil fa-solid fa-pen"></i>@endif</a></div>
+                <div class="subtitulo"><h1>Alterar Senha</h1><a href="{{ route('admin.alterar_senha') }}"> <i class="icon-perfil fa-solid fa-pen"></i></a></div>
             </div>
 
         </section>

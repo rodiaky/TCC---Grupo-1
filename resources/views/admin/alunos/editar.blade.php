@@ -10,9 +10,6 @@
 @endsection
 
 @section('conteudo')
-    @php
-    $aluno = $_SESSION['eh_admin'] === 'Aluno';
-    @endphp
 
     <main>
         <div class="container-titulo-seta">

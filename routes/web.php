@@ -29,6 +29,7 @@ use App\Http\Controllers\EstatisticaController;
 use App\Http\Controllers\MinhasRedacoesController;
 use App\Http\Controllers\AlunoIndividualController;
 use App\Http\Controllers\PagamentoController;
+use App\Http\Controllers\ProfessorController;
 
 // Auth Routes
 Auth::routes();
@@ -48,8 +49,6 @@ Route::get('/site/turmas/excluir/{id}', [TurmasController::class, 'excluir'])->n
 // Aluno Routes
 Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/alterar_senha', [AlterarSenhaController::class, 'index'])->name('alterar_senha');
-    Route::post('/alterar_senha', [AlterarSenhaController::class, 'update'])->name('alterar_senha.update');
     Route::get('/painel_redacoes', [MinhasRedacoesController::class, 'index'])->name('painel_redacoes');
     Route::get('/estatistica', [EstatisticaController::class, 'index'])->name('estatistica');
    
@@ -89,6 +88,16 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/home', [HomeController::class, 'index'])->name('aluno.home');
     // Admin Routes
     Route::prefix('admin')->group(function() {
+
+        Route::get('/alterar_senha', [AlterarSenhaController::class, 'index'])->name('admin.alterar_senha');
+        Route::post('/alterar_senha', [AlterarSenhaController::class, 'update'])->name('admin.alterar_senha.update');
+
+        Route::prefix('professor')->group(function() {
+            Route::get('/editar/{id}', [ProfessorController::class, 'editar'])->name('admin.professor.editar');
+            Route::match(['get', 'post'], '/atualizar/{id}', [ProfessorController::class, 'atualizar'])->name('admin.professor.atualizar');
+            Route::get('/excluir/{id}', [AlunoController::class, 'excluir'])->name('admin.alunos.excluir');            
+        });
+
         Route::prefix('temas')->group(function() {
             Route::get('/', [TemaController::class, 'index'])->name('admin.temas');
             Route::get('/pesquisar', [TemaController::class, 'search'])->name('admin.temas.search');
