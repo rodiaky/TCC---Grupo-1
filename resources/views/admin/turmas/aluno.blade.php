@@ -37,18 +37,20 @@
         <div class="row mb-3">
             <div id="selecionar-seta">
                 <select id="examSelect" class="form-control selecionar">
-                    <option value="1" {{ $examType === '1' ? 'selected' : '' }}>Fuvest</option>
-                    <option value="7" {{ $examType === '7' ? 'selected' : '' }}>Enem</option>
-                    <option value="6" {{ $examType === '6' ? 'selected' : '' }}>Unicamp</option>
-                    <option value="5" {{ $examType === '5' ? 'selected' : '' }}>Vunesp</option>
+                @foreach($bancas as $banca)
+                    <option value="{{ $banca->id }}" 
+                        {{ $examType == $banca->id ? 'selected' : '' }}>
+                        {{ $banca->nome }}
+                    </option>
+                @endforeach
                 </select>
             </div>
         </div>
 
-            <div class="grafico">
-                <canvas id="myBarChart"></canvas>
-            </div>
-        </section>
+        <div class="grafico">
+            <canvas id="myBarChart"></canvas>
+        </div>
+    </section>
 
         <!-- REDACOES -->
         <h1 class="subtitulo">Redações</h1>

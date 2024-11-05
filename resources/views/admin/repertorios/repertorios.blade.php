@@ -122,7 +122,7 @@
                                 <a href="{{ route('admin.repertorios.excluir', ['id' => $repertorio->id]) }}" class="editar-opcoes-texto">Excluir</a>
                             </div>
                         </button>
-                    </div>
+                    <!-- </div> -->
                     @endif
 
                 </article>

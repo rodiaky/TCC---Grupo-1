@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Bancas;
 
 class EstatisticaController extends Controller
 {
@@ -20,6 +21,8 @@ class EstatisticaController extends Controller
             ->first();
 
         $id_aluno_value = $id_aluno->id ?? null;
+
+        $bancas = Bancas::all();
 
         // Consultar notas
         $notas = DB::table('redacoes')
@@ -75,6 +78,6 @@ class EstatisticaController extends Controller
             return response()->json($notasArray);
         }
 
-        return view('site.aluno.painel_redacoes', compact('examType', 'notasArray'));
+        return view('site.aluno.painel_redacoes', compact('examType', 'notasArray', 'bancas'));
     }
 }

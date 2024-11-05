@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Pessoas;
 use App\Models\Alunos;
 use App\Models\Pagamentos;
+use App\Models\Bancas;
 use Illuminate\Support\Facades\DB;
 
 class AlunoIndividualController extends Controller
@@ -136,7 +137,9 @@ class AlunoIndividualController extends Controller
             return response()->json($notasArray);
         }
 
-        return view('admin.turmas.aluno', compact('aluno', 'turma', 'redacoesPorBanca', 'user', 'pagamentos','examType', 'notasArray'));
+        $bancas = Bancas::all();
+
+        return view('admin.turmas.aluno', compact('aluno', 'turma', 'redacoesPorBanca', 'user', 'pagamentos','examType', 'notasArray', 'bancas'));
     }
 
 
