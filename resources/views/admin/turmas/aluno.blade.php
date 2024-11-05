@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralTabela.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/aluno.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/estatistica.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botao1.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Aluno</title>
 @endsection
@@ -13,6 +14,15 @@
 @section('conteudo')
     
     <main>
+
+    <button type="button" class="botao">
+        <div class="botao-circulo"><i class="fa-solid fa-plus"></i></div>
+        <div class="botao-expand">
+            <a href="{{ route('admin.pagamentos.adicionar', ['id' => $user->id]) }}" class="botao-texto">Adicionar Pagamento</a>
+        </div>
+    </button>
+
+
     <div class="container-titulo-seta">
         <div class="container-seta">
               <a href="{{ url()->previous() }}" class="seta-back">
@@ -21,6 +31,7 @@
           </div>
           <h1 class="subtitulo">Informações do Aluno</h1>
       </div>
+      
         <!-- INFORMACOES DO ALUNO -->
         <section class="info-aluno">
             <div class="container-imagem"><img src="{{ asset('assets/fotoPerfil/'.$user->foto) }}" alt=""></div>

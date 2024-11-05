@@ -23,27 +23,8 @@ class AlunoIndividualController extends Controller
         $idUser = $_SESSION['id'];
         $pagamentos = Pagamentos::where('id_aluno', $id_aluno)->get();
 
-        // Mapear meses do ano
-        $meses = [
-            1 => 'Janeiro',
-            2 => 'Fevereiro',
-            3 => 'Março',
-            4 => 'Abril',
-            5 => 'Maio',
-            6 => 'Junho',
-            7 => 'Julho',
-            8 => 'Agosto',
-            9 => 'Setembro',
-            10 => 'Outubro',
-            11 => 'Novembro',
-            12 => 'Dezembro',
-        ];
         
-        // Transformar meses nos pagamentos
-        $pagamentos->transform(function ($pagamento) use ($meses) {
-            $pagamento->mes = $meses[$pagamento->mes] ?? 'Mês Inválido'; // Mapeia o mês
-            return $pagamento;
-        });
+        
 
         if (!$aluno) {
             return response()->json(['error' => 'Aluno não encontrado'], 404);
@@ -160,7 +141,7 @@ class AlunoIndividualController extends Controller
         ->where('eh_admin','Aluno')
         ->get();
         $pagamentos = Pagamentos::find($id);
-        return view('admin.pagamentos.editar',compact('linha','alunos'));
+        return view('admin.pagamentos.editar',compact('pagamentos','alunos'));
     }
 
 

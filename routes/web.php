@@ -149,8 +149,8 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
         });
 
         Route::prefix('pagamentos')->group(function() {
-            Route::get('/adicionar', [PagamentoController::class, 'adicionar'])->name('admin.pagamentos.adicionar');
-            Route::post('/salvar', [PagamentoController::class, 'salvar'])->name('admin.pagamentos.salvar');
+            Route::get('/adicionar/{id}', [PagamentoController::class, 'adicionar'])->name('admin.pagamentos.adicionar');
+            Route::post('/salvar/{id}', [PagamentoController::class, 'salvar'])->name('admin.pagamentos.salvar');
             Route::get('/editar/{id}', [PagamentoController::class, 'editar'])->name('admin.pagamentos.editar');
             Route::match(['get', 'post'], '/atualizar/{id}', [PagamentoController::class, 'atualizar'])->name('admin.pagamentos.atualizar');
             Route::get('/excluir/{id}', [PagamentoController::class, 'excluir'])->name('admin.pagamentos.excluir');            
