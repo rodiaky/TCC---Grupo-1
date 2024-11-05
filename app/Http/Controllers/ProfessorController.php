@@ -68,39 +68,46 @@ class ProfessorController extends Controller
     }
     
     public function atualizar(Request $request, $id)
-{
+    {
+        $profAtual = User::find($id);
+        if ($request->hasFile('arquivo')) {
+            // Se um novo arquivo foi enviado, armazena o novo arquivo
+            $image = $request->file('arquivo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(('assets/fotoPerfil'), $imageName);
+        } else {
+            // Se não foi enviado um novo arquivo, mantém o arquivo existente
+            $imageName = $profAtual->foto; // Nome do arquivo atual
+        }
 
-    $aluno = $_SESSION['eh_admin'] === 'Aluno';
-    // Validação dos dados recebidos
-    $request->validate([
-        'name' => 'required|string|max:255',
-    ]);
+        $aluno = $_SESSION['eh_admin'] === 'Aluno';
+        // Validação dos dados recebidos
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
 
-    // Tente encontrar o aluno com base no ID do usuário
-    $professor = Funcionarios::where('id_user', $id)->first();
+        // Tente encontrar o aluno com base no ID do usuário
+        $professor = Funcionarios::where('id_user', $id)->first();
 
-    $file = $request->file('arquivo');
-    $filename = time() . '.' . $file->getClientOriginalExtension();
-    $file->move(('assets/fotoPerfil'), $filename);
-    $request->foto =  $filename;
 
-    // Atualiza também o nome do usuário
-    $user = User::findOrFail($id); 
-    $user->name = $request->name;
-    $user->email=$request->email;
-    $user->foto = $filename;
 
-    // Salva as alterações
-    $userSaved = $user->save();
-    $professorSaved = $professor->save();
+        // Atualiza também o nome do usuário
+        $user = User::findOrFail($id); 
+        $user->name = $request->name;
+        $user->email=$request->email;
+        $user->foto = $imageName;
 
-    // Verifica se as alterações foram salvas
-    if (!$professorSaved || !$professorSaved) {
-        return redirect()->back()->with('error', 'Erro ao atualizar os dados do aluno.')->withInput();
-    }
+        // Salva as alterações
+        $userSaved = $user->save();
+        $professorSaved = $professor->save();
 
-        $url = $request->input('url');
-        return redirect()->to($url);
-    
+        // Verifica se as alterações foram salvas
+        if (!$professorSaved || !$professorSaved) {
+            return redirect()->back()->with('error', 'Erro ao atualizar os dados do aluno.')->withInput();
+        }
+
+            $url = $request->input('url');
+            return redirect()->to($url);
+        
     }
 }

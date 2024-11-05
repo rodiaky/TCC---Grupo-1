@@ -41,11 +41,24 @@
                     <br>
                     <label class="lbl-upload">Upload de imagem</label>
                     <div class="upload">
-                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                        <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)" style="display: none;">
+                        <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
+                        Escolher Arquivo
+                        </button>
+                        <span id="file-name">
+                        {{ isset($professor->foto) && $professor->foto ? 'Arquivo atual: ' . $professor->foto : 'Nenhum arquivo carregado' }}
+                        </span>
                         <input type="hidden" name="id_aluno" value="{{$professor->id}}">
                         <input type="hidden" name="foto" value="{{$professor->foto}}">
                         <input type="hidden" name="url" id="url" value="{{$url}}">
                     </div>
+                    <script>
+                        // Função para exibir o nome do arquivo quando selecionado
+                        function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                        }
+                    </script>
 
                       <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>

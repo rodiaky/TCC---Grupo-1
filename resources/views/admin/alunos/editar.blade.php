@@ -46,8 +46,10 @@
                             </script>
                             
                             <span id="text-selected-turma">{{$alunos->nome_turma}}</span>
+
                         </div><!--selected-data-->
 
+                        
                         <!-- Input hidden para o ID da turma selecionada -->
                         <input type="hidden" name="url" id="url" value="{{$url}}">
                         <input type="hidden" id="id_turma" name="id_turma" value="{{ $alunos->id_turma }}" />
@@ -55,11 +57,25 @@
                     <br>
                     <label class="lbl-upload">Upload de imagem</label>
                     <div class="upload">
-                        <input type="file" class="arquivo" id="arquivo" name="arquivo">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)" style="display: none;">
+                        <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
+                        Escolher Arquivo
+                        </button>
+                        <span id="file-name">
+                        {{ isset($alunos->foto) && $alunos->foto ? 'Arquivo atual: ' . $alunos->foto : 'Nenhum arquivo carregado' }}
+                        </span>
                         <input type="hidden" name="id_aluno" value="{{$alunos->id}}">
                         <input type="hidden" name="foto" value="{{$alunos->foto}}">
                         <input type="hidden" name="url" id="url" value="{{$url}}">
                     </div>
+                    <script>
+                        // Função para exibir o nome do arquivo quando selecionado
+                        function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                        }
+                    </script>
+
 
                       <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>

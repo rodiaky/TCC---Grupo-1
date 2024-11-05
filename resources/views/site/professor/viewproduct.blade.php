@@ -378,37 +378,36 @@
             document.getElementById('opacityValue').textContent = currentOpacity;
         });
 
-        // Função para salvar a imagem
-        document.getElementById('saveBtn').addEventListener('click', function() {
-        const dataURL = canvas.toDataURL('image/png');
-        const formData = new FormData();
-        formData.append('image', dataURL);
-        console.log(redacaoId);
-        console.log('Enviando dados:', dataURL); // Verifica se o dataURL está correto
+        // Função para salvar a imagem e a nota
+        document.getElementById("btnSalvar").addEventListener("click", function() {
+            var nota = document.getElementById("nota").value; // Captura a nota
+            var canvasData = canvas.toDataURL(); // Captura a imagem do canvas
 
-        fetch(`/save-edited-image/${redacaoId}`, { // Use template literals para construir a URL
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Resposta do servidor:', data); // Verifica a resposta do servidor
-            if (data.success) {
-                alert('Imagem salva com sucesso!');
-            } else {
-                alert('Erro ao salvar a imagem.');
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao salvar a imagem.');
+            // Envio dos dados para o servidor
+            fetch("{{ route('admin.correcao.atualizar', $redacao->id) }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    nota: nota,
+                    image: canvasData // Envio da imagem capturada
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Tratar a resposta do servidor
+                if (data.success) {
+                    alert("Dados salvos com sucesso!");
+                } else {
+                    alert("Erro ao salvar os dados.");
+                }
+            })
+            .catch((error) => {
+                console.error('Erro:', error);
+            });
         });
-        });
-
-
 
         // Função para desfazer a última alteração
         function undo() {
@@ -422,4 +421,5 @@
             history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
         }
     </script>
+
 @endsection

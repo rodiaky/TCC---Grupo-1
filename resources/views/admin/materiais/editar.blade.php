@@ -40,7 +40,7 @@
 
                 <label class="lbl-upload">Upload de arquivo</label>
                 <div class="upload">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" onchange="showFileName(this)" style="display: none;">
                     <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
                     Escolher Arquivo
                     </button>

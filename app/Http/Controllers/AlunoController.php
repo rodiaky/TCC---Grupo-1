@@ -93,59 +93,64 @@ class AlunoController extends Controller
     }
     
     public function atualizar(Request $request, $id)
-{
+    {
+        $alunoAtual = User::find($id);
+            if ($request->hasFile('arquivo')) {
+                // Se um novo arquivo foi enviado, armazena o novo arquivo
+                $image = $request->file('arquivo');
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(('assets/fotoPerfil'), $imageName);
+            } else {
+                // Se não foi enviado um novo arquivo, mantém o arquivo existente
+                $imageName = $alunoAtual->foto; // Nome do arquivo atual
+            }
 
-    $aluno = $_SESSION['eh_admin'] === 'Aluno';
-    // Validação dos dados recebidos
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'id_turma' => 'required|exists:turmas,id',
-    ]);
+        $aluno = $_SESSION['eh_admin'] === 'Aluno';
+        // Validação dos dados recebidos
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'id_turma' => 'required|exists:turmas,id',
+        ]);
 
-    // Tente encontrar o aluno com base no ID do usuário
-    $aluno = Alunos::where('id_user', $id)->first();
+        // Tente encontrar o aluno com base no ID do usuário
+        $aluno = Alunos::where('id_user', $id)->first();
 
-    // Verifica se o aluno foi encontrado
-    if (!$aluno) {
-        return redirect()->route('professor.admin.alunos', ['id' => $request->id_turma])
-                         ->with('error', 'Aluno não encontrado.');
-    }
+        // Verifica se o aluno foi encontrado
+        if (!$aluno) {
+            return redirect()->route('professor.admin.alunos', ['id' => $request->id_turma])
+                            ->with('error', 'Aluno não encontrado.');
+        }
 
-    // Armazena o ID da turma anterior
-    $id_turma_antiga = $aluno->id_turma;
+        // Armazena o ID da turma anterior
+        $id_turma_antiga = $aluno->id_turma;
 
-    // Atualiza a turma do aluno
-    $aluno->id_turma = $request->id_turma; 
+        // Atualiza a turma do aluno
+        $aluno->id_turma = $request->id_turma; 
 
-    $file = $request->file('arquivo');
-    $filename = time() . '.' . $file->getClientOriginalExtension();
-    $file->move(('assets/fotoPerfil'), $filename);
-    $request->foto =  $filename;
+        // Atualiza também o nome do usuário
+        $user = User::findOrFail($id); 
+        $user->name = $request->name;
+        $user->email=$request->email;
+        $user->foto = $imageName;
 
-    // Atualiza também o nome do usuário
-    $user = User::findOrFail($id); 
-    $user->name = $request->name;
-    $user->email=$request->email;
-    $user->foto = $filename;
+        // Salva as alterações
+        $userSaved = $user->save();
+        $alunoSaved = $aluno->save();
 
-    // Salva as alterações
-    $userSaved = $user->save();
-    $alunoSaved = $aluno->save();
+        // Verifica se as alterações foram salvas
+        if (!$userSaved || !$alunoSaved) {
+            return redirect()->back()->with('error', 'Erro ao atualizar os dados do aluno.')->withInput();
+        }
 
-    // Verifica se as alterações foram salvas
-    if (!$userSaved || !$alunoSaved) {
-        return redirect()->back()->with('error', 'Erro ao atualizar os dados do aluno.')->withInput();
-    }
-
-    // Redireciona para a página de alunos da turma anterior com uma mensagem de sucesso
-    if(!$aluno){
-    return redirect()->route('professor.admin.alunos', ['id' => $id_turma_antiga])
-                     ->with('success', 'Aluno atualizado com sucesso.');
-    }
-    else{
-        $url = $request->input('url');
-        return redirect()->to($url);
-    }
+        // Redireciona para a página de alunos da turma anterior com uma mensagem de sucesso
+        if(!$aluno){
+        return redirect()->route('professor.admin.alunos', ['id' => $id_turma_antiga])
+                        ->with('success', 'Aluno atualizado com sucesso.');
+        }
+        else{
+            $url = $request->input('url');
+            return redirect()->to($url);
+        }
 }
 
     public function completo(){
