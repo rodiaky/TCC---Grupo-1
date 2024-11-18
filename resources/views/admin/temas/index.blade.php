@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/temaRedacoes.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/botao1.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/pagination.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/select.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Temas de Redações</title>
 @endsection
@@ -30,26 +31,30 @@ $currentFilter = request('filtros');
     @endif
 
     <section class="section-barra-de-pesquisa">
-    <form method="GET" action="{{ route('admin.temas.search') }}">
-        <label class="pesquisa" for="barra-pesquisa">
-            <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
-            <button type="submit" id="pesquisar">
-                <i class="material-icons lupa-pesquisa">search</i>
-            </button>
-        </label>
+        <form method="GET" action="{{ route('admin.temas.search') }}">
+
+            <!-- Filtro por Nome -->
+            <label class="pesquisa" for="barra-pesquisa">
+                <input type="text" id="barra-pesquisa" name="search" placeholder="Digite o tema." value="{{ request('search') }}">
+                <button type="submit" id="pesquisar">
+                    <i class="material-icons lupa-pesquisa">search</i>
+                </button>
+            </label>
         
-        <!-- Filtro por Banca -->
-        <label for="banca-select">Banca:</label>
-        <select id="banca-select" name="id_banca">
-            <option value="">Todas</option>
-            @foreach ($bancas as $id => $nome)
-                <option value="{{ $id }}" {{ request('id_banca') == $id ? 'selected' : '' }}>
-                    {{ $nome }}
-                </option>
-            @endforeach
-        </select>
-    </form>
-</section>
+            <!-- Filtro por Banca -->
+            <div class="selecionar-seta">
+                <select id="banca-select" name="id_banca" class="selecionar">
+                    <option value="">Todas as Bancas</option>
+                    @foreach ($bancas as $id => $nome)
+                        <option value="{{ $id }}" {{ request('id_banca') == $id ? 'selected' : '' }}>
+                            {{ $nome }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        </form>
+
+    </section>
 
     <section class="container-tema">
         @forelse ($temas as $tema)
