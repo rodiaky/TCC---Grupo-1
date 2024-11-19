@@ -106,8 +106,7 @@ class TemaController extends Controller
         
         Temas::create($meuVetor);
 
-        $url = $req->input('url');
-        return redirect()->to($url);
+        return redirect()->route('admin.temas');
     }
 
     public function atualizar(Request $req, $id) {
@@ -148,8 +147,7 @@ class TemaController extends Controller
 
     
         Temas::find($id)->update($meuVetor);
-        $url = $req->input('url');
-        return redirect()->to($url);
+        return redirect()->route('admin.temas');
     }
 
     public function store(Request $request)

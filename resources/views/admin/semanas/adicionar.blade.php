@@ -13,48 +13,50 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+                <a href="{{ route('admin.semanas') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
-            <h1 class="titulo-pagina">Editar Semana</h1>
+            <h1 class="titulo-pagina">Adicionar Semana</h1>
         </div>
         <hr class="titulo-linha">
     </main>
     
     <article>
         <div class="form-value">
-        <form action="{{ route('admin.semanas.salvar') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.semanas.salvar') }}" method="post" enctype="multipart/form-data" id="form-semana">
                 {{ csrf_field() }}
 
                 <div class="inputbox">
                     <label for="nome-semana">Nome da semana</label>
-                    <input type="text" name="nome"  required>
+                    <input type="text" name="nome"  value="{{ old('nome') }}" >
                 </div>
 
                 <div id="inputboxAno" class="inputbox">
                     <label for="data-inicio">Data de início</label>
-                    <input type="text" id="data_inicio" name="data_inicio" required placeholder="dd/mm/yyyy">
+                    <input type="text" id="data_inicio" name="data_inicio" value="{{ old('data_inicio') }}" placeholder="dd/mm/yyyy">
                 </div>
 
                 <div id="inputboxAno" class="inputbox">
                     <label for="data-fim">Data de fim</label>
-                    <input type="text" id="data_fim" name="data_fim" required placeholder="dd/mm/yyyy">
+                    <input type="text" id="data_fim" name="data_fim" value="{{ old('data_fim') }}"  placeholder="dd/mm/yyyy">
                 </div>
 
                 <div class="inputbox">
                     <label for="descricao-semana">Descrição</label>
-                    <textarea id="textoDescricao" class="textoQuestao" name="descricao" required></textarea>
+                    <textarea id="textoDescricao" class="textoQuestao" name="descricao" >{{ old('descricao') }}</textarea>
                 </div>
 
-                  <div class="mensagem">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    Preencha todos os campos antes de avançar
-                </div>
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
                 
                 <div class="botoes">
-                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="button" name="salvar" class="button">Salvar</button>
+                    <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="sumbit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>
@@ -84,6 +86,15 @@
 
         document.getElementById('data_fim').addEventListener('input', function() {
             aplicarMascaraData(this);
+        });
+
+        document.getElementById('limpar').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const campos = document.querySelectorAll('#form-semana input[type="text"], #form-semana textarea');
+            campos.forEach(function(campo) {
+                campo.value = '';  // Limpa o conteúdo de cada campo
+            });
         });
     </script>
 @endsection

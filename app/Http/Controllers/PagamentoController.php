@@ -39,7 +39,7 @@ class PagamentoController extends Controller
             ->pluck('id')
             ->first();
         $dados = $req->all();
-        $dados->id_aluno = $idAluno;  
+        $dados['id_aluno'] = $idAluno;  
         Pagamentos::create($dados);
         return redirect()->route('admin.turmas.aluno',['id' =>  $id]);
 

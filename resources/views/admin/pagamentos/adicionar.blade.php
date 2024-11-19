@@ -27,7 +27,8 @@
         <form action="{{ route('admin.pagamentos.salvar', ['id' => $id]) }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             
-            <input type="hidden" name="id_aluno" id="id_aluno" value="{{ $id_aluno ?? '' }}"> <!-- Supondo que você tenha a variável $id_aluno disponível -->
+            <input type="hidden" name="id_user" id="id_user" value="{{ $id ?? '' }}">
+            <input type="hidden" name="id_aluno" id="id_aluno" value=""> 
 
             <div class="inputbox">
                 <label for="valor">Valor</label>

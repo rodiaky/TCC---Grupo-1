@@ -29,15 +29,33 @@ class BancaController extends Controller
     }
 
     public function salvar(Request $req){
-        $dados = $req->all();  
-        Bancas::create($dados);
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'nota_maxima_banca' => 'required|numeric|min:0|max:1000',
+        ]);
+    
+
+        Bancas::create([
+            'nome' => $req->nome,
+            'nota_maxima_banca' => $req->nota_maxima_banca,
+        ]);
         return redirect()->route('admin.bancas');
 
     }
 
     public function atualizar(Request $req, $id){
-        $dados = $req->all();
-        Bancas::find($id)->update($dados);
+ 
+    $req->validate([
+        'nome' => 'required|string|max:255',
+        'nota_maxima_banca' => 'required|numeric|min:0|max:1000',
+    ]);
+
+
+    $banca = Bancas::findOrFail($id);
+    $banca->update([
+        'nome' => $req->nome,
+        'nota_maxima_banca' => $req->nota_maxima_banca,
+    ]);
         return redirect()->route('admin.bancas');
     }
 }

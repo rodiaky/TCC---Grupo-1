@@ -14,7 +14,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+                <a href="{{route('admin.temas')}}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>

@@ -40,8 +40,20 @@ class CriterioController extends Controller
     }
 
     public function salvar(Request $req){
-        $dados = $req->all();  
-        Criterios::create($dados);
+
+         $validated = $req->validate([
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required|string',
+            'nota_maxima_criterio' => 'required|integer|min:0|max:200',
+            'banca' => 'required|exists:bancas,id',
+        ]);
+
+        Criterios::create([
+            'nome' => $validated['nome'],
+            'descricao' => $validated['descricao'],
+            'nota_maxima_criterio' => $validated['nota_maxima_criterio'],
+            'id_banca' => $validated['banca'],
+        ]);
         return redirect()->route('admin.criterios');
 
     }
@@ -49,6 +61,6 @@ class CriterioController extends Controller
     public function atualizar(Request $req, $id){
         $dados = $req->all();
         Criterios::find($id)->update($dados);
-        return redirect()->to(url()->previous());
+        return redirect()->route('admin.criterios');
     }
 }

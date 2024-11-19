@@ -6,13 +6,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <title>Editar Semana</title>
-    @endsection
+@endsection
 
 @section('conteudo')
     <main>
         <div class="container-titulo-seta">
-           <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+            <div class="container-seta">
+                <a href="{{ route('admin.semanas') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -23,37 +23,40 @@
     
     <article>
         <div class="form-value">
-        <form action="{{ route('admin.semanas.atualizar', $semanas->id) }}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
+            <form action="{{ route('admin.semanas.atualizar', $semanas->id) }}" method="post" enctype="multipart/form-data" id="form-semana">
+                {{ csrf_field() }}
 
                 <div class="inputbox">
                     <label for="nome-semana">Nome da semana</label>
-                    <input type="text" name="nome" value="{{ isset($semanas->nome) ? $semanas->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ old('nome', $semanas->nome) }}" >
                 </div>
 
                 <div id="inputboxAno" class="inputbox">
                     <label for="data-inicio">Data de início</label>
-                    <input type="text" id="data-inicio" name="data_inicio" value="{{ isset($semanas->data_inicio) ? $semanas->data_inicio : '' }}" required placeholder="dd/mm/yyyy">
+                    <input type="text" id="data_inicio" name="data_inicio" value="{{ old('data_inicio', $semanas->data_inicio) }}"  placeholder="dd/mm/yyyy">
                 </div>
 
                 <div id="inputboxAno" class="inputbox">
                     <label for="data-fim">Data de fim</label>
-                    <input type="text" id="data-fim" name="data_fim" value="{{ isset($semanas->data_fim) ? $semanas->data_fim : '' }}" required placeholder="dd/mm/yyyy">
+                    <input type="text" id="data_fim" name="data_fim" value="{{ old('data_fim', $semanas->data_fim) }}"  placeholder="dd/mm/yyyy">
                 </div>
 
                 <div class="inputbox">
                     <label for="descricao-semana">Descrição</label>
-                    <textarea id="textoDescricao" class="textoQuestao" name="descricao" required>{{ old('descricao', $semanas->descricao) }}</textarea>
+                    <textarea id="textoDescricao" class="textoQuestao" name="descricao" >{{ old('descricao', $semanas->descricao) }}</textarea>
                 </div>
 
-                  <div class="mensagem">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    Preencha todos os campos antes de avançar
-                </div>
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
                 
+
                 <div class="botoes">
-                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="button" name="salvar" class="button">Salvar</button>
+                    <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>
@@ -61,6 +64,7 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <script>
         function aplicarMascaraData(input) {
             let valor = input.value;
@@ -84,5 +88,16 @@
         document.getElementById('data_fim').addEventListener('input', function() {
             aplicarMascaraData(this);
         });
+
+        document.getElementById('limpar').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const campos = document.querySelectorAll('#form-semana input[type="text"], #form-semana textarea');
+            campos.forEach(function(campo) {
+                campo.value = '';  // Limpa o conteúdo de cada campo
+            });
+        });
+
+        
     </script>
 @endsection

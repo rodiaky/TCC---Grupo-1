@@ -33,7 +33,13 @@ class SemanaController extends Controller
     }
 
     public function salvar(Request $req){
-        
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'data_inicio' => 'required|date_format:d/m/Y',
+            'data_fim' => 'required|date_format:d/m/Y|after_or_equal:data_inicio',
+            'descricao' => 'required|string|max:500',
+        ]);
+    
         $dados = $req->all();  
         $dados['data_inicio'] = Carbon::createFromFormat('d/m/Y', $dados['data_inicio'])->format('Y-m-d');
         $dados['data_fim'] = Carbon::createFromFormat('d/m/Y', $dados['data_fim'])->format('Y-m-d');
@@ -43,6 +49,13 @@ class SemanaController extends Controller
     }
 
     public function atualizar(Request $req, $id){
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'data_inicio' => 'required|date_format:d/m/Y',
+            'data_fim' => 'required|date_format:d/m/Y|after_or_equal:data_inicio',
+            'descricao' => 'required|string|max:500',
+        ]);
+    
         $dados = $req->all();
         $dados['data_inicio'] = Carbon::createFromFormat('d/m/Y', $dados['data_inicio'])->format('Y-m-d');
         $dados['data_fim'] = Carbon::createFromFormat('d/m/Y', $dados['data_fim'])->format('Y-m-d');
