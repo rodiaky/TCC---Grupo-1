@@ -45,22 +45,33 @@ class CriterioController extends Controller
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
             'nota_maxima_criterio' => 'required|integer|min:0|max:200',
-            'banca' => 'required|exists:bancas,id',
+            'id_banca' => 'required|exists:bancas,id',
         ]);
 
         Criterios::create([
             'nome' => $validated['nome'],
             'descricao' => $validated['descricao'],
             'nota_maxima_criterio' => $validated['nota_maxima_criterio'],
-            'id_banca' => $validated['banca'],
+            'id_banca' => $validated['id_banca'],
         ]);
         return redirect()->route('admin.criterios');
 
     }
 
     public function atualizar(Request $req, $id){
-        $dados = $req->all();
-        Criterios::find($id)->update($dados);
+        $validated = $req->validate([
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required|string',
+            'nota_maxima_criterio' => 'required|integer|min:0|max:200',
+            'id_banca' => 'required|exists:bancas,id',
+        ]);
+        $criterio = Criterios::findOrFail($id);
+        $criterio->update([
+            'nome' => $validated['nome'],
+            'descricao' => $validated['descricao'],
+            'nota_maxima_criterio' => $validated['nota_maxima_criterio'],
+            'id_banca' => $validated['id_banca'],
+        ]);
         return redirect()->route('admin.criterios');
     }
 }

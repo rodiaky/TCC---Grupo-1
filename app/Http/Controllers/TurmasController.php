@@ -72,12 +72,21 @@ class TurmasController extends Controller
         return redirect()->route('admin.turmas');
     }
 
-    public function salvar(Request $req){
-        $dados = $req->all();  
-        Turmas::create($dados);
+    public function salvar(Request $req)
+    {
+        $validatedData = $req->validate([
+            'nome' => 'required|string|max:255',
+            'dias_aula' => 'required|string',
+            'horario_entrada' => 'required|date_format:H:i',
+            'horario_saida' => 'required|date_format:H:i|after:horario_entrada',
+        ], [
+            'horario_saida.after' => 'O horário de saída deve ser posterior ao horário de entrada.',
+        ]);
+        Turmas::create($validatedData);
+    
         return redirect()->route('admin.turmas');
-
     }
+    
 
     public function atualizar(Request $req, $id){
         $dados = $req->all();

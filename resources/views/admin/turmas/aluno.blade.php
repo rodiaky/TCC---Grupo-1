@@ -91,8 +91,7 @@
         <!-- REGISTRO DE PAGAMENTO -->
 <h1 class="subtitulo">Registro de Pagamento</h1>
 
-<!-- TABELA DE PAGAMENTO -->
-<h1 class="subtitulo">Tabela de Pagamento</h1>
+
 <section class="tabela">
 
     <div class="overflow">

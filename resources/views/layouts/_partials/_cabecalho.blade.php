@@ -54,7 +54,7 @@
 
                         <!-- Redações Pendentes -->
                         <li class="sidebar-item">
-                            <a href="{{ route('temaRedacoes') }}" class="sidebar-item-link">
+                            <a href="{{ url('/redacoes_pendentes') }}" class="sidebar-item-link">
                                 <i class="material-icons">error</i>
                                 <span class="sidebar-link">Redações Pendentes</span>
                             </a>
