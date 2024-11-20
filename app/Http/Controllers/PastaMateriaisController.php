@@ -38,6 +38,11 @@ class PastaMateriaisController extends Controller
 
     public function salvar(Request $req) {
 
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'arquivo' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validação do arquivo de imagem
+        ]);
+
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(('assets/pastasMateriais'), $filename);
@@ -57,6 +62,10 @@ class PastaMateriaisController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'imagem' => 'required|string', // Validação do arquivo de imagem
+        ]);
         // Busca o registro atual no banco de dados para obter a imagem existente
         $pastaAtual = Pastas::find($id);
     

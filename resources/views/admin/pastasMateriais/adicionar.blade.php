@@ -12,7 +12,7 @@
     <main>
       <div class="container-titulo-seta">
         <div class="container-seta">
-              <a href="{{ url()->previous() }}" class="seta-back">
+              <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
                   <i class="material-icons">arrow_back</i>
               </a>
           </div>
@@ -27,7 +27,7 @@
         {{ csrf_field() }}
                 <div class="inputbox">
                     <label for="">Nome da pasta</label>
-                    <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ old('nome', isset($pastas->nome) ? $pastas->nome : '') }}" >
                 </div>
 
                 <label class="lbl-upload">Upload de imagem</label>
@@ -35,12 +35,17 @@
                     <input type="file" class="arquivo" id="arquivo" name="arquivo">
                 </div>
 
-               
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
 
 
                 <div class="botoes">
-                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="button" name="salvar" class="button">Salvar</button>
+                    <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="sumbit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>

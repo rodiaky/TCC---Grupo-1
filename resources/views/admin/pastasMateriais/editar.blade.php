@@ -10,24 +10,24 @@
 
 @section('conteudo')
     <main>
-      <div class="container-titulo-seta">
-        <div class="container-seta">
-              <a href="{{ url()->previous() }}" class="seta-back">
-                  <i class="material-icons">arrow_back</i>
-              </a>
-          </div>
-          <h1 class="titulo-pagina">Editar Pasta</h1>
-      </div>
-      <hr class="titulo-linha">
+        <div class="container-titulo-seta">
+            <div class="container-seta">
+                <a href="{{ route('admin.pastasMateriais')}}" class="seta-back">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Editar Pasta</h1>
+        </div>
+        <hr class="titulo-linha">
     </main>
 
     <article>
         <div class="form-value">
-        <form action="{{ route('admin.pastasMateriais.atualizar', $pastas->id) }}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
+            <form action="{{ route('admin.pastasMateriais.atualizar', $pastas->id) }}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="inputbox">
                     <label for="">Nome da pasta</label>
-                    <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ old('nome', isset($pastas->nome) ? $pastas->nome : '') }}" >
                 </div>
 
                 <label class="lbl-upload">Upload de imagem</label>
@@ -41,12 +41,13 @@
 
                     <!-- Exibição do nome do arquivo ou mensagem padrão -->
                     <span id="file-name">
-                        {{ isset($pastas->imagem) && $pastas->imagem ? 'Arquivo atual: ' . $pastas->imagem : 'Nenhum arquivo carregado' }}
+                        {{ old('arquivo', isset($pastas->imagem) && $pastas->imagem ? 'Arquivo atual: ' . $pastas->imagem : 'Nenhum arquivo carregado') }}
                     </span>
 
                     <!-- Campos hidden para armazenar dados existentes -->
                     <input type="hidden" name="id_tema" value="{{ $pastas->id }}">
-                    <input type="hidden" name="imagem" value="{{ $pastas->imagem }}">
+                    <input type="hidden" name="imagem" value="{{ old('arquivo', isset($pastas->imagem) && $pastas->imagem ? $pastas->imagem : '') }}">
+
                 </div>
 
                 <script>
@@ -55,11 +56,28 @@
                         const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
                         document.getElementById('file-name').textContent = fileName;
                     }
-                </script>
 
-                
+                    function limparFormulario(event) {
+                        event.preventDefault(); 
+    
+                        document.querySelector("input[name='nome']").value = '';
+                        document.querySelector("input[name='imagem']").value = '';
+                     
+                        document.getElementById('file-name').textContent = 'Nenhum arquivo escolhido';
+                       
+                        document.getElementById('imagem').value = '';
+                        
+                    }
+
+                </script>
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
                 <div class="botoes">
-                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="button" name="limpar" id="limpar" class="button" onclick="limparFormulario(event)">Limpar</button>
                     <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
@@ -71,3 +89,4 @@
 </body>
 </html>
 @endsection
+
