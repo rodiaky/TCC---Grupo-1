@@ -1,0 +1,52 @@
+.lbl-upload{
+    color: var(--varLaranjaEscuro);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.upload{
+    margin-top: 15px;
+    display: flex;
+}
+
+/* Botão personalizado */
+.custom-upload-button {
+    background-color: white;
+    color: #F46F20; 
+    border:none;
+    border-radius: 5px; 
+    padding: 10px 20px;
+    margin-right: 20px; 
+    font-size: 14px; 
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color,color, transform 0.2s;
+    transition: 200ms; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.custom-upload-button:hover {
+    background-color: #FEA572;
+    color: white;
+    transform: scale(1.05); 
+}
+
+/* Efeito ao clicar */
+.custom-upload-button:active {
+    background-color: #004494; /* Outro tom mais escuro */
+    transform: scale(0.98); /* Diminui ligeiramente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduz a sombra */
+}
+
+/* Mensagem do nome do arquivo */
+#file-name {
+    font-family: Arial, sans-serif;
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; /* Ajuste conforme necessário */
+}
