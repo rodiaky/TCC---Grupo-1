@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/estatistica.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Home</title>
 @endsection
@@ -84,9 +85,7 @@
                 <a href="{{route('admin.semanas')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
                 <div class="texto-card">Semanas</div>
             </div>
-
-        </section>
-
+    </section>
 
         <section class="semanas card_wrapper">
         <form action="{{ route('professor.home') }}" method="GET" id="semanaForm" class="container">
@@ -218,46 +217,213 @@
         @endif
     </section>
 
+    <!-- Gráfico -->
+    <section class="mt-5 container-estatistica">
+        <div class="row mb-3">
+            <div id="selecionar-seta">
+                <select id="examSelect" class="form-control selecionar">
+                    @foreach($bancas as $banca)
+                        <option value="{{ $banca->id }}" 
+                            {{ $examType == $banca->id ? 'selected' : '' }}>
+                            {{ $banca->nome }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="grafico">
+            <canvas id="myBarChart"></canvas>
+        </div>
+    </section>
+
     </main>
 
   
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
-
+    <script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/estatisticaGeral.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 
-    function slider_carouselInit() {
-        $('.owl-carousel.slider_carousel').owlCarousel({
-            dots: false,
-            loop: true,
-            margin: 30,
-            stagePadding: 2,
-            autoplay: false,
-            nav: true,
-            navText: ["<i class='fa-solid fa-chevron-left'></i>", "<i class='fa-solid fa-chevron-right'></i>"],
-            autoplayTimeout: 1500,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                600: {
-                    items: 3,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 5,
-                }
+    <script>
+        // Função para limitar caracteres
+        function limitarCaracteres(label, limite) {
+            if (label.length > limite) {
+                return label.substring(0, limite) + '...';
             }
-        });
-    }
-    slider_carouselInit();
+            return label;
+        }
 
-</script>
+        // Inicializar gráfico
+        var ctx = document.getElementById('myBarChart').getContext('2d');
+        var chart;
+
+        // Função para buscar dados via AJAX
+        function fetchData(examType) {
+            $.ajax({
+                url: '', // URL do script PHP atual
+                type: 'GET',
+                data: { exam: examType, ajax: 'true' },
+                dataType: 'json',
+                success: function(data) {
+                    console.log('Dados recebidos:', data);
+
+                    if (data.length <= 1) {
+                        updateChart([], [], [], 0);
+                        return;
+                    }
+
+                    var labels = [];
+                    var classAverages = [];
+                    var maxGrade = parseFloat(data[1][2]);  // Corrigido para pegar o índice certo
+                    var maxGradesArray = new Array(data.length - 1).fill(maxGrade);
+
+                    // Preenchendo os dados de rótulos e médias
+                    for (var i = 1; i < data.length; i++) {
+                        labels.push(limitarCaracteres(data[i][0], 25));  // Limitar caracteres dos rótulos
+                        classAverages.push(parseFloat(data[i][1]));  // Média da turma para cada frase temática
+                    }
+
+                    // Calcular a média acumulada
+                    var cumulativeAvgClass = calculateCumulativeAverage(classAverages);
+
+                    // Atualizar o gráfico com os novos dados
+                    updateChart(labels, classAverages, cumulativeAvgClass, maxGradesArray, maxGrade);
+                },
+                error: function(err) {
+                    console.error('Erro ao buscar os dados:', err);
+                    updateChart([], [], [], 0);
+                }
+            });
+        }
+
+        // Função para atualizar o gráfico
+        function updateChart(labels, classAverages, cumulativeAvgClass, maxGradesArray, maxGrade) {
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels.length ? labels : [''],
+                    datasets: [
+                        {
+                            label: 'Média dos Alunos',
+                            data: classAverages.length ? classAverages : [0],
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                            barThickness: 20
+                        },
+                        {
+                            label: 'Média Acumulada dos Alunos',
+                            type: 'line',
+                            data: cumulativeAvgClass.length ? cumulativeAvgClass : [0],
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Nota Máxima',
+                        type: 'line',  // Garantir que seja uma linha e não uma barra
+                        data: maxGradesArray.length ? maxGradesArray : [0],
+                        borderColor: 'rgba(255, 205, 86, 1)',  // Cor da linha pontilhada
+                        backgroundColor: 'rgba(255, 205, 86, 0.2)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1,
+                        borderDash: [10, 5],  // Aqui aplicamos a linha pontilhada
+                        }
+                        
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: maxGrade + 1
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.dataset.label + ': ' + tooltipItem.raw.toFixed(2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Função para calcular a média acumulada da turma
+        function calculateCumulativeAverage(averages) {
+            var cumulative = [];
+            var sum = 0;
+            for (var i = 0; i < averages.length; i++) {
+                sum += averages[i];
+                cumulative.push(sum / (i + 1));  // Calcula a média cumulativa
+            }
+            return cumulative;
+        }
+
+        // Ao carregar a página, busca os dados para o tipo de exame inicial
+        $(document).ready(function() {
+            var examType = $('#examSelect').val();
+            fetchData(examType);
+
+            // Quando mudar a seleção de banco, busca novos dados
+            $('#examSelect').change(function() {
+                fetchData($(this).val());
+            });
+        });
+    </script>
+
+    <script>
+
+        function slider_carouselInit() {
+            $('.owl-carousel.slider_carousel').owlCarousel({
+                dots: false,
+                loop: true,
+                margin: 30,
+                stagePadding: 2,
+                autoplay: false,
+                nav: true,
+                navText: ["<i class='fa-solid fa-chevron-left'></i>", "<i class='fa-solid fa-chevron-right'></i>"],
+                autoplayTimeout: 1500,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 3,
+                    },
+                    768: {
+                        items: 4,
+                    },
+                    992: {
+                        items: 5,
+                    }
+                }
+            });
+        }
+        slider_carouselInit();
+
+    </script>
 
 @endsection
 

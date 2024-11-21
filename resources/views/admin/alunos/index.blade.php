@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralTabela.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/barraDePesquisa.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/botao1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/estatistica.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Crud Alunos</title>
 @endsection
@@ -73,25 +74,26 @@
                 <p>Nenhum aluno cadastrado</p>
             </section>
         @endif
-
+        
+        <!-- Gráfico -->
         <section class="mt-5 container-estatistica">
-        <div class="row mb-3">
-            <div id="selecionar-seta">
-                <select id="examSelect" class="form-control selecionar">
-                @foreach($bancas as $banca)
-                    <option value="{{ $banca->id }}" 
-                        {{ $examType == $banca->id ? 'selected' : '' }}>
-                        {{ $banca->nome }}
-                    </option>
-                @endforeach
-                </select>
+            <div class="row mb-3">
+                <div id="selecionar-seta">
+                    <select id="examSelect" class="form-control selecionar">
+                    @foreach($bancas as $banca)
+                        <option value="{{ $banca->id }}" 
+                            {{ $examType == $banca->id ? 'selected' : '' }}>
+                            {{ $banca->nome }}
+                        </option>
+                    @endforeach
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="grafico">
-            <canvas id="myBarChart"></canvas>
-        </div>
-    </section>
+            <div class="grafico">
+                <canvas id="myBarChart"></canvas>
+            </div>
+        </section>
 
     </main>
 
