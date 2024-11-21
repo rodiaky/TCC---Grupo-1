@@ -32,7 +32,6 @@
         </div>
         <h1 class="subtitulo">Informações do Aluno</h1>
     </div>
-
     <!-- INFORMACOES DO ALUNO -->
     <section class="info-aluno">
         <div class="container-imagem"><img src="{{ asset('assets/fotoPerfil/' . $user->foto) }}" alt=""></div>
@@ -57,12 +56,11 @@
                     @endforeach
                 </select>
             </div>
-        </div>
 
-        <div class="grafico">
-            <canvas id="myBarChart"></canvas>
-        </div>
-    </section>
+            <div class="grafico">
+                <canvas id="myBarChart"></canvas>
+            </div>
+        </section>
 
     <!-- REDACOES -->
     <h1 class="subtitulo">Redações</h1>

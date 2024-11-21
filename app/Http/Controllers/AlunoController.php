@@ -7,23 +7,93 @@ use Illuminate\Http\Request;
 use App\Models\Alunos;
 use App\Models\User;
 use App\Models\Turmas;
+use App\Models\Bancas;
+use App\Models\Redações;
 use Illuminate\Support\Facades\DB;
 
 class AlunoController extends Controller
 {
-    public function index($id) {
+    public function index($id, Request $request) {
+        // Consulta para obter todos os alunos da turma
         $pessoas = User::join('alunos', 'users.id', '=', 'alunos.id_user')
             ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
             ->select('users.*', 'alunos.*', 'users.id as id')
             ->where('turmas.id', $id)
             ->get();
 
+        $bancas = Bancas::all();
+        $examType = $request->input('exam', '1');
+    
+        // Nome da turma
         $nome_turma = Turmas::where('id', $id)
             ->pluck('nome')
             ->first();
     
-        return view('admin.alunos.index', compact('pessoas', 'nome_turma'));
+        // Consulta para pegar todas as notas
+        $notas = DB::table('redacoes')
+            ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
+            ->join('bancas', 'redacoes.id_banca', '=', 'bancas.id')
+            ->join('alunos', 'redacoes.id_aluno', '=', 'alunos.id')
+            ->join('turmas', 'alunos.id_turma', '=', 'turmas.id')
+            ->select(
+                'redacoes.nota_aluno_redacao as nota',
+                'temas.frase_tematica as frase_tematica',
+                'redacoes.id_tema as id_tema',
+                'bancas.nome as banca_nome',
+                'turmas.id as id_turma',
+                'redacoes.id_banca as id_banca',
+                'bancas.nota_maxima_banca as nota_maxima'
+            )
+            ->where('alunos.id_turma', $id) // Filtra pela turma
+            ->where('redacoes.id_banca', $examType) 
+            ->where('redacoes.situacao_redacao', 'Corrigida') // Apenas corrigidas
+            ->orderBy('redacoes.nota_aluno_redacao', 'asc') // Ordena as notas
+            ->get();
+
+        if ($notas->isEmpty()) {
+            $notasArray = [];
+        }
+        else{
+
+    
+        // Calculando médias por tema
+        $temas = $notas->groupBy('id_tema');
+        $medias = [];
+    
+        foreach ($temas as $id_tema => $notasTema) {
+            $fraseTematica = $notasTema->first()->frase_tematica;
+            $mediaTema = $notasTema->avg('nota'); // Calcula a média das notas para o tema
+            $medias[$fraseTematica] = $mediaTema;
+        }
+    
+        // Obtendo a nota máxima da banca
+        $notaMaxima = DB::table('bancas')
+            ->where('id', $notas->first()->id_banca)
+            ->value('nota_maxima_banca') ?? 0;
+    
+       // Preparar dados para JavaScript
+       $notasArray = [];
+       $notasArray[] = ['Frase Temática', 'Média da Sala', 'Nota Máxima'];
+       foreach ($medias as $fraseTematica => $media) {
+        $notasArray[] = [
+            $fraseTematica,
+            number_format(10, 2),
+            number_format($media, 2),
+            $notaMaxima
+        ];
+    
+       }
     }
+
+       if ($request->ajax()) {
+           return response()->json($notasArray);
+       }
+
+        // Passando as variáveis para a view
+        return view('admin.alunos.index', compact('pessoas', 'nome_turma','examType', 'notasArray', 'bancas'));
+
+    }
+    
     
     
     public function adicionar() {

@@ -31,9 +31,6 @@
             </div>
         </button>
  
-
-        
-        
         @if($pessoas->isNotEmpty())
             <section class="tabela">
                 <div class="overflow">
@@ -77,6 +74,29 @@
             </section>
         @endif
 
+        <section class="mt-5 container-estatistica">
+        <div class="row mb-3">
+            <div id="selecionar-seta">
+                <select id="examSelect" class="form-control selecionar">
+                @foreach($bancas as $banca)
+                    <option value="{{ $banca->id }}" 
+                        {{ $examType == $banca->id ? 'selected' : '' }}>
+                        {{ $banca->nome }}
+                    </option>
+                @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="grafico">
+            <canvas id="myBarChart"></canvas>
+        </div>
+    </section>
+
     </main>
+
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/estatisticaTurma.js') }}"></script>
 @endsection

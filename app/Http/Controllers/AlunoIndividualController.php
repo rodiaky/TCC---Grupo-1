@@ -23,21 +23,11 @@ class AlunoIndividualController extends Controller
         $idUser = $_SESSION['id'];
         $pagamentos = Pagamentos::where('id_aluno', $id_aluno)->get();
 
-        
-        
-
         if (!$aluno) {
             return response()->json(['error' => 'Aluno não encontrado'], 404);
         }
 
         $idAluno = $aluno->id;
-
-        // Obtendo os ids das bancas na tabela redacoes para o aluno específico
-        $bancas = DB::table('redacoes')
-            ->select('id_banca')
-            ->where('id_aluno', '=', $idAluno)
-            ->distinct()
-            ->get();
 
         // Agrupando as redações corrigidas por banca, incluindo frases temáticas
         $redacoesPorBanca = DB::table('redacoes')
