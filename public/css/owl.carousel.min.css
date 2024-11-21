@@ -3,6 +3,8 @@
 .owl-carousel {
     margin-left: auto;
     margin-right: auto;
+
+    position: relative;
 }
 
 .owl-nav {
@@ -10,6 +12,11 @@
     justify-content: space-between;
     font-size: 1.3rem;
     margin-top: .5rem;
+
+    width: calc(100% + 50px);
+    
+    position: absolute;
+    right: -25px;
 }
 
 .owl-nav i {
@@ -212,6 +219,10 @@
         width: 155px;
     }
 
+    .owl-nav {
+        bottom: 12px;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -229,6 +240,10 @@
         width: 500px;
     }
 
+    .owl-nav {
+        bottom: 12px;
+    }
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -243,7 +258,11 @@
     .owl-carousel {
         /* max-width: 90vw;
         width: 90vw; */
-        width: 90dvw;
+        width: 80dvw;
+    }
+
+    .owl-nav {
+        bottom: 20px;
     }
 
 }
@@ -260,7 +279,11 @@
     .owl-carousel {
         /* max-width: 90vw;
         width: 90vw; */
-        width: 90dvw;
+        width: 80dvw;
+    }
+
+    .owl-nav {
+        bottom: 25px;
     }
 
 }
@@ -277,7 +300,11 @@
     .owl-carousel {
         /* max-width: 80vw;
         width: 80vw; */
-        width: 90dvw;
+        width: 80dvw;
+    }
+
+    .owl-nav {
+        bottom: 25px;
     }
 
 }

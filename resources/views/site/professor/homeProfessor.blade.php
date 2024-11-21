@@ -1,30 +1,17 @@
 @extends('layouts._partials._cabecalho')
 
 @section('css')
-<<<<<<< Updated upstream
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/temaRedacoes.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/repertorios.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/botao2.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/carrousselHome.css') }}">
-    <link rel="stylesheet" type="text/css" href="/css/botao1.css">
     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/estatistica.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Home</title>
-=======
-<link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/botao2.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/temaRedacoes.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/repertorios.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/carrousselHome.css') }}">
-<!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> -->
-<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<title>Home</title>
->>>>>>> Stashed changes
 @endsection
 
 @section('conteudo')
@@ -93,14 +80,6 @@
             <div class="texto-card">Turmas</div>
         </div>
 
-<<<<<<< Updated upstream
-            <!-- SEMANAS -->
-            <div class="card">
-                <a href="{{route('admin.semanas')}}"><img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg" alt="" class="imagem-card"></a>
-                <div class="texto-card">Semanas</div>
-            </div>
-    </section>
-=======
         <!-- CRITÉRIOS -->
         <div class="card">
             <a href="{{route('admin.criterios')}}"><img
@@ -127,7 +106,7 @@
 
     </section>
 
->>>>>>> Stashed changes
+    <p class="subtitulo">Planejamento semanal</p>
 
     <section class="semanas card_wrapper">
         <form action="{{ route('professor.home') }}" method="GET" id="semanaForm" class="container">
@@ -263,7 +242,8 @@
         @endif
     </section>
 
-<<<<<<< Updated upstream
+    <p class="subtitulo">Estatísticas gerais de todos os alunos</p>
+
     <!-- Gráfico -->
     <section class="mt-5 container-estatistica">
         <div class="row mb-3">
@@ -295,17 +275,6 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-=======
-</main>
-
-
-<script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
-
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script>
->>>>>>> Stashed changes
 
     <script>
         // Função para limitar caracteres

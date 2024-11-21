@@ -1,4 +1,5 @@
 /* ESTATISTICA -------------------------------------------------------------- */
+
 hr, h1 {
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@ hr, h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
+    width: 90vw;
     height: fit-content;
     padding: 1rem 5% 1rem 5%;
     background-color: var(--varCinzaEscuro);

@@ -45,6 +45,7 @@ $currentFilter = request('filtros');
             <div class="selecionar-seta">
                 <select id="banca-select" name="id_banca" class="selecionar">
                     <option value="">Todas as Bancas</option>
+                    <hr>
                     @foreach ($bancas as $id => $nome)
                         <option value="{{ $id }}" {{ request('id_banca') == $id ? 'selected' : '' }}>
                             {{ $nome }}
