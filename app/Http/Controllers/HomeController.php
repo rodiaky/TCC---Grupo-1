@@ -34,13 +34,13 @@ class HomeController extends Controller
             ->take(3) 
             ->get();
 
-        // Obtenha todas as semanas
+
         $semanas = Semanas::orderBy('nome', 'asc')->get();
 
-        // Se uma semana foi selecionada, utilize seu ID, caso contrário, use a primeira
+      
         $semanaSelecionadaId = $request->input('semana_id', $semanas->first()->id);
 
-        // Obtenha os dados da semana selecionada
+        
         $temaSemana = $this->obterTemasDaSemana($semanaSelecionadaId);
         $materialSemana = $this->obterMateriaisDaSemana($semanaSelecionadaId, "Material");
         $repertorioSemana = $this->obterMateriaisDaSemana($semanaSelecionadaId, "Repertório");

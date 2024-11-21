@@ -12,7 +12,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+                <a href="{{ route('admin.questoes') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -177,21 +177,12 @@
                     </div><!--Select para banca--> 
 
                  
-
+                    @if ($errors->any())
                     <div class="mensagem">
-                <ion-icon name="alert-circle-outline"></ion-icon>
-                @if($errors->any())
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                @else
-                    Preencha todos os campos antes de avançar 
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
                 @endif
-            </div>
-
-                </div>
                   
                 
 

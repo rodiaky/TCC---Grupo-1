@@ -12,7 +12,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+                <a href="{{ route('admin.questoes') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -59,7 +59,7 @@
 
                 <div class="inputbox">
                     <label for="">Assunto</label>
-                    <input type="text" name="assunto" value="{{ isset($questoes->assunto) ? $questoes->assunto : '' }}" required>
+                    <input type="text" name="assunto" value="{{ isset($questoes->assunto) ? $questoes->assunto : '' }}" >
                 </div>
 
                 <div class="addAltQuestao">
@@ -178,26 +178,12 @@
 
                  
 
-                    <div class="mensagem" style="color: red;">
-                @if($errors->any())
-                    <ul style="list-style-type: none; padding: 0; margin: 0;">
-                        @foreach($errors->all() as $error)
-                            <li style="display: flex; align-items: center; margin-bottom: 5px;">
-                                <ion-icon name="alert-circle-outline" style="margin-right: 5px;"></ion-icon>
-                                {{ $error }}
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <div style="display: flex; align-items: center;">
-                        <ion-icon name="alert-circle-outline" style="margin-right: 5px;"></ion-icon>
-                        Preencha todos os campos antes de avançar 
+                    @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
                     </div>
                 @endif
-            </div>
-
-
-                </div>
                   
                 
 

@@ -109,11 +109,12 @@
                 </script>
 
 
+                @if ($errors->any())
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
-                        Preencha todos os campos antes de avançar 
+                        Preencha todos os campos corretamente antes de avançar
                     </div>
-                </div>
+                @endif
 
 
                 <!-- Campo oculto para id_banca -->

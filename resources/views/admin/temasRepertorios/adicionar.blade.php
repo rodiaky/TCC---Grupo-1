@@ -27,7 +27,7 @@
         {{ csrf_field() }}
                 <div class="inputbox">
                     <label for="">Nome do tema de repertório</label>
-                    <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" >
                 </div>
 
                 <label class="lbl-upload">Upload de imagem</label>
@@ -36,11 +36,17 @@
                 </div>
 
                 <input type="hidden" name="tipo" value="Repertório">
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
 
 
                 <div class="botoes">
                     <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
-                    <button type="button" name="salvar" class="button">Salvar</button>
+                    <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
         </div>

@@ -13,7 +13,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+                <a href="{{route('admin.temas')}}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -83,10 +83,12 @@
         
                     
                
+                @if ($errors->any())
                     <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
-                        Preencha todos os campos antes de avançar 
+                        Preencha todos os campos corretamente antes de avançar
                     </div>
+                @endif
                 
                 </div>
                 <br>

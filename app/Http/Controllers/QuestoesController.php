@@ -126,8 +126,7 @@ class QuestoesController extends Controller
     
         $dados = $req->all();  
         Perguntas::create($dados);
-        $url = $req->input('url');
-        return redirect()->to($url);
+        return redirect()->route('admin.questoes');
     }
     
     public function atualizar(Request $req, $id) {
@@ -147,7 +146,7 @@ class QuestoesController extends Controller
     
         $dados = $req->all();
         Perguntas::find($id)->update($dados);
-        return redirect()->route('admin.questoes')->with('success', 'Questão atualizada com sucesso!');
+        return redirect()->route('admin.questoes');
     }
     
 }

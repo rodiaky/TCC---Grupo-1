@@ -30,7 +30,7 @@ use App\Http\Controllers\MinhasRedacoesController;
 use App\Http\Controllers\AlunoIndividualController;
 use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\ProfessorController;
-use App\Http\Controllers\EventoController;
+use App\Http\Controllers\AtribuirController;
 
 // Auth Routes
 Auth::routes();
@@ -87,6 +87,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/cruds', function () { return view('site.cruds'); })->name('admin.cruds');
 
     Route::get('/home', [HomeController::class, 'index'])->name('aluno.home');
+    Route::get('/home', [HomeProfessorController::class, 'index'])->name('professor.home');
     
 
     // Admin Routes
@@ -111,6 +112,19 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
             Route::get('/excluir/{id}', [TemaController::class, 'excluir'])->name('admin.temas.excluir');
             Route::get('/visualizarTema/{id}', [TemaController::class, 'visualizarTema'])->name('admin.temas.visualizar');
             Route::post('/store', [TemaController::class, 'store'])->name('admin.temas.store');
+        });
+
+        Route::prefix('atribuir')->group(function() {
+            Route::get('/adicionarTema', [AtribuirController::class, 'adicionarTema'])->name('admin.atribuir.adicionarTema');
+            Route::post('/salvarTema', [AtribuirController::class, 'salvarTema'])->name('admin.atribuir.salvarTema');
+            Route::get('/excluirTema/{id_semana}/{id_tema}', [AtribuirController::class, 'excluirTema'])->name('admin.atribuir.excluirTema');     
+            
+            Route::get('/adicionarMaterial', [AtribuirController::class, 'adicionarMaterial'])->name('admin.atribuir.adicionarMaterial');
+            Route::post('/salvarMaterial', [AtribuirController::class, 'salvarMaterial'])->name('admin.atribuir.salvarMaterial');
+            Route::get('/excluirMaterial/{id_semana}/{id_material}', [AtribuirController::class, 'excluirMaterial'])->name('admin.atribuir.excluirMaterial');  
+
+            Route::get('/adicionarRepertorio', [AtribuirController::class, 'adicionarRepertorio'])->name('admin.atribuir.adicionarRepertorio');
+            Route::post('/salvarRepertorio', [AtribuirController::class, 'salvarRepertorio'])->name('admin.atribuir.salvarRepertorio');
         });
 
         Route::prefix('turmas')->group(function() {

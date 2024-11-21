@@ -15,7 +15,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ url()->previous() }}" class="seta-back">
+                <a href="{{ route('admin.temasRepertorios') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -45,7 +45,7 @@
                     <div class="upload">
                         <input type="file" class="imagem" name="imagem" id="imagem">
                     </div>
-                <br>
+               
 
                 
 
@@ -139,10 +139,12 @@
                 </div><!--addAltRep-->
             
 
-                <div class="mensagem">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    Preencha todos os campos antes de avançar
-                </div>
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
 
                 <div class="botoes">
                     <button type="reset" id="limpar" class="button">Limpar</button>
