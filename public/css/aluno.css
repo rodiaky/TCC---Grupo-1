@@ -7,6 +7,15 @@ section {
     color: var(--varLaranjaEscuro);
     font-weight: 600;
     margin-bottom: 1rem;
+
+}
+
+.container-titulo-seta {
+    margin-bottom: 1rem;
+}
+
+.container-titulo-seta .subtitulo{
+    margin: 0;
 }
 
 /* INFORMACOES DO ALUNO ----------------------------------------------------------- */
