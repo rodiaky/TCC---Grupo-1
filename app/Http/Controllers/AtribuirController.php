@@ -28,7 +28,7 @@ class AtribuirController extends Controller
     
         // Inserção no banco para cada material associado à semana
         foreach ($request->id_tema as $id_tema) {
-            SemanasMateriais::create([
+            SemanasTemas::create([
                 'id_semana' => $request->id_semana,
                 'id_tema' => $id_tema,
             ]);
