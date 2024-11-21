@@ -253,23 +253,23 @@
                             @endforeach
                             </tr>
                         </table>
-                        </div>
+                        
+                </div>
 
-                        <div class="container-tabela-inferior">
-                            <a href=""><i class="fa-solid fa-plus"></i></a>
-                            <label for="nota_aluno_redacao">
-                                <div class="nota-container">
-                                    <div class="nota-final">Nota: <input type="number" name="nota_aluno_redacao" id="nota_aluno_redacao" class="input" maxlength="2" required pattern="\d*" value="{{ isset($redacao->nota_aluno_redacao) ? $redacao->nota_aluno_redacao : '' }}"></div>
-                                </div>
-                            </label>
-                        </div>
     </section>
-           
+                        @if ($errors->any())
+                            <div class="mensagem">
+                            <ion-icon name="alert-circle-outline" style="color: #f57c00;"></ion-icon>
+                                Preencha todos os campos corretamente antes de avançar
+                            </div>
+                        @endif
 
     <section class="container-btn"><button type="submit" class="salvar" id="saveBtn">Salvar</button></section>
           
     </form>
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/button.js') }}"></script>
     <script>

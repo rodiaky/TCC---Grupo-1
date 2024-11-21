@@ -105,18 +105,30 @@ class RedacoesPendentesController extends Controller
 
     public function atualizar(Request $request, $id)
     {
-        
-        $notaFinal = $request->input('nota_aluno_redacao');
-        DB::table('redacoes')->where('id', $id)->update(['nota_aluno_redacao' => $notaFinal,
-                                                         'situacao_redacao' => "Corrigida"]);
+        $request->validate([
+            'criterio.*' => 'required|numeric|min:0', // Cada critério deve ter uma nota obrigatória, numérica e >= 0
+            'comentario' => 'required|string|max:500', // O comentário é opcional, mas deve ser uma string de no máximo 500 caracteres
+        ]);
     
-        // Atualize as notas dos critérios
+        
+        DB::table('redacoes')->where('id', $id)->update(['situacao_redacao' => "Corrigida"]);
+    
+        $totalNota = 0; // Variável para acumular a soma das notas
+
         foreach ($request->input('criterio') as $criterioId => $nota) {
+            // Acumula a nota no total
+            $totalNota += $nota;
+
+            // Atualiza ou insere a nota de cada critério
             DB::table('criterios_redacoes')->updateOrInsert(
                 ['id_redacao' => $id, 'id_criterio' => $criterioId],
                 ['nota_aluno_criterio' => $nota]
             );
         }
+
+        // Atualiza o campo com a soma total das notas em outra tabela ou registro
+        DB::table('redacoes')->where('id', $id)->update(['nota_aluno_redacao' => $totalNota]);
+
         $feedback = $request->input('comentario');
 
 
@@ -134,6 +146,7 @@ class RedacoesPendentesController extends Controller
           // Salva a imagem editada
           if (file_put_contents($imagePath, base64_decode($imageData))) {
                // Atualiza a coluna 'redacao_corrigida' com o nome do novo arquivo
+               $redacao->data_correcao = now();
                $redacao->comentario =$feedback;
                $redacao->redacao_corrigida = $newFileName;
                $redacao->save();

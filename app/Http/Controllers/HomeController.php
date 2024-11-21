@@ -13,6 +13,11 @@ class HomeController extends Controller
     {
         $idUser = $_SESSION['id'];
 
+        $idAluno = DB::table('alunos')
+        ->join('users', 'alunos.id_user', '=', 'users.id')
+        ->where('users.id', $idUser)
+        ->value('alunos.id');
+
         // Obtenha as redações corrigidas
         $redacoesCorrigidas = DB::table('redacoes')
             ->join('temas', 'redacoes.id_tema', '=', 'temas.id')
@@ -29,8 +34,8 @@ class HomeController extends Controller
                 'redacoes.id as id_redacao'
             )
             ->where('redacoes.situacao_redacao', 'Corrigida')
-            ->where('users.id', '=', $idUser)
-            ->orderBy('redacoes.data_correcao', 'DESC')
+            ->where('alunos.id', '=', $idAluno)
+            ->orderBy('redacoes.data_correcao', 'ASC')
             ->take(3) 
             ->get();
 
