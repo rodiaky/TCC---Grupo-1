@@ -32,7 +32,7 @@
             <input type="hidden" name="classificacao" value="">
                 <div class="inputbox">
                     <label for="">Nome do material</label>
-                    <input type="text" name="nome" value="{{ isset($materiais->nome) ? $materiais->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ isset($materiais->nome) ? $materiais->nome : '' }}" >
                 </div>
 
                 <label class="lbl-upload">Upload de arquivo</label>

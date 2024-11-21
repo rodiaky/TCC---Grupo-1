@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/teste.css') }}">
     <title>Adicionar repertório</title>
 @endsection
 
@@ -33,12 +34,12 @@
                 
                 <div class="inputbox">
                     <label for="">Título do repertório</label>
-                    <input type="text" name="nome" value="{{ isset($repertorios->nome) ? $repertorios->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ isset($repertorios->nome) ? $repertorios->nome : '' }}">
                 </div>
                 
                 <div class="inputbox">
                     <label for="">Conteúdo</label>
-                    <textarea class="content" name="descricao" required>{{ isset($repertorios->descricao) ? $repertorios->descricao : '' }}</textarea>
+                    <textarea class="content" name="descricao" >{{ isset($repertorios->descricao) ? $repertorios->descricao : '' }}</textarea>
                 </div>
 
                 <label class="lbl-upload">Upload de imagem</label>

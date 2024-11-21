@@ -18,7 +18,7 @@
     <main>
         <div class="container-titulo-seta">
            <div class="container-seta">
-                <a href="{{ route('admin.pastasMateriais) }}" class="seta-back">
+                <a href="{{ route('admin.pastasMateriais') }}" class="seta-back">
                     <i class="material-icons">arrow_back</i>
                 </a>
             </div>
@@ -36,7 +36,7 @@
             <input type="hidden" name="classificacao" value="">
                 <div class="inputbox">
                     <label for="">Nome do material</label>
-                    <input type="text" name="nome" value="{{ isset($materiais->nome) ? $materiais->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ isset($materiais->nome) ? $materiais->nome : '' }}" >
                 </div>
 
                 <label class="lbl-upload">Upload de arquivo</label>

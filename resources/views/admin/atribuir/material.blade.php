@@ -52,6 +52,13 @@
                     </label>
                 </div>
 
+                @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
+
                 <div class="botoes">
                     <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
                     <button type="submit" name="salvar" class="button">Salvar</button>

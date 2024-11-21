@@ -29,7 +29,7 @@
 
                 <div class="inputbox">
                     <label for="frase_tematica">Frase temática</label>
-                    <input type="text" id="frase_tematica" name="frase_tematica" value="{{ isset($temas->frase_tematica) ? $temas->frase_tematica : '' }}" required>
+                    <input type="text" id="frase_tematica" name="frase_tematica" value="{{ isset($temas->frase_tematica) ? $temas->frase_tematica : '' }}" >
 </div>
 
 
@@ -91,7 +91,7 @@
                 @endif
                 
                 </div>
-                <br>
+               
 
 
                 <!-- Campo oculto para id_banca -->

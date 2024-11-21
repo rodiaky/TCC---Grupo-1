@@ -18,25 +18,44 @@ class AtribuirController extends Controller
 
      public function salvarTema(Request $request)
      {
-    
-        // Validação dos dados - 'id_material' será um array de IDs
-        $validatedData = $request->validate([
-            'id_semana' => 'required|integer|exists:semanas,id', // Verifica se a semana existe
-            'id_tema' => 'required|array', // Verifica se 'id_material' é um array
-            'id_tema.*' => 'integer|exists:temas,id', // Valida cada ID de material individualmente
-        ]);
-    
-        // Inserção no banco para cada material associado à semana
-        foreach ($request->id_tema as $id_tema) {
-            SemanasTemas::create([
-                'id_semana' => $request->id_semana,
-                'id_tema' => $id_tema,
-            ]);
-        }
-    
-        // Redireciona para a página de sucesso
-        return redirect()->route('professor.home');
+         // Validação dos dados - 'id_tema' será um array de IDs
+         $validatedData = $request->validate([
+             'id_semana' => 'required|integer|exists:semanas,id', // Verifica se a semana existe
+             'id_tema' => 'required|array', // Verifica se 'id_tema' é um array
+             'id_tema.*' => 'integer|exists:temas,id', // Valida cada ID de tema individualmente
+         ]);
+     
+         // Inicializa um array para erros
+         $erros = [];
+     
+         // Verifica duplicidade antes de inserir
+         foreach ($request->id_tema as $id_tema) {
+             $exists = SemanasTemas::where('id_semana', $request->id_semana)
+                 ->where('id_tema', $id_tema)
+                 ->exists();
+     
+             if ($exists) {
+                 $erros[] = "Um dos temas já está associado à semana";
+             } else {
+                 // Insere apenas se não for duplicado
+                 SemanasTemas::create([
+                     'id_semana' => $request->id_semana,
+                     'id_tema' => $id_tema,
+                 ]);
+             }
+         }
+     
+         // Se houver erros, retorna à página anterior com mensagens de erro
+         if (!empty($erros)) {
+             return redirect()->back()
+                 ->withErrors($erros)
+                 ->withInput(); // Retorna os dados do formulário para que o usuário possa corrigi-los
+         }
+     
+         // Redireciona para a página de sucesso
+         return redirect()->route('professor.home');
      }
+     
  
      public function excluirTema($id_semana, $id_tema)
      {
@@ -58,23 +77,42 @@ class AtribuirController extends Controller
      // Salvar Material
      public function salvarMaterial(Request $request)
      {
-         // Validação dos dados - 'id_material' será um array de IDs
+         // Validação dos dados - 'id_tema' será um array de IDs
          $validatedData = $request->validate([
-             'id_semana' => 'required|integer|exists:semanas,id', // Verifica se a semana existe
-             'id_material' => 'required|array', // Verifica se 'id_material' é um array
-             'id_material.*' => 'integer|exists:materiais,id', // Valida cada ID de material individualmente
-         ]);
-     
-         // Inserção no banco para cada material associado à semana
-         foreach ($request->id_material as $id_material) {
-             SemanasMateriais::create([
-                 'id_semana' => $request->id_semana,
-                 'id_material' => $id_material,
-             ]);
-         }
-     
-         // Redireciona para a página de sucesso
-         return redirect()->route('professor.home');
+            'id_semana' => 'required|integer|exists:semanas,id', // Verifica se a semana existe
+            'id_material' => 'required|array', // Verifica se 'id_tema' é um array
+            'id_material.*' => 'integer|exists:materiais,id', // Valida cada ID de tema individualmente
+        ]);
+    
+        // Inicializa um array para erros
+        $erros = [];
+    
+        // Verifica duplicidade antes de inserir
+        foreach ($request->id_material as $id_material) {
+            $exists = SemanasMateriais::where('id_semana', $request->id_semana)
+                ->where('id_material', $id_material)
+                ->exists();
+    
+            if ($exists) {
+                $erros[] = "Um dos materiais já está associado à semana";
+            } else {
+                // Insere apenas se não for duplicado
+                SemanasTemas::create([
+                    'id_semana' => $request->id_semana,
+                    'id_material' => $id_material,
+                ]);
+            }
+        }
+    
+        // Se houver erros, retorna à página anterior com mensagens de erro
+        if (!empty($erros)) {
+            return redirect()->back()
+                ->withErrors($erros)
+                ->withInput(); // Retorna os dados do formulário para que o usuário possa corrigi-los
+        }
+    
+        // Redireciona para a página de sucesso
+        return redirect()->route('professor.home');
      }
      
  
@@ -100,17 +138,41 @@ class AtribuirController extends Controller
      // Salvar Repertório
      public function salvarRepertorio(Request $request)
      {
-         // Validação dos dados
-         $validatedData = $request->validate([
-             'id_semana' => 'required|integer',
-             'id_material' => 'required|integer',
-         ]);
-
-         SemanasMateriais::create([
-            'id_semana' => $request->id_semana,
-            'id_material' => $request->id_material,
+        // Validação dos dados - 'id_tema' será um array de IDs
+        $validatedData = $request->validate([
+            'id_semana' => 'required|integer|exists:semanas,id', // Verifica se a semana existe
+            'id_material' => 'required|array', // Verifica se 'id_tema' é um array
+            'id_material.*' => 'integer|exists:materiais,id', // Valida cada ID de tema individualmente
         ]);
- 
-         return redirect()->route('professor.home');
+    
+        // Inicializa um array para erros
+        $erros = [];
+    
+        // Verifica duplicidade antes de inserir
+        foreach ($request->id_material as $id_material) {
+            $exists = SemanasMateriais::where('id_semana', $request->id_semana)
+                ->where('id_material', $id_material)
+                ->exists();
+    
+            if ($exists) {
+                $erros[] = "Um dos materiais já está associado à semana";
+            } else {
+                // Insere apenas se não for duplicado
+                SemanasTemas::create([
+                    'id_semana' => $request->id_semana,
+                    'id_material' => $id_material,
+                ]);
+            }
+        }
+    
+        // Se houver erros, retorna à página anterior com mensagens de erro
+        if (!empty($erros)) {
+            return redirect()->back()
+                ->withErrors($erros)
+                ->withInput(); // Retorna os dados do formulário para que o usuário possa corrigi-los
+        }
+    
+        // Redireciona para a página de sucesso
+        return redirect()->route('professor.home');
      }
 }

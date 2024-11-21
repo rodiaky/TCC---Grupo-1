@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/teste.css') }}">
     <title>Editar Tema de Repertório</title>
 @endsection
 
@@ -27,7 +28,7 @@
         {{ csrf_field() }}
                 <div class="inputbox">
                     <label for="">Nome do tema de repertório</label>
-                    <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" required>
+                    <input type="text" name="nome" value="{{ isset($pastas->nome) ? $pastas->nome : '' }}" >
                 </div>
 
                 <label class="lbl-upload">Upload de imagem</label>

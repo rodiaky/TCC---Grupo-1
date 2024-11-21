@@ -87,6 +87,15 @@ class RepertoriosController extends Controller
 
     public function salvar(Request $req)
     {
+        $validated = $req->validate([
+            'nome' => 'required|string|max:255', 
+            'classificacao' => 'required|string|max:255', 
+            'descricao' => 'required|string|max:3000', 
+            'imagem' => 'required|file|mimes:png', 
+            'id_pasta' => 'required|integer|exists:pastas,id',
+        ]);
+
+        
         $image = $req->file('imagem');
         $imagename = time() . '.' . $image->getClientOriginalExtension();
         $image->move(('assets/repertorios'), $imagename);
@@ -108,12 +117,19 @@ class RepertoriosController extends Controller
         ];
          
         Materiais::create($meuVetor);
-        $url = $req->input('url');
-        return redirect()->to($url);
+        return redirect()->route('admin.temasRepertorios');
     }
 
     public function atualizar(Request $req, $id)
     {
+        $validated = $req->validate([
+            'nome' => 'required|string|max:255', 
+            'classificacao' => 'required|string|max:255', 
+            'descricao' => 'required|string|max:3000', 
+            'imagem' => 'required|file|mimes:png', 
+            'id_pasta' => 'required|integer|exists:pastas,id',
+        ]);
+
         if ($req->hasFile('imagem')) {
         $image = $req->file('imagem');
         $imagename = time() . '.' . $image->getClientOriginalExtension();
@@ -138,7 +154,7 @@ class RepertoriosController extends Controller
 
         Materiais::find($id)->update($meuVetor);
         $url = $req->input('url');
-        return redirect()->to('admin/temasRepertorios');
+        return redirect()->route('admin.temasRepertorios');
         
     }
 }

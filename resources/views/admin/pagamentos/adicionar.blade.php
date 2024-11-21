@@ -13,7 +13,7 @@
 <main>
     <div class="container-titulo-seta">
         <div class="container-seta">
-            <a href="{{ url()->previous() }}" class="seta-back">
+            <a href="{{ route('admin.turmas.aluno', ['id' => $id]) }}" class="seta-back">
                 <i class="material-icons">arrow_back</i>
             </a>
         </div>
@@ -32,13 +32,13 @@
 
             <div class="inputbox">
                 <label for="valor">Valor</label>
-                <input type="text" name="valor" required> <!-- Removido o valor anterior -->
+                <input type="text" name="valor" placeholder="XXX.XX"> <!-- Removido o valor anterior -->
             </div>
 
-            <div class="inputbox">
-                <label for="ano">Ano</label>
-                <input type="text" name="ano" required> <!-- Removido o valor anterior -->
-            </div>
+            <div id="inputboxAno" class="inputbox">
+                    <label for="ano">Ano</label>
+                    <input type="number" id="ano" name="ano" min="2000" value="">
+                </div>
 
             <!-- Select Mês -->
             <div class="select">
@@ -81,11 +81,12 @@
                 <input type="hidden" id="status" name="status_pagamento" value=""> <!-- Inicialmente vazio -->
             </div>
 
-            <div class="mensagem">
-                <ion-icon name="alert-circle-outline"></ion-icon>
-                Preencha todos os campos antes de avançar
-            </div>
-
+            @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
             <div class="botoes">
                 <button type="reset" id="limpar" class="button">Limpar</button>
                 <button type="submit" class="button">Salvar</button>

@@ -33,6 +33,10 @@ class TemaRepertoriosController extends Controller
     }
 
     public function salvar(Request $req) {
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'arquivo' => 'required|file|mimes:png',
+        ]);
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(('assets/temasRepertorios'), $filename);
@@ -52,6 +56,10 @@ class TemaRepertoriosController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
+        $req->validate([
+            'nome' => 'required|string|max:255',
+            'arquivo' => 'required|file|mimes:png',
+        ]);
         // Busca a pasta que será atualizada
         $pasta = Pastas::find($id);
     

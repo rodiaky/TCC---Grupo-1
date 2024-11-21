@@ -35,6 +35,12 @@ class PagamentoController extends Controller
     }
 
     public function salvar(Request $req, $id){
+        $validated = $req->validate([
+            'mes' => 'required|string|max:255', 
+            'status_pagamento' => 'required|string|max:255', 
+            'ano' => 'required|integer|min:2000', 
+            'valor' => 'required|numeric|regex:/^\d{1,10}(\.\d{1,2})?$/', 
+        ]);
         $idAluno = Alunos::where('id_user', $id)
             ->pluck('id')
             ->first();
@@ -46,6 +52,13 @@ class PagamentoController extends Controller
     }
 
     public function atualizar(Request $req, $id){
+        $validated = $req->validate([
+            'mes' => 'required|string|max:255', 
+            'status_pagamento' => 'required|string|max:255', 
+            'ano' => 'required|integer|min:2000', 
+            'valor' => 'required|numeric|regex:/^\d{1,10}(\.\d{1,2})?$/', 
+        ]);
+        
         $id_aluno = Pagamentos::find($id)->id_aluno;
         $idUser = Alunos::where('id', $id_aluno)
             ->pluck('id_user')

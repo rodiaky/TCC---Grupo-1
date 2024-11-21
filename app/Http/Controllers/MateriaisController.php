@@ -47,14 +47,18 @@ class MateriaisController extends Controller
 
     public function salvar(Request $req){
 
-
+        $validated = $req->validate([
+            'nome' => 'required|string|max:255', 
+            'filename' => 'required|file|mimes:pdf', 
+            'id_pasta' => 'required|integer|exists:pastas,id',
+        ]);
             $image = $req->file('filename');
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $image->move(('assets/materiais'), $imageName);
             $req->descricao =  $imageName;
-            
             $nome = $req->input('nome');
             $idpasta = $req->input('id_pasta');
+
 
             $meuVetor = [
                 'nome' => $nome,
@@ -71,6 +75,12 @@ class MateriaisController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
+
+        $validated = $req->validate([
+            'nome' => 'required|string|max:255', 
+            'arquivo' => 'required|file|mimes:pdf', 
+            'id_pasta' => 'required|integer|exists:pastas,id',
+        ]);
         // Verifica se um novo arquivo foi enviado
         if ($req->hasFile('arquivo')) {
             // Se um novo arquivo foi enviado, armazena o novo arquivo

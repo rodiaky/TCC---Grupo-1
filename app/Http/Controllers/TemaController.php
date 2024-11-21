@@ -81,6 +81,15 @@ class TemaController extends Controller
     }
 
     public function salvar(Request $req) {
+
+        $validated = $req->validate([
+            'frase_tematica' => 'required|string|max:255', 
+            'arquivo' => 'required|file|mimes:pdf', 
+            'imagem' => 'required|file|mimes:png', 
+            'id_banca' => 'required|integer|exists:bancas,id',
+            'ano' => 'required|integer|min:2000',
+        ]);
+        
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(('assets/textosApoio'), $filename);
@@ -110,6 +119,13 @@ class TemaController extends Controller
     }
 
     public function atualizar(Request $req, $id) {
+        $validated = $req->validate([
+            'frase_tematica' => 'required|string|max:255', 
+            'arquivo' => 'required|file|mimes:pdf', 
+            'imagem' => 'required|file|mimes:png', 
+            'id_banca' => 'required|integer|exists:bancas,id',
+            'ano' => 'required|integer|min:2000',
+        ]);
         
         $tema = Temas::find($id);
         if($req->hasFile('arquivo')){
