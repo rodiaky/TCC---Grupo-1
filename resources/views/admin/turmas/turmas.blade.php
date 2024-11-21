@@ -56,4 +56,4 @@
 
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/button.js') }}"></script>
-@endsection
+@endsection 

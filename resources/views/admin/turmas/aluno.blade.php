@@ -2,7 +2,8 @@
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralCardsDropdown.css') }}">
+<!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralCardsDropdown.css') }}"> -->
+<link rel="stylesheet" type="text/css" href="{{ asset('css/turmas.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeralTabela.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/aluno.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/estatistica.css') }}">
@@ -25,13 +26,12 @@
 
 
     <div class="container-titulo-seta">
-        <div class="container-seta">
-            <a href="{{ url()->previous() }}" class="seta-back">
-                <i class="material-icons">arrow_back</i>
-            </a>
-        </div>
+        <a href="{{ url()->previous() }}" class="seta-back">
+            <i class="material-icons">arrow_back</i>
+        </a>
         <h1 class="subtitulo">Informações do Aluno</h1>
     </div>
+
     <!-- INFORMACOES DO ALUNO -->
     <section class="info-aluno">
         <div class="container-imagem"><img src="{{ asset('assets/fotoPerfil/' . $user->foto) }}" alt=""></div>
@@ -76,16 +76,16 @@
                 $i++;
             @endphp
 
-            <article class="card">
-                <div class="card-retangulo toggleButton" data-target ="drop{{$i}}">
-                    <h1 class="titulo-card">{{ $redacao->banca_nome }}</h1>
-                    <i class="material-icons card-seta">arrow_forward_ios</i>
+            <article class="card turma">
+                <div class="card-retangulo turma-retangulo toggleButton" data-target ="drop{{$i}}">
+                    <h1 class="titulo-card titulo-cardTurmas">{{ $redacao->banca_nome }}</h1>
+                    <i class="material-icons card-seta turma-seta">arrow_forward_ios</i>
                 </div>
 
-                <div class="card-dropdown content" id="drop{{$i}}">
+                <div class="card-dropdown turma-dropdown content" id="drop{{$i}}">
 
                     @foreach ($redacao->frases_tematicas as $index => $frase)
-                        <a class="card-option"
+                        <a class="card-option turma-horario"
                             href="{{ route('redacao_corrigida', ['id' => $redacao->ids_redacoes[$index]]) }}">
                             {{ $frase }}
                         </a>
@@ -138,7 +138,6 @@
     </section>
 
 </main>
-
 
 <script src="https://kit.fontawesome.com/c8b145fd82.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
