@@ -36,9 +36,9 @@
     @endif
 
     <section class="selecionarFiltro sectionCinza">
-        
+
         <form action="{{ route('admin.questoes.filtrar') }}" method="GET" class="filtros">
-            
+
             <div class="nome">Filtros</div>
 
             <input type="hidden" name="disciplina" value="{{$titulo}}">
@@ -124,7 +124,7 @@
                         <li>{{ $questao->alternativa_C }}</li>
                         <li>{{ $questao->alternativa_D }}</li>
                         @if ($questao->alternativa_E)
-                        <li>{{ $questao->alternativa_E }}</li>
+                            <li>{{ $questao->alternativa_E }}</li>
                         @endif
                     </ul>
 
@@ -137,7 +137,10 @@
                 <div class="resposta-correta content" id="resp{{$i}}">{{ $questao->resposta }}</div>
             </article>
         @empty
-            <p>Nenhuma questão encontrada.</p>
+            <div class="alerta">
+                <span class="material-icons">error_outline</span>
+                <p>Nenhuma questão encontrada.</p>
+            </div>
         @endforelse
     </section>
 

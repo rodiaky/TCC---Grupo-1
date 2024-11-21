@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/loginLayoutTablet.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="shortcut icon" type="imagex/png" href="{{ asset('assets/img/iconePalavrear.ico') }}">
     <title>Login</title>
 </head>
 <body>

@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cabecalhoUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cabecalhoLayout.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="shortcut icon" type="imagex/png" href="{{ asset('assets/img/iconePalavrear.ico') }}">
 </head>
 
 <body>

@@ -116,7 +116,7 @@
 }
 
 .assunto {
-    margin-top: -.5rem;
+    margin-top: .5rem;
     margin-bottom: .8rem;
     font-weight: 700;
     width: fit-content;
@@ -226,6 +226,9 @@ body {
 
     user-select: none;
     -webkit-user-select: none;
+
+    height: 0;
+
 
 }
 

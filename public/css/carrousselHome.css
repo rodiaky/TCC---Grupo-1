@@ -1,7 +1,5 @@
 #cCarousel {
     position: relative;
-    max-width: 90%;
-    width: 90%;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -49,7 +47,6 @@
     display: flex;
     position: absolute;
     transition: 0.3s ease-in-out;
-    gap: 10px;
     left: 0px;
     height: 100%;
 }
@@ -91,93 +88,3 @@
 }
 
 
-/* RESPONSIVIDADE ----------------------------------------------------------------------------- */
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    #carousel-vp{
-        width: 150px;
-        height: 65px;
-    }
-
-    .cCarousel-item {
-        width: 150px;
-        font-size: 1.1rem;
-        
-    }
-
-    #cCarousel .arrow{
-        font-size: 1.2rem;
-    }
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    #carousel-vp{
-        width: 425px;
-        height: 90px;
-    }
-
-    .cCarousel-item {
-        width: 135px;
-        font-size: 1.3rem;
-    }
-
-    #cCarousel .arrow{
-        font-size: 1.5rem;
-    }
-
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    #carousel-vp{
-        width: 500px;
-        height: 90px;
-    }
-
-    .cCarousel-item {
-        width: 160px;
-        font-size: 1.3rem;
-    }
-
-    #cCarousel .arrow{
-        font-size: 1.8rem;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    #carousel-vp{
-        width: 790px;
-        height: 90px;
-    }
-
-    .cCarousel-item {
-        width: 190px;
-        font-size: 1.4rem;
-    }
-
-    #cCarousel .arrow{
-        font-size: 2.2rem;
-    }
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    #carousel-vp{
-        width: 790px;
-        height: 90px;
-    }
-
-    .cCarousel-item {
-        width: 190px;
-        font-size: 1.4rem;
-    }
-
-    #cCarousel .arrow{
-        font-size: 2.2rem;
-    }
-
-}

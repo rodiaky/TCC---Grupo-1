@@ -21,7 +21,7 @@
             </div>
         </button>
 
-        <article class="container-turmas">
+        <section class="container-turmas">
 
             @php 
                 $i = 0;
@@ -33,7 +33,7 @@
                     $i++;
                 @endphp
 
-                <section class="turma">
+                <article class="turma">
                     <div class="turma-retangulo toggleButton" data-target ="drop{{$i}}">
                         <h1 class="titulo-cardTurmas">{{ $dia->dias_aula }}</h1>
                         <i class="material-icons turma-seta">arrow_forward_ios</i>
@@ -48,9 +48,9 @@
                             <p>Nenhuma turma cadastrada para este dia.</p>
                         @endif
                     </div>
-                </section>
+                </article>
             @endforeach
-        </article>
+        </section>
         
     </main>
 
