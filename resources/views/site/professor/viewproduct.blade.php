@@ -222,7 +222,7 @@
            
             <form action="{{ route('admin.correcao.atualizar', $redacao->id) }}" method="post">
                         {{ csrf_field() }}
-
+                        <input type="hidden" id="imageData" name="image">
                         <div class="titulo-section">Feedback</div>
                         <hr class="linha-section">
                         <textarea name="comentario" id="feedback" placeholder="Digite o feedback da correção aqui...">{{ isset($redacao->comentario) ? $redacao->comentario : '' }}</textarea>
@@ -266,14 +266,16 @@
     </section>
            
 
-    <section class="container-btn"><button type="button" class="salvar" id="saveBtn">Salvar</button></section>
+    <section class="container-btn"><button type="submit" class="salvar" id="saveBtn">Salvar</button></section>
           
-        </form>
+    </form>
     </main>
     <script src="https://kit.fontawesome.com/c8b145fd82.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/button.js') }}"></script>
     <script>
         const canvas = document.getElementById('myCanvas');
+        var dataURL = canvas.toDataURL(); // Captura a imagem do canvas
+        document.getElementById('imageData').value = dataURL;
         const redacaoId = {{ $redacao->id }};
         const ctx = canvas.getContext('2d');
         let painting = false;
@@ -379,35 +381,12 @@
         });
 
         // Função para salvar a imagem e a nota
-        document.getElementById("btnSalvar").addEventListener("click", function() {
-            var nota = document.getElementById("nota").value; // Captura a nota
-            var canvasData = canvas.toDataURL(); // Captura a imagem do canvas
-
-            // Envio dos dados para o servidor
-            fetch("{{ route('admin.correcao.atualizar', $redacao->id) }}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: JSON.stringify({
-                    nota: nota,
-                    image: canvasData // Envio da imagem capturada
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Tratar a resposta do servidor
-                if (data.success) {
-                    alert("Dados salvos com sucesso!");
-                } else {
-                    alert("Erro ao salvar os dados.");
-                }
-            })
-            .catch((error) => {
-                console.error('Erro:', error);
-            });
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            const canvass = document.getElementById('myCanvas');
+            var dataURL = canvass.toDataURL(); // Captura a imagem do canvas
+            document.getElementById('imageData').value = dataURL;
         });
+
 
         // Função para desfazer a última alteração
         function undo() {

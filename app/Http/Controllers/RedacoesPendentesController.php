@@ -105,46 +105,50 @@ class RedacoesPendentesController extends Controller
 
     public function atualizar(Request $request, $id)
     {
-        $redacao = Redacao::find($id);
-        if (!$redacao) {
-            return response()->json(['success' => false, 'message' => 'Redação não encontrada.']);
-        }
-    
-        $redacao->nota = $request->input('nota');
         
-        // Captura a imagem do canvas
-        if ($request->input('imagem')) {
-            $data = $request->input('imagem');
-            $data = str_replace('data:image/png;base64,', '', $data);
-            $data = str_replace(' ', '+', $data);
-            $image = base64_decode($data);
-            
-            // Salvar a imagem em um caminho específico
-            $imagePath = public_path('assets/materiais/redacoes/' . $id . '.png');
-            file_put_contents($imagePath, $image);
-            
-            // Atualizar o caminho no banco de dados, se necessário
-            $redacao->caminho_imagem = 'assets/materiais/redacoes/' . $id . '.png';
+        $notaFinal = $request->input('nota_aluno_redacao');
+        DB::table('redacoes')->where('id', $id)->update(['nota_aluno_redacao' => $notaFinal,
+                                                         'situacao_redacao' => "Corrigida"]);
+    
+        // Atualize as notas dos critérios
+        foreach ($request->input('criterio') as $criterioId => $nota) {
+            DB::table('criterios_redacoes')->updateOrInsert(
+                ['id_redacao' => $id, 'id_criterio' => $criterioId],
+                ['nota_aluno_criterio' => $nota]
+            );
         }
-    
-        $redacao->save();
-        return response()->json(['success' => true]);
-    }
-    
+        $feedback = $request->input('comentario');
 
-    public function delete($id) {
-        $data = Conteudo::find($id);
-        if ($data) {
-            // Exclui o arquivo associado
-            $filePath = public_path('assets/' . $data->filename);
-            if (file_exists($filePath)) {
-                unlink($filePath);
-            }
-            // Exclui o registro do banco de dados
-            $data->delete();
-        }
-        return redirect()->back()->with('success', 'Registro excluído com sucesso!');
+
+        $redacao = Redacoes::find($id);
+
+        if ($redacao) {
+          $imageData = $request->input('image');
+          $imageData = str_replace('data:image/png;base64,', '', $imageData);
+          $imageData = str_replace(' ', '+', $imageData);
+
+          // Gera um nome de arquivo único para a imagem editada
+          $newFileName = 'corrigida_' . uniqid() . '.png';
+          $imagePath = ('assets/redacao_corrigida/' . $newFileName);
+
+          // Salva a imagem editada
+          if (file_put_contents($imagePath, base64_decode($imageData))) {
+               // Atualiza a coluna 'redacao_corrigida' com o nome do novo arquivo
+               $redacao->comentario =$feedback;
+               $redacao->redacao_corrigida = $newFileName;
+               $redacao->save();
+
+               
+               return redirect()->route('professor.redPendentes');
+          } else {
+            return redirect()->route('professor.redPendentes');
+          }
+     }
+
     }
+
+    
+    
 
     public function saveImage(Request $request, $id) {
         $redacao = Redacoes::find($id);
