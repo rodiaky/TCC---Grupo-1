@@ -1,16 +1,18 @@
-@extends('layouts._partials._cabecalho') 
+@extends('layouts._partials._cabecalho')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semanaLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
+
     <title>Atribuir Material</title>
-@endsection
+    @endsection
 
 @section('conteudo')
-
 <main>
     <div class="container-titulo-seta">
        <div class="container-seta">
@@ -28,66 +30,61 @@
         <form action="{{ route('admin.atribuir.salvarMaterial') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
 
-            <div class="addAltRep">
-                <!-- Select Semana -->
-                <div class="select">
-                    <div class="selected">
-                        <span id="text-selected-semana">Semana</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow">
-                            <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
-                        </svg>
-                    </div>
-                    
-                    <div class="options">
-                        @foreach($semanas as $semana)
-                            <div>
-                                <input id="semana-{{ $semana->id }}" name="id_semana" type="radio" onclick="document.getElementById('text-selected-semana').textContent = '{{ $semana->nome }}';"/>
-                                <label class="option" for="semana-{{ $semana->id }}">{{ $semana->nome }}</label>
-                            </div>
-                        @endforeach
-                    </div><!--options-->
-                    
-                    <input type="hidden" id="id_semana" name="id_semana" value="" />
-                </div><!--Select Semana-->
-
-                <!-- Select Material -->
-                <div class="select">
-                    <div class="selected">
-                        <span id="text-selected-material">Material</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow">
-                            <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
-                        </svg>
-                    </div>
-                    
-                    <div class="options">
-                        @foreach($materiais as $material)
-                            <div>
-                                <input id="material-{{ $material->id }}" name="id_material" type="radio" onclick="document.getElementById('text-selected-material').textContent = '{{ $material->nome }}';"/>
-                                <label class="option" for="material-{{ $material->id }}">{{ $material->nome }}</label>
-                            </div>
-                        @endforeach
-                    </div><!--options-->
-                    
-                    <input type="hidden" id="id_material" name="id_material" value="" />
-                </div><!--Select Material-->
-            </div><!--addAltRep-->
-            
-
-            @if ($errors->any())
-                <div class="mensagem">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    Preencha todos os campos corretamente antes de avançar
+                <div class="infoSemana">
+                    <label>Semanas</label>
+                    <label class="lbl-semana">
+                        <select name="id_semana" class="atribuir-semana">
+                            @foreach($semanas as $semana)
+                                <option value="{{ $semana->id }}">{{ $semana->nome }}</option>
+                            @endforeach
+                        </select>
+                    </label>
                 </div>
-            @endif
 
-            <div class="botoes">
-                <button type="reset" id="limpar" class="button">Limpar</button>
-                <button type="submit" class="button">Salvar</button>
-            </div>
-        </form>
-    </div><!--form-value-->
-</article>
+                <div class="infoSemana">
+                    <label>Materiais</label>
+                    <label class="lbl-material">
+                        <select name="id_material[]" class="atribuir-material" multiple="multiple">
+                            @foreach($materiais as $material)
+                                <option value="{{ $material->id }}">{{ $material->nome }}</option>
+                            @endforeach
+                        </select>
+                    </label>
+                </div>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+                <div class="botoes">
+                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
+                    <button type="submit" name="salvar" class="button">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </article>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.atribuir-semana').select2();  // Mantenha o select2 apenas na semana se desejar a busca
+        $('.atribuir-material').select2(); // Aplica o select2 no campo de materiais (com busca)
+      
+        ordenarSemana();
+        ordenarMaterial();
+    });
+    
+    function ordenarSemana() {
+        var itensOrdenados = $('.atribuir-semana option').sort(function (a, b) {
+            return a.text < b.text ? -1 : 1;
+        });
+    
+        $('.atribuir-semana').html(itensOrdenados);
+    }
+    
+    function ordenarMaterial() {
+        var itensOrdenados = $('.atribuir-material option').sort(function (a, b) {
+            return a.text < b.text ? -1 : 1;
+        });
+    
+        $('.atribuir-material').html(itensOrdenados);
+    }
+    </script>      
 @endsection
+

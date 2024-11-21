@@ -87,7 +87,7 @@ Route::middleware(AutenticacaoMiddleware::class)->group(function() {
     Route::get('/cruds', function () { return view('site.cruds'); })->name('admin.cruds');
 
     Route::get('/home', [HomeController::class, 'index'])->name('aluno.home');
-    Route::get('/home', [HomeProfessorController::class, 'index'])->name('professor.home');
+    Route::get('/homeProfessor', [HomeProfessorController::class, 'index'])->name('professor.home');
     
 
     // Admin Routes
