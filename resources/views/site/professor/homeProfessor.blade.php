@@ -1,3 +1,5 @@
+@extends('layouts._partials._cabecalho')
+
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/temaRedacoes.css') }}">
@@ -11,6 +13,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Home</title>
 @endsection
+
+@section('conteudo')
 
 <main>
 
