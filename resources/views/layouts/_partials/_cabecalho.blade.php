@@ -57,7 +57,7 @@
                         <!-- Redações Pendentes -->
                         <li class="sidebar-item">
                             <a href="{{ url('/redacoes_pendentes') }}" class="sidebar-item-link">
-                                <i class="material-icons">error</i>
+                                <i class="material-icons">notification_important</i>
                                 <span class="sidebar-link">Redações Pendentes</span>
                             </a>
                         </li>

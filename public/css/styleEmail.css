@@ -1,0 +1,38 @@
+.container-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAEAEA;
+
+    margin-bottom: 1rem;
+}
+
+.titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #F46F20;
+    margin-bottom: 1rem;
+}
+
+.ola{
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.senha {
+    background-color: #F46F20;
+    padding: .4rem .8rem .4rem .8rem;
+    border-radius: .8rem;
+    color: #FFF;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 700;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
