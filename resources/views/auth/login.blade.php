@@ -41,7 +41,7 @@
                     </div>
                     <div class="forget">
                         <label for=""><input type="checkbox">Lembrar-me</label>
-                        <a href="#">Esqueci a senha</a>
+                        <a href="{{ route('send.email.form') }}">Esqueci a senha</a>
                     </div>
                     <button type="submit">Acessar a plataforma</button>
                 </form>

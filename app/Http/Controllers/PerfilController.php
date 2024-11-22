@@ -20,7 +20,6 @@ class PerfilController extends Controller
             ->where('users.id', '=', $idUser)
             ->first();
 
-        
         return view('site.perfil', compact('perfil', 'idUser'));
     } 
 

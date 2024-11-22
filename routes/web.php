@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
+use Illuminate\Http\Request;
 use App\Http\Middleware\AlunoMiddleware;
 use App\Http\Middleware\ProfessorMiddleware;
 use App\Http\Middleware\AdministradorMiddleware;
@@ -31,6 +34,7 @@ use App\Http\Controllers\AlunoIndividualController;
 use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\AtribuirController;
+use App\Http\Controllers\CustomEmailController;
 
 // Auth Routes
 Auth::routes();
@@ -46,6 +50,11 @@ Route::post('/site/turmas/salvar', [TurmasController::class, 'salvar'])->name('s
 Route::get('/site/turmas/editar/{id}', [TurmasController::class, 'editar'])->name('site.turmas.editar');
 Route::match(['get', 'post'], '/site/turmas/atualizar/{id}', [TurmasController::class, 'atualizar'])->name('site.turmas.atualizar');
 Route::get('/site/turmas/excluir/{id}', [TurmasController::class, 'excluir'])->name('site.turmas.excluir');*/
+
+
+Route::get('/enviar-email', [CustomEmailController::class, 'showForm'])->name('send.email.form');
+Route::post('/enviar-email', [CustomEmailController::class, 'sendEmail'])->name('send.email');
+
 
 // Aluno Routes
 Route::name('aluno.')->middleware(AlunoMiddleware::class)->group(function() {
