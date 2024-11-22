@@ -134,33 +134,46 @@ class AlunoController extends Controller
     
     
     public function salvar(Request $req) {
+        // Verifica se foi enviado um arquivo de imagem (foto de perfil)
         $file = $req->file('arquivo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(('assets/fotoPerfil'), $filename);
-        $req->foto =  $filename;
-
+        $req->foto = $filename;
+    
+        // Obtendo os dados do formulário
         $nome = $req->input('name');
         $email = $req->input('email');
-        $senha = $req->input('password');
-        $id_turma= $req->input('id_turma');
-        
+        $senha = $req->input('password');  // Senha fornecida pelo usuário
+        $id_turma = $req->input('id_turma');
+    
+        // Encriptando a senha antes de salvar
+        $senhaEncriptada = bcrypt($senha);
+    
+        // Dados para criação do novo usuário
         $meuVetor = [
             'name' => $nome,
             'foto' => $filename,
             'eh_admin' => "Aluno",
             'email' =>  $email,
-            'password' => $senha     
+            'password' => $senhaEncriptada  // Senha encriptada
         ];
-
+    
+        // Criando o usuário
         User::create($meuVetor);
+    
+        // Obtendo o último ID de usuário criado
         $ultimoId = User::latest()->value('id');
+    
+        // Criando o aluno na tabela de alunos
         $aluno = new Alunos();
         $aluno->id_turma = $id_turma; 
         $aluno->id_user = $ultimoId; 
         $aluno->save();
-        
+    
+        // Redirecionando após a criação
         return redirect()->route('admin.turmas');
     }
+    
     
     public function atualizar(Request $request, $id)
     {
