@@ -40,7 +40,6 @@
                         <label for="senha">Senha</label>
                     </div>
                     <div class="forget">
-                        <label for=""><input type="checkbox">Lembrar-me</label>
                         <a href="{{ route('send.email.form') }}">Esqueci a senha</a>
                     </div>
                     <button type="submit">Acessar a plataforma</button>
