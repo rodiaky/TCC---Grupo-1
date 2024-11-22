@@ -10,7 +10,6 @@
     display: flex;
 }
 
-/* Botão personalizado */
 .custom-upload-button {
     background-color: white;
     color: #F46F20; 
@@ -34,19 +33,21 @@
 
 /* Efeito ao clicar */
 .custom-upload-button:active {
-    background-color: #004494; /* Outro tom mais escuro */
-    transform: scale(0.98); /* Diminui ligeiramente */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduz a sombra */
+    background-color: white;
+    color: #FEA572; 
+    transform: scale(0.98); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 /* Mensagem do nome do arquivo */
 #file-name {
+    margin-top: 10px;
     font-family: Arial, sans-serif;
-    color: #555;
+    color: black;
     font-size: 14px;
     font-style: italic;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px; /* Ajuste conforme necessário */
+    max-width: 200px; 
 }

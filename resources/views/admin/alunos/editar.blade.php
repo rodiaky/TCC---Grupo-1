@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/teste.css') }}">
     <title>Editar Aluno</title>
 @endsection

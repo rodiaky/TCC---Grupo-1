@@ -4,7 +4,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioUI.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
-    <!--link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/teste.css') }}">
@@ -45,7 +44,7 @@
                     <button type="button" class="custom-upload-button" onclick="document.getElementById('arquivo').click();">
                     Escolher Arquivo
                     </button>
-    
+                
                 <!-- Aqui mostraremos o nome do arquivo ou mensagem caso nenhum arquivo tenha sido selecionado -->
                 <span id="file-name">
                     {{ isset($materiais->descricao) && $materiais->descricao ? 'Arquivo atual: ' . $materiais->descricao : 'Nenhum arquivo carregado' }}
