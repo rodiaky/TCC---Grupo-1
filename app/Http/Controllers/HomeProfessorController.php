@@ -84,7 +84,7 @@ class HomeProfessorController extends Controller
            return response()->json($notasArray);
        }
 
-        return view('site.professor.homeProfessor', compact('semanas', 'semanaSelecionadaId', 'temaSemana', 'materialSemana', 'repertorioSemana', 'examType', 'notasArray', 'bancas'));
+        return view('site.phpmailer.homeProfessor', compact('semanas', 'semanaSelecionadaId', 'temaSemana', 'materialSemana', 'repertorioSemana', 'examType', 'notasArray', 'bancas'));
     }
 
     // Métodos auxiliares
