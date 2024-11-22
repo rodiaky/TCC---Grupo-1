@@ -53,6 +53,25 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+                    // Função para exibir o nome do arquivo quando selecionado
+                    function showFileName(input) {
+                        const fileName = input.files[0] ? input.files[0].name : 'Nenhum arquivo escolhido';
+                        document.getElementById('file-name').textContent = fileName;
+                    }
 
+                    function limparFormulario(event) {
+                        event.preventDefault(); 
+    
+                        document.querySelector("input[name='nome']").value = '';
+                        document.querySelector("input[name='imagem']").value = '';
+                     
+                        document.getElementById('file-name').textContent = 'Nenhum arquivo escolhido';
+                       
+                        document.getElementById('imagem').value = '';
+                        
+                    }
+
+                </script>
 
 @endsection

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/formularioLayout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/teste.css') }}">
     <title>Editar Tema</title>
 @endsection
 
@@ -121,7 +122,7 @@
                 <input type="hidden" name="id_banca" id="id_banca" value="{{ isset($temas->id_banca) ? $temas->id_banca : '' }}">
 
                 <div class="botoes">
-                    <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                <button type="button" name="limpar" id="limpar" class="button" onclick="limparFormulario(event)">Limpar</button>
                     <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
@@ -130,4 +131,20 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+
+                    function limparFormulario(event) {
+                        event.preventDefault(); 
+    
+                        document.querySelector("input[name='frase_tematica']").value = '';
+                        document.querySelector("input[name='ano']").value = '2024';
+                        document.getElementById('file-name').textContent = 'Nenhum arquivo escolhido';
+                        document.getElementById('imagem').value = '';
+                        const radios = document.querySelectorAll('#form-criterio input[type="radio"]');
+                        radios.forEach(radio => radio.checked = false);
+                         document.getElementById('text-selected-banca').textContent = 'Banca';
+                        
+                    }
+
+                </script>
 @endsection

@@ -60,7 +60,6 @@
                 @endif
 
                 <div class="botoes">
-                    <button type="button" name="limpar" id="limpar" class="button">Limpar</button>
                     <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
