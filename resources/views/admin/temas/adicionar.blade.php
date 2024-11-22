@@ -100,7 +100,7 @@
 
             
                 <div class="botoes">
-                    <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>
+                <button type="button" name="limpar" id="limpar" class="button" onclick="limparFormulario(event)">Limpar</button>
                     <button type="submit" name="salvar" class="button">Salvar</button>
                 </div>
             </form>
@@ -109,6 +109,19 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+
+                    function limparFormulario(event) {
+                        event.preventDefault(); 
+                        document.querySelector("input[name='frase_tematica']").value = '';
+                        document.querySelector("input[name='ano']").value = '2024';
+                        document.querySelector("input[name='imagem']").value = '';
+                        document.querySelector("input[name='arquivo']").value = '';
+                        document.getElementById('text-selected-banca').textContent = 'Banca';
+                        
+                    }
+
+                </script>
 @endsection
 
 

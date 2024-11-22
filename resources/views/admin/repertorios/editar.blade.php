@@ -159,7 +159,7 @@
                 @endif
 
                 <div class="botoes">
-                    <button type="reset" id="limpar" class="button">Limpar</button>
+                <button type="button" name="limpar" id="limpar" class="button" onclick="limparFormulario(event)">Limpar</button>
                     <button type="submit" class="button">Salvar</button>
                 </div>
             </form>
@@ -167,5 +167,19 @@
     </article>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+
+                    function limparFormulario(event) {
+                        event.preventDefault(); 
+                        document.querySelector("input[name='nome']").value = '';
+                        document.querySelector("textarea").value = '';
+                        document.getElementById('file-name').textContent = 'Nenhum arquivo escolhido';
+                        document.getElementById('text-selected-theme').textContent = 'Tema';
+                        document.getElementById('text-selected-categoria').textContent = 'Categoria';
+                        
+                    }
+
+                </script>
+
 @endsection
 

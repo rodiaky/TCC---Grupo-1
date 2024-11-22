@@ -107,7 +107,7 @@
             // Desmarcar os radios e resetar o texto do select
             const radios = document.querySelectorAll('#form-criterio input[type="radio"]');
             radios.forEach(radio => radio.checked = false);
-            document.getElementById('text-selected-banca').textContent = 'Selecione uma banca';
+            document.getElementById('text-selected-banca').textContent = 'Banca';
         });
     </script>
 @endsection

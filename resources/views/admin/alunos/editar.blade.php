@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/selecao.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styleGeral.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/Arquivo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/teste.css') }}">
     <title>Editar Aluno</title>
 @endsection
 
@@ -77,10 +78,12 @@
                     </script>
 
 
-                      <div class="mensagem">
+                @if ($errors->any())
+                    <div class="mensagem">
                         <ion-icon name="alert-circle-outline"></ion-icon>
-                        Selecione uma opção antes de avançar
+                        Preencha todos os campos corretamente antes de avançar
                     </div>
+                @endif
                     
                     <div class="botoes">
                         <button type="reset" name="limpar" id="limpar" class="button">Limpar</button>

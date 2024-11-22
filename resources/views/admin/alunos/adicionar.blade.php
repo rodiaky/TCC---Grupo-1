@@ -85,10 +85,12 @@
                     </div>
                     <br>
 
-                <div class="mensagem" style="display: none;" id="mensagem-feedback">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                    <span id="mensagem-texto"></span>
-                </div>
+                    @if ($errors->any())
+                    <div class="mensagem">
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        Preencha todos os campos corretamente antes de avançar
+                    </div>
+                @endif
 
                 <div class="botoes">
                     <button type="reset" id="limpar" class="button">Limpar</button>
