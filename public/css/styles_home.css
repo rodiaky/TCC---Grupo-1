@@ -1,3 +1,11 @@
+pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
 .banner {
   position: relative;
   height: fit-content;
@@ -229,14 +237,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 400px;
   gap: 1rem;
+  width: 1fr;
 }
 
 .container-info-plataforma {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  max-width: 900px;
 }
 
 .container-info-plataforma .texto h1 {
@@ -254,13 +263,18 @@
 .imagem-plataforma {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ----------------------------------------------------------------------------------- */
 
 .inscricao {
   /* The image used */
-  background-image: url("https://imagens.ebc.com.br/iLeY2z-7X-FgDhCSXiGQQTFF-QQ=/1170x700/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/doacao_de_livros_em_tempo_de_pandemia_sem_sair_de_casa.jpg?itok=8Mfryapi");
+  background-image: url("https://i.postimg.cc/RVJS6L4v/fundo-Welcome.jpg");
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;

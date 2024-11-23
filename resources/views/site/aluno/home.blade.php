@@ -21,7 +21,7 @@
         <!-- TEMA REDACOES -->
         <div class="card">
             <a href="{{ route('temaRedacoes') }}">
-                <img src="https://blog.unipar.br/wp-content/uploads/2020/11/afa8d7c2f9d0641e8c65c20b46b92c00-1110x508.jpg"
+                <img src="{{ asset('assets/img/temas.png') }}"
                     alt="imagemRedacao" class="imagem-card">
             </a>
             <div class="texto-card">Temas de Redações</div>
@@ -30,7 +30,7 @@
         <!-- REPERTORIOS -->
         <div class="card">
             <a href="{{route('admin.temasRepertorios')}}">
-                <img src="https://segredosdomundo.r7.com/wp-content/uploads/2021/01/45-personalidades-mais-importantes-e-influentes-de-todos-os-tempos-37-e1610752380360.jpg"
+                <img src="{{ asset('assets/img/repertorios.png') }}"
                     alt="imagemRepertorio" class="imagem-card">
             </a>
             <div class="texto-card">Repertórios</div>
@@ -39,7 +39,7 @@
         <!-- ESTATÍSTICAS -->
         <div class="card">
             <a href="{{ route('aluno.estatistica') }}">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQElTwwYKc4LXiYe3nPA-MnM-hhH0V8EqZO_Q&s"
+                <img src="{{ asset('assets/img/estatisticas.png') }}"
                     alt="" class="imagem-card">
             </a>
             <div class="texto-card">Estatísticas</div>
@@ -48,7 +48,7 @@
         <!-- MATERIAIS -->
         <div class="card">
             <a href="{{ route('admin.pastasMateriais') }}">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDaUfHGduhGapOSADboo67PDCiZkpAWdK1g&s"
+                <img src="{{ asset('assets/img/materiais.png') }}"
                     alt="" class="imagem-card">
             </a>
             <div class="texto-card">Materiais</div>
@@ -57,7 +57,7 @@
         <!-- QUESTOES -->
         <div class="card">
             <a href="{{ route('admin.questoes') }}">
-                <img src="https://blog.andresan.com.br/wp-content/uploads/2019/09/foto-generica-prova-shutterstock_widelg.jpg"
+                <img src="{{ asset('assets/img/questoes.png') }}"
                     alt="" class="imagem-card">
             </a>
             <div class="texto-card">Banco de Questões</div>
@@ -66,7 +66,7 @@
         <!-- MINHAS REDACOES -->
         <div class="card">
             <a href="{{ url('/painel_redacoes') }}">
-                <img src="https://m.media-amazon.com/images/S/aplus-media/vc/f70120c7-a5a8-4f96-b86e-6d1db6eaa559._CR0,0,300,300_PT0_SX300__.png"
+                <img src="{{ asset('assets/img/pendentes.png') }}"
                     alt="" class="imagem-card">
             </a>
             <div class="texto-card">Minhas Redações</div>
@@ -101,7 +101,7 @@
         @endforelse
     </section>
 
-
+ 
     <!-- SEMANAS -->
     <section class="semanas card_wrapper">
         <form action="{{ route('aluno.home') }}" method="GET" id="semanaForm" class="container">

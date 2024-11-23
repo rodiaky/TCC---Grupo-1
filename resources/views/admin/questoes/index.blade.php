@@ -31,7 +31,7 @@
 
             <div class="wrapper">
                 <a href="{{ route('admin.questoes.gramatica')}}">
-                    <img src="https://blog.educalar.com.br/wp-content/uploads/2017/10/gram%C3%A1tica-1.png" alt="gramatica" class="img-tema">
+                    <img src="{{ asset('assets/img/gramatica.png') }}" alt="gramatica" class="img-tema">
                     <div class="escrito">
                         <p>Gramática</p>
                     </div>
@@ -40,7 +40,7 @@
             
             <div class="wrapper">
                 <a href="{{ route('admin.questoes.literatura')}}">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz8FId1XeO_C8z2glJOnDHBHHCOyqcR-tDfQ&s" alt="literatura" class="img-tema">
+                    <img src="{{ asset('assets/img/literatura.png') }}" alt="literatura" class="img-tema">
                     <div class="escrito">
                         <p>Literatura</p>
                     </div>
@@ -49,7 +49,7 @@
 
             <div class="wrapper">
                 <a href="{{ route('admin.questoes.interpretacao')}}">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz8FId1XeO_C8z2glJOnDHBHHCOyqcR-tDfQ&s" alt="literatura" class="img-tema">
+                    <img src="{{ asset('assets/img/intertexto.png') }}" alt="literatura" class="img-tema">
                     <div class="escrito">
                         <p>Interpretação de Texto</p>
                     </div>

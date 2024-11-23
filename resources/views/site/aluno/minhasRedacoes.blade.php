@@ -16,7 +16,7 @@
     <hr class="titulo-linha">
 
     <section class="container-turmas">
-
+ 
     @php 
         $i = 0;
     @endphp

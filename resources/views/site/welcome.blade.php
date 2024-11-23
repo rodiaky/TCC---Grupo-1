@@ -110,26 +110,26 @@
         <article class="info-plataforma">
 
             <div class="container-info-plataforma">
-                <div class="circulo-plataforma"><i class="fa-solid fa-book-open"></i></div>
+                <div class="circulo-plataforma"><i class="fa-solid fa-pencil"></i></div>
                 <div class="texto">
-                    <h1>Correcao Especializada</h1>
-                    <p>Nao sei o que carambolas eu escrevo aq, so to encehndo uma linguica e eh sobre isso ne, me desculpem pelos erros de protugues</p>
+                    <h1>Correção Especializada</h1>
+                    <p>Feedback detalhado e personalizado com base nos critérios dos principais vestibulares, ajudando o aluno a evoluir em cada competência.</p>
                 </div>
             </div>
 
             <div class="container-info-plataforma">
-                <div class="circulo-plataforma"><i class="fa-solid fa-book-open"></i></div>
+                <div class="circulo-plataforma"><i class="fa-solid fa-landmark"></i></div>
                 <div class="texto">
-                    <h1>Correcao Especializada</h1>
-                    <p>Nao sei o que carambolas eu escrevo aq, so to encehndo uma linguica e eh sobre isso ne, me desculpem pelos erros de protugues</p>
+                    <h1>Banco de Repertórios </h1>
+                    <p>Repertórios prontos e organizados por temas, com exemplos práticos de uso em redações para enriquecer os argumentos de forma facilitada.</p>
                 </div>
             </div>
 
             <div class="container-info-plataforma">
-                <div class="circulo-plataforma"><i class="fa-solid fa-book-open"></i></div>
+                <div class="circulo-plataforma"><i class="fa-regular fa-circle-question"></i></div>
                 <div class="texto">
-                    <h1>Correcao Especializada</h1>
-                    <p>Nao sei o que carambolas eu escrevo aq, so to encehndo uma linguica e eh sobre isso ne, me desculpem pelos erros de protugues</p>
+                    <h1>Banco de Questões</h1>
+                    <p>Questões organizadas por categoria (gramática, interpretação de texto e literatura), por vestibular e por assunto abordado, facilitando a prática direcionada.</p>
                 </div>
             </div>
 
@@ -140,26 +140,26 @@
         <article class="info-plataforma">
 
             <div class="container-info-plataforma">
-                <div class="circulo-plataforma"><i class="fa-solid fa-book-open"></i></div>
+                <div class="circulo-plataforma"><i class="fa-solid fa-folder"></i></div>
                 <div class="texto">
-                    <h1>Correcao Especializada</h1>
-                    <p>Nao sei o que carambolas eu escrevo aq, so to encehndo uma linguica e eh sobre isso ne, me desculpem pelos erros de protugues</p>
+                    <h1>Materiais</h1>
+                    <p>Guias, documentos, grades, cartilhas e modelos de redação para aprimorar a escrita e o domínio das competências exigidas.</p>
                 </div>
             </div>
 
             <div class="container-info-plataforma">
-                <div class="circulo-plataforma"><i class="fa-solid fa-book-open"></i></div>
+                <div class="circulo-plataforma"><i class="fa-solid fa-chart-line"></i></div>
                 <div class="texto">
-                    <h1>Correcao Especializada</h1>
-                    <p>Nao sei o que carambolas eu escrevo aq, so to encehndo uma linguica e eh sobre isso ne, me desculpem pelos erros de protugues</p>
+                    <h1>Estatísticas</h1>
+                    <p>Gráficos interativos que analisam o desempenho do aluno conforme os temas e as bancas, ajudando-o a direcionar seu estudo.</p>
                 </div>
             </div>
 
             <div class="container-info-plataforma">
-                <div class="circulo-plataforma"><i class="fa-solid fa-book-open"></i></div>
+                <div class="circulo-plataforma"><i class="fa-solid fa-calendar-days"></i></i></div>
                 <div class="texto">
-                    <h1>Correcao Especializada</h1>
-                    <p>Nao sei o que carambolas eu escrevo aq, so to encehndo uma linguica e eh sobre isso ne, me desculpem pelos erros de protugues</p>
+                    <h1>Planejamento Semanal</h1>
+                    <p>Cronogramas personalizados com metas e temas semanais, para manter uma progressão e evolução constante do aluno.</p>
                 </div>
             </div>
 

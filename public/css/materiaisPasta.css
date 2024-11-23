@@ -60,6 +60,7 @@
     font-size: 2rem;
     color: var(--varPreto);
     width: 2rem;
+    z-index: -1;
 
     transition: color 200ms ease;
 }
@@ -77,7 +78,7 @@
 
     overflow: hidden;
 
-    z-index: 10;
+    z-index: 100;
 
     width: 0;
     height: 0;
